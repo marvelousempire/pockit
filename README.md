@@ -1,10 +1,10 @@
 **Current Status of Pockit** — **Monday, May 18, 2026 19:37:12 EDT**
 
-#`README.md`
+#README
 
 -----
 
-**Pockit** — Your Back Pocket AI Secretary
+Pockit — Your Fractictioner AI Secretary
 
 Pockit is a personal truth engine that builds a deeply accurate AI agent by quietly learning who you really are through gentle daily interactions.
 
