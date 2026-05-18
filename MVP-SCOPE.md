@@ -1,3 +1,5 @@
+**MVP-SCOPE.md**
+
 # Pockit MVP Scope
 
 **Product Name:** Pockit (P O C K I T)  
@@ -27,11 +29,15 @@ Users should feel “this already knows me better than I expected” within the 
 **2. Voice Processing (Edge-First)**
 
 - **Primary Engine**: **Whisper.cpp** (latest version)
-  - Optimized for edge devices (Raspberry Pi, Mac Mini, low-power VPS, future mobile on-device)
-  - Quantized models (Q4/Q5) for low memory and fast inference
-  - Streaming support via whisper.cpp `stream` example for near real-time transcription
-  - Fallback to Faster-Whisper / WhisperLive only when higher accuracy is needed on stronger hardware
-- Support for voice tone/energy analysis preparation (future)
+  - Optimized for edge devices (Raspberry Pi 5, Mac Mini, low-power VPS, future mobile on-device)
+  - Quantized models (Q4/Q5) for minimal memory and fast inference
+  - Streaming support via whisper.cpp `stream` for near real-time transcription
+- **Voice Activity Detection (VAD)**: **Silero VAD v6.2+**
+  - Integrated directly with Whisper.cpp
+  - Skips silence automatically → only processes actual speech
+  - Extremely lightweight (~1.6 MB) and fast (<1ms per chunk)
+  - Greatly improves efficiency and battery life on edge hardware
+- Fallback to Faster-Whisper / WhisperLive only on stronger hardware when maximum accuracy is required
 
 **3. Supporting Intelligence**
 
@@ -61,7 +67,7 @@ Users should feel “this already knows me better than I expected” within the 
 **Backend (Edge Optimized)**
 
 - FastAPI
-- **Whisper.cpp** as default STT engine (C++ integration via bindings or subprocess)
+- **Whisper.cpp** + **Silero VAD** as the default speech pipeline
 - SQLite / PostgreSQL
 - Simple vector store (Chroma or LanceDB)
 - Docker + docker-compose for easy self-hosting
@@ -74,7 +80,7 @@ Users should feel “this already knows me better than I expected” within the 
 **Deployment**
 
 - One-command setup script (`setup.sh`)
-- Pre-configured Docker images optimized for Whisper.cpp on CPU / Apple Silicon / low-end GPU
+- Pre-configured Docker images optimized for Whisper.cpp + Silero VAD on CPU / Apple Silicon / low-end GPU
 - Easy to run on Raspberry Pi 5, Mac Mini, or basic VPS
 
 ### Success Metrics for MVP
