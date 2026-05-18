@@ -1,59 +1,84 @@
-# Pockit — Your Back Pocket AI Secretary
+**Pockit** — Your Back Pocket AI Secretary
 
-Pockit is a personal truth engine that builds a deeply accurate AI agent by continuously collecting honest data about who you really are — not who you say you are.
+Pockit is a personal truth engine that builds a deeply accurate AI agent by quietly learning who you really are through simple daily interactions.
 
 ### Core Philosophy
 
-Pockit is designed to be respectful, patient, and actually useful from day one. It earns trust before digging deeper.
+Pockit respects your time and earns your trust. It doesn’t overwhelm you with questions — it gathers honest data gently while delivering real value from early on. The goal is to create an AI that knows the real you, not the version you present to the world.
 
-### Core Features
+### Core Experience
 
-**1. Intelligent Micro-Question Engine**  
-Delivers short, contextual questions at smart times using tight time windows. Users can easily snooze or adjust frequency.
+**Intelligent Micro-Question Engine**  
+Delivers short, contextual questions using small time windows so answers stay accurate and easy to give.
 
-**2. Hybrid Input System**  
-Users can respond via quick taps and sliders, or hit “Try it with your voice” to record a voice memo instead.
+**Hybrid Input System**  
+Users can answer with quick taps and 0.0–1.0 sliders, or press “Try it with your voice” to record a voice memo.
 
-**3. Voice Tone & Energy Analysis**  
-Analyzes not just what you say in voice memos, but the tone, excitement, stress, and energy in your voice to generate additional emotional data.
+**Voice Tone & Energy Analysis**  
+Analyzes the emotional tone and energy in your voice when you speak, adding another layer of honest data.
 
-**4. Voice Journal Agent**  
-Proactively starts natural voice conversations to build an automatic daily journal.
+**Voice Journal Agent**  
+Proactively starts natural voice conversations throughout the day to build an automatic daily journal.
 
-**5. Color Wheel Mood Input**  
+**Color Wheel Mood Input**  
 A large, beautiful color spectrum for fast, instinctive mood tracking.
 
-**6. Life & Health Tracker**  
-Tracks key life patterns including menstrual cycle, last vacation, last day off, sleep, and other wellness markers.
+**Life & Health Tracker**  
+Tracks important life patterns including menstrual cycle, last vacation, last day off, and other wellness markers.
 
-**7. 0.0–1.0 Precision Rating Scale**  
-All ratings use a precise 0.0 to 1.0 scale where 1.0 means “Unwavering Yes.”
+### Supporting Intelligence
 
-**8. Consistency & Validation Engine**  
-Quietly re-asks key questions over time to detect inconsistencies and build a reliability score.
+**LangChain Powered Agent**  
+Built using LangChain to orchestrate reasoning, memory, and agent behavior.
 
-**9. Hybrid Value & Behavior System**  
-Tracks both what you say and what your actual behavior shows to reveal your true priorities.
+**Vector Embeddings + RAG**  
+Converts all your data into vectors so your agent can retrieve relevant memories and insights in real time.
 
-**10. LangChain Powered Agent**  
-Built using LangChain to orchestrate the AI agent’s reasoning, tool use, and memory management.
+**Consistency & Validation Engine**  
+Quietly checks for inconsistencies in your answers to understand how reliable your self-reporting is.
 
-**11. Vector Embeddings + RAG**  
-Converts all user data into vector embeddings and uses Retrieval-Augmented Generation for highly relevant memory recall.
+**Hybrid Value & Behavior System**  
+Tracks both what you say you value and what your actual behavior shows, revealing your true priorities.
 
-**12. Long-term Memory Bank**  
-Securely stores all data in a structured, searchable long-term memory system.
+**Pattern Recognition & Insight Engine**  
+Analyzes everything to surface real patterns, contradictions, and honest insights about your life.
 
-**13. Self-Hosted Architecture**  
-Pockit is designed to run on your own VPS. All personal data and memory stay on *your* server. Our servers only provide the core service.
+**Long-term Memory Bank**  
+Stores all your data in a structured, searchable memory system that grows with you over time.
 
-**14. Security-First Design**  
-Requires HTTPS with a valid SSL certificate to function. Includes secure database setup, reverse proxy configuration, and hardened security through an automated deployment payload.
+### Architecture & Security
 
-**15. Privacy-First Architecture**  
-Full user control over their data with easy export and deletion options.
+**Self-Hosted First**  
+Pockit is designed to run on your own infrastructure. Your personal data and memory never leave your control.
 
-**16. Proactive AI Secretary**  
-The final goal — a highly intelligent personal AI that truly knows you and actively helps you manage your life.
+**Security-First Design**  
+Requires valid HTTPS to function. Includes secure database setup and hardened configuration.
+
+**Privacy-First Architecture**  
+You own and control all your data. Full export and deletion options are built in.
+
+### Real Life Examples
+
+**For Personal Use**
+
+- Someone trying to understand why they’re always tired can finally see the real pattern between what they say and what they actually do.
+- A person choosing between two job offers can get an honest read on which one actually excites them based on their past data.
+- Someone working on their health can get real feedback when their actions don’t match their stated goals.
+
+**For Business Use**
+
+- Founders can track who is actually contributing the most on a project beyond what people claim.
+- Teams can use ownership fracturing to fairly split equity when bringing on new partners or investors.
+- Business owners can understand their real priorities and energy allocation across different parts of their company.
+
+### Future Roadmap & Brainstorm
+
+- Hardware leasing program using Mac Minis
+- Managed hosting option (we host it for users)
+- Pre-configured hardware devices (Mac Mini or Raspberry Pi touchscreen)
+- Multiple subscription tiers (6-month and annual plans)
+- Premium sub-agents (Personal Trainer, Chef, Designer, etc.)
+- Flexible data storage options (local, iCloud, Dropbox, or self-hosted database)
+- One-command server setup scripts
 
 -----
