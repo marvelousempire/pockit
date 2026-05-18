@@ -1,8 +1,6 @@
 **Current Status of Pockit** — **Monday, May 18, 2026 20:05:37 EDT**
 -----
 
-**ARCHITECTURE.md**
-
 # Pockit Architecture
 
 ## Overview
