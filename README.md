@@ -1,52 +1,59 @@
-**Pockit** — Your Back Pocket AI Secretary
+# Pockit — Your Back Pocket AI Secretary
 
-Pocket is an intelligent personal truth engine that builds a deeply accurate AI agent by continuously collecting honest data about who you really are through micro-interactions, voice journaling, and behavioral signals.
+Pockit is a personal truth engine that builds a deeply accurate AI agent by continuously collecting honest data about who you really are — not who you say you are.
+
+### Core Philosophy
+
+Pockit is designed to be respectful, patient, and actually useful from day one. It earns trust before digging deeper.
 
 ### Core Features
 
-**1. 0.0–1.0 Precision Rating Scale**  
-Every rating in Pocket uses a precise 0.0 to 1.0 scale, where 1.0 equals “Unwavering Yes.” This creates intentional, high-signal user input instead of vague 1–10 ratings.
+**1. Intelligent Micro-Question Engine**  
+Delivers short, contextual questions at smart times using tight time windows. Users can easily snooze or adjust frequency.
 
-**2. Color Wheel Mood Input**  
-A large, continuous color spectrum that allows users to intuitively express their emotional state by dragging their finger to the right color.
+**2. Hybrid Input System**  
+Users can respond via quick taps and sliders, or hit “Try it with your voice” to record a voice memo instead.
 
-**3. Micro-Question Engine**  
-Delivers short, strategic questions using tight time windows to gather accurate behavioral data throughout the day.
+**3. Voice Tone & Energy Analysis**  
+Analyzes not just what you say in voice memos, but the tone, excitement, stress, and energy in your voice to generate additional emotional data.
 
-**4. Consistency & Validation Engine**  
-Quietly re-asks key questions over time to detect inconsistencies, building a reliability score for each user’s self-reported data.
+**4. Voice Journal Agent**  
+Proactively starts natural voice conversations to build an automatic daily journal.
 
-**5. Voice Journal Agent**  
-Proactively initiates natural voice conversations, records them, transcribes, summarizes, and converts spoken entries into structured data — creating an automatic daily journal.
+**5. Color Wheel Mood Input**  
+A large, beautiful color spectrum for fast, instinctive mood tracking.
 
-**6. Hybrid Value System**  
-Tracks both declared preferences and actual observed behavior to measure the gap between what you say and what you do.
+**6. Life & Health Tracker**  
+Tracks key life patterns including menstrual cycle, last vacation, last day off, sleep, and other wellness markers.
 
-**7. Personal Data Absorption Agent**  
-The core AI responsible for constantly gathering high-quality factual data about your life, habits, interests, and priorities.
+**7. 0.0–1.0 Precision Rating Scale**  
+All ratings use a precise 0.0 to 1.0 scale where 1.0 means “Unwavering Yes.”
 
-**8. Pattern Recognition & Insight Engine**  
-Analyzes all collected data to surface real behavioral patterns, contradictions, and true priorities.
+**8. Consistency & Validation Engine**  
+Quietly re-asks key questions over time to detect inconsistencies and build a reliability score.
 
-**9. Long-term Memory Bank**  
-Stores all user data in a structured, searchable memory system that powers deeper AI understanding over time.
+**9. Hybrid Value & Behavior System**  
+Tracks both what you say and what your actual behavior shows to reveal your true priorities.
 
-**10. Vector Embeddings & Shaping**  
-All journal entries, ratings, and user data are converted into high-quality vector embeddings. This enables semantic search, similarity matching, and nuanced understanding of your interests and behavior patterns.
+**10. LangChain Powered Agent**  
+Built using LangChain to orchestrate the AI agent’s reasoning, tool use, and memory management.
 
-**11. RAG (Retrieval-Augmented Generation)**  
-Uses vector search to retrieve the most relevant pieces of your personal history and data in real-time, allowing your AI secretary to give highly contextual and accurate responses.
+**11. Vector Embeddings + RAG**  
+Converts all user data into vector embeddings and uses Retrieval-Augmented Generation for highly relevant memory recall.
 
-**12. MCP (Model Context Protocol)**  
-Implements the Model Context Protocol so your personal agent can securely connect to external tools, APIs, and systems while maintaining standardized communication.
+**12. Long-term Memory Bank**  
+Securely stores all data in a structured, searchable long-term memory system.
 
-**13. Machine Learning Layer**  
-Applies ML models for pattern detection, user modeling, and continuous improvement of the agent’s understanding of you.
+**13. Self-Hosted Architecture**  
+Pockit is designed to run on your own VPS. All personal data and memory stay on *your* server. Our servers only provide the core service.
 
-**14. API Layer**  
-Provides clean, secure APIs for the mobile app, the AI agent, and future third-party integrations.
+**14. Security-First Design**  
+Requires HTTPS with a valid SSL certificate to function. Includes secure database setup, reverse proxy configuration, and hardened security through an automated deployment payload.
 
-**15. Back Pocket AI Secretary**  
-The final product — a highly personalized AI agent that knows you deeply because it was trained on your own honest daily data, behavior, and voice input.
+**15. Privacy-First Architecture**  
+Full user control over their data with easy export and deletion options.
+
+**16. Proactive AI Secretary**  
+The final goal — a highly intelligent personal AI that truly knows you and actively helps you manage your life.
 
 -----
