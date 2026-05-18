@@ -1,84 +1,84 @@
-**Pockit** — Your Back Pocket AI Secretary
+# Pockit — Your Back Pocket AI Secretary
 
-Pockit is a personal truth engine that builds a deeply accurate AI agent by quietly learning who you really are through simple daily interactions.
+Pockit is a personal truth engine that builds a deeply accurate AI agent by quietly learning who you really are — not who you say you are — through simple daily interactions.
 
 ### Core Philosophy
 
-Pockit respects your time and earns your trust. It doesn’t overwhelm you with questions — it gathers honest data gently while delivering real value from early on. The goal is to create an AI that knows the real you, not the version you present to the world.
+Pockit respects your time and earns your trust. It gathers honest behavioral and emotional data gently while delivering real value early. Your data stays yours.
 
 ### Core Experience
 
 **Intelligent Micro-Question Engine**  
-Delivers short, contextual questions using small time windows so answers stay accurate and easy to give.
+Sends short, contextual questions using small time windows so answers are quick and accurate.
 
 **Hybrid Input System**  
-Users can answer with quick taps and 0.0–1.0 sliders, or press “Try it with your voice” to record a voice memo.
+Users can answer with taps, 0.0–1.0 sliders, or press “Try it with your voice” to record a memo.
 
 **Voice Tone & Energy Analysis**  
-Analyzes the emotional tone and energy in your voice when you speak, adding another layer of honest data.
+Analyzes tone, excitement, stress, and energy in your voice to add emotional insight.
 
 **Voice Journal Agent**  
-Proactively starts natural voice conversations throughout the day to build an automatic daily journal.
+Proactively starts natural voice conversations to automatically build your daily journal.
 
 **Color Wheel Mood Input**  
-A large, beautiful color spectrum for fast, instinctive mood tracking.
+Large continuous color spectrum for fast, instinctive mood tracking.
 
 **Life & Health Tracker**  
-Tracks important life patterns including menstrual cycle, last vacation, last day off, and other wellness markers.
+Tracks menstrual cycle, last vacation, last day off, sleep patterns, and other wellness markers.
 
 ### Supporting Intelligence
 
 **LangChain Powered Agent**  
-Built using LangChain to orchestrate reasoning, memory, and agent behavior.
+Uses LangChain to orchestrate reasoning, tools, and agent behavior.
 
 **Vector Embeddings + RAG**  
-Converts all your data into vectors so your agent can retrieve relevant memories and insights in real time.
+Converts all data into vectors for smart, relevant memory retrieval.
 
 **Consistency & Validation Engine**  
-Quietly checks for inconsistencies in your answers to understand how reliable your self-reporting is.
+Quietly re-asks questions to detect inconsistencies and build trust in your data.
 
 **Hybrid Value & Behavior System**  
-Tracks both what you say you value and what your actual behavior shows, revealing your true priorities.
+Tracks both what you say you value and what your actual behavior shows.
 
 **Pattern Recognition & Insight Engine**  
-Analyzes everything to surface real patterns, contradictions, and honest insights about your life.
+Surfaces real patterns, contradictions, and honest insights about your life.
 
 **Long-term Memory Bank**  
-Stores all your data in a structured, searchable memory system that grows with you over time.
+Stores everything in a structured, searchable memory system that improves over time.
 
 ### Architecture & Security
 
 **Self-Hosted First**  
-Pockit is designed to run on your own infrastructure. Your personal data and memory never leave your control.
+Pockit runs on your own infrastructure. Your personal data and memory never leave your control.
 
 **Security-First Design**  
-Requires valid HTTPS to function. Includes secure database setup and hardened configuration.
+Requires valid HTTPS. Includes secure database setup and hardened configuration.
 
 **Privacy-First Architecture**  
-You own and control all your data. Full export and deletion options are built in.
+You own and fully control your data with easy export and deletion.
 
 ### Real Life Examples
 
 **For Personal Use**
 
-- Someone trying to understand why they’re always tired can finally see the real pattern between what they say and what they actually do.
-- A person choosing between two job offers can get an honest read on which one actually excites them based on their past data.
-- Someone working on their health can get real feedback when their actions don’t match their stated goals.
+- Someone house hunting can see which properties actually match their real mood and priorities, not just what they think they want.
+- A person working on their health can finally understand why they keep falling off their goals.
+- Someone choosing between opportunities gets honest feedback based on their past energy and behavior patterns.
 
 **For Business Use**
 
-- Founders can track who is actually contributing the most on a project beyond what people claim.
-- Teams can use ownership fracturing to fairly split equity when bringing on new partners or investors.
-- Business owners can understand their real priorities and energy allocation across different parts of their company.
+- Founders can fairly split equity when bringing in investors using Ownership Fracturing.
+- Teams can see who actually contributed the most on a project instead of who claims they did.
+- Business owners can discover their real priorities across different parts of their company.
 
 ### Future Roadmap & Brainstorm
 
-- Hardware leasing program using Mac Minis
-- Managed hosting option (we host it for users)
-- Pre-configured hardware devices (Mac Mini or Raspberry Pi touchscreen)
-- Multiple subscription tiers (6-month and annual plans)
-- Premium sub-agents (Personal Trainer, Chef, Designer, etc.)
-- Flexible data storage options (local, iCloud, Dropbox, or self-hosted database)
-- One-command server setup scripts
+- **Managed Hosting**: We manage dedicated servers (such as OVH Advance series, starting around $150–200/month) for users who want convenience while still owning their data.
+- **Hardware Options**: Pre-configured Mac Minis or Raspberry Pi touchscreen devices for home use.
+- **Subscription Model**: 6-month and annual subscriptions with different tiers.
+- **Premium Sub-Agents**: Specialized agents (personal trainer, chef, designer, nanny assistant, etc.).
+- **Flexible Data Storage**: Options for local storage, iCloud, Dropbox, or self-hosted databases.
+- **One-command Setup Scripts**: Easy server deployment.
+- **AI-Managed Infrastructure**: Using our own AI agents to handle server management, updates, and maintenance.
 
 -----
