@@ -1,0 +1,59 @@
+# About Pocket - One.
+
+Imagine you open Pockit for the first time.
+
+You’re greeted with a big, beautiful, colorful wheel. You just tap and drag your finger around it — wherever your mood feels right. No typing. No complicated menus. Just one instinctive touch and it already knows how you’re feeling.
+
+Then it gently asks you one simple question. Something like, “In the last two hours, how true was it when you said you were going to work on that project?” You slide a bar from 0.0 to 1.0 — total honesty, no pressure.
+
+You can also just hit the big microphone button and speak. Say whatever’s on your mind. Pockit listens, understands, and quietly saves it. No typing required.
+
+Every day it gets a little smarter. It starts showing you gentle truths:
+
+“Hey, you rated your energy really high this morning… but it always seems to drop around 3pm. Want to explore that?”
+
+It remembers what you’ve told it over weeks and months. It notices when your words don’t match your actions. It becomes your honest mirror — never judgmental, always truthful.
+
+You can talk to it naturally, ask it anything about your own life, and it actually knows you. It’s like having a personal secretary that lives in your back pocket and only cares about helping *you*.
+
+That’s Pockit.
+
+
+## Technical Translation
+-----
+
+**User opens the Pockit app**
+
+Display large beautiful Color Wheel as the primary interface.
+
+When user touches and drags finger across Color Wheel, capture continuous mood value between 0.0 and 1.0 and store timestamped mood entry.
+
+Present next intelligent micro-question from QuestionService.get_next_question().
+
+Display 0.0 to 1.0 precision slider for user to answer the question.
+
+Show prominent microphone button labeled “Try it with your voice”.
+
+When user taps microphone button, activate device microphone and stream live audio chunks to backend via WebSocket.
+
+On backend, route audio stream through Silero VAD to detect speech segments and remove silence.
+
+Send detected speech segments to Whisper.cpp transcriber using quantized model.
+
+Store original audio, transcription result, timestamp, and confidence score in database.
+
+Generate Matryoshka embedding using nomic-embed-text-v1.5 at 768 dimensions and store in vector database with full metadata.
+
+Run consistency checker to compare current input with previous 1.0 ratings.
+
+If contradiction or pattern detected, generate new insight and add to user’s insight queue.
+
+Display personalized dashboard containing mood trend visualization, top three insights, and “What Pockit Knows About You” summary.
+
+Enable natural language chat interface so user can ask questions about their own history and receive contextually accurate responses based on stored memories.
+
+-----
+
+This is now the full, complete translation. No major parts are missing.
+
+Would you like me to adjust or expand anything?
