@@ -1,59 +1,57 @@
-# About Pocket - One.
+**About Pockit - One.**
 
-Imagine you open Pockit for the first time.
+Imagine you open Pockit.
 
-You’re greeted with a big, beautiful, colorful wheel. You just tap and drag your finger around it — wherever your mood feels right. No typing. No complicated menus. Just one instinctive touch and it already knows how you’re feeling.
+The first thing you see is a big, beautiful, colorful wheel. You touch it and gently move your finger until it feels right. That single motion tells Pockit how you’re feeling in this moment.
 
-Then it gently asks you one simple question. Something like, “In the last two hours, how true was it when you said you were going to work on that project?” You slide a bar from 0.0 to 1.0 — total honesty, no pressure.
+A little later it asks you a simple question like, “In the last couple of hours, how much energy did you have while working?” You just slide a bar from 0.0 to 1.0.
 
-You can also just hit the big microphone button and speak. Say whatever’s on your mind. Pockit listens, understands, and quietly saves it. No typing required.
+If you’d rather speak, you tap the big microphone button and talk naturally. You might say, “I had a really good conversation with my team today,” or “I’ve been thinking about changing my morning routine.” Pockit listens and saves what you said.
 
-Every day it gets a little smarter. It starts showing you gentle truths:
+Over time, it begins to notice patterns in your life. It might share observations like:
 
-“Hey, you rated your energy really high this morning… but it always seems to drop around 3pm. Want to explore that?”
+“You’ve been rating your energy highest on Tuesday mornings.”
 
-It remembers what you’ve told it over weeks and months. It notices when your words don’t match your actions. It becomes your honest mirror — never judgmental, always truthful.
+Or: “You mentioned wanting to spend more time on creative work lately.”
 
-You can talk to it naturally, ask it anything about your own life, and it actually knows you. It’s like having a personal secretary that lives in your back pocket and only cares about helping *you*.
+You can also talk to it anytime. You can ask, “How have I been feeling about work this month?” or “What have I been saying about my sleep lately?” Pockit remembers everything you’ve told it and gives you honest, calm answers based on your own words and actions.
 
-That’s Pockit.
+That’s how Pockit works.
 
-
-## Technical Translation
 -----
+
+**Technical Translation:**
 
 **User opens the Pockit app**
 
-Display large beautiful Color Wheel as the primary interface.
+Display large interactive Color Wheel on the home screen.
 
 When user touches and drags finger across Color Wheel, capture continuous mood value between 0.0 and 1.0 and store timestamped mood entry.
 
-Present next intelligent micro-question from QuestionService.get_next_question().
+Present next gentle micro-question to the user.
 
-Display 0.0 to 1.0 precision slider for user to answer the question.
+Display 0.0 to 1.0 precision slider for user response.
 
 Show prominent microphone button labeled “Try it with your voice”.
 
-When user taps microphone button, activate device microphone and stream live audio chunks to backend via WebSocket.
+When user taps microphone button, activate device microphone and stream live audio to backend.
 
-On backend, route audio stream through Silero VAD to detect speech segments and remove silence.
+Route audio stream through Silero VAD to remove silence.
 
-Send detected speech segments to Whisper.cpp transcriber using quantized model.
+Send speech segments to Whisper.cpp for transcription.
 
-Store original audio, transcription result, timestamp, and confidence score in database.
+Save original audio, transcript, timestamp, and confidence score in database.
 
-Generate Matryoshka embedding using nomic-embed-text-v1.5 at 768 dimensions and store in vector database with full metadata.
+Generate embedding using nomic-embed-text-v1.5 at 768 dimensions and store in vector database with metadata.
 
-Run consistency checker to compare current input with previous 1.0 ratings.
+Run pattern analyzer to identify recurring themes in user’s data.
 
-If contradiction or pattern detected, generate new insight and add to user’s insight queue.
+If relevant pattern is found, generate calm observation and add to user’s insight queue.
 
-Display personalized dashboard containing mood trend visualization, top three insights, and “What Pockit Knows About You” summary.
+Display personalized dashboard showing mood trends, recent observations, and memory summary.
 
-Enable natural language chat interface so user can ask questions about their own history and receive contextually accurate responses based on stored memories.
+Enable natural language chat interface so user can ask questions about their own history and receive responses based on stored memories.
 
 -----
 
-This is now the full, complete translation. No major parts are missing.
-
-Would you like me to adjust or expand anything?
+How does this version feel? Would you like me to adjust the tone of the story even more, or add/remove any examples?
