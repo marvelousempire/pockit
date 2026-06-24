@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "surface": "pockit-family-hub",
+  "description": "Composable shell layout — Elementor Pro analogue (Section → Column → Widget). Edit zones here; CSS targets data-pockit-zone / data-layout-col / data-widget.",
+  "sections": [
+    {
+      "id": "center-column",
+      "element": "#main-frame",
+      "rows": [
+        {
+          "id": "toolbar",
+          "element": "[data-layout-row=toolbar]",
+          "columns": [
+            {
+              "id": "leading",
+              "zone": "toolbar-leading",
+              "legacy_class": "main-header__leading",
+              "widgets": ["player-rail-toggle", "hub-back"]
+            },
+            {
+              "id": "title",
+              "zone": "toolbar-title",
+              "legacy_class": "main-breadcrumb-wrap",
+              "widgets": ["breadcrumb", "status-rail"]
+            },
+            {
+              "id": "trailing",
+              "zone": "toolbar-trailing",
+              "legacy_class": "main-actions",
+              "widgets": ["cassette-settings", "new-tab", "cassette-rail-toggle", "chrome-hidden-hint"]
+            }
+          ]
+        },
+        {
+          "id": "canvas",
+          "element": "[data-pockit-zone=center-canvas]",
+          "widgets": ["main-content"]
+        },
+        {
+          "id": "footer",
+          "element": "[data-pockit-zone=center-footer]",
+          "widgets": ["shell-footer"]
+        }
+      ]
+    }
+  ]
+}

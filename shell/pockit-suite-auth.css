@@ -1,0 +1,214 @@
+/**
+ * Plan 0297 — Suite bar account cluster (profile + theme) across viewport tiers.
+ */
+
+.suite-bar__trailing {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0 10px 0 4px;
+  box-sizing: border-box;
+}
+
+.suite-bar__account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.suite-bar__account:empty {
+  display: none;
+}
+
+/* Phone shell — brand | trailing (profile flush right) */
+body.pockit-phone-shell .suite-bar,
+body[data-pockit-viewport="phoneCompact"] .suite-bar,
+body[data-pockit-viewport="phoneLarge"] .suite-bar {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+body.pockit-phone-shell .suite-bar__brand,
+body[data-pockit-viewport="phoneCompact"] .suite-bar__brand,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__brand {
+  grid-column: 1;
+}
+
+body.pockit-phone-shell .suite-bar__trailing,
+body[data-pockit-viewport="phoneCompact"] .suite-bar__trailing,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__trailing {
+  grid-column: 2;
+  padding-right: max(10px, env(safe-area-inset-right, 0px));
+}
+
+body.pockit-phone-shell .suite-bar__apps-wrap {
+  display: none;
+}
+
+/* Tablet mobile shell keeps 3-col grid; account shares trailing column with Setup guide */
+body.pockit-viewport-tablet.pockit-phone-shell .suite-bar__trailing {
+  padding-right: max(12px, env(safe-area-inset-right, 0px));
+}
+
+/* Landscape — safe areas + tighter suite bar height */
+body.pockit-phone-shell[data-pockit-orientation="landscape"] .suite-bar__trailing,
+body.pockit-viewport-phone[data-pockit-orientation="landscape"] .suite-bar__trailing,
+body.pockit-viewport-tablet[data-pockit-orientation="landscape"] .suite-bar__trailing {
+  padding-right: max(12px, env(safe-area-inset-right, 0px));
+}
+
+body.pockit-phone-shell[data-pockit-orientation="landscape"] .suite-bar__account,
+body.pockit-viewport-phone[data-pockit-orientation="landscape"] .suite-bar__account {
+  gap: 4px;
+}
+
+/* Hide rail footer auth when suite bar owns it — stops ghost/stuck profile */
+body.pockit-phone-shell .player-rail .sidebar-footer--account-only,
+body.pockit-phone-shell .player-rail-dock .rail-dock-bar--account,
+body.pockit-viewport-tablet.pockit-phone-shell .player-rail .sidebar-footer--account-only {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.pockit-viewport-watch.pockit-watch-companion-active .suite-bar__account,
+body.pockit-viewport-watch.pockit-watch-companion-active .suite-bar__trailing {
+  display: none !important;
+}
+
+/* ─── Toolbar layouts ─── */
+.comet-status-toolbar--suite-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+}
+
+.comet-status-toolbar--suite-bar .comet-status-toolbar__theme {
+  width: auto;
+  min-width: 0;
+  flex: 0 0 auto;
+  order: 1;
+}
+
+.comet-status-toolbar--suite-bar .comet-status-toolbar__account {
+  width: auto;
+  min-width: 0;
+  flex: 0 0 auto;
+  order: 2;
+  margin-left: 2px;
+}
+
+.comet-status-toolbar--full {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.comet-segment--suite-bar-theme .comet-segment-btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 8px;
+}
+
+.comet-segment--suite-bar-theme.comet-segment--compact .comet-segment-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.comet-dropdown--suite-bar {
+  display: block;
+  width: auto;
+  max-width: min(220px, 42vw);
+}
+
+.comet-dropdown-trigger--suite-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 6px 10px;
+  border-radius: var(--ant-radius-lg, 12px);
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.14));
+  background: var(--bg-1, var(--ant-container-bg));
+  color: var(--fg-0, var(--ant-text));
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.comet-dropdown-trigger--suite-bar:hover,
+.comet-dropdown--suite-bar.is-open .comet-dropdown-trigger--suite-bar {
+  border-color: color-mix(in srgb, var(--accent, var(--ant-primary)) 35%, var(--border));
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 6%, var(--bg-1));
+}
+
+.comet-dropdown--suite-bar .comet-dropdown-panel {
+  right: 0;
+  left: auto;
+  min-width: 200px;
+  z-index: 600;
+}
+
+.comet-status-toolbar--density-icon .comet-user-email,
+.comet-status-toolbar--density-icon .comet-dropdown-chevron {
+  display: none !important;
+}
+
+.comet-status-toolbar--density-icon .comet-dropdown-trigger--suite-bar {
+  padding: 6px;
+  min-width: 44px;
+  width: 44px;
+}
+
+.comet-status-toolbar--density-compact .comet-user-email,
+.comet-status-toolbar--density-comfortable .comet-user-email {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comet-status-toolbar--density-compact .comet-user-email {
+  max-width: 5.5rem;
+}
+
+.comet-status-toolbar--density-comfortable .comet-user-email {
+  max-width: 9rem;
+}
+
+body[data-pockit-orientation="landscape"] .comet-status-toolbar--density-compact .comet-user-email {
+  max-width: 4.5rem;
+}
+
+/* TV / large display — slightly larger touch targets on suite bar when visible */
+body[data-pockit-viewport="tv"] .comet-dropdown-trigger--suite-bar,
+body[data-pockit-viewport="display"] .comet-dropdown-trigger--suite-bar {
+  min-height: 48px;
+  min-width: 48px;
+  font-size: 13px;
+}
+
+body[data-pockit-viewport="tv"] .comet-segment--suite-bar-theme .comet-segment-btn {
+  min-width: 48px;
+  min-height: 48px;
+}

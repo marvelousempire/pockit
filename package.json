@@ -1,0 +1,12 @@
+{
+  "name": "pockit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pockit platform — shell, schemas, demo catalog (SaaS product repo)",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-boundary.mjs",
+    "test": "node scripts/check-boundary.mjs"
+  },
+  "license": "UNLICENSED"
+}

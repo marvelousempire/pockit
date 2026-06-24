@@ -1,0 +1,192 @@
+/* Quick Desk — tap-chip launcher pad (Plan 0445). Cotton-ball comet motion per RL-COTTON-001. */
+.quick-desk {
+  padding: var(--ak-space-4, 1rem);
+  max-width: 60rem;
+}
+
+.quick-desk__hero {
+  margin-bottom: var(--ak-space-4, 1rem);
+}
+
+.quick-desk__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+}
+
+.quick-desk__lead {
+  margin: 0 0 0.75rem;
+  color: var(--ak-text-muted, #8a8a9a);
+  line-height: 1.45;
+}
+
+.quick-desk__paste {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.quick-desk__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.95rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ak-text, #e8e8ef);
+  background: var(--ak-surface-2, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--ak-border, rgba(255, 255, 255, 0.12));
+  border-radius: var(--ak-radius-md, 0.6rem);
+  transition: border-color var(--comet-duration-fast, 0.15s) var(--comet-ease-out, ease);
+}
+
+.quick-desk__input:focus {
+  outline: none;
+  border-color: hsl(200 80% 55% / 0.8);
+}
+
+.quick-desk__status {
+  min-height: 1.25rem;
+  margin: 0.6rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ak-text-muted, #8a8a9a);
+}
+
+.qd-section {
+  margin-top: 1.3rem;
+}
+
+.qd-section__head {
+  margin-bottom: 0.5rem;
+}
+
+.qd-section__title {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ak-text-muted, #8a8a9a);
+}
+
+.qd-section__hint {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  color: var(--ak-text-faint, #6c6c7a);
+}
+
+.qd-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.qd-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ak-text, #e8e8ef);
+  background: hsl(var(--qd-hue, 212) 38% 22% / 0.55);
+  border: 1px solid hsl(var(--qd-hue, 212) 55% 55% / 0.4);
+  border-radius: var(--ak-radius-md, 0.6rem);
+  cursor: pointer;
+  transition:
+    transform var(--comet-duration-fast, 0.15s) var(--comet-ease-back, ease),
+    background var(--comet-duration-fast, 0.15s) var(--comet-ease-out, ease),
+    border-color var(--comet-duration-fast, 0.15s) var(--comet-ease-out, ease);
+}
+
+.qd-chip:hover {
+  background: hsl(var(--qd-hue, 212) 45% 28% / 0.7);
+  border-color: hsl(var(--qd-hue, 212) 60% 60% / 0.6);
+}
+
+.qd-chip:active {
+  transform: scale(0.95);
+}
+
+.qd-chip--primary {
+  background: hsl(var(--qd-hue, 200) 70% 42% / 0.9);
+  border-color: hsl(var(--qd-hue, 200) 75% 60% / 0.9);
+}
+
+.qd-chip--primary::before {
+  content: "▸";
+  font-size: 0.8em;
+  opacity: 0.85;
+}
+
+.qd-chip--add {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--ak-border, rgba(255, 255, 255, 0.18));
+  color: var(--ak-text-muted, #8a8a9a);
+  font-weight: 500;
+}
+
+.qd-chip--add:hover {
+  background: var(--ak-surface-2, rgba(255, 255, 255, 0.05));
+  color: var(--ak-text, #e8e8ef);
+}
+
+.qd-chip__remove {
+  margin-left: 0.1rem;
+  padding: 0 0.2rem;
+  font-size: 0.95rem;
+  line-height: 1;
+  opacity: 0.55;
+  border-radius: 0.3rem;
+}
+
+.qd-chip__remove:hover {
+  opacity: 1;
+  background: rgba(255, 59, 48, 0.25);
+}
+
+.quick-desk-output {
+  margin-top: 1.4rem;
+}
+
+.quick-desk-output__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.quick-desk-output__head h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ak-text-muted, #8a8a9a);
+}
+
+.quick-desk-output__body {
+  margin: 0;
+  padding: 0.85rem;
+  min-height: 4rem;
+  max-height: 24rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ak-text, #e8e8ef);
+  background: var(--ak-surface-2, rgba(0, 0, 0, 0.25));
+  border: 1px solid var(--ak-border, rgba(255, 255, 255, 0.1));
+  border-radius: var(--ak-radius-md, 0.6rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qd-chip,
+  .quick-desk__input {
+    transition: none;
+  }
+  .qd-chip:active {
+    transform: none;
+  }
+}

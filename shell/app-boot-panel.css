@@ -1,0 +1,126 @@
+/**
+ * App boot panel — verify-sum LED row (pending=blue, running=yellow, ok=green, fail=red).
+ */
+:root {
+  --boot-bg: #0a0a0e;
+  --boot-panel: #12161e;
+  --boot-fg: #f4f4f5;
+  --boot-muted: #a1a1aa;
+  --boot-led-pending: #3a7ec8;
+  --boot-led-running: #d4a017;
+  --boot-led-ok: #449a3a;
+  --boot-led-warn: #d4a017;
+  --boot-led-fail: #c44545;
+  --boot-border: rgba(255, 255, 255, 0.08);
+  --boot-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+}
+
+.boot-panel {
+  font-family: var(--boot-font);
+  background: var(--boot-bg);
+  color: var(--boot-fg);
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.boot-panel__card {
+  width: min(520px, 94vw);
+  background: linear-gradient(180deg, var(--boot-panel) 0%, #0c0f14 100%);
+  border: 1px solid var(--boot-border);
+  border-radius: 16px;
+  padding: 32px 26px 26px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.boot-panel__title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+.boot-panel__subtitle {
+  font-size: 13px;
+  color: var(--boot-muted);
+  margin: 0 0 22px;
+  min-height: 1.4em;
+  line-height: 1.45;
+}
+
+.boot-panel__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.boot-step {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.boot-step__led {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-top: 3px;
+  background: var(--boot-led-pending);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.boot-step[data-state="pending"] .boot-step__led {
+  background: var(--boot-led-pending);
+  opacity: 0.55;
+}
+
+.boot-step[data-state="running"] .boot-step__led {
+  background: var(--boot-led-running);
+  animation: boot-led-pulse 1.1s ease-in-out infinite;
+}
+
+.boot-step[data-state="ok"] .boot-step__led {
+  background: var(--boot-led-ok);
+}
+
+.boot-step[data-state="warn"] .boot-step__led {
+  background: var(--boot-led-warn);
+}
+
+.boot-step[data-state="fail"] .boot-step__led {
+  background: var(--boot-led-fail);
+}
+
+.boot-step__label {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.boot-step__detail {
+  font-size: 11px;
+  color: var(--boot-muted);
+  margin: 2px 0 0;
+  line-height: 1.35;
+}
+
+.boot-panel__hint {
+  margin: 20px 0 0;
+  font-size: 11px;
+  color: var(--boot-muted);
+  text-align: center;
+  opacity: 0.85;
+}
+
+@keyframes boot-led-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(0.92); }
+}

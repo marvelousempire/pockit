@@ -1,0 +1,665 @@
+/**
+ * Console picker — modal card grid (cotton-ball settle, soft in/out).
+ */
+.pockit-console-modal {
+  --console-modal-in: 0.38s;
+  --console-modal-out: 0.34s;
+  --console-modal-icon-size: 72px;
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8vh 16px 32px;
+  font-family: var(--ant-font, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif);
+}
+
+.pockit-console-modal[hidden] {
+  display: none !important;
+}
+
+@keyframes console-modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes console-modal-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes console-modal-panel-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(-14px);
+    filter: blur(4px);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(1.018) translateY(3px);
+    filter: blur(0);
+  }
+  72% {
+    transform: scale(0.994) translateY(-1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes console-modal-panel-out {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+    filter: blur(2px);
+  }
+}
+
+.pockit-console-modal.pockit-console-modal--open .pockit-console-modal__backdrop {
+  animation: console-modal-backdrop-in 0.28s var(--comet-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+}
+
+.pockit-console-modal.pockit-console-modal--open .pockit-console-modal__panel {
+  animation: console-modal-panel-in var(--console-modal-in) var(--comet-ease-back, cubic-bezier(0.12, 0.4, 0.29, 1.46)) both;
+  transform-origin: center top;
+}
+
+.pockit-console-modal.pockit-console-modal--closing .pockit-console-modal__backdrop {
+  animation: console-modal-backdrop-out var(--console-modal-out) var(--comet-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+}
+
+.pockit-console-modal.pockit-console-modal--closing .pockit-console-modal__panel {
+  animation: console-modal-panel-out var(--console-modal-out) var(--comet-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+  transform-origin: center top;
+}
+
+.pockit-console-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.pockit-console-modal__panel {
+  position: relative;
+  width: min(920px, 96vw);
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--ak-radius-xl, 16px);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+  background: var(--bg-1, #fff);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+  will-change: transform, opacity;
+}
+
+.pockit-console-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  background: color-mix(in srgb, var(--bg-0, #f2f2f7) 55%, var(--bg-1, #fff));
+}
+
+.pockit-console-modal__kicker {
+  display: block;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3, var(--ant-text-tertiary));
+  line-height: 1.2;
+}
+
+.pockit-console-modal__title {
+  margin: 3px 0 0;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--fg-0, var(--ant-text));
+  line-height: 1.25;
+}
+
+.pockit-console-modal__close {
+  border: none;
+  background: var(--bg-2, rgba(0, 0, 0, 0.04));
+  color: var(--fg-2, var(--ant-text-secondary));
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    transform 0.2s var(--comet-ease-back, ease),
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.pockit-console-modal__close:hover {
+  background: color-mix(in srgb, var(--accent, #4096ff) 10%, var(--bg-2, #eee));
+  color: var(--fg-0, var(--ant-text));
+  transform: scale(1.04);
+}
+
+.pockit-console-modal__close:active {
+  transform: scale(0.96);
+}
+
+.pockit-console-modal__body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px 22px 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pockit-console-modal__section + .pockit-console-modal__section {
+  margin-top: 24px;
+}
+
+.pockit-console-modal__section-title {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-2, var(--ant-text-secondary));
+}
+
+.pockit-console-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+  gap: 14px;
+}
+
+body[data-pockit-viewport="phoneCompact"] #pockit-console-modal .pockit-console-modal__grid,
+body[data-pockit-viewport="phoneLarge"] #pockit-console-modal .pockit-console-modal__grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+body[data-pockit-viewport="tabletCompact"] .pockit-console-modal__grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+body[data-pockit-viewport="tabletLarge"] .pockit-console-modal__grid {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+body[data-pockit-viewport="laptop"] .pockit-console-modal__grid {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+body[data-pockit-viewport="desktop"] .pockit-console-modal__grid {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+body[data-pockit-viewport="display"] .pockit-console-modal__grid {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+}
+
+body[data-pockit-viewport="tv"] .pockit-console-modal__grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.console-modal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 12px 16px;
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  border-radius: var(--ak-radius-lg, 14px);
+  background: var(--bg-0, #f2f2f7);
+  cursor: pointer;
+  text-align: center;
+  transition:
+    transform 0.22s var(--comet-ease-back, cubic-bezier(0.12, 0.4, 0.29, 1.46)),
+    border-color 0.18s ease,
+    box-shadow 0.22s ease,
+    background 0.18s ease;
+}
+
+.console-modal-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: color-mix(in srgb, var(--accent, #4096ff) 35%, var(--border));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.console-modal-card.is-active {
+  border-color: color-mix(in srgb, var(--accent, #4096ff) 55%, var(--border));
+  background: color-mix(in srgb, var(--accent, #4096ff) 8%, var(--bg-0, #f2f2f7));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent, #4096ff) 25%, transparent);
+}
+
+.console-modal-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--console-modal-icon-size, 72px);
+  height: var(--console-modal-icon-size, 72px);
+  border-radius: var(--ak-radius-lg, 14px);
+  background: var(--bg-1, #fff);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+/* Native periodic-table / hub icons — no white chrome; card provides the frame. */
+.console-modal-card__icon--native {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.console-modal-card__icon--native .suite-element {
+  --tile-size: var(--console-modal-icon-size, 72px);
+  border-radius: calc(var(--ak-radius-lg, 12px) + 4px);
+}
+
+.console-modal-card__icon--native .suite-element__sym-big {
+  font-size: 28px;
+}
+
+.console-modal-card__icon--native .suite-element__sym-sm {
+  font-size: 15px;
+}
+
+.console-modal-card__icon--native .suite-element__mass {
+  font-size: 11px;
+  top: 8px;
+  right: 9px;
+}
+
+.console-modal-card__icon--native .hub-item-avatar,
+.console-modal-card__icon--native .ant-avatar-sm {
+  width: var(--console-modal-icon-size, 72px);
+  height: var(--console-modal-icon-size, 72px);
+  font-size: 28px;
+  border-radius: 18px;
+}
+
+.console-modal-card__icon .anticon,
+.console-modal-card__icon--native .anticon {
+  font-size: 34px;
+  color: var(--fg-0, var(--ant-text));
+}
+
+.console-modal-card__icon .hub-item-avatar,
+.console-modal-card__icon .ant-avatar-sm {
+  width: calc(var(--console-modal-icon-size, 72px) * 0.72);
+  height: calc(var(--console-modal-icon-size, 72px) * 0.72);
+  font-size: calc(var(--console-modal-icon-size, 72px) * 0.28);
+  border-radius: var(--ak-radius-lg, 14px);
+}
+
+.console-modal-card__title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--fg-0, var(--ant-text));
+}
+
+.console-modal-card__sub {
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--fg-2, var(--ant-text-secondary));
+  max-width: 100%;
+}
+
+.console-modal-card__badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--ak-radius-sm, 8px);
+  background: color-mix(in srgb, var(--accent, #4096ff) 12%, transparent);
+  color: var(--accent, #4096ff);
+}
+
+.console-picker-trigger {
+  width: 100%;
+  min-height: 52px;
+}
+
+.console-picker-trigger .comet-dropdown-chevron {
+  opacity: 0.75;
+}
+
+.console-picker-trigger .comet-dropdown-trigger-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body[data-pockit-viewport="phoneCompact"] .pockit-console-modal,
+body[data-pockit-viewport="phoneLarge"] .pockit-console-modal {
+  --console-modal-icon-size: 64px;
+  padding: 4vh 10px 16px;
+}
+
+body[data-pockit-viewport="phoneCompact"] #pockit-console-modal .pockit-console-modal__grid,
+body[data-pockit-viewport="phoneLarge"] #pockit-console-modal .pockit-console-modal__grid {
+  gap: 10px;
+}
+
+body[data-pockit-viewport="phoneCompact"] .suite-bar__brand-kicker,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__brand-kicker {
+  font-size: 9px;
+}
+
+body[data-pockit-viewport="phoneCompact"] .suite-bar__brand-console,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__brand-console {
+  font-size: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pockit-console-modal.pockit-console-modal--open .pockit-console-modal__backdrop,
+  .pockit-console-modal.pockit-console-modal--open .pockit-console-modal__panel,
+  .pockit-console-modal.pockit-console-modal--closing .pockit-console-modal__backdrop,
+  .pockit-console-modal.pockit-console-modal--closing .pockit-console-modal__panel,
+  .console-modal-card:hover {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ─── Settings modal — left sidebar tabs + content panel ─── */
+.pockit-settings-modal .pockit-console-modal__panel {
+  width: min(980px, 96vw);
+  height: min(88vh, 900px);
+  max-height: min(88vh, 900px);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pockit-settings-modal .pockit-console-modal__header,
+.pockit-settings-modal .pockit-settings-modal__footer {
+  flex: 0 0 auto;
+}
+
+/* Absolute layout — flex scroll chains fail on Safari / embedded WebViews */
+.pockit-settings-modal__body {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pockit-settings-modal__sidebar {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 10px 14px 14px;
+  border-right: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  background: color-mix(in srgb, var(--bg-0, #f2f2f7) 65%, var(--bg-1, #fff));
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pockit-settings-modal__tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--fg-2, var(--ant-text-secondary));
+  font-size: 13px;
+  font-weight: 550;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.2s var(--comet-ease-back, ease);
+}
+
+.pockit-settings-modal__tab:hover {
+  background: color-mix(in srgb, var(--accent, #4096ff) 6%, var(--bg-2, rgba(0, 0, 0, 0.04)));
+  color: var(--fg-0, var(--ant-text));
+}
+
+.pockit-settings-modal__tab.is-active {
+  background: color-mix(in srgb, var(--accent, #4096ff) 12%, var(--bg-1, #fff));
+  color: var(--accent, #4096ff);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #4096ff) 22%, transparent);
+}
+
+.pockit-settings-modal__tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  font-size: 16px;
+}
+
+.pockit-settings-modal__tab-icon .anticon {
+  font-size: 16px;
+}
+
+.pockit-settings-modal__tab-label {
+  line-height: 1.25;
+}
+
+.pockit-settings-modal__content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px 22px 24px;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  outline: none;
+}
+
+.pockit-settings-modal__content:focus-visible {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent, #4096ff) 35%, transparent);
+  border-radius: 8px;
+}
+
+.pockit-settings-pane {
+  min-height: min-content;
+}
+
+body.pockit-settings-modal-open {
+  overflow: hidden;
+}
+
+.pockit-settings-modal__content .pockit-console-modal__body {
+  padding: 0;
+  overflow: visible;
+}
+
+.pockit-settings-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 22px 18px;
+  border-top: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  background: color-mix(in srgb, var(--bg-0, #f2f2f7) 45%, var(--bg-1, #fff));
+}
+
+.pockit-settings-pane__title {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-2, var(--ant-text-secondary));
+}
+
+.pockit-settings-pane__title + .cs-card {
+  margin-top: 0;
+}
+
+.pockit-settings-pane .pockit-settings-pane__title:not(:first-child) {
+  margin-top: 20px;
+}
+
+/* Settings form controls — match comet dropdown / Family Office chrome */
+.pockit-settings-modal select.pc-pref,
+.pockit-settings-modal input.pc-pref[type="text"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  padding: 10px 38px 10px 14px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--border, rgba(60, 60, 67, 0.12)) 88%, transparent);
+  background-color: color-mix(in srgb, var(--bg-1, #fff) 94%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2386868b' d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  box-shadow: var(--comet-panel-shadow, 0 1px 2px rgba(0, 0, 0, 0.06));
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--fg-0, var(--ant-text));
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.pockit-settings-modal input.pc-pref[type="text"] {
+  cursor: text;
+  background-image: none;
+  padding-right: 14px;
+}
+
+.pockit-settings-modal select.pc-pref:hover,
+.pockit-settings-modal input.pc-pref[type="text"]:hover {
+  border-color: color-mix(in srgb, var(--accent, #4096ff) 32%, var(--border, rgba(60, 60, 67, 0.12)));
+}
+
+.pockit-settings-modal select.pc-pref:focus,
+.pockit-settings-modal input.pc-pref[type="text"]:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--accent, #4096ff) 45%, var(--border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, #4096ff) 18%, transparent);
+}
+
+.pockit-settings-modal .cs-field--toggle {
+  padding: 12px 0;
+}
+
+.pockit-settings-modal .cs-field--toggle .pc-pref[type="checkbox"] {
+  width: 44px;
+  height: 26px;
+  accent-color: var(--accent, #4096ff);
+  cursor: pointer;
+}
+
+.pockit-settings-modal .cs-card {
+  padding: 4px 16px 8px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--bg-2, #f2f2f7) 72%, var(--bg-1, #fff));
+  backdrop-filter: blur(8px);
+  margin-bottom: 12px;
+}
+
+.pockit-settings-modal .cs-field {
+  gap: 6px;
+  padding: 12px 0;
+}
+
+.pockit-settings-modal .cs-field:last-child {
+  border-bottom: none;
+}
+
+body.pockit-phone-shell .pockit-settings-modal .pockit-console-modal__panel,
+body[data-pockit-viewport="phoneCompact"] .pockit-settings-modal .pockit-console-modal__panel,
+body[data-pockit-viewport="phoneLarge"] .pockit-settings-modal .pockit-console-modal__panel {
+  width: min(100%, 96vw);
+  height: min(92dvh, 900px);
+  max-height: min(92dvh, 900px);
+}
+
+body.pockit-phone-shell .pockit-settings-modal__body,
+body[data-pockit-viewport="phoneCompact"] .pockit-settings-modal__body,
+body[data-pockit-viewport="phoneLarge"] .pockit-settings-modal__body {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-columns: 1fr;
+}
+
+body.pockit-phone-shell .pockit-settings-modal__content,
+body[data-pockit-viewport="phoneCompact"] .pockit-settings-modal__content,
+body[data-pockit-viewport="phoneLarge"] .pockit-settings-modal__content {
+  position: static;
+  left: auto;
+  min-height: 0;
+  padding: 14px 16px 20px;
+}
+
+body.pockit-phone-shell .pockit-settings-modal__sidebar,
+body[data-pockit-viewport="phoneCompact"] .pockit-settings-modal__sidebar,
+body[data-pockit-viewport="phoneLarge"] .pockit-settings-modal__sidebar {
+  position: static;
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-right: none;
+  border-bottom: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  padding: 10px 12px;
+  gap: 6px;
+}
+
+body.pockit-phone-shell .pockit-settings-modal__tab,
+body[data-pockit-viewport="phoneCompact"] .pockit-settings-modal__tab,
+body[data-pockit-viewport="phoneLarge"] .pockit-settings-modal__tab {
+  flex: 0 0 auto;
+  width: auto;
+  white-space: nowrap;
+  padding: 8px 12px;
+}
+
+body.pockit-phone-shell .pockit-settings-modal__tab-label,
+body[data-pockit-viewport="phoneCompact"] .pockit-settings-modal__tab-label,
+body[data-pockit-viewport="phoneLarge"] .pockit-settings-modal__tab-label {
+  font-size: 12px;
+}

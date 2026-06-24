@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-tape="1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#12161e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Pockit" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="manifest" href="/pockit.webmanifest" />
+  <link rel="apple-touch-icon" href="/icons/pockit-icon-192.png" />
+  <meta name="robots" content="noindex" />
+  <title>Pockit</title>
+  <script>
+    (function () {
+      try {
+        var key = "pockit.pendingDeepLink";
+        var hash = location.hash || "";
+        var hm = hash.match(/^#\/c\/([\w-]+)$/);
+        if (hm) {
+          sessionStorage.setItem(key, hm[1]);
+          return;
+        }
+        var path = (location.pathname || "").replace(/\/$/, "") || "/";
+        var pm = path.match(/^\/c\/([\w-]+)$/);
+        if (pm) {
+          sessionStorage.setItem(key, pm[1]);
+          return;
+        }
+        var params = new URLSearchParams(location.search || "");
+        var qc = params.get("c") || params.get("cassette");
+        if (qc && /^[\w-]+$/.test(qc)) sessionStorage.setItem(key, qc);
+      } catch (_) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/styles.css?v=1.90.26" />
+  <link rel="stylesheet" href="/applekit-shell-tokens.css?v=1.90.26" />
+  <link rel="stylesheet" href="/tapes-tower-kvm.css?v=1.90.26" />
+  <link rel="stylesheet" href="/kvm-comet-theme.css?v=1.90.26" />
+  <link rel="stylesheet" href="/ant-design-shell.css?v=1.90.26" />
+  <link rel="stylesheet" href="/comet-motion.css?v=1.90.26" />
+  <link rel="stylesheet" href="/kvm-comet-realism.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-ipad-dashboard.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-changelog.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-suite.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-suite-auth.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-rail-drawer.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-console-modal.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-viewport.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-watch-companion.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-device-lab.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-mobile-hud.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-phone-shell.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-shell-layout.css?v=1.90.26" />
+  <link rel="stylesheet" href="/apple-hig-shape.css?v=1.90.26" />
+  <link rel="stylesheet" href="/apple-hig-toolbar.css?v=1.90.26" />
+  <link rel="stylesheet" href="/family-bonjour.css?v=1.90.26" />
+  <link rel="stylesheet" href="/comet-tooltip.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-led-law.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-readiness-gate.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-intention-badge.css?v=1.90.26" />
+  <link rel="stylesheet" href="/mac-app-intent-chrome.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-ship-integrity.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-configurations-center.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-accessory-desk.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-prompt-library.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-quick-desk.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-help-console.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-toast.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-tahoe-toast.css?v=1.90.26" />
+</head>
+<body>
+  <div id="suite-bar" class="suite-bar-mount" aria-label="Family Office suite"></div>
+  <button type="button" id="top-chrome-handle" class="rail-drawer-handle rail-drawer-handle--top" aria-expanded="true" aria-controls="suite-bar" aria-label="Hide top chrome" data-comet-tip="Hide top chrome&#10;Collapse the suite bar + header">
+    <span class="rail-drawer-handle__tab" aria-hidden="true">
+      <span class="rail-drawer-handle__chevron">▴</span>
+      <span class="rail-drawer-handle__label">Chrome</span>
+    </span>
+  </button>
+  <div id="app" class="cassette-player" style="visibility:hidden">
+    <aside id="player-rail" class="player-rail sidebar">
+      <button type="button" id="player-rail-handle" class="rail-drawer-handle rail-drawer-handle--player" aria-expanded="true" aria-controls="player-rail-content" aria-label="Collapse players drawer" data-comet-tip="Collapse players drawer&#10;Slide the left rail closed">
+        <span class="rail-drawer-handle__tab" aria-hidden="true">
+          <span class="rail-drawer-handle__chevron">▴</span>
+          <span class="rail-drawer-handle__label">Players</span>
+        </span>
+      </button>
+      <header class="sidebar-header player-rail-header">
+        <div id="player-rail-dropdown" class="player-rail-dropdown-mount rail-dropdown-mount"></div>
+      </header>
+      <div id="player-rail-content" class="sidebar-content">
+        <div class="loading">Loading…</div>
+      </div>
+      <footer class="sidebar-footer comet-status-bar comet-status-bar--sidebar sidebar-footer--rail-dock player-rail-dock sidebar-footer--account-only" role="contentinfo">
+        <div class="rail-dock-bar rail-dock-bar--account">
+          <div class="auth-status" id="auth-status"></div>
+        </div>
+      </footer>
+    </aside>
+
+    <main id="main-frame" class="main-frame pockit-shell-zone" data-pockit-zone="center-column">
+      <header class="main-header pockit-shell-zone" data-pockit-zone="center-toolbar" role="banner">
+        <div class="pockit-layout-row pockit-layout-row--toolbar" data-layout-row="toolbar">
+          <div class="pockit-layout-col pockit-layout-col--leading main-header__leading" data-layout-col="leading" data-pockit-zone="toolbar-leading">
+            <div class="pockit-widget-stack" data-widget-stack="leading">
+              <div class="pockit-widget pockit-widget--player-rail-toggle" data-widget="player-rail-toggle">
+                <button type="button" id="player-rail-toggle" class="icon-btn icon-btn--finder ant-btn-icon-only" data-ant-icon="MenuFoldOutlined" data-comet-tip="Hide players rail&#10;More room for the center canvas" aria-label="Hide players" aria-expanded="true">
+                  <span class="icon-btn__caption">Players</span>
+                </button>
+              </div>
+              <div class="pockit-widget pockit-widget--main-console-picker hidden" data-widget="main-console-picker">
+                <div id="main-header-console-picker" class="main-header-console-picker-mount" aria-label="Active console"></div>
+              </div>
+              <div class="pockit-widget pockit-widget--hub-back hidden" data-widget="hub-back">
+                <button type="button" id="hub-back-btn" class="icon-btn hub-back-btn hidden ant-btn-icon-only" data-comet-tip="Back to overview&#10;Return to the Pockit home grid" data-ant-icon="ArrowLeftOutlined" aria-label="Back to Pockit"><span class="hub-back-label">Pockit</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="pockit-layout-col pockit-layout-col--title main-breadcrumb-wrap" id="main-breadcrumb-wrap" data-layout-col="title" data-pockit-zone="toolbar-title">
+            <div class="pockit-widget-stack pockit-widget-stack--title" data-widget-stack="title">
+              <div class="pockit-widget pockit-widget--breadcrumb" data-widget="breadcrumb">
+                <div id="main-breadcrumb" class="main-breadcrumb">Overview</div>
+              </div>
+              <div class="pockit-widget pockit-widget--status-rail" data-widget="status-rail">
+                <div id="tower-status-rail" class="tower-status-rail" hidden></div>
+              </div>
+            </div>
+          </div>
+          <div class="pockit-layout-col pockit-layout-col--trailing main-actions" data-layout-col="trailing" data-pockit-zone="toolbar-trailing">
+            <div class="pockit-widget-stack pockit-widget-stack--trailing" data-widget-stack="trailing">
+              <div class="pockit-widget pockit-widget--cassette-settings hidden" data-widget="cassette-settings">
+                <button type="button" id="cassette-settings-header" data-action="cassette-settings" class="icon-btn ant-btn-icon-only hidden" data-ant-icon="SettingOutlined" data-comet-tip="Cassette settings&#10;Door URL, substrate, and operator fields" aria-label="Cassette settings"></button>
+              </div>
+              <div class="pockit-widget pockit-widget--new-tab hidden" data-widget="new-tab">
+                <a id="main-newtab" class="icon-btn ant-btn-icon-only hidden" data-ant-icon="ExportOutlined" data-comet-tip="Open in new tab&#10;Launch this tape outside the shell" aria-label="Open in new tab" target="_blank" rel="noopener noreferrer"></a>
+              </div>
+              <div class="pockit-widget pockit-widget--bonjour" data-widget="bonjour">
+                <button type="button" id="nephew-bonjour-chip" hidden data-comet-tip="Family network&#10;Discover doors and services on your LAN" aria-label="Network Bonjour discovery"></button>
+              </div>
+              <div class="pockit-widget pockit-widget--cassette-rail-toggle" data-widget="cassette-rail-toggle">
+                <button type="button" id="cassette-rail-toggle" class="icon-btn icon-btn--finder ant-btn-icon-only" data-ant-icon="MenuFoldOutlined" data-comet-tip="Hide cassettes rail&#10;Focus on the active tape" aria-label="Hide cassettes" aria-expanded="true">
+                  <span class="icon-btn__caption">Cassettes</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id="main-content" class="main-content pockit-layout-canvas" data-pockit-zone="center-canvas" data-layout-row="canvas">
+        <div class="loading">Loading…</div>
+      </div>
+      <footer id="main-footer" class="main-shell-footer pockit-shell-zone" data-pockit-zone="center-footer" data-layout-row="footer" role="contentinfo"></footer>
+  <!-- Footer visibility now scoped via JS .cassette-active class + CSS (overview always shows shell chrome; active cassette hides only the outer one). Refined 2026-06-14 for "footer gone" symptom. -->
+    </main>
+
+    <aside id="sidebar" class="sidebar cassette-rail">
+      <button type="button" id="cassette-rail-handle" class="rail-drawer-handle rail-drawer-handle--cassette" aria-expanded="true" aria-controls="sidebar-content" aria-label="Collapse cassettes drawer" data-comet-tip="Collapse cassettes drawer&#10;Slide the right rail closed">
+        <span class="rail-drawer-handle__tab" aria-hidden="true">
+          <span class="rail-drawer-handle__chevron">▴</span>
+          <span class="rail-drawer-handle__label">Cassettes</span>
+        </span>
+      </button>
+      <header class="sidebar-header cassette-rail-header">
+        <div id="cassette-rail-dropdown" class="cassette-rail-dropdown-mount rail-dropdown-mount"></div>
+      </header>
+      <div id="sidebar-content" class="sidebar-content">
+        <div class="loading">Loading…</div>
+      </div>
+    </aside>
+  </div>
+  <button type="button" id="bottom-chrome-handle" class="rail-drawer-handle rail-drawer-handle--bottom" aria-expanded="true" aria-controls="main-footer" aria-label="Hide footer" data-comet-tip="Hide footer&#10;Slide the status bar + versions down" hidden>
+    <span class="rail-drawer-handle__tab" aria-hidden="true">
+      <span class="rail-drawer-handle__chevron">▾</span>
+      <span class="rail-drawer-handle__label">Footer</span>
+    </span>
+  </button>
+  <script src="/ant-icons.js?v=1.90.26"></script>
+  <script src="/pockit-changelog-render.js?v=1.90.26"></script>
+  <script src="/pockit-surface.js?v=1.90.26" defer></script>
+  <script src="/cassette-substrate-ui.js?v=1.90.26" defer></script>
+  <script src="/pockit-settings-renderer.js?v=1.90.26" defer></script>
+  <script src="/pockit-config.js?v=1.90.26" defer></script>
+  <script src="/pockit-viewport-registry.js?v=1.90.26" defer></script>
+  <script src="/pockit-viewport.js?v=1.90.26" defer></script>
+  <script src="/pockit-watch-companion.js?v=1.90.26" defer></script>
+  <script src="/pockit-device-lab.js?v=1.90.26" defer></script>
+  <script src="/pockit-auth-chrome.js?v=1.90.26" defer></script>
+  <script src="/pockit-suite.js?v=1.90.26" defer></script>
+  <script src="/pockit-quick-bar.js?v=1.90.26" defer></script>
+  <script src="/pockit-shell-layout.js?v=1.90.26" defer></script>
+  <script src="/pockit-weave.js?v=1.90.26" defer></script>
+  <script src="/family-bonjour.js?v=1.90.26" defer></script>
+  <script src="/pockit-tooltips.js?v=1.90.26" defer></script>
+  <script src="/pockit-rail-context.js?v=1.90.26" defer></script>
+  <script src="/pockit-token-bridge.js?v=1.90.26" defer></script>
+  <script src="/pockit-led-law.js?v=1.90.26" defer></script>
+  <script src="/pockit-system-status.js?v=1.90.26" defer></script>
+  <script src="/pockit-player-context-pills.js?v=1.90.26" defer></script>
+  <script src="/pockit-readiness-gate.js?v=1.90.26" defer></script>
+  <script src="/pockit-top-chrome.js?v=1.90.26" defer></script>
+  <script src="/pockit-bottom-chrome.js?v=1.90.26" defer></script>
+  <script src="/pockit-toast.js?v=1.90.26"></script>
+  <script src="/pockit-tahoe-toast.js?v=1.90.26"></script>
+  <script src="/pockit-ship-integrity.js?v=1.90.26" defer></script>
+  <script src="/pockit-configurations-center.js?v=1.90.26" defer></script>
+  <script src="/pockit-accessory-desk.js?v=1.90.26" defer></script>
+  <script src="/pockit-accessory-desk-panel.js?v=1.90.26" defer></script>
+  <script src="/pockit-prompt-library.js?v=1.90.26" defer></script>
+  <script src="/pockit-quick-desk-panel.js?v=1.90.26" defer></script>
+  <script src="/pockit-help-console.js?v=1.90.26" defer></script>
+  <script src="/pockit.js?v=1.90.26" defer></script>
+  <script src="/pockit-phone-player-chrome.js?v=1.90.26" defer></script>
+  <script src="/pockit-phone-dock.js?v=1.90.26" defer></script>
+  <script src="/pockit-controls-sheet.js?v=1.90.26" defer></script>
+  <script src="/pockit-phone-shell.js?v=1.90.26" defer></script>
+
+  <script src="/declaration-of-intent-adapters.js?v=1.90.26" defer></script>
+  <script src="/declaration-of-intent-panel.js?v=1.90.26" defer></script>
+  <script src="/pockit-intention-badge.js?v=1.90.26" defer></script>
+  <script src="/mac-app-intent-chrome.js?v=1.90.26" defer></script>
+  <script src="/pockit-mac-app-intent.js?v=1.90.26" defer></script>
+</body>
+</html>

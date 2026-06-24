@@ -1,0 +1,24 @@
+{
+  "cassette_id": "hello-cassette",
+  "console_id": "demo-console",
+  "parent_console": "demo-player",
+  "encompass_mode": "hud_iframe",
+  "speakers_door": "https://example.com/hello",
+  "center_default": "/",
+  "left_nav_label": "Hello",
+  "left_nav": [
+    { "label": "Welcome", "path": "/", "icon": "SmileOutlined" }
+  ],
+  "nav_label": "Demo",
+  "nav_sections": [
+    {
+      "title": "Getting started",
+      "items": [
+        { "label": "Hello world", "path": "/", "icon": "HomeOutlined" }
+      ]
+    }
+  ],
+  "bottom_nav": [
+    { "label": "Help", "path": "#/help", "zone": "footer" }
+  ]
+}

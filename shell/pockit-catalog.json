@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "product": "pockit-saas-demo",
+  "description": "Demo catalog — copy this shape for your fleet. No commercial consoles.",
+  "players": [
+    {
+      "id": "demo-player",
+      "name": "Demo Player",
+      "hue": 210,
+      "hosted_cassettes": [
+        { "id": "hello-cassette", "hub_card_id": "hello-cassette", "name": "Hello" },
+        { "id": "docs-cassette", "hub_card_id": "docs-cassette", "name": "Docs" },
+        { "id": "settings-cassette", "hub_card_id": "settings-cassette", "name": "Settings" }
+      ]
+    }
+  ],
+  "unassigned_cassettes": [],
+  "hub_cards": [
+    {
+      "id": "hello-cassette",
+      "title": "Hello",
+      "subtitle": "iframe HUD demo",
+      "pill": "demo",
+      "niche": "Getting started"
+    },
+    {
+      "id": "docs-cassette",
+      "title": "Documentation",
+      "subtitle": "Help console demo",
+      "pill": "docs",
+      "niche": "Learn Pockit"
+    },
+    {
+      "id": "settings-cassette",
+      "title": "Settings",
+      "subtitle": "Configurations pattern",
+      "pill": "config",
+      "niche": "Meta-console"
+    }
+  ]
+}

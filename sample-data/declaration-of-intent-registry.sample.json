@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "apps": {
+    "demo-console": {
+      "displayName": "Demo Console",
+      "appVersion": "1.0.0",
+      "tagline": "Shows how Pockit dresses an app",
+      "intent": {
+        "why": "Teach the encompass + manifest dress workflow.",
+        "problem": "Apps ship duplicate navigation when embedded in players.",
+        "does": "Pockit owns rails; your app owns the center canvas."
+      }
+    }
+  }
+}

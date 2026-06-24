@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "product": "pockit-saas-demo",
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "articles": [
+        {
+          "id": "what-is-pockit",
+          "title": "What is Pockit?",
+          "body": "Pockit is a universal console frame. Your apps publish manifests; Pockit dresses rails and hosts your UI in the center."
+        },
+        {
+          "id": "add-console",
+          "title": "Add your first console",
+          "body": "1. Create cassette-surfaces/your-console.json\n2. Register in your catalog\n3. Ship your app door with pockit_hud=1 embed strip"
+        }
+      ]
+    }
+  ]
+}

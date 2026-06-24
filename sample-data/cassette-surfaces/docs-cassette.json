@@ -1,0 +1,25 @@
+{
+  "cassette_id": "docs-cassette",
+  "console_id": "demo-console",
+  "parent_console": "demo-player",
+  "encompass_mode": "hud_iframe",
+  "speakers_door": "https://example.com/docs",
+  "center_default": "/",
+  "left_nav_label": "Docs",
+  "left_nav": [
+    { "label": "Overview", "path": "/", "icon": "BookOutlined" }
+  ],
+  "nav_label": "Learn",
+  "nav_sections": [
+    {
+      "title": "Platform",
+      "items": [
+        { "label": "What is Pockit?", "path": "/what-is-pockit", "icon": "InfoCircleOutlined" },
+        { "label": "Add a console", "path": "/add-console", "icon": "PlusOutlined" }
+      ]
+    }
+  ],
+  "bottom_nav": [
+    { "label": "Help", "path": "#/help", "zone": "footer" }
+  ]
+}

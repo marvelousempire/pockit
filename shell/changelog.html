@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nephew — Changelog</title>
+  <link rel="stylesheet" href="/styles.css?v=1.90.26" />
+  <link rel="stylesheet" href="/kvm-comet-theme.css?v=1.90.26" />
+  <link rel="stylesheet" href="/pockit-changelog.css?v=1.90.26" />
+</head>
+<body class="tapes-ui">
+  <div class="changelog-wrap">
+    <h1>Nephew — Changelog</h1>
+    <p class="subtitle">What shipped, when, and why. Newest first.</p>
+    <div class="pad-changelog-body" id="content"><p class="pad-cl-loading">Loading changelog…</p></div>
+  </div>
+  <script src="/pockit-changelog-render.js?v=1.90.26"></script>
+  <script src="/pockit-surface.js?v=1.90.26"></script>
+  <script>
+    (async () => {
+      const el = document.getElementById("content");
+      try {
+        await HubSurface.load();
+        HubSurface.ensureChangelogStyles();
+        const md = await HubSurface.fetchChangelogMarkdown();
+        el.innerHTML = HubSurface.renderChangelogMarkdown(md);
+      } catch (e) {
+        el.innerHTML = "<p class=\"pad-cl-error\">Couldn't load changelog: " + (e.message || e) + "</p>";
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nephew.jailynmarvin.com/schemas/cassette-surface.json",
+  "title": "CassetteSurfaceDescriptor",
+  "description": "Plan 0196 — structure Pockit maps into rails/center; app owns data, Pockit owns chrome.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "center_path": {
+      "type": "string",
+      "description": "CT route loaded in Pockit center canvas (e.g. /hello, /retrieve)"
+    },
+    "subtitle": { "type": "string" },
+    "nav": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "path": { "type": "string" },
+          "glyph": { "type": "string" }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "href": { "type": "string" }
+        }
+      }
+    },
+    "theme_hints": {
+      "type": "object",
+      "properties": {
+        "mode": { "enum": ["light", "dark", "auto"] },
+        "density": { "enum": ["comfortable", "compact"] }
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": ["voice", "video", "hud", "knowledge", "prompt-library", "ship-integrity", "configurations", "odysseus", "quick-desk", "default"],
+      "description": "Pockit pad kind — voice = Parakeet Voice (0201); video = Super Rick Video (0430); knowledge = Brain inventory HUD (0234); prompt-library = operator prompt cards (0294); ship-integrity = operator ship gate UI (0294); configurations = Configurations Center (0304); odysseus = Odysseus encompass chat pad (0268); quick-desk = Quick Desk tap-chip launcher (0445)"
+    },
+    "encompass_mode": {
+      "type": "string",
+      "enum": ["native_pad", "hud_iframe"],
+      "description": "Plan 0268 — native_pad = instant center pad, no iframe fallback"
+    },
+    "speakers_door": {
+      "type": "string",
+      "description": "Full upstream door for ↗ new tab (e.g. http://odysseus.localhost/)"
+    },
+    "embed_stem": {
+      "type": "string",
+      "description": "family-embed proxy stem (e.g. odysseus → /family-embed/odysseus/)"
+    },
+    "instant_mount": { "type": "boolean" },
+    "left_nav": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "glyph": { "type": "string" },
+          "center_panel": { "type": "string" },
+          "action": { "type": "string" },
+          "speakers_only": { "type": "boolean" }
+        }
+      }
+    },
+    "panels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "zone": { "type": "string" },
+          "pad_module": { "type": "string" },
+          "speakers_fallback": { "type": "boolean" }
+        }
+      }
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "upstream": { "type": "string" },
+          "proxy": { "type": "string" },
+          "zone": { "type": "string" }
+        }
+      }
+    },
+    "center_default": {
+      "type": "object",
+      "properties": {
+        "panel": { "type": "string" },
+        "route": { "type": "string" }
+      }
+    },
+    "boot_script": {
+      "type": "string",
+      "description": "Optional make/script id for pad boot (e.g. voice-pad)"
+    },
+    "pockit_pad": {
+      "type": "boolean",
+      "description": "When true, render as full Pockit pad surface (not CT iframe)"
+    },
+    "token": {
+      "type": "object",
+      "description": "Plan 0269 — Pockit Dynamic Token (see data/schema-library/schemas/pockit-dynamic-token.schema.json)",
+      "properties": {
+        "kind": { "type": "string" },
+        "ref": { "type": "string" },
+        "mount": { "type": "string" },
+        "layout": { "type": "string" },
+        "skin": { "type": "string" },
+        "component": { "type": "string" },
+        "props": { "type": "object" }
+      }
+    }
+  }
+}

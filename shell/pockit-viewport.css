@@ -1,0 +1,136 @@
+/**
+ * Pockit viewport tiers — Plan 0260 / v1.81.4
+ */
+
+/* ─── Mobile shell (phone + tablet): compact header, suite apps in HUD ─── */
+body.pockit-phone-shell .suite-bar__apps-wrap,
+body[data-pockit-viewport="phoneCompact"] .suite-bar__apps-wrap,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__apps-wrap {
+  display: none;
+}
+
+body.pockit-phone-shell .suite-bar__welcome-link,
+body[data-pockit-viewport="phoneCompact"] .suite-bar__welcome-link,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__welcome-link {
+  display: none;
+}
+
+/* Phone suite bar grid + account cluster: pockit-suite-auth.css */
+
+body[data-pockit-viewport="phoneCompact"] .suite-bar__brand-text .suite-bar__brand-kicker,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__brand-text .suite-bar__brand-kicker,
+body[data-pockit-viewport="phoneCompact"] .suite-bar__brand-kicker,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__brand-kicker {
+  font-size: 9px;
+}
+
+body[data-pockit-viewport="phoneCompact"] .suite-bar__brand-console,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__brand-console {
+  font-size: 12px;
+}
+
+/* Phone shell — suite bar stays minimal; dock owns navigation */
+body.pockit-phone-shell .suite-bar {
+  min-height: 48px;
+}
+
+body.pockit-phone-shell #suite-bar {
+  padding-top: max(2px, env(safe-area-inset-top, 0px));
+}
+
+/* ─── Watch companion tier ─── */
+body[data-pockit-viewport="watch"] .suite-bar__apps-wrap {
+  display: none;
+}
+
+/* ─── Laptop / display tiers (Plan 0275) ─── */
+body[data-pockit-viewport="laptop"] .overview-grid {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+body[data-pockit-viewport="display"] .overview-grid,
+body[data-pockit-viewport="tv"] .overview-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+body[data-pockit-viewport="laptop"] .pockit-console-modal__panel {
+  width: min(880px, 94vw);
+}
+
+body[data-pockit-viewport="display"] .pockit-console-modal__panel {
+  width: min(1040px, 94vw);
+}
+
+body[data-pockit-orientation="landscape"][data-pockit-viewport="phoneCompact"] .main-breadcrumb-wrap,
+body[data-pockit-orientation="landscape"][data-pockit-viewport="phoneLarge"] .main-breadcrumb-wrap {
+  max-width: 100%;
+}
+
+/* ─── Suite bar squeeze carousel (tablet tiers) ─── */
+.suite-bar__apps-wrap {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  position: relative;
+}
+
+.suite-bar--squeeze .suite-bar__carousel-btn {
+  display: flex;
+}
+
+.suite-bar__carousel-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  border: none;
+  background: color-mix(in srgb, var(--bg-1) 80%, transparent);
+  color: var(--fg-2, var(--ant-text-secondary));
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}
+
+.suite-bar__carousel-btn:hover {
+  color: var(--fg-0, var(--ant-text));
+  background: color-mix(in srgb, var(--accent, #4096ff) 10%, var(--bg-1));
+}
+
+.suite-bar--squeeze .suite-bar__apps {
+  scroll-snap-type: x mandatory;
+  justify-content: flex-start;
+}
+
+.suite-bar--squeeze .suite-bar__app {
+  scroll-snap-align: start;
+}
+
+/* ─── TV / 4K ─── */
+body[data-pockit-viewport="tv"] {
+  --tile-size: 52px;
+}
+
+body[data-pockit-viewport="tv"] .suite-bar {
+  min-height: 58px;
+}
+
+body[data-pockit-viewport="tv"] .pockit-console-modal {
+  --console-modal-icon-size: 88px;
+}
+
+body[data-pockit-viewport="tv"] .pockit-console-modal__panel {
+  width: min(1200px, 94vw);
+}
+
+body[data-pockit-viewport="tv"] .overview-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+body[data-pockit-viewport="tv"] .console-modal-card__icon {
+  width: var(--console-modal-icon-size, 88px);
+  height: var(--console-modal-icon-size, 88px);
+}

@@ -1,0 +1,25 @@
+{
+  "cassette_id": "settings-cassette",
+  "console_id": "demo-console",
+  "parent_console": "demo-player",
+  "encompass_mode": "hud_iframe",
+  "speakers_door": "https://example.com/settings",
+  "center_default": "/",
+  "left_nav_label": "Settings",
+  "left_nav": [
+    { "label": "General", "path": "/", "icon": "SettingOutlined" }
+  ],
+  "nav_label": "Configure",
+  "nav_sections": [
+    {
+      "title": "Meta-console",
+      "items": [
+        { "label": "Devices", "path": "/devices", "icon": "MobileOutlined" },
+        { "label": "Intent", "path": "/intent", "icon": "AimOutlined" }
+      ]
+    }
+  ],
+  "bottom_nav": [
+    { "label": "Help", "path": "#/help", "zone": "footer" }
+  ]
+}

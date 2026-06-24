@@ -1,0 +1,332 @@
+/**
+ * Pockit mobile HUD — full-screen switcher (Plan 0260 / v1.81.4)
+ * Tile grid columns: body --pockit-tile-grid-cols from PockitViewportRegistry.tileGridColumns (tier × orientation).
+ */
+.pockit-mobile-hud {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ant-font, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif);
+}
+
+.pockit-mobile-hud[hidden] {
+  display: none !important;
+}
+
+.pockit-mobile-hud.pockit-mobile-hud--open .pockit-mobile-hud__backdrop {
+  animation: comet-modal-backdrop-in 0.2s var(--comet-ease-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+.pockit-mobile-hud.pockit-mobile-hud--open .pockit-mobile-hud__sheet {
+  animation: comet-modal-panel-in 0.28s var(--comet-ease-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+.pockit-mobile-hud__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.pockit-mobile-hud__sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto 0 0;
+  width: 100%;
+  max-height: 92dvh;
+  border-radius: 20px 20px 0 0;
+  background: var(--bg-1, #fff);
+  box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+
+.pockit-mobile-hud__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+}
+
+.pockit-mobile-hud__header-trailing,
+.pockit-controls-sheet__header-trailing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pockit-mobile-version-pill {
+  max-width: 42vw;
+  min-height: 32px;
+  padding: 4px 8px;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pockit-mobile-version-pill .shell-version-btn__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pockit-mobile-hud__title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.pockit-mobile-hud__close {
+  border: none;
+  background: var(--bg-2, rgba(0, 0, 0, 0.05));
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.pockit-mobile-hud__tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--border, rgba(60, 60, 67, 0.1));
+}
+
+.pockit-mobile-hud__tab {
+  flex: 0 0 auto;
+  border: none;
+  background: transparent;
+  padding: 8px 14px;
+  border-radius: var(--ak-radius-sm, 8px);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-2, var(--ant-text-secondary));
+  cursor: pointer;
+}
+
+.pockit-mobile-hud__tab.is-active {
+  background: color-mix(in srgb, var(--accent, #4096ff) 12%, transparent);
+  color: var(--accent, #4096ff);
+}
+
+.pockit-mobile-hud__body {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  -webkit-overflow-scrolling: touch;
+  --console-modal-icon-size: 52px;
+}
+
+/* Mobile Menu — icon tile grid (Consoles / Players / Cartridges / Suite + controls sheet) */
+.pockit-mobile-hud__tile-grid,
+.pockit-mobile-hud__body .pockit-console-modal__grid,
+.pockit-mobile-hud__suite-grid,
+.pockit-mobile-hud__rail--grid .sidebar-section ul,
+.pockit-controls-sheet .pockit-phone-rail .sidebar-section ul {
+  display: grid;
+  grid-template-columns: repeat(var(--pockit-tile-grid-cols, var(--pockit-mobile-hud-cols, 4)), minmax(0, 1fr));
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Beat scoped desktop-modal phone rules — Mobile Menu keeps tier×orientation columns */
+body.pockit-phone-shell .pockit-mobile-hud .pockit-console-modal__grid,
+body.pockit-phone-shell .pockit-mobile-hud__rail--grid .sidebar-section ul,
+body.pockit-phone-shell .pockit-controls-sheet .pockit-phone-rail .sidebar-section ul,
+body.pockit-viewport-tablet.pockit-phone-shell .pockit-mobile-hud .pockit-console-modal__grid {
+  grid-template-columns: repeat(var(--pockit-tile-grid-cols, var(--pockit-mobile-hud-cols, 4)), minmax(0, 1fr));
+}
+
+.pockit-mobile-hud__suite-grid,
+.pockit-mobile-hud__suite-btn {
+  /* suite uses tile-grid class on wrapper */
+}
+
+.pockit-mobile-hud__suite-btn {
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  background: var(--bg-0, #f2f2f7);
+  border-radius: 14px;
+  padding: 10px 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.pockit-mobile-hud__suite-btn span:last-child {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Console picker cards — compact 4-across */
+.pockit-mobile-hud__body .console-modal-card {
+  padding: 10px 6px 8px;
+  gap: 6px;
+  min-width: 0;
+}
+
+.pockit-mobile-hud__body .console-modal-card__icon {
+  width: var(--console-modal-icon-size, 52px);
+  height: var(--console-modal-icon-size, 52px);
+}
+
+.pockit-mobile-hud__body .console-modal-card__icon--native .suite-element {
+  --tile-size: var(--console-modal-icon-size, 52px);
+}
+
+.pockit-mobile-hud__body .console-modal-card__icon--native .suite-element__sym-big {
+  font-size: 20px;
+}
+
+.pockit-mobile-hud__body .console-modal-card__title {
+  font-size: 10px;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pockit-mobile-hud__body .console-modal-card__sub {
+  display: none;
+}
+
+.pockit-mobile-hud__body .console-modal-card__badge {
+  font-size: 8px;
+  padding: 1px 5px;
+}
+
+.pockit-mobile-hud__body .pockit-console-modal__section-title {
+  margin-bottom: 10px;
+}
+
+/* Rail sections → tile grid (Cartridges / Players tabs) */
+.pockit-mobile-hud__rail--grid .sidebar-section {
+  margin-bottom: 18px;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-section h3,
+.pockit-mobile-hud__rail--grid .sidebar-section-head-row {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-2, var(--ant-text-secondary));
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-section ul {
+  /* grid defined in Mobile Menu block above */
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-item {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-item--voice-health,
+.pockit-mobile-hud__rail--grid .sidebar-item--voice-health .sidebar-item-main,
+.pockit-mobile-hud__rail--grid .sidebar-item:has(.sidebar-item-main--health) {
+  grid-column: 1 / -1;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-item-main {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 6px;
+  padding: 10px 6px 8px;
+  min-height: auto;
+  width: 100%;
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  border-radius: 14px;
+  background: var(--bg-0, #f2f2f7);
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-item.active .sidebar-item-main {
+  border-color: color-mix(in srgb, var(--accent, #4096ff) 55%, var(--border));
+  background: color-mix(in srgb, var(--accent, #4096ff) 8%, var(--bg-0, #f2f2f7));
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-glyph-wrap {
+  flex-shrink: 0;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-glyph-wrap--tile .anticon,
+.pockit-mobile-hud__rail--grid .sidebar-glyph-wrap--tile .hub-item-avatar {
+  font-size: 22px;
+  width: 44px;
+  height: 44px;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-glyph-wrap--mac-tile .suite-element {
+  --tile-size: 44px;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-label,
+.pockit-mobile-hud__rail--grid .sidebar-label-text {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-label-stack {
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  width: 100%;
+}
+
+.pockit-mobile-hud__rail--grid .voice-rail-status {
+  font-size: 9px;
+  line-height: 1.2;
+  opacity: 0.85;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-item-newtab,
+.pockit-mobile-hud__rail--grid .sidebar-item-home {
+  display: none;
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-item--child {
+  /* flat grid — no indent */
+}
+
+.pockit-mobile-hud__rail--grid .sidebar-item--child .sidebar-item-main {
+  padding-left: 6px;
+}
+
+body:not(.pockit-phone-shell) .pockit-mobile-hud {
+  display: none !important;
+}
+
+/* Controls sheet — same Mobile Menu tile grid (Plan 0274) */
+.pockit-controls-sheet__panel-pane {
+  padding: 16px 12px calc(16px + env(safe-area-inset-bottom, 0px));
+}

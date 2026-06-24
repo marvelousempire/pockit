@@ -1,0 +1,29 @@
+{
+  "cassette_id": "hello-cassette",
+  "console_id": "demo-console",
+  "parent_console": "demo-player",
+  "encompass_mode": "hud_iframe",
+  "speakers_door": "http://localhost:3000/",
+  "center_default": "/",
+  "left_nav_label": "Demo",
+  "left_nav": [
+    { "label": "Home", "path": "/", "icon": "HomeOutlined" },
+    { "label": "About", "path": "/about", "icon": "InfoCircleOutlined" }
+  ],
+  "nav_label": "Tools",
+  "nav_sections": [
+    {
+      "title": "Demo",
+      "items": [
+        { "label": "Hello page", "path": "/hello", "icon": "SmileOutlined" },
+        { "label": "Open full app", "path": "http://localhost:3000/", "icon": "ExportOutlined", "speakers_only": true }
+      ]
+    }
+  ],
+  "bottom_nav": [
+    { "label": "Help", "path": "#/help", "zone": "footer" }
+  ],
+  "actions": [
+    { "label": "Open door", "widget": "topbar-trailing", "path": "http://localhost:3000/", "speakers_only": true }
+  ]
+}

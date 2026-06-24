@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PockitConfig",
+  "description": "Global Pockit operator layout preferences (localStorage nephew-pockit-config). Plan 0187.",
+  "type": "object",
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "chrome": {
+      "type": "object",
+      "properties": {
+        "player_rail": {
+          "type": "object",
+          "properties": {
+            "collapsed": { "type": "boolean" },
+            "auto_hide": { "enum": ["off", "on_idle", "always"] }
+          }
+        },
+        "cassette_rail": {
+          "type": "object",
+          "properties": {
+            "collapsed": { "type": "boolean" },
+            "auto_hide": { "enum": ["off", "on_idle", "always"] }
+          }
+        },
+        "main_header": {
+          "type": "object",
+          "properties": {
+            "auto_hide": { "enum": ["off", "on_idle", "always"] }
+          }
+        },
+        "main_footer": {
+          "type": "object",
+          "properties": {
+            "auto_hide": { "enum": ["off", "on_idle", "always"] }
+          }
+        }
+      }
+    },
+    "filter": {
+      "type": "object",
+      "properties": {
+        "default_scope": { "enum": ["all", "local", "web"] },
+        "default_player": { "type": "string" }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "mode": { "enum": ["light", "dark", "auto"] }
+      }
+    },
+    "focus": {
+      "type": "object",
+      "properties": {
+        "cinema_mode": { "type": "boolean" }
+      }
+    },
+    "about": {
+      "type": "object",
+      "description": "About Nephew panels (Plan 0270) — optional open/dismiss state",
+      "properties": {
+        "rack_open": { "type": "boolean" },
+        "rag_open": { "type": "boolean" },
+        "privacy_open": { "type": "boolean" },
+        "rack_dismissed": { "type": "boolean" },
+        "rag_dismissed": { "type": "boolean" },
+        "privacy_dismissed": { "type": "boolean" }
+      }
+    }
+  }
+}

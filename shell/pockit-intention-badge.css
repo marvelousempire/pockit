@@ -1,0 +1,44 @@
+/* Pockit Intention Badge — promise ribbon (Plan 0298 / DOI Phase 3) */
+.overview-card,
+.overview-card--app {
+  position: relative;
+}
+
+.intention-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: var(--ak-radius-pill);
+  background: var(--intention-badge, #f5c518);
+  color: #1a1200;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+.intention-badge:hover {
+  filter: brightness(1.05);
+}
+
+.intention-badge__glyph {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.intention-modal-backdrop .intention-modal {
+  max-width: 720px;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.intention-modal-backdrop .doi-panel__head {
+  margin-bottom: 12px;
+}

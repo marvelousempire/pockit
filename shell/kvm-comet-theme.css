@@ -1,0 +1,328 @@
+/**
+ * GL.iNet KVM Comet visual layer — Ant Design motion + blue-slate glass panels.
+ * Loaded after styles.css + tapes-tower-kvm.css.
+ */
+
+:root,
+[data-theme="light"] {
+  --bg-0: #f5f5f5;
+  --bg-1: #ffffff;
+  --bg-2: #fafafa;
+  --bg-3: #f0f0f0;
+  --fg-0: rgba(0, 0, 0, 0.88);
+  --fg-1: rgba(0, 0, 0, 0.65);
+  --fg-2: rgba(0, 0, 0, 0.45);
+  --fg-3: rgba(0, 0, 0, 0.25);
+  --accent: #1677ff;
+  --accent-hover: #4096ff;
+  --accent-dim: #e6f4ff;
+  --accent-text: #ffffff;
+  --warn: #faad14;
+  --danger: #ff4d4f;
+  --border: #f0f0f0;
+  --shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02);
+  --comet-track: rgba(0, 0, 0, 0.04);
+  --comet-pill-bg: #ffffff;
+  --comet-panel-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 3px 6px rgba(0, 0, 0, 0.08);
+  --tower-mesh-a: rgba(22, 119, 255, 0.06);
+  --tower-mesh-b: rgba(99, 102, 241, 0.04);
+  --tower-glow: 0 0 24px rgba(22, 119, 255, 0.12);
+  --tower-rail-blur: none;
+}
+
+[data-theme="dark"] {
+  --bg-0: #000000;
+  --bg-1: #141414;
+  --bg-2: #1f1f1f;
+  --bg-3: #2a2a2a;
+  --fg-0: rgba(255, 255, 255, 0.85);
+  --fg-1: rgba(255, 255, 255, 0.65);
+  --fg-2: rgba(255, 255, 255, 0.45);
+  --fg-3: rgba(255, 255, 255, 0.25);
+  --accent: #4096ff;
+  --accent-hover: #1677ff;
+  --accent-dim: rgba(22, 119, 255, 0.15);
+  --accent-text: #ffffff;
+  --border: #303030;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --comet-track: rgba(255, 255, 255, 0.08);
+  --comet-pill-bg: #1f1f1f;
+  --comet-panel-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 6px 20px rgba(0, 0, 0, 0.35);
+  --tower-mesh-a: rgba(64, 150, 255, 0.1);
+  --tower-mesh-b: rgba(130, 155, 255, 0.07);
+  --tower-glow: 0 0 36px rgba(64, 150, 255, 0.14);
+  --tower-rail-blur: saturate(1.15) blur(14px);
+}
+
+html[data-tape="1"] {
+  --tower-mesh-a: rgba(64, 150, 255, 0.11);
+  --tower-mesh-b: rgba(130, 155, 255, 0.08);
+}
+
+body.tapes-ui .cassette-player { background: var(--bg-0); }
+
+body.tapes-ui .sidebar {
+  background: var(--bg-1);
+  border-right-color: var(--border);
+}
+
+body.tapes-ui .sidebar-active-pill {
+  background: color-mix(in srgb, var(--accent) 18%, var(--bg-2));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+body.tapes-ui .sidebar-item.active .sidebar-item-main { color: var(--accent); }
+
+body.tapes-ui .main-header {
+  background: var(--bg-1);
+  border-bottom-color: var(--border);
+}
+
+body.tapes-ui .main-content {
+  background: var(--bg-0);
+}
+
+body.tapes-ui .brand-glyph { filter: drop-shadow(0 0 12px rgba(64, 150, 255, 0.35)); }
+
+.comet-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  min-height: 36px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--comet-duration-slide) ease,
+    border-color var(--comet-duration-slide) ease,
+    color var(--comet-duration-slide) ease,
+    transform var(--comet-duration-fast) var(--comet-ease-standard),
+    box-shadow var(--comet-duration-slide) ease;
+}
+
+.comet-btn:active { transform: scale(0.98); }
+
+.comet-btn--primary,
+button.primary,
+.hero-submit,
+.login-container button[type="submit"],
+.library-load,
+.library-open-door.primary {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 88%, #fff 12%), var(--accent));
+  color: var(--accent-text);
+  border-color: color-mix(in srgb, var(--accent) 70%, #000 30%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset, 0 2px 8px rgba(64, 150, 255, 0.28);
+}
+
+.comet-btn--primary:hover,
+button.primary:hover,
+.hero-submit:hover,
+.login-container button[type="submit"]:hover,
+.library-load:hover,
+.library-open-door.primary:hover {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent-hover) 88%, #fff 12%), var(--accent-hover));
+}
+
+.comet-btn--ghost,
+.library-open-door.secondary {
+  background: var(--bg-1);
+  border-color: var(--border);
+  color: var(--fg-0);
+  box-shadow: var(--comet-panel-shadow);
+}
+
+.comet-btn--ghost:hover,
+.library-open-door.secondary:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  color: var(--accent);
+}
+
+.icon-btn,
+.overview-settings,
+.hub-back-btn {
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bg-2) 88%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: var(--comet-panel-shadow);
+}
+
+.icon-btn:hover,
+.overview-settings:hover,
+.hub-back-btn:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: var(--bg-3);
+  color: var(--fg-0);
+}
+
+body.tapes-ui .comet-segment {
+  background: var(--comet-track);
+  border-color: color-mix(in srgb, var(--border) 80%, transparent);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+body.tapes-ui .comet-segment-pill {
+  background: var(--comet-pill-bg);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body.tapes-ui .comet-segment-btn.is-active,
+body.tapes-ui .comet-segment-btn[aria-checked="true"] {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+body.tapes-ui .comet-dropdown-trigger { background: var(--bg-1); border-radius: 10px; }
+
+body.tapes-ui .comet-dropdown.is-open .comet-dropdown-trigger {
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+body.tapes-ui .comet-dropdown-panel,
+body.tapes-ui .comet-menu-panel,
+body.tapes-ui .pockit-search-row {
+  background: color-mix(in srgb, var(--bg-1) 94%, transparent);
+  backdrop-filter: blur(12px);
+  border-color: color-mix(in srgb, var(--accent) 10%, var(--border));
+}
+
+body.tapes-ui .comet-menu-item.is-selected {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+body.tapes-ui .pockit-hero {
+  background: color-mix(in srgb, var(--bg-1) 72%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom-color: color-mix(in srgb, var(--accent) 10%, var(--border));
+}
+
+body.tapes-ui .pockit-live-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(64, 150, 255, 0.35);
+}
+
+/* pockit-stat-rail: ant-status-tag in ant-design-shell.css */
+
+body.tapes-ui .overview-section {
+  background: color-mix(in srgb, var(--bg-1) 58%, transparent);
+  backdrop-filter: blur(8px);
+  border-color: color-mix(in srgb, var(--accent) 8%, var(--border));
+}
+
+body.tapes-ui .overview-card {
+  background: linear-gradient(165deg, color-mix(in srgb, var(--bg-1) 95%, #fff 5%), var(--bg-2));
+  border-color: color-mix(in srgb, var(--border) 90%, transparent);
+  border-radius: 14px;
+}
+
+body.tapes-ui .overview-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: var(--tower-glow), var(--comet-panel-shadow);
+}
+
+body.tapes-ui .overview-card-accent {
+  background: linear-gradient(180deg, var(--accent), var(--accent-hover));
+}
+
+body.tapes-ui .overview-glyph-wrap {
+  background: color-mix(in srgb, var(--bg-2) 90%, var(--accent) 10%);
+  border-color: color-mix(in srgb, var(--accent) 18%, var(--border));
+}
+
+body.tapes-ui .overview-door--local {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+body.tapes-ui .role-chip--tape { color: var(--accent); background: var(--accent-dim); border-color: color-mix(in srgb, var(--accent) 30%, var(--border)); }
+
+body.tapes-ui .health-pill--ok {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+body.tapes-ui .hero-shell {
+  background:
+    radial-gradient(circle at 28% 18%, var(--tower-mesh-a), transparent 52%),
+    radial-gradient(circle at 72% 82%, var(--tower-mesh-b), transparent 55%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+}
+
+body.tapes-ui .hero-mark { color: var(--accent); filter: drop-shadow(0 0 28px rgba(64, 150, 255, 0.28)); }
+
+body.tapes-ui .hero-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+
+body.tapes-ui .hero-card {
+  padding: 28px 24px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--accent) 12%, var(--border));
+  background: color-mix(in srgb, var(--bg-1) 88%, transparent);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--comet-panel-shadow);
+}
+
+body.tapes-ui .library-card,
+body.tapes-ui .library-page .library-section {
+  background: color-mix(in srgb, var(--bg-1) 70%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 8%, var(--border));
+  border-radius: 14px;
+}
+
+body.tapes-ui .substrate-modal,
+body.tapes-ui .pad-changelog-panel,
+body.tapes-ui .modal {
+  background: var(--bg-1);
+  border-color: color-mix(in srgb, var(--accent) 12%, var(--border));
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+}
+
+body.tapes-ui .substrate-tab.is-active {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+body.tapes-ui .pad-version-badge {
+  border-color: color-mix(in srgb, var(--accent) 22%, var(--border));
+  background: color-mix(in srgb, var(--bg-1) 86%, transparent);
+}
+
+body.tapes-ui .pad-version-badge__dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(64, 150, 255, 0.35);
+}
+
+@keyframes tower-live-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(64, 150, 255, 0.35); }
+  50% { box-shadow: 0 0 0 6px rgba(64, 150, 255, 0); }
+}
+
+/* Plan 0219 Phase 2 — AppleKit semantic bridge (hub legacy → --ak-*) */
+:root,
+[data-theme="light"],
+[data-theme="dark"] {
+  --ak-bg-primary: var(--bg-1);
+  --ak-bg-secondary: var(--bg-2);
+  --ak-bg-tertiary: var(--bg-3);
+  --ak-label: var(--fg-0);
+  --ak-label-secondary: var(--fg-2);
+  --ak-label-tertiary: var(--fg-3);
+  --ak-separator: var(--border);
+  --ak-blue: var(--accent);
+  --ak-green: var(--safe, hsl(142 71% 50%));
+  --ak-yellow: var(--warn);
+  --ak-red: var(--danger);
+}

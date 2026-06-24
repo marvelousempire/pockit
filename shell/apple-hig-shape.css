@@ -1,0 +1,61 @@
+/**
+ * Apple HIG shape pass — chips/tags → rounded rectangles (Plan 0217 / 0219).
+ * Loaded after comet-motion + tapes-tower-kvm; uses applekit-shell-tokens.css.
+ */
+
+/* Status chips, health tags, version controls */
+.comet-status-chip,
+.comet-status-link,
+.health-pill,
+.role-chip,
+.overview-door,
+.shell-health-pill,
+.shell-version-btn,
+.pad-version-badge,
+.suite-bar__update-badge,
+.overview-section-count,
+.overview-pill,
+.user-pill,
+.tower-breadcrumb-owner-chip,
+.pockit-chrome-hidden-chip,
+.substrate-tab,
+.ant-status-tag {
+  border-radius: var(--ak-radius-sm, 8px) !important;
+}
+
+/* Sidebar list selection highlight — rounded rect, not stadium */
+body.tapes-ui .sidebar-active-pill {
+  border-radius: var(--ak-radius-sm, 8px);
+}
+
+/* Changelog version chips */
+.pad-changelog-body .pad-cl-ver--chip {
+  border-radius: var(--ak-radius-xs, 6px) !important;
+}
+
+/* Context pill already 8px — lock to token */
+.shell-context-pill {
+  border-radius: var(--ak-radius-sm, 8px);
+}
+
+/* Rail dock version button — full-width rect, not stadium */
+body.tapes-ui .cassette-rail-dock .pockit-version-invariant {
+  border-radius: var(--ak-radius-sm, 8px);
+}
+
+/* Keep circles only where Apple uses circles */
+.comet-status-chip__dot,
+.shell-health-pill__led,
+.shell-version-btn__dot,
+.pad-version-badge__dot,
+.suite-bar__update-dot,
+.ant-status-tag__dot {
+  border-radius: 50%;
+}
+
+/* Segmented controls stay capsule (HIG standard) */
+.comet-segment,
+.comet-segment__track,
+.comet-segment-pill {
+  border-radius: var(--ak-radius-pill, 999px);
+}
