@@ -791,13 +791,14 @@ function speakersDoorForCard(card) {
   return null;
 }
 
-const ENCOMPASS_MANIFESTS = { "web-odysseus": null, knowledge: null, "ext-archive": null, "ext-bank-reader": null };
+const ENCOMPASS_MANIFESTS = { "web-odysseus": null, knowledge: null, "ext-archive": null, "ext-bank-reader": null, "ext-clinic": null };
 
-const ENCOMPASS_HUD_CASSETTE_IDS = new Set(["ext-archive", "ext-bank-reader"]);
+const ENCOMPASS_HUD_CASSETTE_IDS = new Set(["ext-archive", "ext-bank-reader", "ext-clinic"]);
 
 const ENCOMPASS_PLAYER_HOME_CASSETTE = {
   "search-my-engine": "ext-archive",
   "bank-reader": "ext-bank-reader",
+  "clinic": "ext-clinic",
 };
 
 function isEncompassHudCassetteId(id) {
@@ -1100,6 +1101,7 @@ const PLAYER_HOME_HUB_IDS = {
   dustpan: "dustpan-disks",
   "search-my-engine": "ext-archive",
   "bank-reader": "ext-bank-reader",
+  "clinic": "ext-clinic",
   "container-deck": "container-deck",
 };
 
@@ -1229,7 +1231,7 @@ function openPlayerHome(playerId) {
 }
 
 /** Consoles whose Console view is the player door HUD-embedded in Pockit center (not overview grid). */
-const CONSOLE_SELF_EMBED_IDS = new Set(["nephew-deck", "search-my-engine", "bank-reader"]);
+const CONSOLE_SELF_EMBED_IDS = new Set(["nephew-deck", "search-my-engine", "bank-reader", "clinic"]);
 
 function catalogConsoleBrowsable(player) {
   if (!player) return false;
@@ -8428,6 +8430,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await ensureEncompassManifest("knowledge");
   await ensureEncompassManifest("ext-archive");
   await ensureEncompassManifest("ext-bank-reader");
+  await ensureEncompassManifest("ext-clinic");
   if (POCKIT_CATALOG?.mac_apps?.length && currentCassetteId() === "overview") {
     clearPockitPlayerFilter();
   }

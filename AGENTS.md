@@ -1,6 +1,8 @@
 # Pockit platform — AI build law
 
-**Read this file first.** This repo is the **Pockit frame** — not your consoles, not your cassettes, not the Family Office fleet.
+**Read this file first.** This repo is the **Pockit core boilerplate** — the latest frame only. Not your consoles, not your cassettes, not the Family Office fleet.
+
+**Version track:** Pockit core lives here. Each console and each cassette versions in its **own repo**. See `docs/three-track-versioning.md`.
 
 ## What this repo contains
 
@@ -65,11 +67,14 @@ cd ~/Developer/nephew && make pockit
 # http://pockit.localhost/
 ```
 
-Refresh platform export after shell changes:
+After **core** shell changes in nephew (operator):
 
 ```bash
-make pockit-saas-export
+cd ~/Developer/nephew && make pockit-saas-publish   # export + test + push Gitea
+make pockit-saas-drift                            # must pass before "done"
 ```
+
+Local export only: `make pockit-saas-export`
 
 ## Verify done
 

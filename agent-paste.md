@@ -2,13 +2,9 @@
 
 Install Pockit from canonical repo `marvelousempire/pockit` (Gitea origin).
 
-1. Clone → read `AGENTS.md` → read `docs/product-boundary.md` + `docs/capabilities.md`
-2. Study `Nephew/Understandings/Pockit/` (0001–0009) for mental models
-3. Shell is in `shell/` — do **not** copy voice-pad, odysseus-pad, knowledge-hud (product IP)
-4. Add **your** console as a separate product: `cassette.json` + `cassette-surfaces/*.json` + app door
-5. Refresh shell after nephew changes: `make pockit-saas-export` (from nephew repo)
-6. Verify: `npm test` in pockit repo (boundary check)
+1. Clone → read `AGENTS.md` → read `docs/three-track-versioning.md`
+2. **Core** versions here (boilerplate). **Console** and **cassette** version in their own repos.
+3. Operator sync after core edits: `make pockit-saas-publish` (from nephew)
+4. Verify: `npm test` in this repo
 
-Operator runtime today: `cd ~/Developer/nephew && make pockit` → http://pockit.localhost/
-
-Understanding: `Nephew/Understandings/Pockit/0009-pockit-saas-product-model.md`
+Understanding: `nephew/Nephew/Understandings/Pockit/0010-pockit-core-console-cassette-tracks.md`

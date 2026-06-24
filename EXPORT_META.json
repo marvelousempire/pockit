@@ -1,5 +1,6 @@
 {
-  "exported_at": "2026-06-24T15:28:12.439Z",
-  "nephew_sha": "ref: refs/heads/feat/clinic-bridge-author",
-  "pockit_surface_version": "1.90.26"
+  "exported_at": "2026-06-24T16:46:51.527Z",
+  "nephew_sha": "ac26681",
+  "pockit_surface_version": "1.90.26",
+  "track": "pockit-core"
 }
