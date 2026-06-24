@@ -37,6 +37,5 @@ Refresh shell after nephew changes: `make pockit-saas-export`
 | Repo | Role |
 |------|------|
 | **pockit** (this) | SaaS platform — shell + demo + schemas |
-| **pockithub** | Legacy full mirror for agent discovery |
 | **nephew** | Operator integration — runs everything |
 | **staple-search** | Optional search overlay for consoles |

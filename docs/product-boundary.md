@@ -20,10 +20,9 @@
 | Commercial surfaces | `ext-archive`, `dustpan`, `wordpress`, … |
 | App code | `search-my-engine`, `clinic`, … |
 
-## pockithub vs pockit
+## pockit vs nephew
 
 | Repo | Role |
 |------|------|
 | **pockit** | SaaS product — trimmed shell + demo + AGENTS.md |
-| **pockithub** | Legacy full mirror for agent discovery |
 | **nephew** | Operator integration — runs everything |
