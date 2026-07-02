@@ -24,10 +24,12 @@ resolve_nephew_root() {
 
 surface_version() {
   local nep="$1"
-  local candidates=(
-    "$POCKIT_ROOT/shell/pockit-surface.json"
-    "$nep/containers/nephew-ct/family-hub/pockit-surface.json"
-  )
+  local candidates=()
+  if [[ -f "$BRIDGE" ]]; then
+    candidates+=("$nep/containers/nephew-ct/family-hub/pockit-surface.json")
+  fi
+  candidates+=("$POCKIT_ROOT/shell/pockit-surface.json")
+  candidates+=("$nep/containers/nephew-ct/family-hub/pockit-surface.json")
   for f in "${candidates[@]}"; do
     if [[ -f "$f" ]]; then
       node -e "const v=require(process.argv[1]).version; console.log('Pockit', v)" "$f"
