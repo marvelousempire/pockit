@@ -6,20 +6,28 @@ POCKIT_ROOT="$(cd "$(dirname "$0")/.." && pwd -P)"
 BRIDGE="$POCKIT_ROOT/operator-bridge.json"
 
 resolve_nephew_root() {
+  local default="$HOME/Developer/nephew"
+  if [[ -f "$BRIDGE" ]]; then
+    local bridged
+    bridged="$(node -e "
+      const b = require(process.argv[1]);
+      const d = require('node:os').homedir() + '/Developer/nephew';
+      process.stdout.write(b.nephew_root || d);
+    " "$BRIDGE")"
+    if [[ -n "${POCKIT_NEPHEW_OVERRIDE:-}" && -n "${NEPHEW_ROOT:-}" && -f "${NEPHEW_ROOT}/scripts/pockit-smart.sh" ]]; then
+      echo "$NEPHEW_ROOT"
+      return
+    fi
+    if [[ -f "$bridged/scripts/pockit-smart.sh" ]]; then
+      echo "$bridged"
+      return
+    fi
+  fi
   if [[ -n "${NEPHEW_ROOT:-}" && -f "${NEPHEW_ROOT}/scripts/pockit-smart.sh" ]]; then
     echo "$NEPHEW_ROOT"
     return
   fi
-  if [[ -f "$BRIDGE" ]]; then
-    node -e "
-      const b = require(process.argv[1]);
-      const env = process.env.NEPHEW_ROOT;
-      const d = require('node:os').homedir() + '/Developer/nephew';
-      process.stdout.write(b.nephew_root || env || d);
-    " "$BRIDGE"
-    return
-  fi
-  echo "${NEPHEW_ROOT:-$HOME/Developer/nephew}"
+  echo "$default"
 }
 
 surface_version() {
