@@ -1,0 +1,473 @@
+/**
+ * Plan 0274 — Pockit phone shell (dock, controls FAB/sheet, touch targets, safe-area).
+ */
+
+:root {
+  --pockit-phone-dock-item-h: 44px;
+  --pockit-phone-dock-pad: 6px;
+  --pockit-phone-dock-h: calc(var(--pockit-phone-dock-item-h) + var(--pockit-phone-dock-pad) * 2 + env(safe-area-inset-bottom, 0px));
+  --pockit-phone-controls-fab-h: 44px;
+  --pockit-phone-chrome-bottom: calc(var(--pockit-phone-dock-h) + var(--pockit-phone-controls-fab-h) + 12px);
+}
+
+body.pockit-phone-shell {
+  --player-rail-w: 0px;
+  --cassette-rail-w: 0px;
+  --sidebar-w: 0px;
+  --suite-bar-h: 52px;
+  --pockit-main-header-h: 44px;
+}
+
+body.pockit-phone-shell.suite-bar-visible .cassette-player {
+  margin-top: var(--suite-bar-h, 52px);
+  height: calc(100dvh - var(--suite-bar-h, 52px));
+  max-height: calc(100dvh - var(--suite-bar-h, 52px));
+}
+
+body.pockit-phone-shell #main-frame > header.main-header {
+  max-height: var(--pockit-main-header-h, 44px);
+  min-height: 0;
+}
+
+body.pockit-phone-shell #main-frame > header.main-header .pockit-layout-row--toolbar {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  min-height: 0;
+}
+
+body.pockit-phone-shell .suite-bar {
+  min-height: var(--suite-bar-h, 52px);
+}
+
+body.pockit-phone-shell .suite-bar__brand {
+  min-height: var(--suite-bar-h, 52px);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+body.pockit-phone-shell #suite-bar {
+  padding-top: max(2px, env(safe-area-inset-top, 0px));
+}
+
+body.pockit-phone-shell #top-chrome-handle,
+body.pockit-phone-shell #bottom-chrome-handle,
+body.pockit-phone-shell #player-rail-handle,
+body.pockit-phone-shell #cassette-rail-handle,
+body.pockit-viewport-phone #top-chrome-handle,
+body.pockit-viewport-phone #bottom-chrome-handle,
+body.pockit-viewport-phone #player-rail-handle,
+body.pockit-viewport-phone #cassette-rail-handle {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.pockit-phone-shell .cassette-player {
+  padding-bottom: var(--pockit-phone-chrome-bottom);
+}
+
+body.pockit-phone-shell .main-breadcrumb-wrap .main-breadcrumb {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+body.pockit-phone-shell .pockit-hero,
+body.pockit-phone-shell .pockit-hero--dash {
+  padding: 12px 14px 6px;
+}
+
+body.pockit-phone-shell .pockit-widget--player-rail-toggle,
+body.pockit-phone-shell .pockit-widget--cassette-rail-toggle {
+  display: none !important;
+}
+
+.pockit-phone-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 520;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: color-mix(in srgb, var(--bg-1, #fff) 94%, transparent);
+  border-top: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.pockit-phone-dock[hidden] {
+  display: none !important;
+}
+
+.pockit-phone-dock__inner {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 2px;
+  padding: var(--pockit-phone-dock-pad) 8px;
+}
+
+.pockit-phone-dock__item {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: var(--pockit-phone-dock-item-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: none;
+  background: transparent;
+  color: var(--fg-2, var(--ant-text-secondary));
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 4px 2px;
+}
+
+.pockit-phone-dock__item.is-active {
+  color: var(--accent, var(--ant-primary, #1677ff));
+  background: color-mix(in srgb, var(--accent, #1677ff) 10%, transparent);
+}
+
+.pockit-phone-dock__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+}
+
+.pockit-phone-dock__label {
+  line-height: 1.1;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pockit-controls-fab {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--pockit-phone-dock-h) + 8px);
+  z-index: 515;
+  min-height: var(--pockit-phone-controls-fab-h);
+  padding: 10px 20px;
+  border-radius: var(--ak-radius-pill);
+  border: 1px solid color-mix(in srgb, var(--accent, #1677ff) 35%, var(--border));
+  background: color-mix(in srgb, var(--bg-1, #fff) 92%, var(--accent, #1677ff) 8%);
+  color: var(--fg, var(--ant-text));
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.pockit-controls-fab[hidden] {
+  display: none !important;
+}
+
+.pockit-controls-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 1350;
+  display: flex;
+  flex-direction: column;
+}
+
+.pockit-controls-sheet[hidden] {
+  display: none !important;
+}
+
+.pockit-controls-sheet__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pockit-controls-sheet__panel {
+  position: relative;
+  margin: auto 0 0;
+  width: 100%;
+  max-height: min(78dvh, calc(100dvh - var(--pockit-phone-dock-h) - 16px));
+  border-radius: 20px 20px 0 0;
+  background: var(--bg-1, #fff);
+  box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pockit-controls-sheet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+}
+
+.pockit-controls-sheet__tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--border, rgba(60, 60, 67, 0.1));
+}
+
+.pockit-controls-sheet__tab {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  border: none;
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: var(--ak-radius-sm, 8px);
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--fg-2, var(--ant-text-secondary));
+  cursor: pointer;
+}
+
+.pockit-controls-sheet__tab.is-active {
+  background: color-mix(in srgb, var(--accent, #4096ff) 12%, transparent);
+  color: var(--accent, #4096ff);
+}
+
+.pockit-controls-sheet__body {
+  flex: 1 1 auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pockit-phone-rail .sidebar-section {
+  margin-bottom: 18px;
+}
+
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-section h3,
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-section-head-row {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-2, var(--ant-text-secondary));
+}
+
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-item {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-item-main {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 6px;
+  padding: 10px 6px 8px;
+  min-height: auto;
+  width: 100%;
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  border-radius: 14px;
+  background: var(--bg-0, #f2f2f7);
+}
+
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-item.active .sidebar-item-main {
+  border-color: color-mix(in srgb, var(--accent, #4096ff) 55%, var(--border));
+  background: color-mix(in srgb, var(--accent, #4096ff) 8%, var(--bg-0, #f2f2f7));
+}
+
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-label,
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-label-text {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-item-newtab,
+.pockit-phone-rail.pockit-mobile-hud__rail--grid .sidebar-item-home {
+  display: none;
+}
+
+.pockit-phone-rail .sidebar-item-main--command,
+.pockit-phone-rail .sidebar-item-main--voice {
+  min-height: 44px;
+}
+
+.pockit-controls-sheet__title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.pockit-controls-sheet__close {
+  border: none;
+  background: var(--bg-2, rgba(0, 0, 0, 0.05));
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.pockit-controls-sheet__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pockit-controls-sheet__status .shell-footer-led-legend {
+  display: none;
+}
+
+.pockit-controls-sheet__led-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-0, #f2f2f7);
+}
+
+.pockit-controls-sheet__led-label {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pockit-controls-sheet__led-help {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+body:not(.pockit-phone-shell) .pockit-phone-dock,
+body:not(.pockit-phone-shell) .pockit-controls-fab,
+body:not(.pockit-phone-shell) .pockit-controls-sheet {
+  display: none !important;
+}
+
+body.pockit-phone-shell .shell-player-control,
+body.pockit-phone-shell .shell-health-pill--action {
+  min-height: 44px;
+  font-size: 13px;
+  padding: 10px 14px;
+}
+
+body.pockit-phone-shell .pockit-mobile-hud__tab {
+  min-height: 44px;
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+body.pockit-phone-shell .suite-bar .icon-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+body.pockit-phone-shell .pockit-version-invariant.pockit-version-invariant--floated {
+  bottom: calc(var(--pockit-phone-dock-h, 56px) + 8px);
+  z-index: 525;
+}
+
+/* ─── Mobile-first canvas (wins over legacy @media 640px sidebar drawer rules) ─── */
+
+body.pockit-phone-shell.tapes-ui .cassette-player::before {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.pockit-phone-shell.tapes-ui .sidebar,
+body.pockit-phone-shell.tapes-ui .player-rail,
+body.pockit-phone-shell.tapes-ui .cassette-rail {
+  position: absolute !important;
+  flex: 0 0 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  border: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+body.pockit-phone-shell.tapes-ui .cassette-player:has(.sidebar:not(.collapsed)) .main-frame,
+body.pockit-phone-shell.tapes-ui .sidebar:not(.collapsed) ~ .main-frame {
+  opacity: 1 !important;
+}
+
+body.pockit-phone-shell.tapes-ui #main-frame {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+body.pockit-phone-shell.tapes-ui #main-content {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+body.pockit-phone-shell.tapes-ui #main-content > .pockit-center-canvas,
+body.pockit-phone-shell.tapes-ui #main-content > .pockit-center-canvas--embed,
+body.pockit-phone-shell.tapes-ui #main-content > .pockit-center-canvas--native,
+body.pockit-phone-shell.tapes-ui #main-content > .iframe-holder,
+body.pockit-phone-shell.tapes-ui #main-content .pockit-center-canvas,
+body.pockit-phone-shell.tapes-ui #main-content .pockit-center-canvas--embed,
+body.pockit-phone-shell.tapes-ui #main-content .iframe-holder {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+body.pockit-phone-shell.tapes-ui #main-content .iframe-holder iframe,
+body.pockit-phone-shell.tapes-ui #main-content > .iframe-holder iframe {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: 100% !important;
+}
+
+body.pockit-phone-shell.tapes-ui #voice-pad.voice-pad-center {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+
+body.pockit-phone-shell.tapes-ui.pockit-bottom-chrome-collapsed #main-frame > footer.main-shell-footer {
+  max-height: 0 !important;
+}

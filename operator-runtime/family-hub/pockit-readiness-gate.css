@@ -1,0 +1,311 @@
+/**
+ * Pockit readiness warming — cotton-ball entry + route-specific chrome (Plan 0278).
+ * Voice variant aligns with voice-pad accent (hsl 212).
+ */
+
+.pockit-readiness-warm {
+  --warm-accent: var(--accent, #4096ff);
+  --warm-glow: color-mix(in srgb, var(--warm-accent) 28%, transparent);
+  --warm-surface: color-mix(in srgb, var(--bg-1, #fff) 88%, var(--warm-accent) 12%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: min(52vh, 420px);
+  padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  animation: comet-section-in var(--comet-duration-mid, 0.32s) var(--comet-ease-back, cubic-bezier(0.12, 0.4, 0.29, 1.46)) both;
+}
+
+.pockit-readiness-warm--voice {
+  --warm-accent: hsl(212 72% 52%);
+  --warm-surface: color-mix(in srgb, var(--bg-1, #141418) 92%, var(--warm-accent) 8%);
+  gap: 0.5rem;
+}
+
+.pockit-readiness-warm__stage {
+  position: relative;
+  width: min(11rem, 42vw);
+  height: min(7rem, 28vw);
+  margin-bottom: 0.35rem;
+  display: grid;
+  place-items: center;
+}
+
+.pockit-readiness-warm__orb {
+  position: relative;
+  width: 5.5rem;
+  height: 5.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.pockit-readiness-warm__orb-core {
+  position: relative;
+  z-index: 2;
+  font-size: 2.25rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 12px var(--warm-glow));
+  animation: warm-orb-breathe 2.4s var(--comet-ease-standard, ease) infinite;
+}
+
+.pockit-readiness-warm__orb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--warm-accent) 45%, transparent);
+  animation: warm-ring-pulse 2.8s var(--comet-ease-out, ease-out) infinite;
+}
+
+.pockit-readiness-warm__orb-ring--2 {
+  inset: -0.65rem;
+  opacity: 0.55;
+  animation-delay: 0.45s;
+}
+
+.pockit-readiness-warm__wave {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  height: 2rem;
+  width: 6.5rem;
+  opacity: 0.85;
+}
+
+.pockit-readiness-warm__wave-bar {
+  width: 4px;
+  border-radius: var(--ak-radius-pill);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--warm-accent) 90%, #fff),
+    color-mix(in srgb, var(--warm-accent) 35%, transparent)
+  );
+  height: 28%;
+  animation: warm-wave-bar 1.05s var(--comet-ease-standard, ease-in-out) infinite;
+  animation-delay: calc(var(--bar-i, 0) * 0.08s);
+}
+
+.pockit-readiness-warm__kicker {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--warm-accent) 75%, var(--fg-2, #888));
+}
+
+.pockit-readiness-warm__title {
+  margin: 0;
+  font-size: clamp(1.25rem, 3.5vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  background: linear-gradient(
+    105deg,
+    var(--fg, #111) 0%,
+    color-mix(in srgb, var(--warm-accent) 55%, var(--fg, #111)) 48%,
+    var(--fg, #111) 92%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: warm-title-shimmer 3.2s linear infinite;
+}
+
+.pockit-readiness-warm__detail {
+  max-width: 26rem;
+  margin: 0;
+  opacity: 0.88;
+  line-height: 1.5;
+  font-size: 0.92rem;
+  color: var(--fg-2, var(--ant-text-secondary));
+}
+
+.pockit-readiness-warm__tagline {
+  margin: 0;
+  max-width: 22rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  color: var(--fg-dim, var(--ant-text-secondary));
+}
+
+.pockit-readiness-warm__steps {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0.85rem 1rem;
+  width: min(100%, 22rem);
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--warm-accent) 22%, var(--border, rgba(60, 60, 67, 0.12)));
+  background: var(--warm-surface);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 8%, transparent) inset,
+    0 12px 32px color-mix(in srgb, var(--warm-accent) 8%, transparent);
+  text-align: left;
+}
+
+.pockit-readiness-warm__step {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.42rem 0;
+  font-size: 0.82rem;
+  color: var(--fg-2, var(--ant-text-secondary));
+  animation: warm-step-in 0.45s var(--comet-ease-back, ease) both;
+  animation-delay: calc(var(--step-i, 0) * 0.06s + 0.12s);
+}
+
+.pockit-readiness-warm__step + .pockit-readiness-warm__step {
+  border-top: 1px solid color-mix(in srgb, var(--border, rgba(60, 60, 67, 0.12)) 70%, transparent);
+}
+
+.pockit-readiness-warm__step-dot {
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--fg-2, #888) 35%, transparent);
+}
+
+.pockit-readiness-warm__step--wait .pockit-readiness-warm__step-dot {
+  animation: warm-dot-pulse 1.4s ease-in-out infinite;
+}
+
+.pockit-readiness-warm__step--pending .pockit-readiness-warm__step-dot {
+  background: color-mix(in srgb, var(--warm-accent) 55%, var(--bg-1));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--warm-accent) 18%, transparent);
+  animation: warm-dot-pulse 1.1s ease-in-out infinite;
+}
+
+.pockit-readiness-warm__step--done .pockit-readiness-warm__step-dot {
+  background: hsl(142 58% 42%);
+  box-shadow: 0 0 8px color-mix(in srgb, hsl(142 58% 42%) 45%, transparent);
+}
+
+.pockit-readiness-warm__step--done .pockit-readiness-warm__step-label {
+  color: var(--fg, var(--ant-text));
+  opacity: 0.92;
+}
+
+.pockit-readiness-warm__hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  opacity: 0.55;
+  color: var(--fg-dim, var(--ant-text-secondary));
+}
+
+.pockit-readiness-warm__retry {
+  margin-top: 0.35rem;
+}
+
+.pockit-readiness-warm__pulse {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-bottom: 0.25rem;
+  background: radial-gradient(circle at 35% 35%, var(--warm-glow), transparent 68%);
+  animation: warm-orb-breathe 2.2s ease-in-out infinite;
+}
+
+@keyframes warm-orb-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.88;
+  }
+}
+
+@keyframes warm-ring-pulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.35;
+  }
+}
+
+@keyframes warm-wave-bar {
+  0%,
+  100% {
+    height: 22%;
+    opacity: 0.45;
+  }
+  40% {
+    height: 92%;
+    opacity: 1;
+  }
+  70% {
+    height: 38%;
+    opacity: 0.7;
+  }
+}
+
+@keyframes warm-title-shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes warm-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes warm-dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pockit-readiness-warm,
+  .pockit-readiness-warm__title,
+  .pockit-readiness-warm__orb-core,
+  .pockit-readiness-warm__orb-ring,
+  .pockit-readiness-warm__wave-bar,
+  .pockit-readiness-warm__step,
+  .pockit-readiness-warm__step-dot,
+  .pockit-readiness-warm__pulse {
+    animation: none !important;
+  }
+
+  .pockit-readiness-warm__title {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--fg, #111);
+  }
+}

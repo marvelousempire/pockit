@@ -1,0 +1,249 @@
+/* Pockit Help Guide console — full shell with topics left, related right */
+
+.pockit-help-console {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-height: 100%;
+  padding: 0 0 24px;
+}
+
+.pockit-help-console__hero {
+  position: relative;
+  padding: 28px 32px 20px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--accent, #4096ff) 8%, var(--bg-0, #0f1419)) 0%,
+    var(--bg-0, #0f1419) 55%
+  );
+}
+
+.pockit-help-console__hero-mesh {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image: radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--accent) 25%, transparent) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, color-mix(in srgb, #a78bfa 18%, transparent) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.pockit-help-console__kicker {
+  position: relative;
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent, #4096ff);
+}
+
+.pockit-help-console__title {
+  position: relative;
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fg-0, var(--ant-text));
+}
+
+.pockit-help-console__tagline {
+  position: relative;
+  margin: 0;
+  max-width: 52ch;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-2, var(--ant-text-secondary));
+}
+
+.pockit-help-console__search-row {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  max-width: 480px;
+}
+
+.pockit-help-console__search {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: var(--ak-radius-md, 10px);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-1) 90%, transparent);
+  color: var(--fg-0);
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.pockit-help-console__search:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  outline-offset: 1px;
+}
+
+.pockit-help-console__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  flex: 1;
+}
+
+@media (min-width: 900px) {
+  .pockit-help-console__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.pockit-help-console__article {
+  padding: 24px 32px 32px;
+  max-width: 720px;
+}
+
+.pockit-help-console__article-title {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fg-0);
+}
+
+.pockit-help-console__article-lede {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg-1, var(--ant-text));
+}
+
+.pockit-help-console__article-body {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--fg-2);
+}
+
+.pockit-help-console__article-body strong {
+  color: var(--fg-0);
+  font-weight: 600;
+}
+
+.pockit-help-console__steps {
+  margin: 0 0 24px;
+  padding: 16px 18px 16px 36px;
+  border-radius: var(--ak-radius-md, 10px);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg-1));
+}
+
+.pockit-help-console__steps li {
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-1);
+}
+
+.pockit-help-console__steps li:last-child {
+  margin-bottom: 0;
+}
+
+.pockit-help-console__inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pockit-help-console__link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--ak-radius-sm, 8px);
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.pockit-help-console__link-btn:hover {
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-1));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  color: var(--fg-0);
+}
+
+.pockit-help-console__empty {
+  padding: 48px 32px;
+  text-align: center;
+  color: var(--fg-2);
+  font-size: 14px;
+}
+
+.pockit-help-console__empty-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+/* Suite bar Help Guide button */
+.suite-bar__help-btn {
+  grid-column: 3;
+  justify-self: end;
+  margin-right: 12px;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--ak-radius-md, 10px);
+  border: 1px solid color-mix(in srgb, var(--accent, #4096ff) 35%, var(--border));
+  background: color-mix(in srgb, var(--accent, #4096ff) 10%, var(--bg-1, #1a1f2b));
+  color: var(--fg-0, var(--ant-text));
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 1px 0 color-mix(in srgb, #fff 6%, transparent);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.suite-bar__help-btn:hover {
+  background: color-mix(in srgb, var(--accent, #4096ff) 18%, var(--bg-1));
+  border-color: color-mix(in srgb, var(--accent, #4096ff) 55%, var(--border));
+}
+
+.suite-bar__help-btn:active {
+  transform: scale(0.98);
+}
+
+.suite-bar__help-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: #facc15;
+  flex-shrink: 0;
+}
+
+.suite-bar__help-btn-icon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.suite-bar__help-btn-label {
+  white-space: nowrap;
+}
+
+body.pockit-phone-shell .suite-bar__help-btn-label,
+body[data-pockit-viewport="phoneCompact"] .suite-bar__help-btn-label,
+body[data-pockit-viewport="phoneLarge"] .suite-bar__help-btn-label {
+  display: none;
+}
+
+body.pockit-help-rails .sidebar-item--help-topic.active .sidebar-item-main,
+body.pockit-help-rails .sidebar-item--help-article.active .sidebar-item-main {
+  border-color: color-mix(in srgb, #facc15 45%, var(--border));
+  background: color-mix(in srgb, #facc15 12%, var(--bg-1));
+}

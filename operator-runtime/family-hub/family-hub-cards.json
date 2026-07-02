@@ -1,0 +1,405 @@
+{
+  "$comment": "Family Pockit — curated pins + section order. tower-api /api/v1/family/hub-cards merges ALL Control Tower cassettes from native-cards.manifest.json (by sidebar group) and SSO apps not listed here. Edit pins/order here; CT cards auto-appear after these sections.",
+  "version": 2,
+  "cards": [
+    {
+      "section": "Home",
+      "items": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "glyph": "⌂",
+          "subtitle": "Every cassette — grid of the whole Family Office",
+          "url": null,
+          "type": "overview",
+          "pill": "Pockit"
+        }
+      ]
+    },
+    {
+      "section": "Infrastructure shortcuts",
+      "items": [
+        {
+          "id": "spark-status",
+          "title": "DGX Spark",
+          "glyph": "⚡",
+          "subtitle": "GPU + Ollama + services on nephew-spark · search: dgx spark gpu",
+          "url": "https://nephew.jailynmarvin.com/spark",
+          "iframe": true,
+          "pill": "Infrastructure"
+        },
+        {
+          "id": "fleet-mac-relay",
+          "title": "Fleet Mac Relay",
+          "glyph": "🖥️",
+          "subtitle": "Agent CLI Bridge relay doctor · search: fleet mac relay",
+          "url": "https://nephew.jailynmarvin.com/fleet-mac-relay",
+          "iframe": true,
+          "pill": "Infrastructure"
+        }
+      ]
+    },
+    {
+      "section": "Cassettes",
+      "items": [
+        {
+          "id": "hello-cassette",
+          "title": "Hello",
+          "glyph": "👋",
+          "subtitle": "nephew. Family chat + corpus search · native Hello (power tools on hello.jailynmarvin.com)",
+          "url": "https://nephew.jailynmarvin.com/hello?cassette=1&player=nephew-deck",
+          "iframe": true
+        }
+      ]
+    },
+    {
+      "section": "Nephew Control Tower",
+      "items": [
+        {
+          "id": "nephew-home",
+          "title": "Nephew Home",
+          "glyph": "🏠",
+          "subtitle": "Machines, channels, engines — one view",
+          "url": "https://nephew.jailynmarvin.com/home",
+          "iframe": true
+        },
+        {
+          "id": "nephew-help",
+          "title": "Operator Help",
+          "glyph": "❓",
+          "subtitle": "Commands, URLs, scripts, aliases",
+          "url": "https://nephew.jailynmarvin.com/help",
+          "iframe": true
+        },
+        {
+          "id": "nephew-learning",
+          "title": "Learning Loop",
+          "glyph": "📈",
+          "subtitle": "Feedback → harvest → RAG → next chat",
+          "url": "https://nephew.jailynmarvin.com/learning",
+          "iframe": true
+        }
+      ]
+    },
+    {
+      "section": "Memory",
+      "items": [
+        {
+          "id": "meta-library",
+          "title": "Meta Library",
+          "glyph": "📚",
+          "subtitle": "Governed doctrine, decisions, lessons · browse + RAG search",
+          "url": "https://nephew.jailynmarvin.com/meta-library",
+          "iframe": true
+        }
+      ]
+    },
+    {
+      "section": "Operator — daily tools",
+      "items": [
+        {
+          "id": "retrieve",
+          "title": "Retrieval Explorer",
+          "glyph": "🔎",
+          "subtitle": "Query the corpus — dense, rerank, hybrid",
+          "url": "https://nephew.jailynmarvin.com/retrieve",
+          "iframe": true
+        },
+        {
+          "id": "retrieve-audit",
+          "title": "Retrieval Audit",
+          "glyph": "🧪",
+          "subtitle": "Eval runs and retrieval quality",
+          "url": "https://nephew.jailynmarvin.com/retrieve/audit",
+          "iframe": true
+        },
+        {
+          "id": "federation",
+          "title": "Federation Peers",
+          "glyph": "🛰️",
+          "subtitle": "Peer registry and chunk counts",
+          "url": "https://nephew.jailynmarvin.com/federation",
+          "iframe": true
+        },
+        {
+          "id": "vault-sync",
+          "title": "Vault Sync",
+          "glyph": "📓",
+          "subtitle": "Obsidian → git → publish activity",
+          "url": "https://nephew.jailynmarvin.com/vault-sync",
+          "iframe": true
+        },
+        {
+          "id": "fleet",
+          "title": "Fleet Overview",
+          "glyph": "🗺️",
+          "subtitle": "Health of every CT cassette",
+          "url": "https://nephew.jailynmarvin.com/fleet",
+          "iframe": true
+        },
+        {
+          "id": "fleet-netmap",
+          "title": "Fleet Network Map",
+          "glyph": "📡",
+          "subtitle": "AirPort-style topology across agents",
+          "url": "https://nephew.jailynmarvin.com/fleet-network",
+          "iframe": true
+        },
+        {
+          "id": "mcp",
+          "title": "MCP Observatory",
+          "glyph": "🔌",
+          "subtitle": "Tools and reachability per agent",
+          "url": "https://nephew.jailynmarvin.com/mcp",
+          "iframe": true
+        },
+        {
+          "id": "operator",
+          "title": "Script Operator",
+          "glyph": "🎮",
+          "subtitle": "Allowlisted Nephew maintenance scripts",
+          "url": "https://nephew.jailynmarvin.com/operator",
+          "iframe": true
+        },
+        {
+          "id": "prompt-library",
+          "title": "Prompt Library",
+          "glyph": "📋",
+          "subtitle": "Operator prompts — Play / Copy / Report across Pockit, Cursor, Hello",
+          "url": null,
+          "type": "prompt-library",
+          "pill": "Pockit"
+        },
+        {
+          "id": "family-desk",
+          "title": "Family Wealth Desk",
+          "glyph": "🏛",
+          "subtitle": "Net worth · allocation · cash flow · FOP entity filter",
+          "url": null,
+          "type": "family-desk",
+          "pill": "Pockit"
+        },
+        {
+          "id": "ship-integrity",
+          "title": "Ship Integrity",
+          "glyph": "🛡",
+          "subtitle": "Operator gate — pads, tower paths, Spark SSH tower probe",
+          "url": null,
+          "type": "ship-integrity",
+          "pill": "Pockit"
+        }
+      ]
+    },
+    {
+      "section": "Observability",
+      "items": [
+        {
+          "id": "grafana",
+          "title": "Grafana",
+          "glyph": "📈",
+          "subtitle": "Metrics dashboards — VPS + DGX (Hub SSO)",
+          "url": "https://nephew.jailynmarvin.com/grafana",
+          "iframe": true
+        },
+        {
+          "id": "prometheus",
+          "title": "Prometheus",
+          "glyph": "🔥",
+          "subtitle": "Scrape-target health (Hub SSO)",
+          "url": "https://nephew.jailynmarvin.com/prometheus",
+          "iframe": true
+        },
+        {
+          "id": "grafana-vps",
+          "title": "Grafana VPS",
+          "glyph": "🖥",
+          "subtitle": "Direct vhost — fleet dashboard",
+          "url": "https://grafana.jailynmarvin.com/",
+          "iframe": true
+        },
+        {
+          "id": "grafana-dgx",
+          "title": "Grafana DGX",
+          "glyph": "🟩",
+          "subtitle": "Spark metrics over the mesh",
+          "url": "https://grafana-dgx.jailynmarvin.com/",
+          "iframe": true
+        }
+      ]
+    },
+    {
+      "section": "Family edge apps",
+      "items": [
+        {
+          "id": "family-office-platform",
+          "title": "Family Office",
+          "glyph": "🏛️",
+          "subtitle": "Entities, cartridges, VHMS — Hub SSO on office.jailynmarvin.com",
+          "url": "https://office.jailynmarvin.com/",
+          "iframe": true
+        },
+        {
+          "id": "bank-reader",
+          "title": "Bank Reader",
+          "glyph": "🏦",
+          "subtitle": "Family banking and bookkeeping",
+          "url": "https://bank.jailynmarvin.com/",
+          "iframe": true
+        },
+        {
+          "id": "dustpan-edge",
+          "title": "DustPan",
+          "glyph": "🧹",
+          "subtitle": "Linux ops console on the DGX",
+          "url": "https://dustpan.jailynmarvin.com/",
+          "iframe": true
+        },
+        {
+          "id": "automata-edge",
+          "title": "Automata Pad",
+          "glyph": "🧩",
+          "subtitle": "Operator pad on the DGX",
+          "url": "https://automata-spark.jailynmarvin.com/",
+          "iframe": true
+        }
+      ]
+    },
+    {
+      "section": "Family Office services",
+      "items": [
+        {
+          "id": "gitlab",
+          "title": "GitLab",
+          "glyph": "🗂",
+          "subtitle": "Private Git canonical",
+          "url": "https://git.jailynmarvin.com/",
+          "iframe": true
+        },
+        {
+          "id": "workflow",
+          "title": "n8n Workflow",
+          "glyph": "⚙️",
+          "subtitle": "Scheduled jobs and integrations",
+          "url": "https://workflow.jailynmarvin.com/",
+          "iframe": false
+        },
+        {
+          "id": "uptime",
+          "title": "Uptime Kuma",
+          "glyph": "💓",
+          "subtitle": "Service health monitoring",
+          "url": "https://uptime.jailynmarvin.com/",
+          "iframe": true
+        },
+        {
+          "id": "clinic",
+          "title": "Clinic",
+          "glyph": "🏥",
+          "subtitle": "Diagnostic hospital",
+          "url": "https://clinic.jailynmarvin.com/",
+          "iframe": true
+        },
+        {
+          "id": "portainer",
+          "title": "Portainer",
+          "glyph": "🐳",
+          "subtitle": "Container management",
+          "url": "https://portainer.jailynmarvin.com/",
+          "iframe": true
+        }
+      ]
+    },
+    {
+      "section": "Repos (GitLab)",
+      "items": [
+        {
+          "id": "automata-repo",
+          "title": "Automata",
+          "glyph": "🧩",
+          "subtitle": "Operator pad + skills repo",
+          "url": "https://git.jailynmarvin.com/marvelousempire/automata",
+          "iframe": true
+        },
+        {
+          "id": "ai-skills-library",
+          "title": "AI Skills Library",
+          "glyph": "📚",
+          "subtitle": "Shared skills federation",
+          "url": "https://git.jailynmarvin.com/marvelousempire/ai-skills-library",
+          "iframe": true
+        },
+        {
+          "id": "bishop",
+          "title": "Bishop",
+          "glyph": "♗",
+          "subtitle": "Kingdom workspace",
+          "url": "https://git.jailynmarvin.com/marvelousempire/bishop",
+          "iframe": true
+        },
+        {
+          "id": "scene-skout",
+          "title": "Scene Skout",
+          "glyph": "🎬",
+          "subtitle": "Scene capture + rebuild",
+          "url": "https://git.jailynmarvin.com/marvelousempire/scene-skout",
+          "iframe": true
+        },
+        {
+          "id": "nephew-repo",
+          "title": "Nephew",
+          "glyph": "🛰️",
+          "subtitle": "This orchestrator repo",
+          "url": "https://git.jailynmarvin.com/marvelousempire/nephew",
+          "iframe": true
+        }
+      ]
+    },
+    {
+      "section": "Obsidian",
+      "items": [
+        {
+          "id": "vault",
+          "title": "Obsidian Vault",
+          "glyph": "📚",
+          "subtitle": "Quartz publish — auth-gated",
+          "url": "https://vault.jailynmarvin.com/",
+          "iframe": true
+        },
+        {
+          "id": "sync",
+          "title": "Obsidian Sync",
+          "glyph": "🔄",
+          "subtitle": "CouchDB livesync admin",
+          "url": "https://sync.jailynmarvin.com/",
+          "iframe": false
+        }
+      ]
+    },
+    {
+      "section": "Trust Organization",
+      "items": [
+        {
+          "id": "board-intent-audit",
+          "title": "Board Intent Audit",
+          "glyph": "🛡",
+          "subtitle": "Board of Trustees — audit every Declaration of Intent (READYPLAY · Nephew · Pockit)",
+          "url": "/board-intent-audit.html",
+          "pill": "Governance"
+        }
+      ]
+    },
+    {
+      "section": "Ship log",
+      "items": [
+        {
+          "id": "changelog",
+          "title": "Changelog",
+          "glyph": "📝",
+          "subtitle": "What shipped, when, and why",
+          "url": "/changelog.html",
+          "iframe": true
+        }
+      ]
+    }
+  ]
+}

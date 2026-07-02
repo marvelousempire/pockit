@@ -1,0 +1,142 @@
+{
+  "schema_version": 2,
+  "product": "pockit-core",
+  "description": "Minimal pocket — default Mac accessories only. Full operator catalog hydrates in background.",
+  "generated_at": "2026-07-02T13:11:44.680Z",
+  "player_count": 0,
+  "cassette_count": 0,
+  "mac_app_count": 4,
+  "console_hues": {
+    "switcher_apps": {
+      "apps": {
+        "id": "cornflower",
+        "name": "Cornflower",
+        "hex": "#9ACEEB",
+        "hue": 201
+      },
+      "library": {
+        "id": "goldenrod",
+        "name": "Goldenrod",
+        "hex": "#FCD667",
+        "hue": 45
+      },
+      "voice": {
+        "id": "carnation-pink",
+        "name": "Carnation Pink",
+        "hex": "#FFAACC",
+        "hue": 336
+      }
+    }
+  },
+  "players": [],
+  "unassigned_cassettes": [],
+  "hub_cards": [],
+  "mac_apps": [
+    {
+      "id": "cassette-factory",
+      "displayName": "Cassette Factory",
+      "symbol": "Fa",
+      "hue": 38,
+      "door": "http://cassette-factory.localhost/",
+      "bundleDir": "Cassette Factory.app",
+      "makeTarget": "factory-wizard",
+      "doc": "docs/pockit/Cassette-Factory-App-Prototype.md",
+      "accessory_category": "html_tool",
+      "accessory_category_label": "Tool surface",
+      "surface_kind": "html",
+      "cassette_id": null,
+      "player_id": null,
+      "door_slug": "cassette-factory",
+      "nav": [
+        {
+          "id": "wizard",
+          "label": "Factory wizard",
+          "path": "http://cassette-factory.localhost/"
+        },
+        {
+          "id": "forge",
+          "label": "Family Forge",
+          "path": "http://cassette-factory.localhost/"
+        }
+      ],
+      "has_html_server": true
+    },
+    {
+      "id": "operator-console",
+      "displayName": "Help Command Center",
+      "symbol": "Oc",
+      "hue": 210,
+      "door": "http://console.localhost/",
+      "bundleDir": "Operator Console.app",
+      "makeTarget": "operator-console-app",
+      "doc": "docs/pockit/Operator-Console.md",
+      "accessory_category": "html_tool",
+      "accessory_category_label": "Tool surface",
+      "surface_kind": "html",
+      "cassette_id": null,
+      "player_id": null,
+      "door_slug": "console",
+      "nav": [
+        {
+          "id": "dashboard",
+          "label": "Command dashboard",
+          "path": "http://console.localhost/"
+        },
+        {
+          "id": "my-buttons",
+          "label": "My buttons",
+          "path": "http://console.localhost/"
+        }
+      ],
+      "has_html_server": true
+    },
+    {
+      "id": "pockit",
+      "displayName": "Pockit",
+      "symbol": "Po",
+      "hue": 48,
+      "door": "http://pockit.localhost/",
+      "bundleDir": "Pockit.app",
+      "makeTarget": "pockit-app",
+      "doc": "docs/pockit/Pockit-App-Prototype.md",
+      "accessory_category": "master_console",
+      "accessory_category_label": "Master console",
+      "surface_kind": "player",
+      "cassette_id": "nephew-hello",
+      "player_id": "pockit",
+      "door_slug": "pockit",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "suite",
+      "displayName": "Suite",
+      "symbol": "Fo",
+      "hue": 248,
+      "door": "http://suite.localhost/",
+      "bundleDir": "Suite.app",
+      "makeTarget": "suite-app",
+      "doc": "docs/pockit/Family-Office-Suite-App.md",
+      "accessory_category": "html_tool",
+      "accessory_category_label": "Tool surface",
+      "surface_kind": "html",
+      "cassette_id": null,
+      "player_id": null,
+      "door_slug": "suite",
+      "nav": [
+        {
+          "id": "launchpad",
+          "label": "Launchpad grid",
+          "path": "http://suite.localhost/"
+        },
+        {
+          "id": "install-framework",
+          "label": "Install Nephew Framework",
+          "path": "http://suite.localhost/"
+        }
+      ],
+      "has_html_server": true
+    }
+  ],
+  "family_embed_stems": []
+}

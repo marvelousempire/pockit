@@ -1,0 +1,32 @@
+{
+  "cassette_id": "knowledge",
+  "door": "http://knowledge.localhost/",
+  "studied_at": "2026-06-21",
+  "source": "knowledge-hud.js + tower-api /api/v1/corpus + /api/v1/retrieve",
+  "ui_sections": [
+    { "id": "chat", "label": "Chat", "kind": "spa_panel" },
+    { "id": "inventory", "label": "Inventory", "kind": "ops_panel" },
+    { "id": "probe", "label": "Honesty probe", "kind": "ops_panel" }
+  ],
+  "api_routes": [
+    { "path": "/api/v1/corpus/inventory", "method": "GET", "kind": "health" },
+    { "path": "/api/v1/retrieve", "method": "POST", "kind": "rag" },
+    { "path": "/api/v1/chat/completions", "method": "POST", "kind": "sse_chat" }
+  ],
+  "routes": [
+    { "id": "chat-main", "upstream": "/", "zone": "center_canvas", "panel": "chat" },
+    { "id": "scope-all", "upstream": "/#scope-all", "zone": "left_rail", "panel": "chat" },
+    { "id": "scope-rules", "upstream": "/#scope-rules", "zone": "left_rail", "panel": "chat" },
+    { "id": "scope-memory", "upstream": "/#scope-memory", "zone": "left_rail", "panel": "chat" },
+    { "id": "scope-historia", "upstream": "/#scope-historia", "zone": "left_rail", "panel": "chat" },
+    { "id": "scope-clinic", "upstream": "/#scope-clinic", "zone": "left_rail", "panel": "chat" },
+    { "id": "scope-vault", "upstream": "/#scope-vault", "zone": "left_rail", "panel": "chat" },
+    { "id": "inventory", "upstream": "/#inventory", "zone": "right_rail", "panel": "inventory" },
+    { "id": "probe", "upstream": "/#probe", "zone": "right_rail", "panel": "probe" },
+    { "id": "voice-link", "upstream": "#/c/voice", "zone": "right_rail", "panel": "chat" },
+    { "id": "visual-vault", "upstream": "/#vault", "zone": "speakers_only" },
+    { "id": "api-inventory", "upstream": "/api/v1/corpus/inventory", "zone": "footer" },
+    { "id": "api-retrieve", "upstream": "/api/v1/retrieve", "zone": "center_canvas" },
+    { "id": "api-chat", "upstream": "/api/v1/chat/completions", "zone": "center_canvas" }
+  ]
+}

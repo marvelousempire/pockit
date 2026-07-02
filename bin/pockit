@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Pockit sibling CLI — Plan 0468 Phase 1 (operator bridge to nephew until runtime extracted).
+# Pockit sibling CLI — Plan 0468 (Phase 1 bridge · Phase 2 operator-runtime).
 set -euo pipefail
 
 POCKIT_ROOT="$(cd "$(dirname "$0")/.." && pwd -P)"
@@ -30,9 +30,22 @@ resolve_nephew_root() {
   echo "$default"
 }
 
+bridge_phase() {
+  if [[ ! -f "$BRIDGE" ]]; then
+    echo "1"
+    return
+  fi
+  node -e "const b=require(process.argv[1]); process.stdout.write(String(b.phase||1))" "$BRIDGE"
+}
+
 surface_version() {
   local nep="$1"
+  local phase
+  phase="$(bridge_phase)"
   local candidates=()
+  if [[ "$phase" -ge 2 && -f "$POCKIT_ROOT/operator-runtime/family-hub/pockit-surface.json" ]]; then
+    candidates+=("$POCKIT_ROOT/operator-runtime/family-hub/pockit-surface.json")
+  fi
   if [[ -f "$BRIDGE" ]]; then
     candidates+=("$nep/containers/nephew-ct/family-hub/pockit-surface.json")
   fi
@@ -52,12 +65,12 @@ usage() {
   cat <<'EOF'
 pockit — Family Office player frame (sibling repo)
 
-  pockit up      Boot operator stack (delegates to nephew until Phase 2)
+  pockit up      Boot operator stack (delegates to nephew)
   pockit open    Open http://pockit.localhost/
   pockit version Print live surface version
-  pockit serve   Reserved — static serve (Phase 2)
+  pockit serve   Static serve family-hub from pockit repo (Phase 2+)
 
-Phase 1: runtime catalog + fleet live in nephew; this CLI is the sibling contract.
+Phase 2: operator-runtime/family-hub lives in this repo; gateway resolves via operator-bridge.json.
 EOF
 }
 
@@ -78,8 +91,10 @@ case "$cmd" in
     surface_version "$NEP"
     ;;
   serve)
-    echo "pockit serve — Phase 2 (gateway announce from pockit repo). Use: pockit up" >&2
-    exit 1
+    NEP="$(resolve_nephew_root)"
+    export NEPHEW_ROOT="$NEP"
+    export POCKIT_REPO_DEST="$POCKIT_ROOT"
+    exec node "$NEP/scripts/pockit-family-hub-serve.mjs" "$@"
     ;;
   ""|-h|--help|help)
     usage

@@ -1,0 +1,152 @@
+/* Super Rick Video pad — mirrors voice-pad cinematic shell (Plan 0431) */
+
+body.pockit-video-rails .player-rail,
+body.pockit-video-rails #sidebar.cassette-rail {
+  --rail-accent: #7c5cff;
+}
+
+#video-pad.video-pad {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 8px 24px;
+}
+
+.video-hero .video-title {
+  font-size: 1.35rem;
+  font-weight: 650;
+  margin: 0;
+  color: #e8e4ff;
+}
+
+.video-subtitle {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--pockit-dim, #9aa0b4);
+}
+
+.video-sovereign-badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: var(--ak-radius-pill);
+  border: 1px solid rgba(124, 92, 255, 0.35);
+  color: #c4b5fd;
+}
+
+.video-workspace-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #06080c;
+  min-height: 280px;
+}
+
+.video-workspace-embed {
+  width: 100%;
+  min-height: 320px;
+  height: 42vh;
+  border: 0;
+  background: #000;
+}
+
+.video-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.video-prompt {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  color: inherit;
+  padding: 10px 12px;
+  font: inherit;
+  resize: vertical;
+}
+
+.video-control-row,
+.video-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.video-control-label,
+.video-label {
+  font-size: 0.75rem;
+  color: var(--pockit-dim, #9aa0b4);
+  min-width: 52px;
+}
+
+.video-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  cursor: pointer;
+}
+
+.video-btn.is-active,
+.video-btn--primary {
+  border-color: rgba(124, 92, 255, 0.45);
+  background: rgba(124, 92, 255, 0.15);
+  color: #e8e4ff;
+}
+
+.video-link-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.video-job-log {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  max-height: 180px;
+  overflow: auto;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.25);
+  white-space: pre-wrap;
+}
+
+.video-status {
+  font-size: 0.8rem;
+  color: var(--pockit-dim, #9aa0b4);
+}
+
+.video-handoff-banner {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(124, 92, 255, 0.35);
+  background: rgba(124, 92, 255, 0.1);
+  font-size: 0.85rem;
+}
+
+.video-handoff-banner.hidden {
+  display: none;
+}
+
+.video-rail-info-btn {
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 2px;
+  opacity: 0.75;
+}
+
+.video-rail-info-btn:hover {
+  opacity: 1;
+}

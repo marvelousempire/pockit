@@ -1,0 +1,506 @@
+/**
+ * GL KVM Comet motion — Ant Design easeOutBack settle, grow/shrink panels & menus.
+ * Cotton-ball doctrine (RL-COTTON-001): sections leave like a sneeze, land on a cotton ball —
+ * sophisticated KVM motion, non-stress, soft overshoot then rest. See
+ * .claude/rules/cotton-ball-comet-motion.md
+ */
+
+:root {
+  --comet-duration-fast: 0.15s;
+  --comet-duration-mid: 0.32s;
+  --comet-duration-slide: 0.32s;
+  --comet-ease-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+  --comet-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --comet-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Shell layout breathe (sidebar ↔ main) ───────────────────── */
+
+body.tapes-ui .sidebar {
+  transition:
+    flex-basis var(--comet-duration-mid) var(--comet-ease-back),
+    width var(--comet-duration-mid) var(--comet-ease-back),
+    min-width var(--comet-duration-mid) var(--comet-ease-back),
+    max-width var(--comet-duration-mid) var(--comet-ease-back),
+    opacity var(--comet-duration-fast) var(--comet-ease-out),
+    transform var(--comet-duration-mid) var(--comet-ease-back);
+}
+
+body.tapes-ui .main-frame {
+  transition:
+    max-width var(--comet-duration-mid) var(--comet-ease-back),
+    flex var(--comet-duration-mid) var(--comet-ease-back);
+}
+
+body.tapes-ui .sidebar-active-pill {
+  transition:
+    transform var(--comet-duration-slide) var(--comet-ease-back),
+    height var(--comet-duration-slide) var(--comet-ease-back),
+    width var(--comet-duration-slide) var(--comet-ease-back),
+    opacity var(--comet-duration-fast) var(--comet-ease-out);
+}
+
+/* ─── Keyframes — soft overshoot settle ───────────────────────── */
+
+@keyframes comet-panel-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.965) translateY(6px);
+  }
+  72% {
+    opacity: 1;
+    transform: scale(1.006) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes comet-section-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.004) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+@keyframes cotton-ball-settle {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(16px);
+    filter: blur(4px);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(1.014) translateY(-4px);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes comet-menu-child-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-8px) scale(0.98);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(1px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes comet-status-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ─── Main view swap ──────────────────────────────────────────── */
+
+.main-content.comet-view-swap > .pockit-center-canvas,
+.main-content.comet-view-swap > .pockit,
+.main-content.comet-view-swap > .library-page,
+.main-content.comet-view-swap > .iframe-holder,
+.main-content.comet-view-swap > .open-panel {
+  animation: cotton-ball-settle var(--comet-duration-mid) var(--comet-ease-back) both;
+  transform-origin: top center;
+}
+
+body.tape-body-mode.tapes-ui .main-content.comet-view-swap > .iframe-holder {
+  animation: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.comet-section-enter {
+  animation: comet-section-in var(--comet-duration-mid) var(--comet-ease-back) both;
+  animation-delay: var(--comet-delay, 0ms);
+  transform-origin: top center;
+}
+
+.pockit-hero,
+.pockit-filter-bar,
+.pockit-nav {
+  animation: cotton-ball-settle var(--comet-duration-mid) var(--comet-ease-back) both;
+  transform-origin: top center;
+}
+
+.pockit-filter-bar {
+  animation-delay: 40ms;
+}
+
+.pockit-nav {
+  animation-delay: 56ms;
+}
+
+.tower-status-rail .ant-status-tag {
+  animation: comet-status-in 0.26s var(--comet-ease-back) both;
+}
+
+.tower-status-rail .ant-status-tag:nth-child(2) { animation-delay: 40ms; }
+.tower-status-rail .ant-status-tag:nth-child(3) { animation-delay: 80ms; }
+.tower-status-rail .ant-status-tag:nth-child(4) { animation-delay: 120ms; }
+.tower-status-rail .ant-status-tag:nth-child(5) { animation-delay: 160ms; }
+
+.pockit-stat-rail .ant-status-tag,
+.main-breadcrumb-wrap .tower-status-rail .ant-status-tag {
+  animation: comet-status-in 0.28s var(--comet-ease-back) both;
+}
+
+.pockit-stat-rail .ant-status-tag:nth-child(2) { animation-delay: 32ms; }
+.pockit-stat-rail .ant-status-tag:nth-child(3) { animation-delay: 64ms; }
+.pockit-stat-rail .ant-status-tag:nth-child(4) { animation-delay: 96ms; }
+.pockit-stat-rail .ant-status-tag:nth-child(5) { animation-delay: 128ms; }
+
+/* ─── Sidebar submenu grow / shrink ───────────────────────────── */
+
+.sidebar-submenu.comet-collapse {
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0.97);
+  transform-origin: top center;
+  overflow: hidden;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-color: transparent !important;
+  pointer-events: none;
+  transition:
+    max-height var(--comet-duration-mid) var(--comet-ease-back),
+    opacity 0.26s var(--comet-ease-out),
+    transform var(--comet-duration-mid) var(--comet-ease-back),
+    margin var(--comet-duration-mid) var(--comet-ease-back),
+    padding var(--comet-duration-mid) var(--comet-ease-back),
+    border-color 0.22s ease;
+}
+
+.sidebar-submenu.comet-collapse.is-open {
+  max-height: min(420px, 42vh);
+  opacity: 1;
+  transform: scaleY(1);
+  margin-top: 2px !important;
+  margin-bottom: 6px !important;
+  padding-top: 4px !important;
+  padding-bottom: 6px !important;
+  border-color: var(--border) !important;
+  pointer-events: auto;
+}
+
+body.tapes-ui .sidebar-submenu.comet-collapse.is-open {
+  border-color: var(--ant-border) !important;
+}
+
+.sidebar-submenu.is-open .sidebar-item--child {
+  animation: comet-menu-child-in 0.3s var(--comet-ease-back) both;
+  animation-delay: var(--comet-delay, 0ms);
+}
+
+.sidebar-chevron-btn {
+  transition: transform var(--comet-duration-slide) var(--comet-ease-back) !important;
+}
+
+.sidebar-item--parent.expanded .sidebar-chevron-btn {
+  transform: rotate(0deg);
+}
+
+.sidebar-item--parent.collapsed .sidebar-chevron-btn {
+  transform: rotate(-90deg);
+}
+
+
+/* ─── Cotton-ball button / menu trigger (non-stress tap) ─────── */
+
+body.tapes-ui .icon-btn:not(:disabled),
+body.tapes-ui .comet-dropdown-trigger,
+body.tapes-ui .comet-segment-btn {
+  transition:
+    transform var(--comet-duration-fast) var(--comet-ease-back),
+    background-color var(--comet-duration-fast) ease,
+    border-color var(--comet-duration-fast) ease,
+    color var(--comet-duration-fast) ease;
+}
+
+body.tapes-ui .icon-btn:active:not(:disabled),
+body.tapes-ui .comet-dropdown-trigger:active {
+  transform: scale(0.97);
+}
+
+/* ─── Dropdown / segment panels ───────────────────────────────── */
+
+.comet-dropdown-panel--animate,
+.comet-dropdown.is-open .comet-dropdown-panel:not([hidden]) {
+  animation: cotton-ball-settle 0.24s var(--comet-ease-back) both;
+  transform-origin: top center;
+}
+
+.comet-segment-pill {
+  transition:
+    transform var(--comet-duration-slide) var(--comet-ease-back),
+    width var(--comet-duration-slide) var(--comet-ease-back),
+    height var(--comet-duration-slide) var(--comet-ease-back) !important;
+}
+
+.comet-segment-btn {
+  transition: color var(--comet-duration-fast) ease, transform var(--comet-duration-fast) var(--comet-ease-standard) !important;
+}
+
+.overview-card {
+  transform-origin: center center;
+}
+
+.overview-section {
+  transform-origin: top center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-submenu.comet-collapse,
+  body.tapes-ui .sidebar,
+  body.tapes-ui .main-frame,
+  .comet-segment-pill {
+    transition: none !important;
+  }
+
+  .main-content.comet-view-swap > *,
+  .comet-section-enter,
+  .pockit-hero,
+  .pockit-filter-bar,
+  .pockit-nav,
+  .sidebar-submenu.is-open .sidebar-item--child,
+  .tower-status-rail .ant-status-tag,
+  .comet-dropdown-panel--animate {
+    animation: none !important;
+  }
+}
+
+
+/* ─── Status toolbar / footer (KVM Comet status bar) ──────────── */
+
+@keyframes comet-status-bar-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  72% {
+    opacity: 1;
+    transform: translateY(-1px) scale(1.002);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.comet-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-2) 92%, transparent);
+  transform-origin: bottom center;
+  animation: comet-status-bar-in var(--comet-duration-mid) var(--comet-ease-back) both;
+  animation-delay: 80ms;
+}
+
+body.tapes-ui .comet-status-bar {
+  border-top-color: var(--ant-border);
+  background: var(--ant-container-bg);
+}
+
+.comet-status-bar--sidebar {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  padding: 10px 12px 12px;
+  margin-top: auto;
+}
+
+.comet-status-bar--main {
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+body.tapes-ui .comet-status-bar--main {
+  border-color: var(--ant-border);
+  background: var(--ant-container-bg);
+}
+
+.comet-status-bar__tools {
+  width: 100%;
+}
+
+.comet-status-bar__rail,
+.comet-status-bar__cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  min-width: 0;
+}
+
+.comet-status-bar__cluster--grow {
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.comet-status-bar__cluster--end {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.comet-status-bar__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  width: 100%;
+  font-size: 11px;
+  color: var(--fg-3);
+}
+
+/* sidebar footer toolbar layout: ant-design-shell.css */
+
+.comet-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 4px 10px;
+  border-radius: var(--ak-radius-sm, 8px);
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  color: var(--fg-2);
+  font-size: 11px;
+  line-height: 1.3;
+  white-space: nowrap;
+  transition:
+    transform var(--comet-duration-fast) var(--comet-ease-back),
+    border-color var(--comet-duration-fast) ease,
+    background-color var(--comet-duration-fast) ease,
+    color var(--comet-duration-fast) ease;
+  animation: comet-status-in 0.28s var(--comet-ease-back) both;
+  animation-delay: var(--comet-delay, 0ms);
+}
+
+body.tapes-ui .comet-status-chip {
+  border-color: var(--ant-border);
+  background: var(--ant-bg);
+  color: var(--ant-text-secondary);
+}
+
+.comet-status-chip--btn {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.comet-status-chip--btn:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  color: var(--fg-1);
+  transform: translateY(-1px);
+}
+
+body.tapes-ui .comet-status-chip--btn:hover {
+  border-color: var(--ant-primary);
+  color: var(--ant-primary);
+}
+
+.comet-status-chip--live .comet-status-chip__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 35%, transparent);
+  animation: tower-live-pulse 2.4s ease-out infinite;
+}
+
+body.tapes-ui .comet-status-chip--live .comet-status-chip__dot {
+  background: var(--ant-success);
+}
+
+.comet-status-chip--muted {
+  opacity: 0.88;
+}
+
+.comet-status-chip .anticon {
+  font-size: 12px;
+}
+
+.comet-status-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--ak-radius-sm, 8px);
+  border: 1px solid transparent;
+  color: var(--fg-2);
+  font-size: 11px;
+  text-decoration: none;
+  transition:
+    color var(--comet-duration-fast) ease,
+    border-color var(--comet-duration-fast) ease,
+    transform var(--comet-duration-fast) var(--comet-ease-back);
+}
+
+.comet-status-link:hover {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  transform: translateY(-1px);
+}
+
+body.tapes-ui .comet-status-link:hover {
+  color: var(--ant-primary);
+  border-color: var(--ant-primary-border);
+}
+
+.comet-status-meta {
+  font-size: 10px;
+  color: var(--fg-3);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+body.tapes-ui .comet-status-meta {
+  color: var(--ant-text-tertiary);
+}
+
+.comet-dropdown--footer .comet-dropdown-panel {
+  top: auto;
+  bottom: calc(100% + 6px);
+  transform-origin: bottom center;
+}
+
+.comet-dropdown--footer.is-open .comet-dropdown-panel:not([hidden]) {
+  animation: cotton-ball-settle 0.24s var(--comet-ease-back) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .comet-status-bar,
+  .comet-status-chip {
+    animation: none !important;
+  }
+}

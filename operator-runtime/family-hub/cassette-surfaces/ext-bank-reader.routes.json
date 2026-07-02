@@ -1,0 +1,143 @@
+{
+  "cassette_id": "ext-bank-reader",
+  "door": "http://bank-reader.localhost/",
+  "studied_at": "2026-06-24",
+  "source": "console/lib/pockit-nav-manifest.mjs — hash routes from config/app.config.js",
+  "ui_sections": [
+    {
+      "id": "pulse",
+      "label": "Pulse",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "accounts",
+      "label": "Accounts",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "transactions",
+      "label": "Transactions",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "statements",
+      "label": "Statements",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "upload",
+      "label": "Import",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "analysis",
+      "label": "Analysis",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "family-office",
+      "label": "Family Office",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "calendar",
+      "label": "Calendar",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "receipts",
+      "label": "Receipts",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "kind": "settings_heavy"
+    }
+  ],
+  "api_routes": [
+    {
+      "path": "/api/v1/about",
+      "method": "GET",
+      "kind": "health"
+    },
+    {
+      "path": "/api/bank-reader/transactions",
+      "method": "GET",
+      "kind": "data"
+    }
+  ],
+  "routes": [
+    {
+      "id": "pulse",
+      "upstream": "/#pulse",
+      "zone": "left_rail"
+    },
+    {
+      "id": "accounts",
+      "upstream": "/#accounts",
+      "zone": "left_rail"
+    },
+    {
+      "id": "transactions",
+      "upstream": "/#bank-statements/transactions",
+      "zone": "left_rail"
+    },
+    {
+      "id": "statements",
+      "upstream": "/#bank-statements",
+      "zone": "left_rail"
+    },
+    {
+      "id": "upload",
+      "upstream": "/#upload",
+      "zone": "left_rail"
+    },
+    {
+      "id": "analysis",
+      "upstream": "/#analysis",
+      "zone": "right_rail"
+    },
+    {
+      "id": "family-office",
+      "upstream": "/#family-office",
+      "zone": "right_rail"
+    },
+    {
+      "id": "calendar",
+      "upstream": "/#calendar",
+      "zone": "right_rail"
+    },
+    {
+      "id": "receipts",
+      "upstream": "/#receipts",
+      "zone": "right_rail"
+    },
+    {
+      "id": "settings",
+      "upstream": "/#settings",
+      "zone": "right_rail",
+      "speakers_only": true
+    },
+    {
+      "id": "upload-quick",
+      "upstream": "/#upload",
+      "zone": "footer"
+    },
+    {
+      "id": "accounts-quick",
+      "upstream": "/#accounts",
+      "zone": "footer"
+    },
+    {
+      "id": "transactions-quick",
+      "upstream": "/#bank-statements/transactions",
+      "zone": "footer"
+    },
+    {
+      "id": "about-api",
+      "upstream": "/api/v1/about",
+      "zone": "footer"
+    }
+  ]
+}

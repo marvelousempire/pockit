@@ -1,0 +1,4680 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-02T13:58:55.767Z",
+  "player_count": 15,
+  "console_hues": {
+    "switcher_apps": {
+      "apps": {
+        "id": "cornflower",
+        "name": "Cornflower",
+        "hex": "#9ACEEB",
+        "hue": 201
+      },
+      "library": {
+        "id": "goldenrod",
+        "name": "Goldenrod",
+        "hex": "#FCD667",
+        "hue": 45
+      },
+      "voice": {
+        "id": "carnation-pink",
+        "name": "Carnation Pink",
+        "hex": "#FFAACC",
+        "hue": 336
+      }
+    }
+  },
+  "cassette_count": 139,
+  "mac_app_count": 18,
+  "players": [
+    {
+      "id": "pockit",
+      "name": "Pockit",
+      "glyph": "⟁",
+      "niche": "Family catalog + cassette creation console",
+      "agent_id": null,
+      "is_runtime": false,
+      "hosted_count": 21,
+      "hosted_cassettes": [
+        {
+          "id": "nephew-spark-spec",
+          "name": "Spec Sheet",
+          "glyph": "⚡",
+          "niche": null,
+          "path": "/nephew-spark-spec",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://nephew-spark-spec.localhost:8782/",
+          "web_url": "https://nephew-spark-spec.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=nephew-spark-spec",
+          "token": {
+            "kind": "Surface",
+            "ref": "nephew-spark-spec",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dgx-spark-console",
+          "name": "DGX Console",
+          "glyph": "🖥",
+          "niche": null,
+          "path": "/dgx-spark-console",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://nephew-spark.localhost:8782/",
+          "web_url": "https://dgx-spark-console.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=dgx-spark-console",
+          "token": {
+            "kind": "Surface",
+            "ref": "dgx-spark-console",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "comfyui-console",
+          "name": "ComfyUI Console",
+          "glyph": "🎛",
+          "niche": null,
+          "path": "/comfyui-console",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://comfyui-console.localhost:8782/",
+          "web_url": "https://comfyui-console.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=comfyui-console",
+          "token": {
+            "kind": "Surface",
+            "ref": "comfyui-console",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dockyard-console",
+          "name": "Dockyard Console",
+          "glyph": "🐳",
+          "niche": null,
+          "path": "/dockyard-console",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://dockyard-console.localhost:8782/",
+          "web_url": "https://dockyard-console.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=dockyard-console",
+          "token": {
+            "kind": "Surface",
+            "ref": "dockyard-console",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "phone-home-console",
+          "name": "Phone Home Console",
+          "glyph": "📡",
+          "niche": null,
+          "path": "/phone-home-console",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=phone-home-console",
+          "token": {
+            "kind": "Surface",
+            "ref": "phone-home-console",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "configurations",
+          "name": "Configurations",
+          "glyph": "⚙️",
+          "niche": null,
+          "path": "/play/configurations",
+          "hub_card_id": "configurations",
+          "parent_console": "pockit",
+          "family_url": "http://configurations.localhost:8782/",
+          "web_url": "https://configurations.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=configurations",
+          "token": {
+            "kind": "Surface",
+            "ref": "configurations",
+            "mount": "center-canvas",
+            "layout": "player-shell",
+            "props": {
+              "pockit_pad": true,
+              "pad_type": "configurations"
+            }
+          }
+        },
+        {
+          "id": "family-desk",
+          "name": "Family Desk",
+          "glyph": "🏛",
+          "niche": null,
+          "path": "/play/family-desk",
+          "hub_card_id": "family-desk",
+          "parent_console": "pockit",
+          "family_url": "http://family-desk.localhost:8782/",
+          "web_url": "https://family-desk.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=family-desk",
+          "token": {
+            "kind": "Surface",
+            "ref": "family-desk",
+            "mount": "center-canvas",
+            "layout": "player-shell",
+            "props": {
+              "pockit_pad": true,
+              "pad_type": "family-desk"
+            }
+          }
+        },
+        {
+          "id": "knowledge",
+          "name": "Knowledge",
+          "glyph": "🧠",
+          "niche": null,
+          "path": "/play/knowledge",
+          "hub_card_id": "knowledge-cassette",
+          "parent_console": "pockit",
+          "family_url": "http://knowledge.localhost/",
+          "web_url": "https://knowledge.jailynmarvin.com/",
+          "sidebar_group": "Interfaces",
+          "boot_command": "make TAPE=knowledge",
+          "token": {
+            "kind": "Surface",
+            "ref": "knowledge",
+            "mount": "center-canvas",
+            "layout": "player-shell",
+            "props": {
+              "pockit_pad": true,
+              "pad_type": "knowledge"
+            }
+          },
+          "surface": {
+            "type": "knowledge",
+            "center_path": "/",
+            "subtitle": "Ask the family brain · cited RAG on Spark",
+            "boot_script": "knowledge-hud",
+            "pockit_pad": true,
+            "encompass_mode": "native_pad",
+            "speakers_door": "http://knowledge.localhost/"
+          }
+        },
+        {
+          "id": "matrix-element",
+          "name": "Family Chat",
+          "glyph": "💬",
+          "niche": null,
+          "path": "/external-cassette/matrix-element",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://matrix-element.localhost/",
+          "web_url": "https://matrix-element.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=matrix-element",
+          "token": {
+            "kind": "Surface",
+            "ref": "matrix-element",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          },
+          "surface": {
+            "encompass_mode": "hud_iframe",
+            "speakers_door": "http://matrix-element.localhost/",
+            "embed_stem": "matrix-element"
+          }
+        },
+        {
+          "id": "nas-ugos",
+          "name": "NAS UGOS",
+          "glyph": "🗄",
+          "niche": null,
+          "path": "/external-cassette/nas-ugos",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://nas.localhost/",
+          "web_url": "https://nas-ugos.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=nas-ugos",
+          "token": {
+            "kind": "Surface",
+            "ref": "nas-ugos",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          },
+          "surface": {
+            "encompass_mode": "hud_iframe",
+            "speakers_door": "http://nas.localhost/",
+            "embed_stem": "nas-ugos"
+          }
+        },
+        {
+          "id": "nephew-web",
+          "name": "nephew",
+          "glyph": "💬",
+          "niche": null,
+          "path": "/web-cassette/nephew-web",
+          "hub_card_id": "nephew-web-cassette",
+          "parent_console": "pockit",
+          "family_url": "http://nephew-web.localhost:8782/",
+          "web_url": "https://nephew-web.jailynmarvin.com/",
+          "sidebar_group": "Interfaces",
+          "boot_command": "make TAPE=nephew-web",
+          "token": {
+            "kind": "Surface",
+            "ref": "nephew-web",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "prompt-library",
+          "name": "Prompts",
+          "glyph": "📋",
+          "niche": null,
+          "path": "/play/prompt-library",
+          "hub_card_id": "prompt-library",
+          "parent_console": "pockit",
+          "family_url": "http://prompt-library.localhost:8782/",
+          "web_url": "https://prompt-library.jailynmarvin.com/",
+          "sidebar_group": "Interfaces",
+          "boot_command": "make TAPE=prompt-library",
+          "token": {
+            "kind": "Surface",
+            "ref": "prompt-library",
+            "mount": "center-canvas",
+            "layout": "player-shell",
+            "props": {
+              "pockit_pad": true,
+              "pad_type": "prompt-library"
+            }
+          }
+        },
+        {
+          "id": "quick-desk",
+          "name": "Quick Desk",
+          "glyph": "⚡",
+          "niche": null,
+          "path": "/play/quick-desk",
+          "hub_card_id": "quick-desk",
+          "parent_console": "pockit",
+          "family_url": "http://quick-desk.localhost:8782/",
+          "web_url": "https://quick-desk.jailynmarvin.com/",
+          "sidebar_group": "Interfaces",
+          "boot_command": "make TAPE=quick-desk",
+          "token": {
+            "kind": "Surface",
+            "ref": "quick-desk",
+            "mount": "center-canvas",
+            "layout": "player-shell",
+            "props": {
+              "pockit_pad": true,
+              "pad_type": "quick-desk"
+            }
+          }
+        },
+        {
+          "id": "schema-library",
+          "name": "Schema Library",
+          "glyph": "📐",
+          "niche": null,
+          "path": "/web-cassette/schema-library",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://schema-library.localhost:8782/",
+          "web_url": "https://schema-library.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=schema-library",
+          "token": {
+            "kind": "Surface",
+            "ref": "schema-library",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ship-integrity",
+          "name": "Ship Integrity",
+          "glyph": "🛡",
+          "niche": null,
+          "path": "/play/ship-integrity",
+          "hub_card_id": "ship-integrity",
+          "parent_console": "pockit",
+          "family_url": "http://ship-integrity.localhost:8782/",
+          "web_url": "https://ship-integrity.jailynmarvin.com/",
+          "sidebar_group": "Interfaces",
+          "boot_command": "make TAPE=ship-integrity",
+          "token": {
+            "kind": "Surface",
+            "ref": "ship-integrity",
+            "mount": "center-canvas",
+            "layout": "player-shell",
+            "props": {
+              "pockit_pad": true,
+              "pad_type": "ship-integrity"
+            }
+          }
+        },
+        {
+          "id": "video",
+          "name": "Super Rick Video",
+          "glyph": "🎬",
+          "niche": null,
+          "path": "/play/video",
+          "hub_card_id": "video-cassette",
+          "parent_console": "pockit",
+          "family_url": "http://video.localhost:8782/",
+          "web_url": "https://video.jailynmarvin.com/",
+          "sidebar_group": "Interfaces",
+          "boot_command": "make TAPE=video",
+          "token": {
+            "kind": "Surface",
+            "ref": "video",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "voice",
+          "name": "Super Rick",
+          "glyph": "🗣️",
+          "niche": null,
+          "path": "/play/voice",
+          "hub_card_id": "voice-cassette",
+          "parent_console": "pockit",
+          "family_url": "http://voice.localhost:8782/",
+          "web_url": "https://voice.jailynmarvin.com/",
+          "sidebar_group": "Interfaces",
+          "boot_command": "make TAPE=voice",
+          "token": {
+            "kind": "Surface",
+            "ref": "voice",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "web-jarvis-mindspace",
+          "name": "Jarvis MindSpace",
+          "glyph": "🌌",
+          "niche": null,
+          "path": "/web-cassette/jarvis-mindspace",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://web-jarvis-mindspace.localhost:8782/",
+          "web_url": "https://web-jarvis-mindspace.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=web-jarvis-mindspace",
+          "token": {
+            "kind": "Surface",
+            "ref": "web-jarvis-mindspace",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "web-jarvis-sovereign",
+          "name": "Jarvis Sovereign",
+          "glyph": "🧠",
+          "niche": null,
+          "path": "/web-cassette/jarvis-sovereign",
+          "hub_card_id": null,
+          "parent_console": "pockit",
+          "family_url": "http://web-jarvis-sovereign.localhost:8782/",
+          "web_url": "https://web-jarvis-sovereign.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=web-jarvis-sovereign",
+          "token": {
+            "kind": "Surface",
+            "ref": "web-jarvis-sovereign",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "web-odysseus",
+          "name": "Odysseus",
+          "glyph": "📼",
+          "niche": null,
+          "path": "/web-cassette/odysseus",
+          "hub_card_id": "web-odysseus",
+          "parent_console": "pockit",
+          "family_url": "http://odysseus.localhost/",
+          "web_url": "https://web-odysseus.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=web-odysseus",
+          "token": {
+            "kind": "Surface",
+            "ref": "web-odysseus",
+            "mount": "center-canvas",
+            "layout": "player-shell",
+            "props": {
+              "pockit_pad": true,
+              "pad_type": "odysseus"
+            }
+          },
+          "surface": {
+            "center_path": "/web-cassette/odysseus",
+            "subtitle": "FACTORY • marvelousempire/odysseus @ Gitea",
+            "type": "odysseus",
+            "pockit_pad": true,
+            "encompass_mode": "native_pad",
+            "speakers_door": "http://odysseus.localhost/",
+            "embed_stem": "odysseus",
+            "instant_mount": true
+          }
+        },
+        {
+          "id": "hello",
+          "name": "Hello",
+          "glyph": "👋",
+          "niche": null,
+          "path": "/hello",
+          "hub_card_id": "hello-cassette",
+          "parent_console": "pockit",
+          "family_url": "http://hello.localhost:8782/",
+          "web_url": "https://hello.jailynmarvin.com/",
+          "sidebar_group": "Nephew",
+          "boot_command": "make TAPE=nephew-hello",
+          "token": {
+            "kind": "Surface",
+            "ref": "hello",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://pockit.localhost/",
+      "web_url": "https://pockit.jailynmarvin.com/",
+      "boot_command": "make pockit",
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-family",
+          "nephew-general"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "cornflower",
+      "crayola": {
+        "id": "cornflower",
+        "name": "Cornflower",
+        "hex": "#9ACEEB",
+        "hue": 201
+      },
+      "hue": 201
+    },
+    {
+      "id": "nephew-deck",
+      "name": "Nephew Control Tower",
+      "glyph": "🛰️",
+      "niche": "Operator deck — native React cassettes + fleet tools",
+      "agent_id": "nephew",
+      "is_runtime": false,
+      "hosted_count": 67,
+      "hosted_cassettes": [
+        {
+          "id": "retrieve",
+          "name": "Retrieval Explorer",
+          "glyph": "🔎",
+          "niche": null,
+          "path": "/retrieve",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://retrieve.localhost:8782/",
+          "web_url": "https://retrieve.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=retrieve",
+          "token": {
+            "kind": "Surface",
+            "ref": "retrieve",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "retrieve-audit",
+          "name": "Retrieval Audit",
+          "glyph": "🪪",
+          "niche": null,
+          "path": "/retrieve/audit",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://retrieve-audit.localhost:8782/",
+          "web_url": "https://retrieve-audit.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=retrieve-audit",
+          "token": {
+            "kind": "Surface",
+            "ref": "retrieve-audit",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "meta-library",
+          "name": "Meta Library",
+          "glyph": "📚",
+          "niche": null,
+          "path": "/meta-library",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://meta-library.localhost:8782/",
+          "web_url": "https://meta-library.jailynmarvin.com/",
+          "sidebar_group": "Operator tools",
+          "boot_command": "make TAPE=meta-library",
+          "token": {
+            "kind": "Surface",
+            "ref": "meta-library",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "federation",
+          "name": "Federation Peers",
+          "glyph": "🛰️",
+          "niche": null,
+          "path": "/federation",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://federation.localhost:8782/",
+          "web_url": "https://federation.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=federation",
+          "token": {
+            "kind": "Surface",
+            "ref": "federation",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "vault-sync",
+          "name": "Vault Sync",
+          "glyph": "📓",
+          "niche": null,
+          "path": "/vault-sync",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://vault-sync.localhost:8782/",
+          "web_url": "https://vault-sync.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=vault-sync",
+          "token": {
+            "kind": "Surface",
+            "ref": "vault-sync",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "fleet",
+          "name": "Fleet Overview",
+          "glyph": "📡",
+          "niche": null,
+          "path": "/fleet",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://fleet.localhost:8782/",
+          "web_url": "https://fleet.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=fleet",
+          "token": {
+            "kind": "Surface",
+            "ref": "fleet",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "fleet-mac-relay",
+          "name": "Fleet Mac Relay",
+          "glyph": "🖥️",
+          "niche": null,
+          "path": "/fleet-mac-relay",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://fleet-mac-relay.localhost:8782/",
+          "web_url": "https://fleet-mac-relay.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=fleet-mac-relay",
+          "token": {
+            "kind": "Surface",
+            "ref": "fleet-mac-relay",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "mcp",
+          "name": "MCP Catalog",
+          "glyph": "📡",
+          "niche": null,
+          "path": "/mcp",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://mcp.localhost:8782/",
+          "web_url": "https://mcp.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=mcp",
+          "token": {
+            "kind": "Surface",
+            "ref": "mcp",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "server-operator",
+          "name": "Server Operator",
+          "glyph": "🛰",
+          "niche": null,
+          "path": "/server-operator",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://server-operator.localhost:8782/",
+          "web_url": "https://server-operator.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=server-operator",
+          "token": {
+            "kind": "Surface",
+            "ref": "server-operator",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "github-control",
+          "name": "GitHub Control",
+          "glyph": "🐙",
+          "niche": null,
+          "path": "/github-control",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://github-control.localhost:8782/",
+          "web_url": "https://github-control.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=github-control",
+          "token": {
+            "kind": "Surface",
+            "ref": "github-control",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dockyard",
+          "name": "Dockyard",
+          "glyph": "🐳",
+          "niche": null,
+          "path": "/dockyard",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://dockyard.localhost:8782/",
+          "web_url": "https://dockyard.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=dockyard",
+          "token": {
+            "kind": "Surface",
+            "ref": "dockyard",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "readyplay-marketing",
+          "name": "Marketing",
+          "glyph": "🎮",
+          "niche": null,
+          "path": "/readyplay",
+          "hub_card_id": null,
+          "parent_console": "readyplay",
+          "family_url": "http://readyplay-marketing.localhost:8782/",
+          "web_url": "https://readyplay-marketing.jailynmarvin.com/",
+          "sidebar_group": "Interfaces",
+          "boot_command": "make TAPE=readyplay-marketing",
+          "token": {
+            "kind": "Surface",
+            "ref": "readyplay-marketing",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "readyplay-player",
+          "name": "Player",
+          "glyph": "👤",
+          "niche": null,
+          "path": "/readyplay/player",
+          "hub_card_id": null,
+          "parent_console": "readyplay",
+          "family_url": "http://readyplay-player.localhost:8782/",
+          "web_url": "https://readyplay-player.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=readyplay-player",
+          "token": {
+            "kind": "Surface",
+            "ref": "readyplay-player",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "readyplay-ios",
+          "name": "iOS",
+          "glyph": "📱",
+          "niche": null,
+          "path": "/readyplay/ios",
+          "hub_card_id": null,
+          "parent_console": "readyplay",
+          "family_url": "http://readyplay-ios.localhost:8782/",
+          "web_url": "https://readyplay-ios.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=readyplay-ios",
+          "token": {
+            "kind": "Surface",
+            "ref": "readyplay-ios",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "readyplay-recovery",
+          "name": "ReadyPlay Recovery",
+          "glyph": "🔧",
+          "niche": null,
+          "path": "/readyplay-recovery",
+          "hub_card_id": null,
+          "parent_console": "readyplay",
+          "family_url": "http://readyplay-recovery.localhost:8782/",
+          "web_url": "https://readyplay-recovery.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=readyplay-recovery",
+          "token": {
+            "kind": "Surface",
+            "ref": "readyplay-recovery",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "cms-browser",
+          "name": "CMS",
+          "glyph": "📝",
+          "niche": null,
+          "path": "/cms",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://cms-browser.localhost:8782/",
+          "web_url": "https://cms-browser.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=cms-browser",
+          "token": {
+            "kind": "Surface",
+            "ref": "cms-browser",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "cms-types",
+          "name": "Content Types",
+          "glyph": "🔧",
+          "niche": null,
+          "path": "/cms/types",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://cms-types.localhost:8782/",
+          "web_url": "https://cms-types.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=cms-types",
+          "token": {
+            "kind": "Surface",
+            "ref": "cms-types",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "cms-cassettes",
+          "name": "Cassettes",
+          "glyph": "📼",
+          "niche": null,
+          "path": "/cms/cassettes",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://cms-cassettes.localhost:8782/",
+          "web_url": "https://cms-cassettes.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=cms-cassettes",
+          "token": {
+            "kind": "Surface",
+            "ref": "cms-cassettes",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "cms-drop-zone",
+          "name": "Drop Zone",
+          "glyph": "📼",
+          "niche": null,
+          "path": "/cms/drop-zone",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://cms-drop-zone.localhost:8782/",
+          "web_url": "https://cms-drop-zone.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=cms-drop-zone",
+          "token": {
+            "kind": "Surface",
+            "ref": "cms-drop-zone",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "cms-hooks",
+          "name": "Hooks",
+          "glyph": "🪝",
+          "niche": null,
+          "path": "/cms/hooks",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://cms-hooks.localhost:8782/",
+          "web_url": "https://cms-hooks.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=cms-hooks",
+          "token": {
+            "kind": "Surface",
+            "ref": "cms-hooks",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "overview",
+          "name": "Overview",
+          "glyph": "🏠",
+          "niche": null,
+          "path": "/",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://overview.localhost:8782/",
+          "web_url": "https://overview.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=overview",
+          "token": {
+            "kind": "Surface",
+            "ref": "overview",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "fusion",
+          "name": "Automata Fusion",
+          "glyph": "⚡",
+          "niche": null,
+          "path": "/fusion",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://fusion.localhost:8782/",
+          "web_url": "https://fusion.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=fusion",
+          "token": {
+            "kind": "Surface",
+            "ref": "fusion",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "tech-stack",
+          "name": "Tech Stack",
+          "glyph": "🧬",
+          "niche": null,
+          "path": "/tech-stack",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://tech-stack.localhost:8782/",
+          "web_url": "https://tech-stack.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=tech-stack",
+          "token": {
+            "kind": "Surface",
+            "ref": "tech-stack",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "readyplay-tech-stack",
+          "name": "ReadyPlay Tech Stack",
+          "glyph": "🧬",
+          "niche": null,
+          "path": "/readyplay-tech-stack",
+          "hub_card_id": null,
+          "parent_console": "readyplay",
+          "family_url": "http://readyplay-tech-stack.localhost:8782/",
+          "web_url": "https://readyplay-tech-stack.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=readyplay-tech-stack",
+          "token": {
+            "kind": "Surface",
+            "ref": "readyplay-tech-stack",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "status",
+          "name": "Status",
+          "glyph": "🔍",
+          "niche": null,
+          "path": "/status",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://status.localhost:8782/",
+          "web_url": "https://status.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=status",
+          "token": {
+            "kind": "Surface",
+            "ref": "status",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "keys",
+          "name": "Keys",
+          "glyph": "🗝",
+          "niche": null,
+          "path": "/keys",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://keys.localhost:8782/",
+          "web_url": "https://keys.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=keys",
+          "token": {
+            "kind": "Surface",
+            "ref": "keys",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "brains",
+          "name": "Docker Brains",
+          "glyph": "🧠",
+          "niche": null,
+          "path": "/brains",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://brains.localhost:8782/",
+          "web_url": "https://brains.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=brains",
+          "token": {
+            "kind": "Surface",
+            "ref": "brains",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ecosystem",
+          "name": "Ecosystem",
+          "glyph": "🌿",
+          "niche": null,
+          "path": "/ecosystem",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ecosystem.localhost:8782/",
+          "web_url": "https://ecosystem.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=ecosystem",
+          "token": {
+            "kind": "Surface",
+            "ref": "ecosystem",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "api-observatory",
+          "name": "API Observatory",
+          "glyph": "🔭",
+          "niche": null,
+          "path": "/api-observatory",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://api-observatory.localhost:8782/",
+          "web_url": "https://api-observatory.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=api-observatory",
+          "token": {
+            "kind": "Surface",
+            "ref": "api-observatory",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "watchdog-status",
+          "name": "Watchdog",
+          "glyph": "🐕",
+          "niche": null,
+          "path": "/watchdog",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://watchdog-status.localhost:8782/",
+          "web_url": "https://watchdog-status.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=watchdog-status",
+          "token": {
+            "kind": "Surface",
+            "ref": "watchdog-status",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "yousirjuan",
+          "name": "You-Sir Juan",
+          "glyph": "👤",
+          "niche": null,
+          "path": "/yousirjuan",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://yousirjuan.localhost:8782/",
+          "web_url": "https://yousirjuan.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=yousirjuan",
+          "token": {
+            "kind": "Surface",
+            "ref": "yousirjuan",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "spark-status",
+          "name": "DGX Spark",
+          "glyph": "⚡",
+          "niche": null,
+          "path": "/spark",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://spark-status.localhost:8782/",
+          "web_url": "https://spark-status.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=spark-status",
+          "token": {
+            "kind": "Surface",
+            "ref": "spark-status",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "vps-status",
+          "name": "VPS",
+          "glyph": "🖥",
+          "niche": null,
+          "path": "/vps",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://vps-status.localhost:8782/",
+          "web_url": "https://vps-status.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=vps-status",
+          "token": {
+            "kind": "Surface",
+            "ref": "vps-status",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "marketplace-home",
+          "name": "Marketplace",
+          "glyph": "🏪",
+          "niche": null,
+          "path": "/marketplace",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://marketplace-home.localhost:8782/",
+          "web_url": "https://marketplace-home.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=marketplace-home",
+          "token": {
+            "kind": "Surface",
+            "ref": "marketplace-home",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "installed",
+          "name": "Installed",
+          "glyph": "📥",
+          "niche": null,
+          "path": "/installed",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://installed.localhost:8782/",
+          "web_url": "https://installed.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=installed",
+          "token": {
+            "kind": "Surface",
+            "ref": "installed",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "rules-editor",
+          "name": "Rule Editor",
+          "glyph": "📋",
+          "niche": null,
+          "path": "/rules-editor",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://rules-editor.localhost:8782/",
+          "web_url": "https://rules-editor.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=rules-editor",
+          "token": {
+            "kind": "Surface",
+            "ref": "rules-editor",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "handbook",
+          "name": "Framework Handbook",
+          "glyph": "📖",
+          "niche": null,
+          "path": "/handbook",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://handbook.localhost:8782/",
+          "web_url": "https://handbook.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=handbook",
+          "token": {
+            "kind": "Surface",
+            "ref": "handbook",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "operator",
+          "name": "Operator",
+          "glyph": "🎮",
+          "niche": null,
+          "path": "/operator",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://operator.localhost:8782/",
+          "web_url": "https://operator.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=operator",
+          "token": {
+            "kind": "Surface",
+            "ref": "operator",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "settings",
+          "name": "Settings",
+          "glyph": "⚙",
+          "niche": null,
+          "path": "/settings",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://settings.localhost:8782/",
+          "web_url": "https://settings.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=settings",
+          "token": {
+            "kind": "Surface",
+            "ref": "settings",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "render-errors",
+          "name": "Render Errors",
+          "glyph": "🐛",
+          "niche": null,
+          "path": "/render-errors",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://render-errors.localhost:8782/",
+          "web_url": "https://render-errors.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=render-errors",
+          "token": {
+            "kind": "Surface",
+            "ref": "render-errors",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "cassette-wizard",
+          "name": "New cassette",
+          "glyph": "➕",
+          "niche": null,
+          "path": "/cassettes/new",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://cassette-wizard.localhost:8782/",
+          "web_url": "https://cassette-wizard.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=cassette-wizard",
+          "token": {
+            "kind": "Surface",
+            "ref": "cassette-wizard",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "cassette-schema",
+          "name": "Schema reference",
+          "glyph": "📋",
+          "niche": null,
+          "path": "/cassettes/schema",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://cassette-schema.localhost:8782/",
+          "web_url": "https://cassette-schema.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=cassette-schema",
+          "token": {
+            "kind": "Surface",
+            "ref": "cassette-schema",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "nephew-home",
+          "name": "Nephew Home",
+          "glyph": "🏠",
+          "niche": null,
+          "path": "/home",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://nephew-home.localhost:8782/",
+          "web_url": "https://nephew-home.jailynmarvin.com/",
+          "sidebar_group": "Nephew",
+          "boot_command": "make TAPE=nephew-home",
+          "token": {
+            "kind": "Surface",
+            "ref": "nephew-home",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "nephew-hello",
+          "name": "Hello",
+          "glyph": "👋",
+          "niche": null,
+          "path": "/hello",
+          "hub_card_id": "hello-cassette",
+          "parent_console": "nephew-deck",
+          "family_url": "http://hello.localhost:8782/",
+          "web_url": "https://hello.jailynmarvin.com/",
+          "sidebar_group": "Nephew",
+          "boot_command": "make TAPE=nephew-hello",
+          "token": {
+            "kind": "Surface",
+            "ref": "nephew-hello",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "nephew-chat",
+          "name": "Chat (alias)",
+          "glyph": "💬",
+          "niche": null,
+          "path": "/chat",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://nephew-chat.localhost:8782/",
+          "web_url": "https://nephew-chat.jailynmarvin.com/",
+          "sidebar_group": "Nephew",
+          "boot_command": "make TAPE=nephew-chat",
+          "token": {
+            "kind": "Surface",
+            "ref": "nephew-chat",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "nephew-help",
+          "name": "Help",
+          "glyph": "❓",
+          "niche": null,
+          "path": "/help",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://nephew-help.localhost:8782/",
+          "web_url": "https://nephew-help.jailynmarvin.com/",
+          "sidebar_group": "Nephew",
+          "boot_command": "make TAPE=nephew-help",
+          "token": {
+            "kind": "Surface",
+            "ref": "nephew-help",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "nephew-learning",
+          "name": "Learning Loop",
+          "glyph": "📈",
+          "niche": null,
+          "path": "/learning",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://nephew-learning.localhost:8782/",
+          "web_url": "https://nephew-learning.jailynmarvin.com/",
+          "sidebar_group": "Nephew",
+          "boot_command": "make TAPE=nephew-learning",
+          "token": {
+            "kind": "Surface",
+            "ref": "nephew-learning",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-automata",
+          "name": "Automata",
+          "glyph": "🧩",
+          "niche": null,
+          "path": "/external-cassette/automata",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-automata.localhost:8782/",
+          "web_url": "https://ext-automata.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-automata",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-automata",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-ai-skills-library",
+          "name": "AI Skills Library",
+          "glyph": "📚",
+          "niche": null,
+          "path": "/external-cassette/ai-skills-library",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-ai-skills-library.localhost:8782/",
+          "web_url": "https://ext-ai-skills-library.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-ai-skills-library",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-ai-skills-library",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-nephew-repo",
+          "name": "Nephew (repo)",
+          "glyph": "🛰️",
+          "niche": null,
+          "path": "/external-cassette/nephew-repo",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-nephew-repo.localhost:8782/",
+          "web_url": "https://ext-nephew-repo.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-nephew-repo",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-nephew-repo",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-gitlab",
+          "name": "GitLab",
+          "glyph": "🗂",
+          "niche": null,
+          "path": "/external-cassette/gitlab",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-gitlab.localhost:8782/",
+          "web_url": "https://ext-gitlab.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-gitlab",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-gitlab",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-gitea",
+          "name": "Gitea Forge",
+          "glyph": "🫖",
+          "niche": null,
+          "path": "/external-cassette/gitea",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-gitea.localhost:8782/",
+          "web_url": "https://ext-gitea.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=ext-gitea",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-gitea",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-workflow",
+          "name": "n8n Workflow",
+          "glyph": "⚙️",
+          "niche": null,
+          "path": "/external-cassette/workflow",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-workflow.localhost:8782/",
+          "web_url": "https://ext-workflow.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-workflow",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-workflow",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-uptime",
+          "name": "Uptime Kuma",
+          "glyph": "💓",
+          "niche": null,
+          "path": "/external-cassette/uptime",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-uptime.localhost:8782/",
+          "web_url": "https://ext-uptime.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-uptime",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-uptime",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-hello",
+          "name": "Hello",
+          "glyph": "👋",
+          "niche": null,
+          "path": "/external-cassette/hello",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-hello.localhost:8782/",
+          "web_url": "https://ext-hello.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-hello",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-hello",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-vault",
+          "name": "Obsidian Vault",
+          "glyph": "📚",
+          "niche": null,
+          "path": "/external-cassette/vault",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-vault.localhost:8782/",
+          "web_url": "https://ext-vault.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-vault",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-vault",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-sync",
+          "name": "Obsidian Sync",
+          "glyph": "🔄",
+          "niche": null,
+          "path": "/external-cassette/sync",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-sync.localhost:8782/",
+          "web_url": "https://ext-sync.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-sync",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-sync",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-pad",
+          "name": "Automata Pad",
+          "glyph": "🧩",
+          "niche": null,
+          "path": "/external-cassette/pad",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ext-pad.localhost:8782/",
+          "web_url": "https://ext-pad.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-pad",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-pad",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "vps-failover-recovery",
+          "name": "VPS Failover",
+          "glyph": "🛟",
+          "niche": null,
+          "path": "/vps-failover-recovery",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://vps-failover-recovery.localhost:8782/",
+          "web_url": "https://vps-failover-recovery.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=vps-failover-recovery",
+          "token": {
+            "kind": "Surface",
+            "ref": "vps-failover-recovery",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "grafana",
+          "name": "Grafana",
+          "glyph": "📈",
+          "niche": null,
+          "path": "/grafana",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://grafana.localhost:8782/",
+          "web_url": "https://grafana.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=grafana",
+          "token": {
+            "kind": "Surface",
+            "ref": "grafana",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "prometheus",
+          "name": "Prometheus",
+          "glyph": "🔥",
+          "niche": null,
+          "path": "/prometheus",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://prometheus.localhost:8782/",
+          "web_url": "https://prometheus.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=prometheus",
+          "token": {
+            "kind": "Surface",
+            "ref": "prometheus",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "spark-warden",
+          "name": "Spark Warden",
+          "glyph": "🐧",
+          "niche": null,
+          "path": "/spark-warden",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://spark-warden.localhost:8782/",
+          "web_url": "https://spark-warden.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=spark-warden",
+          "token": {
+            "kind": "Surface",
+            "ref": "spark-warden",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "cassettes-board",
+          "name": "Cassettes",
+          "glyph": "📼",
+          "niche": null,
+          "path": "/cassettes",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://cassettes-board.localhost:8782/",
+          "web_url": "https://cassettes-board.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=cassettes-board",
+          "token": {
+            "kind": "Surface",
+            "ref": "cassettes-board",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "nas-status",
+          "name": "NAS Status",
+          "glyph": "📼",
+          "niche": null,
+          "path": "/nas-status",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://nas-status.localhost:8782/",
+          "web_url": "https://nas-status.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=nas-status",
+          "token": {
+            "kind": "Surface",
+            "ref": "nas-status",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ct-pockit-wire",
+          "name": "Pockit Wire",
+          "glyph": "🔗",
+          "niche": null,
+          "path": "/ct-pockit-wire",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://ct-pockit-wire.localhost:8782/",
+          "web_url": "https://ct-pockit-wire.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=ct-pockit-wire",
+          "token": {
+            "kind": "Surface",
+            "ref": "ct-pockit-wire",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "comms",
+          "name": "Settings",
+          "glyph": "✉️",
+          "niche": null,
+          "path": "/",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://comms.localhost:8782/",
+          "web_url": "https://comms.jailynmarvin.com/",
+          "sidebar_group": "Other",
+          "boot_command": "make TAPE=comms",
+          "token": {
+            "kind": "Surface",
+            "ref": "comms",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "mac-warden",
+          "name": "Console",
+          "glyph": "🛡️",
+          "niche": null,
+          "path": "/",
+          "hub_card_id": null,
+          "parent_console": "nephew-deck",
+          "family_url": "http://mac-warden.localhost:8782/",
+          "web_url": "https://mac-warden.jailynmarvin.com/",
+          "sidebar_group": "Other",
+          "boot_command": "make TAPE=mac-warden",
+          "token": {
+            "kind": "Surface",
+            "ref": "mac-warden",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": "http://hello.jailynmarvin.com:5174/login",
+      "family_url": "http://nephew-deck.localhost/login",
+      "web_url": "https://nephew.jailynmarvin.com/",
+      "boot_command": null,
+      "port": 5174,
+      "engine": {
+        "rag_collections": [
+          "nephew-rules",
+          "nephew-memory",
+          "nephew-identity",
+          "nephew-financial",
+          "nephew-legal",
+          "nephew-family",
+          "nephew-general"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "forest-green",
+      "crayola": {
+        "id": "forest-green",
+        "name": "Forest Green",
+        "hex": "#6DAE81",
+        "hue": 138
+      },
+      "hue": 138
+    },
+    {
+      "id": "family-office-platform",
+      "name": "Family Office Platform",
+      "glyph": "🏛️",
+      "niche": "SSO identity layer + family office umbrella",
+      "agent_id": null,
+      "is_runtime": true,
+      "browse_role": "runtime",
+      "hosted_count": 4,
+      "hosted_cassettes": [
+        {
+          "id": "family",
+          "name": "Family",
+          "glyph": "👥",
+          "niche": null,
+          "path": "/family",
+          "hub_card_id": null,
+          "parent_console": "family-office-platform",
+          "family_url": "http://family.localhost:8782/",
+          "web_url": "https://family.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=family",
+          "token": {
+            "kind": "Surface",
+            "ref": "family",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "family-onboard",
+          "name": "Family Onboard",
+          "glyph": "🛂",
+          "niche": null,
+          "path": "/family-onboard",
+          "hub_card_id": null,
+          "parent_console": "family-office-platform",
+          "family_url": "http://family-onboard.localhost:8782/",
+          "web_url": "https://family-onboard.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=family-onboard",
+          "token": {
+            "kind": "Surface",
+            "ref": "family-onboard",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "family-members",
+          "name": "Family Members",
+          "glyph": "🔑",
+          "niche": null,
+          "path": "/family-members",
+          "hub_card_id": null,
+          "parent_console": "family-office-platform",
+          "family_url": "http://family-members.localhost:8782/",
+          "web_url": "https://family-members.jailynmarvin.com/",
+          "sidebar_group": "System",
+          "boot_command": "make TAPE=family-members",
+          "token": {
+            "kind": "Surface",
+            "ref": "family-members",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "access",
+          "name": "Access",
+          "glyph": "🔑",
+          "niche": null,
+          "path": "/access",
+          "hub_card_id": null,
+          "parent_console": "family-office-platform",
+          "family_url": "http://access.localhost:8782/",
+          "web_url": "https://access.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=access",
+          "token": {
+            "kind": "Surface",
+            "ref": "access",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://family-office-platform.localhost/",
+      "web_url": "https://office.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-family"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "royal-purple",
+      "crayola": {
+        "id": "royal-purple",
+        "name": "Royal Purple",
+        "hex": "#7851A9",
+        "hue": 267
+      },
+      "hue": 267
+    },
+    {
+      "id": "container-deck",
+      "name": "Container Deck",
+      "glyph": "📦",
+      "niche": "Cassette docker player — compose stacks across Mac + DGX (Plan 0258)",
+      "agent_id": "container-deck",
+      "is_runtime": false,
+      "hosted_count": 62,
+      "hosted_cassettes": [
+        {
+          "id": "bank-reader",
+          "name": "bank-reader",
+          "glyph": "📦",
+          "niche": "Mac compose · app, capture-worker, nephew-tower…",
+          "path": "~/Developer/bank-reader",
+          "hub_card_id": "bank-reader",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:5440/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "brain-template",
+          "name": "brain-template",
+          "glyph": "📦",
+          "niche": "Mac compose · db",
+          "path": "~/Developer/dockyard.partial.bak/brain-template",
+          "hub_card_id": "brain-template",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "brain-template-2",
+          "name": "brain-template",
+          "glyph": "📦",
+          "niche": "Mac compose · db",
+          "path": "~/Developer/dockyard/brain-template",
+          "hub_card_id": "brain-template-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "clinic",
+          "name": "clinic",
+          "glyph": "📦",
+          "niche": "Mac compose · clinic-db",
+          "path": "~/Developer/clinic",
+          "hub_card_id": "clinic",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "clinic-2",
+          "name": "clinic",
+          "glyph": "📦",
+          "niche": "Mac compose · clinic-db",
+          "path": "~/Developer/search-my-engine/clinic",
+          "hub_card_id": "clinic-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "clinic-brain",
+          "name": "clinic-brain",
+          "glyph": "📦",
+          "niche": "Mac compose · db",
+          "path": "~/Developer/clinic/brain",
+          "hub_card_id": "clinic-brain",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "clinic-brain-2",
+          "name": "clinic-brain",
+          "glyph": "📦",
+          "niche": "Mac compose · db",
+          "path": "~/Developer/search-my-engine/clinic/brain",
+          "hub_card_id": "clinic-brain-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "clinic-worker",
+          "name": "clinic-worker",
+          "glyph": "📦",
+          "niche": "Mac compose · worker",
+          "path": "~/Developer/clinic/worker",
+          "hub_card_id": "clinic-worker",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "couchdb",
+          "name": "couchdb",
+          "glyph": "📦",
+          "niche": "Mac compose · couchdb",
+          "path": "~/Developer/nephew-whyguide/containers/couchdb",
+          "hub_card_id": "couchdb",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:5984/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "couchdb-2",
+          "name": "couchdb",
+          "glyph": "📦",
+          "niche": "Mac compose · couchdb",
+          "path": "$ROOT/containers/couchdb",
+          "hub_card_id": "couchdb-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:5984/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "dgx-failover",
+          "name": "dgx-failover",
+          "glyph": "📦",
+          "niche": "Mac compose · readyplay-standby",
+          "path": "~/Developer/SwiftApps/red-e-play-app/infra/dgx-failover",
+          "hub_card_id": "dgx-failover",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:5433/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "docker",
+          "name": "docker",
+          "glyph": "📦",
+          "niche": "Mac compose · app",
+          "path": "~/Developer/bank-reader/docker",
+          "hub_card_id": "docker",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "dockyard-brain",
+          "name": "dockyard-brain",
+          "glyph": "📦",
+          "niche": "Mac compose · db",
+          "path": "~/Developer/dockyard/brain",
+          "hub_card_id": "dockyard-brain",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "dustpan",
+          "name": "dustpan",
+          "glyph": "📦",
+          "niche": "Mac compose · app, caddy, db…",
+          "path": "~/Developer/dustpan/docker",
+          "hub_card_id": "dustpan",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:80/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "dustpan-brain",
+          "name": "dustpan-brain",
+          "glyph": "📦",
+          "niche": "Mac compose · db",
+          "path": "~/Developer/dustpan/brain",
+          "hub_card_id": "dustpan-brain",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "family-office-platform",
+          "name": "family-office-platform",
+          "glyph": "📦",
+          "niche": "Mac compose · app, caddy, db…",
+          "path": "~/Developer/family-office-platform",
+          "hub_card_id": "family-office-platform",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:5434/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "from-search-my-engine",
+          "name": "from-search-my-engine",
+          "glyph": "📦",
+          "niche": "Mac compose · app, caddy, dockyard…",
+          "path": "~/Developer/make-doors/archive/from-search-my-engine",
+          "hub_card_id": "from-search-my-engine",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:3000/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "gitea",
+          "name": "gitea",
+          "glyph": "📦",
+          "niche": "Mac compose · gitea",
+          "path": "~/Developer/dustpan/stacks/gitea",
+          "hub_card_id": "gitea",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "gitea-2",
+          "name": "gitea",
+          "glyph": "🐋",
+          "niche": "DGX compose · gitea",
+          "path": "~/Developer/nephew-whyguide/deploy/gitea",
+          "hub_card_id": "gitea-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:3300/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "gitea-3",
+          "name": "gitea",
+          "glyph": "🐋",
+          "niche": "DGX compose · gitea",
+          "path": "$ROOT/deploy/gitea",
+          "hub_card_id": "gitea-3",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:3300/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "gitea-act-runner-overflow",
+          "name": "gitea-act-runner-overflow",
+          "glyph": "📦",
+          "niche": "Mac compose · runner",
+          "path": "~/Developer/nephew-whyguide/deploy/gitea/act-runner",
+          "hub_card_id": "gitea-act-runner-overflow",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "gitea-act-runner-overflow-2",
+          "name": "gitea-act-runner-overflow",
+          "glyph": "📦",
+          "niche": "Mac compose · runner",
+          "path": "$ROOT/deploy/gitea/act-runner",
+          "hub_card_id": "gitea-act-runner-overflow-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "matrix",
+          "name": "matrix",
+          "glyph": "🐋",
+          "niche": "DGX compose · ai-bot, element, synapse…",
+          "path": "~/Developer/nephew-whyguide/deploy/dgx/matrix",
+          "hub_card_id": "matrix",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "matrix-2",
+          "name": "matrix",
+          "glyph": "📦",
+          "niche": "Mac compose · ai-bot, element, synapse…",
+          "path": "~/Developer/nephew-whyguide/deploy/matrix",
+          "hub_card_id": "matrix-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "matrix-3",
+          "name": "matrix",
+          "glyph": "🐋",
+          "niche": "DGX compose · ai-bot, element, synapse…",
+          "path": "$ROOT/deploy/dgx/matrix",
+          "hub_card_id": "matrix-3",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "matrix-4",
+          "name": "matrix",
+          "glyph": "🐋",
+          "niche": "DGX compose · ai-bot, element, synapse…",
+          "path": "$ROOT/deploy/matrix",
+          "hub_card_id": "matrix-4",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8008/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "n8n",
+          "name": "n8n",
+          "glyph": "📦",
+          "niche": "Mac compose · n8n",
+          "path": "~/Developer/dustpan/stacks/n8n",
+          "hub_card_id": "n8n",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:5678/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-brain",
+          "name": "nephew-brain",
+          "glyph": "📦",
+          "niche": "Mac compose · db",
+          "path": "~/Developer/nephew-whyguide/brain",
+          "hub_card_id": "nephew-brain",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-family-edge",
+          "name": "nephew-family-edge",
+          "glyph": "📦",
+          "niche": "Mac compose · edge",
+          "path": "$ROOT/containers/nephew-family-edge",
+          "hub_card_id": "nephew-family-edge",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:80/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-fleet",
+          "name": "nephew-fleet",
+          "glyph": "📦",
+          "niche": "Mac compose · aisl, anthropic-shim, automata…",
+          "path": "~/Developer/nephew-whyguide",
+          "hub_card_id": "nephew-fleet",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-fleet-2",
+          "name": "nephew-fleet",
+          "glyph": "🐋",
+          "niche": "DGX compose · comfyui, doc-rag, graph-service…",
+          "path": "~/Developer/nephew-whyguide/deploy/dgx/fleet",
+          "hub_card_id": "nephew-fleet-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:5678/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-fleet-3",
+          "name": "nephew-fleet",
+          "glyph": "🐋",
+          "niche": "DGX compose · comfyui, doc-rag, graph-service…",
+          "path": "$ROOT/deploy/dgx/fleet",
+          "hub_card_id": "nephew-fleet-3",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8097/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-fleet-4",
+          "name": "nephew-fleet",
+          "glyph": "📦",
+          "niche": "Mac compose · comfyui, doc-rag, graph-service…",
+          "path": "~/Developer/search-my-engine/deploy/fleet",
+          "hub_card_id": "nephew-fleet-4",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:6333/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-monitoring",
+          "name": "nephew-monitoring",
+          "glyph": "📦",
+          "niche": "Mac compose · cadvisor, grafana, node-exporter…",
+          "path": "~/Developer/nephew-whyguide/containers/monitoring",
+          "hub_card_id": "nephew-monitoring",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-monitoring-2",
+          "name": "nephew-monitoring",
+          "glyph": "📦",
+          "niche": "Mac compose · cadvisor, grafana, node-exporter…",
+          "path": "$ROOT/containers/monitoring",
+          "hub_card_id": "nephew-monitoring-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-open-webui",
+          "name": "nephew-open-webui",
+          "glyph": "📦",
+          "niche": "Mac compose · open-webui",
+          "path": "~/Developer/nephew-whyguide/deploy/open-webui",
+          "hub_card_id": "nephew-open-webui",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-open-webui-2",
+          "name": "nephew-open-webui",
+          "glyph": "📦",
+          "niche": "Mac compose · open-webui",
+          "path": "$ROOT/deploy/open-webui",
+          "hub_card_id": "nephew-open-webui-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-redis-sentinel",
+          "name": "nephew-redis-sentinel",
+          "glyph": "📦",
+          "niche": "Mac compose · redis-master, redis-replica, sentinel-1…",
+          "path": "~/Developer/nephew-whyguide/infrastructure/redis-sentinel",
+          "hub_card_id": "nephew-redis-sentinel",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:6379/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-redis-sentinel-2",
+          "name": "nephew-redis-sentinel",
+          "glyph": "📦",
+          "niche": "Mac compose · redis-master, redis-replica, sentinel-1…",
+          "path": "$ROOT/infrastructure/redis-sentinel",
+          "hub_card_id": "nephew-redis-sentinel-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:6379/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-video-sfu",
+          "name": "nephew-video-sfu",
+          "glyph": "🐋",
+          "niche": "DGX compose · video-mediasoup-sfu, video-webrtc-sfu",
+          "path": "~/Developer/nephew-whyguide/deploy/dgx/video",
+          "hub_card_id": "nephew-video-sfu",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8823/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-video-sfu-2",
+          "name": "nephew-video-sfu",
+          "glyph": "🐋",
+          "niche": "DGX compose · video-mediasoup-sfu, video-webrtc-sfu",
+          "path": "$ROOT/deploy/dgx/video",
+          "hub_card_id": "nephew-video-sfu-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8823/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-wp",
+          "name": "nephew-wp",
+          "glyph": "🐋",
+          "niche": "DGX compose · db, wordpress, wpcli",
+          "path": "~/Developer/nephew-whyguide/deploy/wordpress",
+          "hub_card_id": "nephew-wp",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8090/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-wp-2",
+          "name": "nephew-wp",
+          "glyph": "🐋",
+          "niche": "DGX compose · db, wordpress, wpcli",
+          "path": "~/Developer/nephew-wp-stack",
+          "hub_card_id": "nephew-wp-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8090/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "nephew-wp-3",
+          "name": "nephew-wp",
+          "glyph": "🐋",
+          "niche": "DGX compose · db, wordpress, wpcli",
+          "path": "$ROOT/deploy/wordpress",
+          "hub_card_id": "nephew-wp-3",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8090/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "odysseus",
+          "name": "odysseus",
+          "glyph": "📦",
+          "niche": "Mac compose · odysseus",
+          "path": "~/Developer/nephew-whyguide/deploy/odysseus",
+          "hub_card_id": "web-odysseus",
+          "parent_console": "container-deck",
+          "family_url": "http://odysseus.localhost/",
+          "web_url": "http://10.1.0.5:8799/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "odysseus-2",
+          "name": "odysseus",
+          "glyph": "📦",
+          "niche": "Mac compose · odysseus",
+          "path": "$ROOT/deploy/odysseus",
+          "hub_card_id": "web-odysseus",
+          "parent_console": "container-deck",
+          "family_url": "http://odysseus.localhost/",
+          "web_url": "http://10.1.0.5:8799/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "portainer",
+          "name": "portainer",
+          "glyph": "📦",
+          "niche": "Mac compose · portainer",
+          "path": "~/Developer/dustpan/stacks/portainer",
+          "hub_card_id": "portainer",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "quartz",
+          "name": "quartz",
+          "glyph": "📦",
+          "niche": "Mac compose · quartz",
+          "path": "~/Developer/nephew-whyguide/containers/quartz",
+          "hub_card_id": "quartz",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8087/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "quartz-2",
+          "name": "quartz",
+          "glyph": "📦",
+          "niche": "Mac compose · quartz",
+          "path": "$ROOT/containers/quartz",
+          "hub_card_id": "quartz-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8087/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "search-my-engine",
+          "name": "search-my-engine",
+          "glyph": "📦",
+          "niche": "Mac compose · app, caddy, clinic-db…",
+          "path": "~/Developer/search-my-engine",
+          "hub_card_id": "ext-archive",
+          "parent_console": "search-my-engine",
+          "family_url": "http://search.localhost/",
+          "web_url": "http://127.0.0.1:3000/api/health/live",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "search-my-engine-worker",
+          "name": "search-my-engine-worker",
+          "glyph": "📦",
+          "niche": "Mac compose · worker",
+          "path": "~/Developer/search-my-engine/worker",
+          "hub_card_id": "search-my-engine-worker",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "super-rick-presence-seed",
+          "name": "super-rick-presence-seed",
+          "glyph": "📦",
+          "niche": "Mac compose · super-rick-presence",
+          "path": "~/Developer/nephew-whyguide/docs/super-rick-presence-seed",
+          "hub_card_id": "super-rick-presence-seed",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8810/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "super-rick-seed",
+          "name": "super-rick-seed",
+          "glyph": "📦",
+          "niche": "Mac compose · model-loader, pipecat-core, redis-atlas",
+          "path": "~/Developer/nephew-whyguide/docs/super-rick-seed",
+          "hub_card_id": "super-rick-seed",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "super-rick-video-seed",
+          "name": "super-rick-video-seed",
+          "glyph": "📦",
+          "niche": "Mac compose · super-rick-video-workspace, video-orchestrator",
+          "path": "~/Developer/nephew-whyguide/docs/super-rick-video-seed",
+          "hub_card_id": "super-rick-video-seed",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8820/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "uptime-kuma",
+          "name": "uptime-kuma",
+          "glyph": "📦",
+          "niche": "Mac compose · uptime-kuma",
+          "path": "~/Developer/dustpan/stacks/uptime-kuma",
+          "hub_card_id": "uptime-kuma",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:3001/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "vaultwarden",
+          "name": "vaultwarden",
+          "glyph": "📦",
+          "niche": "Mac compose · vaultwarden",
+          "path": "~/Developer/dustpan/stacks/vaultwarden",
+          "hub_card_id": "vaultwarden",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": "http://127.0.0.1:8080/",
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "visual-perspective",
+          "name": "visual-perspective",
+          "glyph": "📦",
+          "niche": "Mac compose · db, nginx, wordpress",
+          "path": "$ROOT/deploy/visual-perspective",
+          "hub_card_id": "visual-perspective",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "worker-template",
+          "name": "worker-template",
+          "glyph": "📦",
+          "niche": "Mac compose · worker",
+          "path": "~/Developer/dockyard.partial.bak/worker-template",
+          "hub_card_id": "worker-template",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "mac",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "wp-multisite",
+          "name": "wp-multisite",
+          "glyph": "🐋",
+          "niche": "DGX compose · db, wordpress",
+          "path": "~/Developer/nephew-whyguide/deploy/wp-multisite",
+          "hub_card_id": "wp-multisite",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "wp-multisite-2",
+          "name": "wp-multisite",
+          "glyph": "🐋",
+          "niche": "DGX compose · db, wordpress",
+          "path": "$ROOT/deploy/wp-multisite",
+          "hub_card_id": "wp-multisite-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "wp-single",
+          "name": "wp-single",
+          "glyph": "🐋",
+          "niche": "DGX compose · db, wordpress",
+          "path": "~/Developer/nephew-whyguide/deploy/wp-single",
+          "hub_card_id": "wp-single",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        },
+        {
+          "id": "wp-single-2",
+          "name": "wp-single",
+          "glyph": "🐋",
+          "niche": "DGX compose · db, wordpress",
+          "path": "$ROOT/deploy/wp-single",
+          "hub_card_id": "wp-single-2",
+          "parent_console": "container-deck",
+          "family_url": null,
+          "web_url": null,
+          "sidebar_group": "Compose stacks",
+          "boot_command": null,
+          "compose_stack": true,
+          "runtime": "dgx",
+          "family_id": "nephew-family"
+        }
+      ],
+      "open_url": "http://hello.jailynmarvin.com:5174/container-deck",
+      "family_url": "http://container-deck.localhost/container-deck",
+      "web_url": "https://container-deck.jailynmarvin.com/",
+      "boot_command": null,
+      "port": 5174,
+      "engine": {
+        "rag_collections": [
+          "nephew-general"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "cerulean",
+      "crayola": {
+        "id": "cerulean",
+        "name": "Cerulean",
+        "hex": "#1DACD6",
+        "hue": 194
+      },
+      "hue": 194
+    },
+    {
+      "id": "automata",
+      "name": "Automata",
+      "glyph": "🧩",
+      "niche": "Operator pad — prompts, runners, slices, marketplace",
+      "agent_id": "automata",
+      "is_runtime": false,
+      "hosted_count": 14,
+      "hosted_cassettes": [
+        {
+          "id": "automata-pad-summary",
+          "name": "Automata Pad",
+          "glyph": "🎛",
+          "niche": null,
+          "path": "/automata-pad",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata.localhost:8782/",
+          "web_url": "https://automata-pad-summary.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=automata-pad-summary",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-pad-summary",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-marketplace",
+          "name": "Automata Marketplace",
+          "glyph": "📦",
+          "niche": null,
+          "path": "/automata-marketplace",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-marketplace.localhost:8782/",
+          "web_url": "https://automata-marketplace.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-marketplace",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-marketplace",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-history",
+          "name": "Automata · History",
+          "glyph": "📜",
+          "niche": null,
+          "path": "/automata/history",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-history.localhost:8782/",
+          "web_url": "https://automata-history.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-history",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-history",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-export",
+          "name": "Automata · Export",
+          "glyph": "📦",
+          "niche": null,
+          "path": "/automata/export",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-export.localhost:8782/",
+          "web_url": "https://automata-export.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-export",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-export",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-scanner",
+          "name": "Automata · Scanner",
+          "glyph": "🔬",
+          "niche": null,
+          "path": "/automata/scanner",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-scanner.localhost:8782/",
+          "web_url": "https://automata-scanner.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-scanner",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-scanner",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-code",
+          "name": "Automata · Code",
+          "glyph": "💾",
+          "niche": null,
+          "path": "/automata/code",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-code.localhost:8782/",
+          "web_url": "https://automata-code.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-code",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-code",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-backdesk",
+          "name": "Automata · BackDesk",
+          "glyph": "🛠",
+          "niche": null,
+          "path": "/automata/backdesk",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-backdesk.localhost:8782/",
+          "web_url": "https://automata-backdesk.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-backdesk",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-backdesk",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-builds",
+          "name": "Automata · Builds",
+          "glyph": "🏗",
+          "niche": null,
+          "path": "/automata/builds",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-builds.localhost:8782/",
+          "web_url": "https://automata-builds.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-builds",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-builds",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-chat",
+          "name": "Automata · Chat",
+          "glyph": "💬",
+          "niche": null,
+          "path": "/automata/chat",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-chat.localhost:8782/",
+          "web_url": "https://automata-chat.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-chat",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-chat",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-prompts",
+          "name": "Automata · Prompts",
+          "glyph": "🧾",
+          "niche": null,
+          "path": "/automata/prompts",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-prompts.localhost:8782/",
+          "web_url": "https://automata-prompts.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-prompts",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-prompts",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-routes",
+          "name": "Automata · Routes",
+          "glyph": "🗺",
+          "niche": null,
+          "path": "/automata/routes",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-routes.localhost:8782/",
+          "web_url": "https://automata-routes.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-routes",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-routes",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-runners",
+          "name": "Automata · Runners",
+          "glyph": "⚙",
+          "niche": null,
+          "path": "/automata/runners",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-runners.localhost:8782/",
+          "web_url": "https://automata-runners.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-runners",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-runners",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-slices",
+          "name": "Automata · Slices",
+          "glyph": "🍰",
+          "niche": null,
+          "path": "/automata/slices",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-slices.localhost:8782/",
+          "web_url": "https://automata-slices.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-slices",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-slices",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "automata-features",
+          "name": "Automata · Features",
+          "glyph": "📚",
+          "niche": null,
+          "path": "/automata/features",
+          "hub_card_id": null,
+          "parent_console": "automata",
+          "family_url": "http://automata-features.localhost:8782/",
+          "web_url": "https://automata-features.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=automata-features",
+          "token": {
+            "kind": "Surface",
+            "ref": "automata-features",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://automata.localhost/",
+      "web_url": "https://automata.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-rules",
+          "nephew-memory"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "purple-heart",
+      "crayola": {
+        "id": "purple-heart",
+        "name": "Purple Heart",
+        "hex": "#69359C",
+        "hue": 270
+      },
+      "hue": 270
+    },
+    {
+      "id": "clinic",
+      "name": "Clinic",
+      "glyph": "🏥",
+      "niche": "Diagnostic hospital — cases, fixes, ledger",
+      "agent_id": "clinic",
+      "is_runtime": false,
+      "hosted_count": 2,
+      "hosted_cassettes": [
+        {
+          "id": "ext-clinic",
+          "name": "Clinic",
+          "glyph": "🏥",
+          "niche": null,
+          "path": "/external-cassette/clinic",
+          "hub_card_id": "ext-clinic",
+          "parent_console": "clinic",
+          "family_url": "http://clinic.localhost/",
+          "web_url": "https://ext-clinic.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=ext-clinic",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-clinic",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          },
+          "surface": {
+            "encompass_mode": "hud_iframe",
+            "speakers_door": "http://clinic.localhost/",
+            "embed_stem": "clinic",
+            "center_default": {
+              "route": "/#/"
+            }
+          }
+        },
+        {
+          "id": "web-clinic",
+          "name": "Clinic",
+          "glyph": "🏥",
+          "niche": null,
+          "path": "/web-cassette/clinic",
+          "hub_card_id": null,
+          "parent_console": "clinic",
+          "family_url": "http://web-clinic.localhost:8782/",
+          "web_url": "https://web-clinic.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=web-clinic",
+          "token": {
+            "kind": "Surface",
+            "ref": "web-clinic",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://clinic.localhost/",
+      "web_url": "https://clinic.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-general"
+        ],
+        "retrieve_default_domains": [
+          "clinic"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "robin-egg-blue",
+      "crayola": {
+        "id": "robin-egg-blue",
+        "name": "Robin's Egg Blue",
+        "hex": "#1FCECB",
+        "hue": 179
+      },
+      "hue": 179
+    },
+    {
+      "id": "historia",
+      "name": "Historia",
+      "glyph": "📜",
+      "niche": "Family narrative + agent-state archive",
+      "agent_id": "historia",
+      "is_runtime": false,
+      "browse_role": "hidden",
+      "hosted_count": 0,
+      "hosted_cassettes": [],
+      "open_url": null,
+      "family_url": "http://historia.localhost/",
+      "web_url": "https://historia.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-historia-bge"
+        ],
+        "retrieve_default_domains": [
+          "historia"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "raw-sienna",
+      "crayola": {
+        "id": "raw-sienna",
+        "name": "Raw Sienna",
+        "hex": "#D27D46",
+        "hue": 24
+      },
+      "hue": 24
+    },
+    {
+      "id": "search-my-engine",
+      "name": "Search My Engine",
+      "glyph": "🔍",
+      "niche": "Deep archive search (json-archive-chat-reader)",
+      "agent_id": "json-archive-chat-reader",
+      "is_runtime": false,
+      "hosted_count": 1,
+      "hosted_cassettes": [
+        {
+          "id": "ext-archive",
+          "name": "Search My Engine",
+          "glyph": "🔍",
+          "niche": null,
+          "path": "/external-cassette/archive",
+          "hub_card_id": "ext-archive",
+          "parent_console": "search-my-engine",
+          "family_url": "http://search.localhost/",
+          "web_url": "https://search.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=ext-archive",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-archive",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          },
+          "surface": {
+            "encompass_mode": "hud_iframe",
+            "speakers_door": "http://search.localhost/",
+            "embed_stem": "search-my-engine",
+            "center_default": {
+              "route": "/"
+            }
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://search.localhost/",
+      "web_url": "https://search.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-memory"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "sky-blue",
+      "crayola": {
+        "id": "sky-blue",
+        "name": "Sky Blue",
+        "hex": "#76D7EA",
+        "hue": 190
+      },
+      "hue": 190
+    },
+    {
+      "id": "bank-reader",
+      "name": "Bank Reader",
+      "glyph": "🏦",
+      "niche": "Family banking and bookkeeping",
+      "agent_id": "bank-reader",
+      "is_runtime": false,
+      "browse_role": "hidden",
+      "hosted_count": 1,
+      "hosted_cassettes": [
+        {
+          "id": "ext-bank-reader",
+          "name": "Bank Reader",
+          "glyph": "🏦",
+          "niche": null,
+          "path": "/external-cassette/bank-reader",
+          "hub_card_id": "ext-bank-reader",
+          "parent_console": "bank-reader",
+          "family_url": "http://bank-reader.localhost/",
+          "web_url": "https://ext-bank-reader.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=ext-bank-reader",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-bank-reader",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          },
+          "surface": {
+            "encompass_mode": "hud_iframe",
+            "speakers_door": "http://bank-reader.localhost/",
+            "embed_stem": "bank-reader",
+            "center_default": {
+              "route": "/"
+            }
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://bank-reader.localhost/",
+      "web_url": "https://bank-reader.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-financial"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "jungle-green",
+      "crayola": {
+        "id": "jungle-green",
+        "name": "Jungle Green",
+        "hex": "#3BB08F",
+        "hue": 163
+      },
+      "hue": 163
+    },
+    {
+      "id": "scene-skout",
+      "name": "Scene Skout",
+      "glyph": "🎬",
+      "niche": "Press/shred/repurpose — scene capture + rebuild",
+      "agent_id": "scene-skout",
+      "is_runtime": false,
+      "hosted_count": 1,
+      "hosted_cassettes": [
+        {
+          "id": "ext-scene-skout",
+          "name": "Scene Skout",
+          "glyph": "🎬",
+          "niche": null,
+          "path": "/external-cassette/scene-skout",
+          "hub_card_id": null,
+          "parent_console": "scene-skout",
+          "family_url": "http://ext-scene-skout.localhost:8782/",
+          "web_url": "https://ext-scene-skout.jailynmarvin.com/",
+          "sidebar_group": "Family Office",
+          "boot_command": "make TAPE=ext-scene-skout",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-scene-skout",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://scene-skout.localhost/",
+      "web_url": "https://scene-skout.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-general"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "magenta",
+      "crayola": {
+        "id": "magenta",
+        "name": "Magenta",
+        "hex": "#FF43A4",
+        "hue": 329
+      },
+      "hue": 329
+    },
+    {
+      "id": "dustpan",
+      "name": "DustPan",
+      "glyph": "🧹",
+      "niche": "Disk rescue + Linux ops cockpit",
+      "agent_id": "dustpan",
+      "is_runtime": false,
+      "hosted_count": 13,
+      "hosted_cassettes": [
+        {
+          "id": "fleet-netmap",
+          "name": "Fleet Network Map",
+          "glyph": "🌐",
+          "niche": null,
+          "path": "/fleet-network",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://fleet-netmap.localhost:8782/",
+          "web_url": "https://fleet-netmap.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=fleet-netmap",
+          "token": {
+            "kind": "Surface",
+            "ref": "fleet-netmap",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-disks",
+          "name": "Disks",
+          "glyph": "💾",
+          "niche": null,
+          "path": "/dustpan",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan.localhost:8782/",
+          "web_url": "https://dustpan-disks.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=dustpan-disks",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-disks",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-spark-disks",
+          "name": "DGX Spark · Disks",
+          "glyph": "💾",
+          "niche": null,
+          "path": "/dustpan-spark",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-spark-disks.localhost:8782/",
+          "web_url": "https://dustpan-spark-disks.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=dustpan-spark-disks",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-spark-disks",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-spark-spec",
+          "name": "DGX Spark · Spec",
+          "glyph": "⚡",
+          "niche": null,
+          "path": "/dustpan-spark-spec",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-spark-spec.localhost:8782/",
+          "web_url": "https://dustpan-spark-spec.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=dustpan-spark-spec",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-spark-spec",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-clinic-disks",
+          "name": "Clinic VPS · Disks",
+          "glyph": "💾",
+          "niche": null,
+          "path": "/dustpan-clinic",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-clinic-disks.localhost:8782/",
+          "web_url": "https://dustpan-clinic-disks.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=dustpan-clinic-disks",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-clinic-disks",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-processes",
+          "name": "Processes",
+          "glyph": "⚙",
+          "niche": null,
+          "path": "/dustpan/processes",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-processes.localhost:8782/",
+          "web_url": "https://dustpan-processes.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=dustpan-processes",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-processes",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-network",
+          "name": "Network",
+          "glyph": "🌐",
+          "niche": null,
+          "path": "/dustpan/network",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-network.localhost:8782/",
+          "web_url": "https://dustpan-network.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=dustpan-network",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-network",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-servers",
+          "name": "Servers",
+          "glyph": "🖥",
+          "niche": null,
+          "path": "/dustpan/servers",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-servers.localhost:8782/",
+          "web_url": "https://dustpan-servers.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=dustpan-servers",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-servers",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-cleaners",
+          "name": "Cleaners",
+          "glyph": "🧹",
+          "niche": null,
+          "path": "/dustpan/cleaners",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-cleaners.localhost:8782/",
+          "web_url": "https://dustpan-cleaners.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=dustpan-cleaners",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-cleaners",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-atlas",
+          "name": "Disk Atlas",
+          "glyph": "🗺",
+          "niche": null,
+          "path": "/dustpan/atlas",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-atlas.localhost:8782/",
+          "web_url": "https://dustpan-atlas.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=dustpan-atlas",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-atlas",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-repair",
+          "name": "Disk Repair",
+          "glyph": "🛟",
+          "niche": null,
+          "path": "/dustpan/repair",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-repair.localhost:8782/",
+          "web_url": "https://dustpan-repair.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=dustpan-repair",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-repair",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-watchdog",
+          "name": "Watchdog",
+          "glyph": "👁",
+          "niche": null,
+          "path": "/dustpan/watchdog",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-watchdog.localhost:8782/",
+          "web_url": "https://dustpan-watchdog.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=dustpan-watchdog",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-watchdog",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "dustpan-trends",
+          "name": "Trends",
+          "glyph": "📊",
+          "niche": null,
+          "path": "/dustpan/trends",
+          "hub_card_id": null,
+          "parent_console": "dustpan",
+          "family_url": "http://dustpan-trends.localhost:8782/",
+          "web_url": "https://dustpan-trends.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=dustpan-trends",
+          "token": {
+            "kind": "Surface",
+            "ref": "dustpan-trends",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://dustpan.localhost/",
+      "web_url": "https://dustpan.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-general"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "blue-green",
+      "crayola": {
+        "id": "blue-green",
+        "name": "Blue Green",
+        "hex": "#0D98BA",
+        "hue": 192
+      },
+      "hue": 192
+    },
+    {
+      "id": "wordpress",
+      "name": "WordPress",
+      "glyph": "📝",
+      "niche": "Family-readable git mirror — plans, features, agents, memory, issues",
+      "agent_id": "nephew",
+      "is_runtime": false,
+      "hosted_count": 8,
+      "hosted_cassettes": [
+        {
+          "id": "wordpress-agents",
+          "name": "Agents",
+          "glyph": "🤖",
+          "niche": null,
+          "path": "/web-cassette/wordpress-agents",
+          "hub_card_id": null,
+          "parent_console": "wordpress",
+          "family_url": "http://wordpress-agents.localhost:8782/",
+          "web_url": "https://wordpress-agents.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=wordpress-agents",
+          "token": {
+            "kind": "Surface",
+            "ref": "wordpress-agents",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "wordpress-features",
+          "name": "Features",
+          "glyph": "✨",
+          "niche": null,
+          "path": "/web-cassette/wordpress-features",
+          "hub_card_id": null,
+          "parent_console": "wordpress",
+          "family_url": "http://wordpress-features.localhost:8782/",
+          "web_url": "https://wordpress-features.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=wordpress-features",
+          "token": {
+            "kind": "Surface",
+            "ref": "wordpress-features",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "wordpress-issues",
+          "name": "Issues",
+          "glyph": "🚨",
+          "niche": null,
+          "path": "/web-cassette/wordpress-issues",
+          "hub_card_id": null,
+          "parent_console": "wordpress",
+          "family_url": "http://wordpress-issues.localhost:8782/",
+          "web_url": "https://wordpress-issues.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=wordpress-issues",
+          "token": {
+            "kind": "Surface",
+            "ref": "wordpress-issues",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "wordpress-memory",
+          "name": "Memory",
+          "glyph": "🧠",
+          "niche": null,
+          "path": "/web-cassette/wordpress-memory",
+          "hub_card_id": null,
+          "parent_console": "wordpress",
+          "family_url": "http://wordpress-memory.localhost:8782/",
+          "web_url": "https://wordpress-memory.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=wordpress-memory",
+          "token": {
+            "kind": "Surface",
+            "ref": "wordpress-memory",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "wordpress-plans",
+          "name": "Plans",
+          "glyph": "📋",
+          "niche": null,
+          "path": "/web-cassette/wordpress-plans",
+          "hub_card_id": null,
+          "parent_console": "wordpress",
+          "family_url": "http://wordpress-plans.localhost:8782/",
+          "web_url": "https://wordpress-plans.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=wordpress-plans",
+          "token": {
+            "kind": "Surface",
+            "ref": "wordpress-plans",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "wordpress-agent",
+          "name": "WordPress Agent",
+          "glyph": "🤖",
+          "niche": null,
+          "path": "/wordpress-agent",
+          "hub_card_id": null,
+          "parent_console": "wordpress",
+          "family_url": "http://wordpress-agent.localhost:8782/",
+          "web_url": "https://wordpress-agent.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=wordpress-agent",
+          "token": {
+            "kind": "Surface",
+            "ref": "wordpress-agent",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "wordpress-dashboard",
+          "name": "Dashboard",
+          "glyph": "📝",
+          "niche": null,
+          "path": "/web-cassette/wordpress-dashboard",
+          "hub_card_id": "wordpress-dashboard",
+          "parent_console": "wordpress",
+          "family_url": "http://wordpress.localhost:8782/",
+          "web_url": "https://wordpress-dashboard.jailynmarvin.com/",
+          "sidebar_group": "Product Surfaces",
+          "boot_command": "make TAPE=wordpress-dashboard",
+          "token": {
+            "kind": "Surface",
+            "ref": "wordpress-dashboard",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "wordpress-deploy",
+          "name": "Deploy",
+          "glyph": "🛒",
+          "niche": null,
+          "path": "/wordpress-deploy",
+          "hub_card_id": null,
+          "parent_console": "wordpress",
+          "family_url": "http://wordpress-deploy.localhost:8782/",
+          "web_url": "https://wordpress-deploy.jailynmarvin.com/",
+          "sidebar_group": "Infrastructure",
+          "boot_command": "make TAPE=wordpress-deploy",
+          "token": {
+            "kind": "Surface",
+            "ref": "wordpress-deploy",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": null,
+      "family_url": "http://wordpress.localhost/",
+      "web_url": "https://wordpress.jailynmarvin.com/",
+      "boot_command": null,
+      "port": null,
+      "engine": {
+        "rag_collections": [
+          "nephew-rules",
+          "nephew-memory",
+          "nephew-general"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "outrageous-orange",
+      "crayola": {
+        "id": "outrageous-orange",
+        "name": "Outrageous Orange",
+        "hex": "#FF6E4A",
+        "hue": 12
+      },
+      "hue": 12
+    },
+    {
+      "id": "bishop",
+      "name": "Bishop",
+      "glyph": "♗",
+      "niche": "Agent factory player — birth canal, Kingdom Hotel, wants desk, staff talents",
+      "agent_id": "bishop",
+      "is_runtime": false,
+      "hosted_count": 7,
+      "hosted_cassettes": [
+        {
+          "id": "bishop-intention",
+          "name": "Intention",
+          "glyph": "🎯",
+          "niche": null,
+          "path": "/bishop-intention",
+          "hub_card_id": null,
+          "parent_console": "bishop",
+          "family_url": "http://bishop.localhost:8782/",
+          "web_url": "https://bishop-intention.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=bishop-intention",
+          "token": {
+            "kind": "Surface",
+            "ref": "bishop-intention",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "ext-bishop",
+          "name": "Kingdom workspace",
+          "glyph": "♗",
+          "niche": null,
+          "path": "/external-cassette/bishop",
+          "hub_card_id": null,
+          "parent_console": "bishop",
+          "family_url": "http://ext-bishop.localhost:8782/",
+          "web_url": "https://ext-bishop.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=ext-bishop",
+          "token": {
+            "kind": "Surface",
+            "ref": "ext-bishop",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "bishop-kingdom-hotel",
+          "name": "Kingdom Hotel",
+          "glyph": "🏨",
+          "niche": null,
+          "path": "/bishop-kingdom-hotel",
+          "hub_card_id": null,
+          "parent_console": "bishop",
+          "family_url": "http://bishop-kingdom-hotel.localhost:8782/",
+          "web_url": "https://bishop-kingdom-hotel.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=bishop-kingdom-hotel",
+          "token": {
+            "kind": "Surface",
+            "ref": "bishop-kingdom-hotel",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "bishop-registry",
+          "name": "Birth canal",
+          "glyph": "🍼",
+          "niche": null,
+          "path": "/bishop-registry",
+          "hub_card_id": null,
+          "parent_console": "bishop",
+          "family_url": "http://bishop-registry.localhost:8782/",
+          "web_url": "https://bishop-registry.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=bishop-registry",
+          "token": {
+            "kind": "Surface",
+            "ref": "bishop-registry",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "bishop-route-desk",
+          "name": "Route desk",
+          "glyph": "🧭",
+          "niche": null,
+          "path": "/bishop-route-desk",
+          "hub_card_id": null,
+          "parent_console": "bishop",
+          "family_url": "http://bishop-route-desk.localhost:8782/",
+          "web_url": "https://bishop-route-desk.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=bishop-route-desk",
+          "token": {
+            "kind": "Surface",
+            "ref": "bishop-route-desk",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "bishop-staff-roster",
+          "name": "Staff roster",
+          "glyph": "👥",
+          "niche": null,
+          "path": "/bishop-staff-roster",
+          "hub_card_id": null,
+          "parent_console": "bishop",
+          "family_url": "http://bishop-staff-roster.localhost:8782/",
+          "web_url": "https://bishop-staff-roster.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=bishop-staff-roster",
+          "token": {
+            "kind": "Surface",
+            "ref": "bishop-staff-roster",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        },
+        {
+          "id": "bishop-wants-desk",
+          "name": "Wants desk",
+          "glyph": "📋",
+          "niche": null,
+          "path": "/bishop-wants-desk",
+          "hub_card_id": null,
+          "parent_console": "bishop",
+          "family_url": "http://bishop-wants-desk.localhost:8782/",
+          "web_url": "https://bishop-wants-desk.jailynmarvin.com/",
+          "sidebar_group": "Extensions",
+          "boot_command": "make TAPE=bishop-wants-desk",
+          "token": {
+            "kind": "Surface",
+            "ref": "bishop-wants-desk",
+            "mount": "center-canvas",
+            "layout": "player-shell"
+          }
+        }
+      ],
+      "open_url": "http://hello.jailynmarvin.com:5174/bishop-intention",
+      "family_url": "http://bishop.localhost/",
+      "web_url": "https://bishop.jailynmarvin.com/",
+      "boot_command": null,
+      "port": 5174,
+      "engine": {
+        "rag_collections": [
+          "nephew-rules",
+          "nephew-memory"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "wisteria",
+      "crayola": {
+        "id": "wisteria",
+        "name": "Wisteria",
+        "hex": "#CAA2DB",
+        "hue": 282
+      },
+      "hue": 282
+    },
+    {
+      "id": "nephew-tape",
+      "name": "Cassette Player",
+      "glyph": "📼",
+      "niche": "LAN/home tape grid player",
+      "agent_id": null,
+      "is_runtime": true,
+      "browse_role": "runtime",
+      "hosted_count": 0,
+      "hosted_cassettes": [],
+      "open_url": "http://127.0.0.1:8781/",
+      "family_url": null,
+      "web_url": null,
+      "boot_command": null,
+      "port": 8781,
+      "engine": {
+        "rag_collections": [
+          "nephew-family"
+        ],
+        "embedder": "bge-m3"
+      },
+      "crayola_id": "granny-smith-apple",
+      "crayola": {
+        "id": "granny-smith-apple",
+        "name": "Granny Smith Apple",
+        "hex": "#A8E4A0",
+        "hue": 113
+      },
+      "hue": 113
+    },
+    {
+      "id": "tower-proxy",
+      "name": "Tower Proxy",
+      "glyph": "🔀",
+      "niche": "Dev alias proxy player",
+      "agent_id": null,
+      "is_runtime": true,
+      "browse_role": "runtime",
+      "hosted_count": 0,
+      "hosted_cassettes": [],
+      "open_url": "http://nephew.localhost:8780/login",
+      "family_url": null,
+      "web_url": null,
+      "boot_command": null,
+      "port": 8780,
+      "engine": null,
+      "crayola_id": "scarlet",
+      "crayola": {
+        "id": "scarlet",
+        "name": "Scarlet",
+        "hex": "#FD0E35",
+        "hue": 350
+      },
+      "hue": 350
+    }
+  ],
+  "unassigned_cassettes": [],
+  "mac_apps": [
+    {
+      "id": "automata",
+      "displayName": "Automata",
+      "symbol": "Au",
+      "hue": 285,
+      "door": "http://automata.localhost/",
+      "bundleDir": "Automata.app",
+      "makeTarget": "automata-app",
+      "doc": "docs/pockit/Automata-App-Prototype.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "tape",
+      "cassette_id": "automata-pad-summary",
+      "player_id": "automata",
+      "door_slug": "automata",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "cassette-factory",
+      "displayName": "Cassette Factory",
+      "symbol": "Fa",
+      "hue": 38,
+      "door": "http://cassette-factory.localhost/",
+      "bundleDir": "Cassette Factory.app",
+      "makeTarget": "factory-wizard",
+      "doc": "docs/pockit/Cassette-Factory-App-Prototype.md",
+      "accessory_category": "html_tool",
+      "accessory_category_label": "Tool surface",
+      "surface_kind": "html",
+      "cassette_id": null,
+      "player_id": null,
+      "door_slug": "cassette-factory",
+      "nav": [
+        {
+          "id": "wizard",
+          "label": "Factory wizard",
+          "path": "http://cassette-factory.localhost/"
+        },
+        {
+          "id": "forge",
+          "label": "Family Forge",
+          "path": "http://cassette-factory.localhost/"
+        }
+      ],
+      "has_html_server": true
+    },
+    {
+      "id": "container-deck",
+      "displayName": "Container Deck",
+      "symbol": "Cd",
+      "hue": 200,
+      "door": "http://container-deck.localhost/",
+      "bundleDir": "ContainerDeck.app",
+      "makeTarget": "container-deck-app",
+      "doc": "docs/pockit/Container-Deck.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "player",
+      "cassette_id": "container-deck",
+      "player_id": "container-deck",
+      "door_slug": "container-deck",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "door-creator",
+      "displayName": "Door Creator",
+      "symbol": "Dc",
+      "hue": 201,
+      "door": "http://door-creator.localhost/",
+      "bundleDir": "Door Creator.app",
+      "makeTarget": "door-creator",
+      "doc": "docs/pockit/Door-Creator-App-Prototype.md",
+      "accessory_category": "html_tool",
+      "accessory_category_label": "Tool surface",
+      "surface_kind": "html",
+      "cassette_id": null,
+      "player_id": null,
+      "door_slug": "door-creator",
+      "nav": [],
+      "has_html_server": true
+    },
+    {
+      "id": "gitea",
+      "displayName": "Gitea",
+      "symbol": "Gf",
+      "hue": 175,
+      "door": "http://ext-gitea.localhost/",
+      "bundleDir": "Gitea.app",
+      "makeTarget": "gitea-app",
+      "doc": "docs/pockit/Gitea-App-Prototype.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "tape",
+      "cassette_id": "ext-gitea",
+      "player_id": "nephew-deck",
+      "door_slug": "ext-gitea",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "operator-console",
+      "displayName": "Help Command Center",
+      "symbol": "Oc",
+      "hue": 210,
+      "door": "http://console.localhost/",
+      "bundleDir": "Operator Console.app",
+      "makeTarget": "operator-console-app",
+      "doc": "docs/pockit/Operator-Console.md",
+      "accessory_category": "html_tool",
+      "accessory_category_label": "Tool surface",
+      "surface_kind": "html",
+      "cassette_id": null,
+      "player_id": null,
+      "door_slug": "console",
+      "nav": [
+        {
+          "id": "dashboard",
+          "label": "Command dashboard",
+          "path": "http://console.localhost/"
+        },
+        {
+          "id": "my-buttons",
+          "label": "My buttons",
+          "path": "http://console.localhost/"
+        }
+      ],
+      "has_html_server": true
+    },
+    {
+      "id": "historia",
+      "displayName": "Historia",
+      "symbol": "Hi",
+      "hue": 25,
+      "door": "http://historia.localhost/",
+      "bundleDir": "Historia.app",
+      "makeTarget": "historia-app",
+      "doc": "docs/pockit/Historia-App-Prototype.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "tape",
+      "cassette_id": "historia",
+      "player_id": "pockit",
+      "door_slug": "historia",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "mac-warden",
+      "displayName": "Mac Warden",
+      "symbol": "Mw",
+      "hue": 130,
+      "door": "http://mac-warden.localhost/",
+      "bundleDir": "Mac Warden.app",
+      "makeTarget": "mac-warden-app",
+      "doc": "docs/pockit/Mac-Warden-App-Prototype.md",
+      "accessory_category": "guard",
+      "accessory_category_label": "Guard",
+      "surface_kind": "html",
+      "cassette_id": "mac-warden",
+      "player_id": "nephew-deck",
+      "door_slug": "mac-warden",
+      "nav": [
+        {
+          "id": "dashboard",
+          "label": "Mac Warden HUD",
+          "path": "http://mac-warden.localhost/"
+        }
+      ],
+      "has_html_server": true
+    },
+    {
+      "id": "nephew-phone-home",
+      "displayName": "Nephew Phone Home",
+      "symbol": "Ph",
+      "hue": 140,
+      "door": "http://pockit.localhost/",
+      "bundleDir": "Nephew Phone Home.app",
+      "makeTarget": "nephew-phone-home-app",
+      "doc": "docs/pockit/Nephew-Phone-Home-App-Prototype.md",
+      "accessory_category": "mesh_utility",
+      "accessory_category_label": "Mesh utility",
+      "surface_kind": "utility",
+      "cassette_id": "pockit",
+      "player_id": null,
+      "door_slug": "pockit",
+      "nav": [
+        {
+          "id": "setup",
+          "label": "Phone Home setup",
+          "path": "http://pockit.localhost/"
+        }
+      ],
+      "has_html_server": false
+    },
+    {
+      "id": "odysseus",
+      "displayName": "Odysseus",
+      "symbol": "Od",
+      "hue": 45,
+      "door": "http://odysseus.localhost/",
+      "bundleDir": "Odysseus.app",
+      "makeTarget": "odysseus-app",
+      "doc": "docs/pockit/Odysseus-App-Prototype.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "tape",
+      "cassette_id": "web-odysseus",
+      "player_id": "pockit",
+      "door_slug": "odysseus",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "family-office-platform",
+      "displayName": "Office",
+      "symbol": "Fo",
+      "hue": 270,
+      "door": "http://office.localhost/",
+      "bundleDir": "Office.app",
+      "makeTarget": "office-app",
+      "doc": "plans/0127-family-office-platform-cassette.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "player",
+      "cassette_id": null,
+      "player_id": "family-office-platform",
+      "door_slug": "office",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "pockit",
+      "displayName": "Pockit",
+      "symbol": "Po",
+      "hue": 48,
+      "door": "http://pockit.localhost/",
+      "bundleDir": "Pockit.app",
+      "makeTarget": "pockit-app",
+      "doc": "docs/pockit/Pockit-App-Prototype.md",
+      "accessory_category": "master_console",
+      "accessory_category_label": "Master console",
+      "surface_kind": "player",
+      "cassette_id": "nephew-hello",
+      "player_id": "pockit",
+      "door_slug": "pockit",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "search",
+      "displayName": "Search",
+      "symbol": "Sm",
+      "hue": 220,
+      "door": "http://search.localhost/",
+      "bundleDir": "Search.app",
+      "makeTarget": "search-app",
+      "doc": "docs/pockit/Search-My-Engine-App-Prototype.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "tape",
+      "cassette_id": "ext-archive",
+      "player_id": "search-my-engine",
+      "door_slug": "search",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "spark-warden",
+      "displayName": "Spark Warden",
+      "symbol": "Sw",
+      "hue": 200,
+      "door": "http://spark-warden.localhost/",
+      "bundleDir": "Spark Warden.app",
+      "makeTarget": "spark-warden-app",
+      "doc": "docs/pockit/Spark-Warden-App-Prototype.md",
+      "accessory_category": "guard",
+      "accessory_category_label": "Guard",
+      "surface_kind": "html",
+      "cassette_id": "spark-warden",
+      "player_id": "nephew-deck",
+      "door_slug": "spark-warden",
+      "nav": [
+        {
+          "id": "dashboard",
+          "label": "Spark Warden HUD",
+          "path": "http://spark-warden.localhost/"
+        }
+      ],
+      "has_html_server": true
+    },
+    {
+      "id": "suite",
+      "displayName": "Suite",
+      "symbol": "Fo",
+      "hue": 248,
+      "door": "http://suite.localhost/",
+      "bundleDir": "Suite.app",
+      "makeTarget": "suite-app",
+      "doc": "docs/pockit/Family-Office-Suite-App.md",
+      "accessory_category": "html_tool",
+      "accessory_category_label": "Tool surface",
+      "surface_kind": "html",
+      "cassette_id": null,
+      "player_id": null,
+      "door_slug": "suite",
+      "nav": [
+        {
+          "id": "launchpad",
+          "label": "Launchpad grid",
+          "path": "http://suite.localhost/"
+        },
+        {
+          "id": "install-framework",
+          "label": "Install Nephew Framework",
+          "path": "http://suite.localhost/"
+        }
+      ],
+      "has_html_server": true
+    },
+    {
+      "id": "tower-api",
+      "displayName": "Tower API",
+      "symbol": "Tw",
+      "hue": 210,
+      "door": "http://tower-api.localhost/",
+      "bundleDir": "Tower API.app",
+      "makeTarget": "tower-api-app",
+      "doc": "docs/pockit/Mac-App-Family-Office-Stack.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "tape",
+      "cassette_id": "tower-api",
+      "player_id": "pockit",
+      "door_slug": "tower-api",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "video",
+      "displayName": "Video",
+      "symbol": "Vi",
+      "hue": 265,
+      "door": "http://video.localhost/",
+      "bundleDir": "Video.app",
+      "makeTarget": "video-app",
+      "doc": "docs/pockit/help/video/video-super-rick-overview.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "tape",
+      "cassette_id": "video",
+      "player_id": "pockit",
+      "door_slug": "video",
+      "nav": [],
+      "has_html_server": false
+    },
+    {
+      "id": "voice",
+      "displayName": "Voice",
+      "symbol": "Vo",
+      "hue": 330,
+      "door": "http://voice.localhost/",
+      "bundleDir": "Voice.app",
+      "makeTarget": "voice-app",
+      "doc": "docs/pockit/Parakeet-Voice-Cassette-Vanilla.md",
+      "accessory_category": "door_launcher",
+      "accessory_category_label": "Door launcher",
+      "surface_kind": "tape",
+      "cassette_id": "voice",
+      "player_id": "pockit",
+      "door_slug": "voice",
+      "nav": [],
+      "has_html_server": false
+    }
+  ],
+  "family_embed_stems": [
+    "$comment",
+    "automata",
+    "bank-reader",
+    "cassette-factory",
+    "clinic",
+    "comfyui",
+    "comfyui-console",
+    "comms",
+    "console",
+    "container-deck",
+    "containers",
+    "control-tower",
+    "dgx-console",
+    "dgx-spark-console",
+    "doc-rag",
+    "dockyard",
+    "dockyard-console",
+    "dockyard-dgx",
+    "dockyard-mac",
+    "door-creator",
+    "dustpan-spark-spec",
+    "element",
+    "ext-archive",
+    "ext-clinic",
+    "ext-gitea",
+    "ext-vault",
+    "family-desk",
+    "family-office",
+    "family-office-platform",
+    "git",
+    "gitea",
+    "grafana",
+    "grafana-dgx",
+    "graph-service",
+    "historia",
+    "jarvis",
+    "jarvis-mindspace",
+    "jarvis-sovereign",
+    "langgraph",
+    "launchpad",
+    "mac-warden",
+    "matrix",
+    "matrix-element",
+    "matrix-synapse",
+    "n8n",
+    "nas",
+    "nas-ugos",
+    "nephew",
+    "nephew-max",
+    "nephew-phone-home",
+    "nephew-spark",
+    "nephew-spark-spec",
+    "obsidian",
+    "odysseus",
+    "office",
+    "operator",
+    "operator-console",
+    "phone-home",
+    "phone-home-console",
+    "pockit",
+    "prometheus",
+    "qdrant",
+    "quick-desk",
+    "schema-library",
+    "search",
+    "search-my-engine",
+    "ship-integrity",
+    "spark",
+    "spark-spec",
+    "spark-warden",
+    "speaches",
+    "suite",
+    "super-rick-video",
+    "synapse",
+    "tower",
+    "tower-api",
+    "ugos",
+    "vault",
+    "video",
+    "video-console",
+    "visual-perspective",
+    "visual-perspective-wp",
+    "voice",
+    "web-clinic",
+    "web-jarvis-mindspace",
+    "web-jarvis-sovereign",
+    "web-odysseus",
+    "whisper",
+    "wordpress",
+    "wp",
+    "wp-visual-perspective"
+  ]
+}

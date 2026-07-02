@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "surface_id": "pockit",
+  "display_name": "Pockit",
+  "glyph": "⟁",
+  "version": "1.92.24",
+  "changelog": {
+    "markdown_path": "/changelogs/pockit.md",
+    "surface_id": "pockit",
+    "html_path": "/changelog.html",
+    "pockit_route": "#/c/changelog"
+  }
+}

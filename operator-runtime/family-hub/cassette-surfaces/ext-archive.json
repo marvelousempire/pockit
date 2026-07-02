@@ -1,0 +1,181 @@
+{
+  "cassette_id": "ext-archive",
+  "player_id": "search-my-engine",
+  "console_name": "Search My Engine",
+  "encompass_mode": "hud_iframe",
+  "speakers_door": "http://search.localhost/",
+  "embed_stem": "search-my-engine",
+  "center_default": {
+    "route": "/"
+  },
+  "left_nav_label": "Archive",
+  "left_nav": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "glyph": "⌂",
+      "path": "/"
+    },
+    {
+      "id": "conversations",
+      "label": "Conversations",
+      "glyph": "💬",
+      "path": "/conversations"
+    },
+    {
+      "id": "projects",
+      "label": "Projects",
+      "glyph": "📁",
+      "path": "/projects"
+    },
+    {
+      "id": "topics",
+      "label": "Topics",
+      "glyph": "🗂️",
+      "path": "/topics"
+    },
+    {
+      "id": "attachments",
+      "label": "Attachments",
+      "glyph": "📎",
+      "path": "/attachments"
+    },
+    {
+      "id": "search",
+      "label": "Search",
+      "glyph": "🔎",
+      "path": "/search"
+    }
+  ],
+  "nav_sections": [
+    {
+      "id": "intelligence",
+      "label": "Intelligence",
+      "items": [
+        {
+          "id": "agent",
+          "label": "Agent",
+          "glyph": "🤖",
+          "path": "/agent"
+        },
+        {
+          "id": "ask",
+          "label": "Ask",
+          "glyph": "❓",
+          "path": "/ask"
+        },
+        {
+          "id": "memory",
+          "label": "Memory",
+          "glyph": "🧠",
+          "path": "/memory"
+        }
+      ]
+    },
+    {
+      "id": "analysis",
+      "label": "Analysis",
+      "items": [
+        {
+          "id": "compare",
+          "label": "Compare",
+          "glyph": "⚖️",
+          "path": "/compare"
+        },
+        {
+          "id": "diff",
+          "label": "Diff",
+          "glyph": "📊",
+          "path": "/diff"
+        },
+        {
+          "id": "usage",
+          "label": "Usage",
+          "glyph": "📈",
+          "path": "/usage"
+        },
+        {
+          "id": "health",
+          "label": "Health",
+          "glyph": "💚",
+          "path": "/health"
+        }
+      ]
+    },
+    {
+      "id": "workspace",
+      "label": "Workspace",
+      "items": [
+        {
+          "id": "help",
+          "label": "Help",
+          "glyph": "📖",
+          "path": "/help"
+        },
+        {
+          "id": "settings",
+          "label": "Settings",
+          "glyph": "⚙️",
+          "path": "/settings"
+        },
+        {
+          "id": "sync",
+          "label": "Sync",
+          "glyph": "🔄",
+          "path": "/sync"
+        },
+        {
+          "id": "clinic",
+          "label": "Clinic",
+          "glyph": "🏥",
+          "path": "/clinic"
+        },
+        {
+          "id": "dockyard",
+          "label": "Dockyard",
+          "glyph": "🚢",
+          "path": "/dockyard"
+        }
+      ]
+    }
+  ],
+  "bottom_nav_label": "Quick",
+  "bottom_nav": [
+    {
+      "id": "sync",
+      "label": "Sync",
+      "glyph": "🔄",
+      "path": "/sync"
+    },
+    {
+      "id": "health",
+      "label": "Health",
+      "glyph": "💚",
+      "path": "/health"
+    },
+    {
+      "id": "imports",
+      "label": "Imports",
+      "glyph": "📥",
+      "path": "/imports"
+    }
+  ],
+  "actions": [
+    {
+      "id": "open-speakers",
+      "label": "Open full Search My Engine",
+      "href": "http://search.localhost/",
+      "widget": "topbar-trailing"
+    }
+  ],
+  "routes": [
+    {
+      "upstream": "/api/health/live",
+      "zone": "footer"
+    },
+    {
+      "upstream": "/api/pockit/console",
+      "zone": "footer"
+    }
+  ]
+}

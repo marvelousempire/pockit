@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Board Intent Audit — Trust Organization</title>
+  <link rel="stylesheet" href="/mac-app-intent-chrome.css?v=1.90.13" />
+  <link rel="stylesheet" href="/pockit-intention-badge.css?v=1.90.13" />
+  <link rel="stylesheet" href="/board-intent-audit.css?v=1.90.13" />
+</head>
+<body class="board-audit-body">
+  <header class="board-audit-header">
+    <div class="board-audit-header__crest" aria-hidden="true">🛡</div>
+    <div>
+      <h1>Board Intent Audit</h1>
+      <p class="board-audit-steward">Trust Organization · Board of Trustees</p>
+      <p class="board-audit-lede">Every Declaration of Intent across READYPLAY, Nephew, Pockit, and family surfaces — UDIN law the Board can audit.</p>
+    </div>
+    <a class="board-audit-spec" href="/docs/standards/declaration-of-intent-model.md" hidden>Spec</a>
+  </header>
+
+  <main class="board-audit-main">
+    <section class="board-audit-stats" id="board-audit-stats" aria-live="polite">Loading declarations…</section>
+    <div class="board-audit-filters" id="board-audit-filters" hidden></div>
+    <div class="board-audit-grid" id="board-audit-grid"></div>
+    <details class="board-audit-raw">
+      <summary>Registry JSON (operator)</summary>
+      <pre id="board-audit-raw"></pre>
+    </details>
+  </main>
+
+  <div class="board-audit-backdrop" id="board-audit-backdrop" hidden role="dialog" aria-modal="true">
+    <div class="board-audit-panel" id="board-audit-panel"></div>
+  </div>
+
+  <script src="/declaration-of-intent-adapters.js?v=1.90.13" defer></script>
+  <script src="/declaration-of-intent-panel.js?v=1.90.13" defer></script>
+  <script src="/board-intent-audit.js?v=1.90.13" defer></script>
+</body>
+</html>

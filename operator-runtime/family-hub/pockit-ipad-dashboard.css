@@ -1,0 +1,798 @@
+/**
+ * Hub iPad dashboard — monochrome smart-mirror with SF-style icon tiles + full chrome.
+ */
+
+body.hub-dashboard {
+  --accent: var(--fg-0);
+  --accent-hover: var(--fg-0);
+  --accent-dim: color-mix(in srgb, var(--fg-0) 7%, var(--bg-1));
+  --accent-text: var(--bg-1);
+  --tower-mesh-a: transparent;
+  --tower-mesh-b: transparent;
+  --tower-glow: none;
+  --ant-primary: var(--fg-0);
+  --ant-primary-hover: var(--fg-0);
+  --ant-primary-bg: color-mix(in srgb, var(--fg-0) 6%, var(--bg-1));
+  --comet-panel-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+}
+
+[data-theme="light"] body.hub-dashboard {
+  --bg-0: #f2f2f7;
+  --bg-1: #ffffff;
+  --bg-2: #ffffff;
+  --bg-3: #e5e5ea;
+  --fg-0: #1c1c1e;
+  --fg-1: #3a3a3c;
+  --fg-2: #636366;
+  --fg-3: #8e8e93;
+  --border: rgba(60, 60, 67, 0.12);
+}
+
+[data-theme="dark"] body.hub-dashboard {
+  --bg-0: #000000;
+  --bg-1: #1c1c1e;
+  --bg-2: #2c2c2e;
+  --bg-3: #3a3a3c;
+  --fg-0: #f5f5f7;
+  --fg-1: #ebebf0;
+  --fg-2: #aeaeb2;
+  --fg-3: #636366;
+  --border: rgba(235, 235, 245, 0.12);
+  --comet-panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+}
+
+body.hub-dashboard .cassette-player,
+body.hub-dashboard .main-content,
+body.hub-dashboard .sidebar { background: var(--bg-0); }
+body.hub-dashboard .sidebar { background: var(--bg-1); border-right-color: var(--border); }
+
+/* Beat Ant Design tapes-ui .sidebar width/bg !important — hub theme owns rails. */
+body.tapes-ui.hub-dashboard .sidebar.player-rail {
+  flex: 0 0 var(--player-rail-w, 240px);
+  width: var(--player-rail-w, 240px);
+  min-width: var(--player-rail-w, 240px);
+  max-width: var(--player-rail-w, 240px);
+  background: var(--bg-0) !important;
+  backdrop-filter: none !important;
+}
+
+body.tapes-ui.hub-dashboard .sidebar.cassette-rail {
+  background: var(--bg-0) !important;
+  backdrop-filter: none !important;
+}
+
+body.tapes-ui.hub-dashboard .sidebar.player-rail .sidebar-header,
+body.tapes-ui.hub-dashboard .sidebar.cassette-rail .sidebar-header {
+  background: var(--bg-0) !important;
+}
+body.hub-dashboard .main-header {
+  background: color-mix(in srgb, var(--bg-0) 92%, transparent);
+  border-bottom-color: var(--border);
+  backdrop-filter: blur(20px) saturate(1.2);
+}
+body.hub-dashboard .brand-glyph { filter: none; }
+
+body.hub-dashboard .pockit-hero-glow { display: none !important; }
+body.hub-dashboard .pockit-hero,
+body.hub-dashboard .pockit-hero--dash {
+  margin: 0;
+  padding: 20px 20px 8px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+body.hub-dashboard .pockit-dash-title,
+body.hub-dashboard .pockit-title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--fg-0);
+}
+body.hub-dashboard .pockit-kicker { color: var(--fg-2); font-size: 12px; }
+body.hub-dashboard .pockit-lede { color: var(--fg-2); font-size: 14px; max-width: 42rem; }
+body.hub-dashboard .pockit-nav { padding: 0 16px 8px; border: none; background: transparent; overflow: visible; }
+body.hub-dashboard .pockit-search-row { border-radius: 12px; background: var(--bg-1); border: 1px solid var(--border); }
+body.hub-dashboard .pockit-toolbar--filters { overflow: visible; }
+body.hub-dashboard .comet-dropdown-trigger--wifi {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--fg-1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+body.hub-dashboard .comet-dropdown-panel--wifi {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  box-shadow: var(--comet-panel-shadow);
+}
+body.hub-dashboard .hub-wifi-copy strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-0);
+  margin-bottom: 4px;
+}
+body.hub-dashboard .hub-wifi-copy .wifi-url a { color: var(--fg-0); text-decoration: underline; text-underline-offset: 2px; }
+
+body.hub-dashboard .overview-section-head--dash {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 4px;
+  margin: 0;
+}
+body.hub-dashboard .overview-section-head--dash h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fg-0);
+}
+body.hub-dashboard .overview-player-niche--dash {
+  padding: 0 20px 4px;
+  margin: 0;
+  font-size: 12px;
+  color: var(--fg-2);
+}
+body.hub-dashboard .overview-player-glyph--tile {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+body.hub-dashboard .overview-player-glyph--tile .anticon { font-size: 36px; color: var(--fg-0); }
+
+body.hub-dashboard .overview-card-accent,
+body.hub-dashboard .overview-subtitle,
+body.hub-dashboard .overview-detail,
+body.hub-dashboard .overview-card-footer,
+body.hub-dashboard .overview-pill,
+body.hub-dashboard .overview-newtab { display: none !important; }
+
+body.hub-dashboard .overview-grid,
+body.hub-dashboard .overview-grid--apps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 22px 12px;
+  padding: 12px 20px 28px;
+  max-width: 1200px;
+}
+
+body.hub-dashboard .overview-card--app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+body.hub-dashboard .overview-card--app:hover,
+body.hub-dashboard .overview-card--app:focus-visible { background: transparent; transform: none; }
+body.hub-dashboard .overview-card--app:active .overview-app-icon { transform: scale(0.94); opacity: 0.85; }
+
+body.hub-dashboard .overview-app-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+[data-theme="dark"] body.hub-dashboard .overview-app-icon { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); }
+body.hub-dashboard .overview-app-icon .hub-item-avatar { display: none !important; }
+body.hub-dashboard .overview-app-icon .anticon { font-size: 60px; color: var(--fg-0); }
+body.hub-dashboard .overview-app-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+  text-align: center;
+  line-height: 1.25;
+  max-width: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.hub-dashboard .overview-app-more,
+body.hub-dashboard .overview-app-ext {
+  position: absolute;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--bg-1) 90%, transparent);
+  color: var(--fg-2);
+  opacity: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  text-decoration: none;
+}
+body.hub-dashboard .overview-app-more { right: 0; }
+body.hub-dashboard .overview-app-ext { left: 0; }
+body.hub-dashboard .overview-card--app:hover .overview-app-more,
+body.hub-dashboard .overview-card--app:hover .overview-app-ext,
+body.hub-dashboard .overview-card--app:focus-within .overview-app-more,
+body.hub-dashboard .overview-card--app:focus-within .overview-app-ext { opacity: 1; }
+
+body.hub-dashboard .sidebar-glyph-wrap--tile {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+body.hub-dashboard .sidebar-glyph-wrap--tile .hub-item-avatar { display: none !important; }
+body.hub-dashboard .sidebar-glyph-wrap--tile .anticon { font-size: 36px; color: var(--fg-1); }
+body.hub-dashboard .sidebar-item.active .sidebar-glyph-wrap--tile .anticon { color: var(--fg-0); }
+body.hub-dashboard .sidebar-item-main { gap: 10px; padding: 8px 10px; min-height: 44px; border-radius: 12px; }
+body.hub-dashboard .sidebar-label { color: var(--fg-1); font-size: 13px; }
+body.hub-dashboard .sidebar-label--with-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+body.hub-dashboard .sidebar-label-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body.hub-dashboard .sidebar-label--with-chip .role-chip {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: 8px;
+  padding: 2px 6px;
+}
+
+body.hub-dashboard .sidebar-item.active .sidebar-label { color: var(--fg-0); font-weight: 500; }
+body.hub-dashboard .sidebar-active-pill {
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--fg-0) 8%, var(--bg-2));
+  box-shadow: none;
+}
+
+body.hub-dashboard .main-breadcrumb-title .hub-item-avatar { display: none !important; }
+body.hub-dashboard .main-breadcrumb-title .anticon { font-size: 16px; color: var(--fg-0); }
+
+body.hub-dashboard .comet-btn--primary,
+body.hub-dashboard button.primary,
+body.hub-dashboard .hero-submit {
+  background: var(--fg-0);
+  color: var(--bg-1);
+  border-color: var(--fg-0);
+  box-shadow: none;
+}
+[data-theme="dark"] body.hub-dashboard .comet-btn--primary,
+[data-theme="dark"] body.hub-dashboard button.primary { color: var(--bg-0); }
+body.hub-dashboard .main-content { padding: 0 !important; background: var(--bg-0) !important; }
+
+@media (max-width: 640px) {
+  body.hub-dashboard .overview-grid--apps {
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+    gap: 18px 8px;
+    padding: 8px 12px 20px;
+  }
+  body.hub-dashboard .overview-app-icon { width: 60px; height: 60px; border-radius: 16px; }
+}
+
+/* Plan 0171 — rail header dropdowns: see rail-dropdown-mount rules below (Clinic 0036) */
+
+/* Plan 0173 — main-header rail chrome (collapse in main-actions, player rail collapse) */
+body.tapes-ui .main-header__leading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+body.tapes-ui .main-header .hub-back-btn.ant-btn-icon-only {
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-right: 0;
+  gap: 0;
+}
+body.tapes-ui .main-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+body.tapes-ui .main-actions #cassette-rail-toggle {
+  transform: scaleX(-1);
+}
+body.tapes-ui .player-rail.collapsed {
+  flex-basis: 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  border-right-width: 0 !important;
+}
+body.tapes-ui .player-rail.collapsed .sidebar-header,
+body.tapes-ui .player-rail.collapsed .sidebar-content,
+body.tapes-ui .player-rail.collapsed .sidebar-footer {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+body.tapes-ui .cassette-rail.collapsed .sidebar-header,
+body.tapes-ui .cassette-rail.collapsed .sidebar-content,
+body.tapes-ui .cassette-rail.collapsed .sidebar-footer {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Plan 0216+ — sticky rail docks: scroll lists above, footers never overtaken */
+body.tapes-ui .player-rail,
+body.tapes-ui .cassette-rail {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+body.tapes-ui .player-rail > .sidebar-header,
+body.tapes-ui .cassette-rail > .sidebar-header {
+  flex: 0 0 auto;
+  flex-shrink: 0;
+}
+body.tapes-ui .sidebar-header.cassette-rail-header {
+  overflow: visible;
+}
+
+body.suite-bar-visible.tapes-ui .sidebar-header.cassette-rail-header {
+  height: 66px;
+  min-height: 66px;
+  max-height: 66px;
+}
+body.tapes-ui .cassette-rail {
+  border-right: none;
+  border-left: 1px solid var(--border, var(--ant-border));
+}
+body.tapes-ui .player-rail .sidebar-content,
+body.tapes-ui .cassette-rail .sidebar-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+body.tapes-ui .sidebar-footer--rail-dock {
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  margin-top: auto;
+  z-index: 3;
+  padding: 10px 12px;
+  gap: 0;
+  border-top: 1px solid var(--border, var(--ant-border));
+  background: var(--bg-1, var(--ant-container-bg));
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+body.tapes-ui .sidebar-footer--rail-dock.comet-status-bar--sidebar {
+  padding: 10px 12px;
+  gap: 0;
+}
+body.tapes-ui .rail-dock-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+body.tapes-ui .sidebar-footer--rail-dock .auth-status {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+body.tapes-ui .sidebar-footer--rail-dock .comet-status-toolbar {
+  gap: 8px;
+}
+body.tapes-ui .cassette-rail-dock .pockit-version-invariant {
+  position: static;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  margin: 0;
+  min-height: 32px;
+  padding: 6px 10px;
+  box-shadow: none;
+}
+body.tapes-ui .cassette-rail-dock .pockit-version-invariant.is-dock-hidden {
+  display: none !important;
+}
+body.tapes-ui .rail-dock-bar--console {
+  gap: 0;
+  margin-bottom: 6px;
+}
+body.tapes-ui .player-rail-dock .shell-player-console-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: var(--ak-radius-sm, 8px);
+  border: 1px solid color-mix(in srgb, var(--player-accent, var(--accent)) 35%, var(--border));
+  background: color-mix(in srgb, var(--player-accent, var(--accent)) 12%, transparent);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-0, var(--ant-text));
+}
+body.tapes-ui .shell-player-console-badge__symbol {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  opacity: 0.92;
+}
+body.tapes-ui .rail-dock-bar--version {
+  gap: 0;
+}
+
+body.tapes-ui .rail-dock-meta {
+  display: block;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--fg-2, var(--ant-text-secondary));
+  word-break: break-word;
+}
+/* Floated fallback when right rail is collapsed / cinema */
+body.tapes-ui .pockit-version-invariant.pockit-version-invariant--floated {
+  position: fixed;
+  right: 14px;
+  z-index: 120;
+  width: auto;
+  min-width: 0;
+  margin: 0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+}
+body.tapes-ui.pockit-update-available .pockit-version-invariant.has-update {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+}
+body.tapes-ui.pockit-update-available .pockit-version-invariant.pockit-version-invariant--floated.has-update {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent), 0 4px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* Plan 0187 — Pockit Config chrome auto-hide */
+body.tapes-ui.pockit-chrome-hide-player-rail #player-rail {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  flex-basis: 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  border-right-width: 0 !important;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+body.tapes-ui.pockit-chrome-hide-cassette-rail #sidebar.cassette-rail {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  flex-basis: 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  border-left-width: 0 !important;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+body.tapes-ui.pockit-chrome-hide-header .main-header {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  border-bottom-width: 0;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+body.tapes-ui.pockit-chrome-hide-footer #main-footer.main-shell-footer {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+body.tapes-ui.pockit-cinema-mode #player-rail,
+body.tapes-ui.pockit-cinema-mode #sidebar.cassette-rail,
+body.tapes-ui.pockit-cinema-mode .main-header {
+  opacity: 0;
+  pointer-events: none;
+}
+body.tapes-ui.pockit-cinema-mode #main-footer.main-shell-footer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  max-height: none;
+}
+body.tapes-ui.pockit-chrome-reveal-active #player-rail,
+body.tapes-ui.pockit-chrome-reveal-active #sidebar.cassette-rail,
+body.tapes-ui.pockit-chrome-reveal-active .main-header,
+body.tapes-ui.pockit-chrome-reveal-active #main-footer.main-shell-footer {
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  max-height: none !important;
+}
+body.tapes-ui .pockit-config-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Plan 0172b — overview center, footer + sidebar foot polish */
+body.tapes-ui .main-breadcrumb-wrap--overview {
+  justify-content: center;
+}
+body.tapes-ui .main-breadcrumb-wrap--overview .main-breadcrumb {
+  justify-content: center;
+  flex: 1 1 auto;
+}
+body.tapes-ui .main-breadcrumb-wrap--overview .tower-status-rail {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 42%;
+}
+body.tapes-ui .main-breadcrumb-title--overview {
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 600;
+  gap: 8px;
+}
+
+body.hub-dashboard .overview-app-more,
+body.hub-dashboard .overview-app-ext {
+  z-index: 2;
+  pointer-events: auto;
+}
+body.tapes-ui .shell-footer-versions,
+body.tapes-ui .shell-footer-trailing {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding-right: 0;
+}
+body.tapes-ui .shell-footer-versions--split {
+  display: grid;
+  margin-left: 0;
+  justify-content: stretch;
+}
+body.tapes-ui .shell-version-btn {
+  margin-left: 0;
+}
+body.tapes-ui .shell-version-meta {
+  margin-left: 2px;
+  padding-left: 0;
+}
+body.tapes-ui .shell-footer-copy {
+  margin-left: 0;
+}
+
+body.tapes-ui .player-rail-dropdown-mount,
+body.tapes-ui .cassette-rail-dropdown-mount,
+body.tapes-ui .rail-dropdown-mount {
+  position: relative;
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+body.suite-bar-visible.tapes-ui .player-rail-header .player-rail-dropdown-mount {
+  height: auto;
+  min-height: 0;
+}
+
+body.tapes-ui .rail-dropdown-mount .comet-dropdown,
+body.tapes-ui .comet-dropdown--rail-fullbleed {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 56px;
+}
+
+body.tapes-ui .comet-dropdown--rail-fullbleed .comet-dropdown-trigger--rail {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 56px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 14px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+body.tapes-ui .comet-dropdown--rail-fullbleed .comet-dropdown-trigger--rail:hover {
+  border: none;
+  box-shadow: none;
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 6%, transparent);
+}
+
+body.tapes-ui .comet-dropdown--rail-fullbleed.is-open .comet-dropdown-trigger--rail {
+  border: none;
+  box-shadow: none;
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 8%, transparent);
+}
+
+body.tapes-ui .comet-dropdown--rail-fullbleed .comet-dropdown-trigger--rail .comet-dropdown-trigger-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body.tapes-ui .comet-dropdown--rail-fullbleed .comet-dropdown-trigger--rail .comet-dropdown-chevron {
+  flex-shrink: 0;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  color: var(--fg-3, var(--ant-text-tertiary));
+}
+
+/* Settings — vertically centered in player-rail header band (66px) */
+body.tapes-ui .player-rail-header .player-rail-settings-row .sidebar-item-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: auto;
+  padding: 6px 12px;
+  min-height: 44px;
+  max-height: none;
+  border-radius: 12px;
+  box-sizing: border-box;
+  line-height: 1.2;
+}
+
+body.suite-bar-visible.tapes-ui .player-rail-header .player-rail-dropdown-mount {
+  height: auto;
+  min-height: 0;
+  padding: 0;
+}
+
+body.suite-bar-visible.tapes-ui .player-rail-header .player-rail-settings-row:hover .sidebar-item-main {
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 6%, transparent);
+}
+
+body.hub-dashboard .player-rail-header .player-rail-settings-row .sidebar-glyph-wrap--tile {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+}
+
+body.hub-dashboard .player-rail-header .player-rail-settings-row .sidebar-glyph-wrap--tile .anticon {
+  font-size: 18px;
+}
+
+body.tapes-ui .player-rail-header .player-rail-settings-row .player-rail-settings-trigger[aria-expanded="true"] {
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 10%, transparent);
+  color: var(--accent, var(--ant-primary));
+}
+
+body.tapes-ui .comet-dropdown-panel.comet-dropdown-panel--rail-float {
+  position: fixed;
+  z-index: 600;
+  max-height: min(70dvh, 520px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.tapes-ui .sidebar-header.player-rail-header,
+body.tapes-ui .sidebar-header.cassette-rail-header {
+  height: 56px;
+  min-height: 56px;
+  max-height: 56px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 0;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+body.suite-bar-visible.tapes-ui .sidebar-header.player-rail-header,
+body.suite-bar-visible.tapes-ui .sidebar-header.cassette-rail-header {
+  height: 66px;
+  min-height: 66px;
+  max-height: 66px;
+  padding: 0 10px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Voice App Mode Rails — Phase 7: Focus mode = full-bleed canvas; footer slides
+   down; all drawer handles hide until the pointer nears that screen edge. */
+body.tapes-ui.pockit-focus-mode #suite-bar,
+body.tapes-ui.pockit-focus-mode #player-rail,
+body.tapes-ui.pockit-focus-mode #sidebar.cassette-rail,
+body.tapes-ui.pockit-focus-mode .main-header {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.tapes-ui.pockit-focus-mode.pockit-cinema-mode #main-footer.main-shell-footer,
+body.tapes-ui.pockit-focus-mode #main-frame > footer.main-shell-footer {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.tapes-ui.pockit-focus-mode #top-chrome-handle,
+body.tapes-ui.pockit-focus-mode #bottom-chrome-handle,
+body.tapes-ui.pockit-focus-mode #player-rail-handle,
+body.tapes-ui.pockit-focus-mode #cassette-rail-handle {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+body.tapes-ui.pockit-focus-mode.pockit-focus-reveal-top #top-chrome-handle,
+body.tapes-ui.pockit-focus-mode.pockit-focus-reveal-bottom #bottom-chrome-handle,
+body.tapes-ui.pockit-focus-mode.pockit-focus-reveal-left #player-rail-handle,
+body.tapes-ui.pockit-focus-mode.pockit-focus-reveal-right #cassette-rail-handle,
+body.tapes-ui.pockit-focus-mode .rail-drawer-handle:hover,
+body.tapes-ui.pockit-focus-mode .rail-drawer-handle:focus-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}

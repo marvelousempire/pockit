@@ -1,0 +1,169 @@
+/* Pockit appearance settings — skin picker + skin token overrides */
+
+.pockit-appearance-lede {
+  margin: 0 0 12px;
+}
+
+.pockit-appearance-footnote {
+  margin-top: 16px;
+  font-size: 12px;
+}
+
+.pockit-appearance-card-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+
+.pockit-appearance-skins {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pockit-appearance-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  border-radius: var(--ak-radius-lg, 12px);
+  background: var(--bg-1, #fff);
+  color: var(--fg-0, rgba(0, 0, 0, 0.88));
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.pockit-appearance-card:hover {
+  border-color: color-mix(in srgb, var(--accent, #1677ff) 35%, var(--border, #f0f0f0));
+}
+
+.pockit-appearance-card.is-selected {
+  border-color: var(--accent, #1677ff);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent, #1677ff) 25%, transparent);
+  background: color-mix(in srgb, var(--accent-dim, #e6f4ff) 40%, var(--bg-1, #fff));
+}
+
+.pockit-appearance-card__swatch {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--ak-radius-md, 10px);
+  border: 1px solid var(--border, #f0f0f0);
+  box-shadow: var(--shadow, 0 1px 2px rgba(0, 0, 0, 0.06));
+}
+
+.pockit-appearance-card__swatch--presence {
+  background: linear-gradient(135deg, #1677ff 0%, #6366f1 55%, #f5f5f5 100%);
+}
+
+.pockit-appearance-card__swatch--tahoe {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(22, 119, 255, 0.35));
+  backdrop-filter: blur(8px);
+}
+
+.pockit-appearance-card__swatch--sequoia {
+  background: linear-gradient(180deg, #f2f2f7 0%, #d1d1d6 100%);
+  border-width: 2px;
+}
+
+.pockit-appearance-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pockit-appearance-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.pockit-appearance-card__tagline {
+  font-size: 12px;
+  color: var(--fg-1, rgba(0, 0, 0, 0.65));
+  line-height: 1.45;
+}
+
+.pockit-appearance-card__badge {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 6px;
+  border-radius: var(--ak-radius-xs, 6px);
+  background: color-mix(in srgb, var(--accent, #1677ff) 12%, transparent);
+  color: var(--accent, #1677ff);
+}
+
+.pockit-appearance-card__status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--ak-radius-xs, 6px);
+  background: var(--comet-track, rgba(0, 0, 0, 0.04));
+  color: var(--fg-2, rgba(0, 0, 0, 0.45));
+}
+
+/* ── Skin: Presence (default — kvm-comet baseline) ── */
+html[data-skin="presence"],
+html:not([data-skin]) {
+  --pockit-skin-radius: var(--ak-radius-lg, 12px);
+  --pockit-skin-rail-blur: var(--tower-rail-blur, none);
+}
+
+/* ── Skin: Tahoe — heavier glass on rails ── */
+html[data-skin="tahoe"] {
+  --pockit-skin-radius: var(--ak-radius-xl, 16px);
+  --pockit-skin-rail-blur: saturate(1.2) blur(18px);
+  --tower-rail-blur: saturate(1.2) blur(18px);
+  --comet-panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+html[data-skin="tahoe"] body.tapes-ui .sidebar,
+html[data-skin="tahoe"] body.tapes-ui .main-header {
+  backdrop-filter: var(--pockit-skin-rail-blur);
+}
+
+html[data-skin="tahoe"] body.tapes-ui .sidebar-item-main {
+  border-radius: var(--ak-radius-pill);
+}
+
+/* ── Skin: Sequoia — bordered, tighter ── */
+html[data-skin="sequoia"] {
+  --pockit-skin-radius: var(--ak-radius-md, 10px);
+  --pockit-skin-rail-blur: none;
+  --comet-panel-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+html[data-skin="sequoia"] body.tapes-ui .sidebar,
+html[data-skin="sequoia"] body.tapes-ui .main-header,
+html[data-skin="sequoia"] .pockit-settings-modal .cs-card {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--border);
+}
+
+html[data-skin="sequoia"] body.tapes-ui .sidebar-active-pill {
+  box-shadow: none;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+[data-theme="dark"] .pockit-appearance-card {
+  background: var(--bg-2, #1f1f1f);
+}
+
+[data-theme="dark"] .pockit-appearance-card.is-selected {
+  background: color-mix(in srgb, var(--accent-dim, rgba(22, 119, 255, 0.15)) 55%, var(--bg-2, #1f1f1f));
+}

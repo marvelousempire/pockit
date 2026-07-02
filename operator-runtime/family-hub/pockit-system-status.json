@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "description": "Pockit footer System status — processor + device pill catalog (Plan 0437).",
+  "sections": {
+    "processor": {
+      "label": "Processor",
+      "hint": "Silicon in the family stack"
+    },
+    "device": {
+      "label": "Device",
+      "hint": "Form factor — this session vs fleet"
+    },
+    "voice": {
+      "label": "Voice route",
+      "hint": "Live talk path"
+    }
+  },
+  "processors": [
+    {
+      "id": "m5",
+      "label": "M5",
+      "inventoryIds": ["macbook-pro-m5"],
+      "match": ["M5"]
+    },
+    {
+      "id": "m4",
+      "label": "M4",
+      "inventoryIds": ["mac-mini-m4"],
+      "match": ["M4"]
+    },
+    {
+      "id": "m1",
+      "label": "M1",
+      "inventoryIds": ["macbook-pro-m1"],
+      "match": ["M1"]
+    },
+    {
+      "id": "dgx",
+      "label": "DGX",
+      "inventoryIds": ["dgx-spark"],
+      "match": ["DGX", "GB10", "Spark", "Blackwell"]
+    }
+  ],
+  "devices": [
+    {
+      "id": "iphone-16-pro",
+      "label": "iPhone Pro",
+      "shortLabel": "iPhone Pro",
+      "presetBaseId": "iphone-16-pro"
+    },
+    {
+      "id": "iphone-16-pro-max",
+      "label": "iPhone Pro Max",
+      "shortLabel": "iPhone Pro Max",
+      "presetBaseId": "iphone-16-pro-max"
+    },
+    {
+      "id": "macbook-m5-max",
+      "label": "MacBook M5 Max",
+      "shortLabel": "MacBook M5 Max",
+      "presetBaseId": "macbook-pro-16",
+      "inventoryIds": ["macbook-pro-m5"],
+      "processorId": "m5"
+    },
+    {
+      "id": "macbook-pro",
+      "label": "MacBook Pro",
+      "shortLabel": "MacBook Pro",
+      "presetBaseId": "macbook-pro-14",
+      "inventoryIds": ["macbook-pro-m1"]
+    },
+    {
+      "id": "imac",
+      "label": "iMac",
+      "shortLabel": "iMac",
+      "presetBaseId": "studio-display",
+      "inventoryIds": ["imac-2017"]
+    },
+    {
+      "id": "ipad-pro",
+      "label": "iPad Pro",
+      "shortLabel": "iPad Pro",
+      "presetBaseId": "ipad-pro-13"
+    }
+  ]
+}

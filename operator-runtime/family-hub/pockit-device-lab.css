@@ -1,0 +1,255 @@
+/**
+ * Plan 0275 — Device Lab (Settings → Devices): Safari-style responsive preview.
+ */
+
+.pockit-settings-pane--devices {
+  padding: 0;
+}
+
+.pockit-device-lab {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pockit-device-lab__head {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pockit-device-lab__lede {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--fg-2, #666);
+}
+
+.pockit-device-lab__status {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--fg-2, #888);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.pockit-device-lab__status strong {
+  font-weight: 650;
+  color: var(--fg-0, #111);
+  font-family: inherit;
+}
+
+.pockit-device-lab__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pockit-device-lab__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border, rgba(60, 60, 67, 0.16)) 90%, transparent);
+  background: var(--bg-0, #f5f5f7);
+}
+
+.pockit-device-lab__search-icon {
+  flex-shrink: 0;
+  font-size: 15px;
+  color: var(--fg-2, #888);
+  line-height: 1;
+}
+
+.pockit-device-lab__search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  color: var(--fg-0, #111);
+  outline: none;
+}
+
+.pockit-device-lab__search-input::placeholder {
+  color: var(--fg-2, #999);
+}
+
+.pockit-device-lab__catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 8px;
+}
+
+.pockit-device-lab__section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pockit-device-lab__section-label {
+  margin: 0;
+  padding: 0 4px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-2, #888);
+}
+
+.pockit-device-lab__group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--border, rgba(60, 60, 67, 0.12)) 88%, transparent);
+  background: var(--bg-1, #fff);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.pockit-device-lab__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border, rgba(60, 60, 67, 0.1)) 80%, transparent);
+}
+
+.pockit-device-lab__group .pockit-device-lab__row:last-child {
+  border-bottom: none;
+}
+
+.pockit-device-lab__row--active {
+  background: color-mix(in srgb, var(--accent, #4096ff) 8%, var(--bg-1, #fff));
+}
+
+.pockit-device-lab__row-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.pockit-device-lab__row-main:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.pockit-device-lab__row-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg-0, #111);
+  line-height: 1.25;
+}
+
+.pockit-device-lab__row-size {
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--fg-2, #666);
+}
+
+.pockit-device-lab__segment {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 9px;
+  background: var(--bg-0, #f5f5f7);
+  border: 1px solid color-mix(in srgb, var(--border, rgba(60, 60, 67, 0.12)) 85%, transparent);
+}
+
+.pockit-device-lab__segment-btn {
+  min-width: 34px;
+  min-height: 30px;
+  padding: 0 8px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--fg-2, #666);
+  cursor: pointer;
+}
+
+.pockit-device-lab__segment-btn.is-active {
+  background: var(--bg-1, #fff);
+  color: var(--accent, #0066cc);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.pockit-device-lab__hint {
+  font-size: 13px;
+  color: var(--fg-2, #666);
+  padding: 12px 0;
+}
+
+.pockit-device-lab__matrix {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.12));
+  background: var(--bg-0, #fafafa);
+}
+
+.pockit-device-lab__matrix-summary {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pockit-device-lab__matrix-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  max-height: 120px;
+  overflow: auto;
+}
+
+.pockit-device-lab__matrix-row--fail {
+  color: #b42318;
+}
+
+body.pockit-device-lab-active {
+  background: #1a1a1e;
+}
+
+.pockit-viewport-lab-frame {
+  margin: 24px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  background: var(--bg-1, #fff);
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 48px);
+}
+
+.pockit-viewport-lab-frame #app {
+  width: 100%;
+  height: 100%;
+}
+
+body[data-pockit-viewport="phoneCompact"] .pockit-device-lab__row,
+body[data-pockit-viewport="phoneLarge"] .pockit-device-lab__row {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+body[data-pockit-viewport="phoneCompact"] .pockit-device-lab__segment,
+body[data-pockit-viewport="phoneLarge"] .pockit-device-lab__segment {
+  justify-self: start;
+}

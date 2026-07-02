@@ -1,0 +1,294 @@
+/**
+ * KVM Comet realism — slate-blue neutrals, top-light surfaces, physical status LEDs.
+ * Loaded last so it overrides flat Ant token fills with depth + ambient tone.
+ */
+
+:root,
+[data-theme="light"] {
+  --kvm-slate-0: #e4e9f0;
+  --kvm-slate-1: #ecf0f5;
+  --kvm-slate-2: #f3f6fa;
+  --kvm-slate-3: #f8fafc;
+  --kvm-surface: #ffffff;
+  --kvm-border-light: #e8edf4;
+  --kvm-border: #d4dce8;
+  --kvm-border-deep: #bcc6d4;
+  --kvm-blue: #3a7ec8;
+  --kvm-blue-bright: #4d93db;
+  --kvm-blue-deep: #2d6aad;
+  --kvm-blue-mist: #e2edf8;
+  --kvm-blue-glow: rgba(58, 126, 200, 0.22);
+  --kvm-success-face: #e8f2e4;
+  --kvm-success-face-top: #f2f8ef;
+  --kvm-success-border: #b4cfaa;
+  --kvm-success-text: #2f5c2a;
+  --kvm-success-led: #449a3a;
+  --kvm-warn-face: #f8f0df;
+  --kvm-warn-face-top: #fcf6ea;
+  --kvm-warn-border: #dfc998;
+  --kvm-warn-text: #6b4e12;
+  --kvm-warn-led: #b8860b;
+  --kvm-error-face: #faeaea;
+  --kvm-error-face-top: #fdf3f3;
+  --kvm-error-border: #e0b4b4;
+  --kvm-error-text: #7a2e2e;
+  --kvm-error-led: #c44545;
+  --kvm-process-face: #e4edf8;
+  --kvm-process-face-top: #eef4fc;
+  --kvm-process-border: #a8c0de;
+  --kvm-process-text: #1e4a78;
+  --kvm-process-led: #3a7ec8;
+  --kvm-inset-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.94);
+  --kvm-inset-lowlight: inset 0 -1px 0 rgba(15, 23, 42, 0.05);
+  --kvm-elev-1: 0 1px 2px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.025);
+  --kvm-elev-2: 0 2px 8px rgba(15, 23, 42, 0.07), 0 12px 32px rgba(15, 23, 42, 0.05);
+  --kvm-ambient: radial-gradient(ellipse 100% 70% at 50% -15%, rgba(58, 126, 200, 0.09), transparent 58%);
+}
+
+[data-theme="dark"] {
+  --kvm-slate-0: #080a0e;
+  --kvm-slate-1: #0c0f14;
+  --kvm-slate-2: #12161e;
+  --kvm-slate-3: #181d27;
+  --kvm-surface: #1c222d;
+  --kvm-border-light: #252c3a;
+  --kvm-border: #323b4d;
+  --kvm-border-deep: #3f4a60;
+  --kvm-blue: #5a9de8;
+  --kvm-blue-bright: #6eb0f5;
+  --kvm-blue-deep: #4282c4;
+  --kvm-blue-mist: rgba(58, 126, 200, 0.18);
+  --kvm-blue-glow: rgba(90, 157, 232, 0.28);
+  --kvm-success-face: rgba(68, 154, 58, 0.14);
+  --kvm-success-face-top: rgba(68, 154, 58, 0.2);
+  --kvm-success-border: rgba(68, 154, 58, 0.38);
+  --kvm-success-text: #8fd67f;
+  --kvm-success-led: #5cb850;
+  --kvm-warn-face: rgba(184, 134, 11, 0.14);
+  --kvm-warn-face-top: rgba(184, 134, 11, 0.2);
+  --kvm-warn-border: rgba(184, 134, 11, 0.38);
+  --kvm-warn-text: #e8c060;
+  --kvm-warn-led: #d4a017;
+  --kvm-error-face: rgba(196, 69, 69, 0.14);
+  --kvm-error-face-top: rgba(196, 69, 69, 0.2);
+  --kvm-error-border: rgba(196, 69, 69, 0.38);
+  --kvm-error-text: #f08080;
+  --kvm-error-led: #e05555;
+  --kvm-process-face: rgba(58, 126, 200, 0.14);
+  --kvm-process-face-top: rgba(58, 126, 200, 0.22);
+  --kvm-process-border: rgba(58, 126, 200, 0.4);
+  --kvm-process-text: #7eb8f0;
+  --kvm-process-led: #5a9de8;
+  --kvm-inset-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --kvm-inset-lowlight: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  --kvm-elev-1: 0 1px 3px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --kvm-elev-2: 0 4px 16px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.35);
+  --kvm-ambient: radial-gradient(ellipse 100% 60% at 50% -10%, rgba(58, 126, 200, 0.12), transparent 55%);
+}
+
+body.tapes-ui {
+  --ant-layout-bg: var(--kvm-slate-1);
+  --ant-container-bg: var(--kvm-surface);
+  --ant-border: var(--kvm-border-light);
+  --ant-border-secondary: var(--kvm-border);
+  --ant-primary: var(--kvm-blue);
+  --ant-primary-hover: var(--kvm-blue-bright);
+  --ant-primary-active: var(--kvm-blue-deep);
+  --ant-primary-bg: var(--kvm-blue-mist);
+  --ant-success: var(--kvm-success-led);
+  --bg-0: var(--kvm-slate-1);
+  --bg-1: var(--kvm-surface);
+  --bg-2: var(--kvm-slate-2);
+  --bg-3: var(--kvm-slate-3);
+  --accent: var(--kvm-blue);
+  --accent-hover: var(--kvm-blue-bright);
+  --accent-dim: var(--kvm-blue-mist);
+  --border: var(--kvm-border-light);
+  --comet-panel-shadow: var(--kvm-elev-1);
+  --tower-mesh-a: rgba(58, 126, 200, 0.08);
+  --tower-mesh-b: rgba(99, 130, 180, 0.05);
+}
+
+body.tapes-ui .cassette-player { background: var(--kvm-slate-1); }
+
+body.tapes-ui .main-content {
+  background: var(--kvm-ambient),
+    linear-gradient(180deg, var(--kvm-slate-2) 0%, var(--kvm-slate-0) 100%) !important;
+}
+
+body.tapes-ui .sidebar {
+  background: linear-gradient(180deg, var(--kvm-surface) 0%, var(--kvm-slate-2) 100%) !important;
+  border-right-color: var(--kvm-border) !important;
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.75), 2px 0 10px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="dark"] body.tapes-ui .sidebar {
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.04), 2px 0 12px rgba(0, 0, 0, 0.35);
+}
+
+body.tapes-ui .main-header {
+  background: linear-gradient(180deg, var(--kvm-surface) 0%, var(--kvm-slate-3) 100%);
+  border-bottom-color: var(--kvm-border) !important;
+  box-shadow: var(--kvm-inset-highlight), 0 1px 0 rgba(15, 23, 42, 0.04);
+}
+
+body.tapes-ui .sidebar-active-pill {
+  background: linear-gradient(180deg, var(--kvm-blue-mist) 0%, color-mix(in srgb, var(--kvm-blue-mist) 70%, var(--kvm-slate-2)) 100%);
+  box-shadow: var(--kvm-inset-highlight), inset 0 0 0 1px color-mix(in srgb, var(--kvm-blue) 22%, transparent);
+}
+
+body.tapes-ui .pockit-hero,
+body.tapes-ui .comet-status-bar--main,
+body.tapes-ui .overview-section,
+body.tapes-ui .library-page .library-section {
+  background: linear-gradient(180deg, var(--kvm-surface) 0%, var(--kvm-slate-2) 100%);
+  border-color: var(--kvm-border) !important;
+  box-shadow: var(--kvm-inset-highlight), var(--kvm-inset-lowlight), var(--kvm-elev-1);
+}
+
+body.tapes-ui .overview-card {
+  background: linear-gradient(165deg, var(--kvm-surface) 0%, var(--kvm-slate-2) 100%);
+  border-color: var(--kvm-border-light) !important;
+  box-shadow: var(--kvm-inset-highlight), var(--kvm-elev-1);
+}
+
+body.tapes-ui .overview-card:hover {
+  border-color: color-mix(in srgb, var(--kvm-blue) 35%, var(--kvm-border)) !important;
+  box-shadow: var(--kvm-inset-highlight), 0 0 0 1px color-mix(in srgb, var(--kvm-blue) 12%, transparent), 0 4px 20px var(--kvm-blue-glow), var(--kvm-elev-1);
+}
+
+body.tapes-ui .pockit-hero-glow {
+  opacity: 0.55;
+  background: radial-gradient(ellipse 80% 60% at 85% 0%, var(--kvm-blue-glow), transparent 65%);
+}
+
+body.tapes-ui .ant-status-tag,
+body.tapes-ui .comet-status-chip {
+  background: linear-gradient(180deg, var(--kvm-slate-3) 0%, var(--kvm-slate-2) 100%);
+  border-color: var(--kvm-border) !important;
+  color: var(--ant-text-secondary);
+  box-shadow: var(--kvm-inset-highlight), var(--kvm-inset-lowlight), var(--kvm-elev-1);
+}
+
+body.tapes-ui .ant-status-tag--default {
+  background: linear-gradient(180deg, var(--kvm-slate-3) 0%, color-mix(in srgb, var(--kvm-slate-2) 85%, var(--kvm-border-light)) 100%);
+}
+
+body.tapes-ui .ant-status-tag--success {
+  background: linear-gradient(180deg, var(--kvm-success-face-top) 0%, var(--kvm-success-face) 100%);
+  border-color: var(--kvm-success-border) !important;
+  color: var(--kvm-success-text);
+}
+
+body.tapes-ui .ant-status-tag--warning {
+  background: linear-gradient(180deg, var(--kvm-warn-face-top) 0%, var(--kvm-warn-face) 100%);
+  border-color: var(--kvm-warn-border) !important;
+  color: var(--kvm-warn-text);
+}
+
+body.tapes-ui .ant-status-tag--error {
+  background: linear-gradient(180deg, var(--kvm-error-face-top) 0%, var(--kvm-error-face) 100%);
+  border-color: var(--kvm-error-border) !important;
+  color: var(--kvm-error-text);
+}
+
+body.tapes-ui .ant-status-tag--processing {
+  background: linear-gradient(180deg, var(--kvm-process-face-top) 0%, var(--kvm-process-face) 100%);
+  border-color: var(--kvm-process-border) !important;
+  color: var(--kvm-process-text);
+}
+
+body.tapes-ui .ant-status-tag__dot,
+body.tapes-ui .comet-status-chip__dot {
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), inset 0 -1px 2px rgba(0, 0, 0, 0.18);
+}
+
+body.tapes-ui .ant-status-tag--success .ant-status-tag__dot {
+  background: radial-gradient(circle at 32% 28%, #6cc45e, var(--kvm-success-led));
+  box-shadow: 0 0 5px rgba(68, 154, 58, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.tapes-ui .ant-status-tag--warning .ant-status-tag__dot {
+  background: radial-gradient(circle at 32% 28%, #e8b84a, var(--kvm-warn-led));
+  box-shadow: 0 0 5px rgba(184, 134, 11, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.45), inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.tapes-ui .ant-status-tag--error .ant-status-tag__dot {
+  background: radial-gradient(circle at 32% 28%, #e87070, var(--kvm-error-led));
+  box-shadow: 0 0 5px rgba(196, 69, 69, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4), inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.tapes-ui .ant-status-tag--processing .ant-status-tag__dot,
+body.tapes-ui .comet-status-chip--live .comet-status-chip__dot {
+  background: radial-gradient(circle at 32% 28%, #6eb0f5, var(--kvm-process-led));
+  box-shadow: 0 0 6px rgba(58, 126, 200, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+  animation: kvm-led-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes kvm-led-pulse {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  50% { opacity: 0.82; filter: brightness(0.92); }
+}
+
+body.tapes-ui .tower-breadcrumb-kicker,
+body.tapes-ui .tower-breadcrumb-kicker.hub-back-kicker {
+  background: linear-gradient(180deg, var(--kvm-slate-3) 0%, var(--kvm-slate-2) 100%);
+  border-color: var(--kvm-border);
+  box-shadow: var(--kvm-inset-highlight), var(--kvm-elev-1);
+}
+
+body.tapes-ui .tower-breadcrumb-kicker-dot {
+  background: radial-gradient(circle at 35% 30%, #6eb0f5, var(--kvm-blue));
+  box-shadow: 0 0 5px var(--kvm-blue-glow), inset 0 -1px 1px rgba(0, 0, 0, 0.15);
+}
+
+body.tapes-ui .comet-segment {
+  background: color-mix(in srgb, var(--kvm-border-light) 65%, var(--kvm-slate-0));
+  border-color: var(--kvm-border);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+body.tapes-ui .comet-segment-pill {
+  background: linear-gradient(180deg, var(--kvm-surface) 0%, var(--kvm-slate-3) 100%);
+  box-shadow: var(--kvm-inset-highlight), 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+body.tapes-ui .comet-dropdown-trigger,
+body.tapes-ui .icon-btn,
+body.tapes-ui .comet-btn--ghost {
+  background: linear-gradient(180deg, var(--kvm-surface) 0%, var(--kvm-slate-2) 100%);
+  border-color: var(--kvm-border) !important;
+  box-shadow: var(--kvm-inset-highlight), var(--kvm-elev-1);
+}
+
+body.tapes-ui .comet-btn--primary,
+body.tapes-ui button.primary,
+body.tapes-ui .library-load {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--kvm-blue-bright) 92%, #fff 8%) 0%, var(--kvm-blue) 48%, var(--kvm-blue-deep) 100%);
+  border-color: var(--kvm-blue-deep) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 rgba(0, 0, 0, 0.12), 0 2px 8px var(--kvm-blue-glow);
+}
+
+body.tapes-ui .comet-status-bar {
+  background: linear-gradient(180deg, var(--kvm-slate-3) 0%, var(--kvm-slate-2) 100%);
+  border-color: var(--kvm-border) !important;
+  box-shadow: var(--kvm-inset-highlight), var(--kvm-inset-lowlight);
+}
+
+body.tapes-ui .pockit-live-dot {
+  background: radial-gradient(circle at 35% 30%, #6eb0f5, var(--kvm-blue));
+  box-shadow: 0 0 6px var(--kvm-blue-glow);
+}
+
+[data-theme="dark"] body.tapes-ui .ant-status-tag--success {
+  color: var(--kvm-success-text);
+}
+[data-theme="dark"] body.tapes-ui .ant-status-tag--warning {
+  color: var(--kvm-warn-text);
+}
+[data-theme="dark"] body.tapes-ui .ant-status-tag--error {
+  color: var(--kvm-error-text);
+}
+[data-theme="dark"] body.tapes-ui .ant-status-tag--processing {
+  color: var(--kvm-process-text);
+}

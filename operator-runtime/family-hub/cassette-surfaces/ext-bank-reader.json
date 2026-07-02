@@ -1,0 +1,129 @@
+{
+  "cassette_id": "ext-bank-reader",
+  "player_id": "bank-reader",
+  "console_name": "Bank Reader",
+  "encompass_mode": "hud_iframe",
+  "speakers_door": "http://bank-reader.localhost/",
+  "embed_stem": "bank-reader",
+  "center_default": {
+    "route": "/#pulse"
+  },
+  "left_nav_label": "Ledger",
+  "nav_label": "Tools",
+  "left_nav": [
+    {
+      "id": "pulse",
+      "label": "Pulse",
+      "glyph": "⌂",
+      "path": "/#pulse"
+    },
+    {
+      "id": "accounts",
+      "label": "Accounts",
+      "glyph": "🏦",
+      "path": "/#accounts"
+    },
+    {
+      "id": "transactions",
+      "label": "Transactions",
+      "glyph": "💳",
+      "path": "/#bank-statements/transactions"
+    },
+    {
+      "id": "statements",
+      "label": "Statements",
+      "glyph": "📑",
+      "path": "/#bank-statements"
+    },
+    {
+      "id": "upload",
+      "label": "Import",
+      "glyph": "📥",
+      "path": "/#upload"
+    }
+  ],
+  "nav_sections": [
+    {
+      "id": "bookkeeping",
+      "label": "Bookkeeping",
+      "items": [
+        {
+          "id": "analysis",
+          "label": "Analysis",
+          "glyph": "📊",
+          "path": "/#analysis"
+        },
+        {
+          "id": "family-office",
+          "label": "Family Office",
+          "glyph": "🏛️",
+          "path": "/#family-office"
+        },
+        {
+          "id": "calendar",
+          "label": "Calendar",
+          "glyph": "📅",
+          "path": "/#calendar"
+        },
+        {
+          "id": "receipts",
+          "label": "Receipts",
+          "glyph": "🧾",
+          "path": "/#receipts"
+        }
+      ]
+    },
+    {
+      "id": "workspace",
+      "label": "Workspace",
+      "items": [
+        {
+          "id": "settings",
+          "label": "Settings",
+          "glyph": "⚙️",
+          "path": "/#settings",
+          "speakers_only": true
+        }
+      ]
+    }
+  ],
+  "bottom_nav_label": "Quick",
+  "bottom_nav": [
+    {
+      "id": "upload-quick",
+      "label": "Import",
+      "glyph": "📥",
+      "path": "/#upload"
+    },
+    {
+      "id": "accounts-quick",
+      "label": "Accounts",
+      "glyph": "🏦",
+      "path": "/#accounts"
+    },
+    {
+      "id": "transactions-quick",
+      "label": "Ledger",
+      "glyph": "💳",
+      "path": "/#bank-statements/transactions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "open-speakers",
+      "label": "Open full Bank Reader",
+      "href": "http://bank-reader.localhost/",
+      "widget": "topbar-trailing"
+    }
+  ],
+  "routes": [
+    {
+      "upstream": "/api/v1/about",
+      "zone": "footer"
+    },
+    {
+      "upstream": "/api/bank-reader/transactions",
+      "zone": "footer"
+    }
+  ]
+}

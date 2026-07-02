@@ -1,0 +1,100 @@
+/**
+ * Plan 0275 — Watch companion layout (minimal card, hide full shell chrome).
+ */
+
+body.pockit-viewport-watch.pockit-watch-companion-active .suite-bar-mount,
+body.pockit-viewport-watch.pockit-watch-companion-active #player-rail-handle,
+body.pockit-viewport-watch.pockit-watch-companion-active #cassette-rail-handle,
+body.pockit-viewport-watch.pockit-watch-companion-active #top-chrome-handle,
+body.pockit-viewport-watch.pockit-watch-companion-active #bottom-chrome-handle,
+body.pockit-viewport-watch.pockit-watch-companion-active .pockit-phone-dock,
+body.pockit-viewport-watch.pockit-watch-companion-active .pockit-controls-fab,
+body.pockit-viewport-watch.pockit-watch-companion-active .player-rail,
+body.pockit-viewport-watch.pockit-watch-companion-active .cassette-rail {
+  display: none !important;
+}
+
+body.pockit-viewport-watch.pockit-watch-companion-active .cassette-player {
+  margin-top: 0 !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  padding-bottom: 0 !important;
+}
+
+body.pockit-viewport-watch.pockit-watch-companion-active #main-frame > header.main-header,
+body.pockit-viewport-watch.pockit-watch-companion-active #main-frame > footer.main-shell-footer {
+  display: none !important;
+}
+
+.pockit-watch-companion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - 24px);
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.pockit-watch-companion__card {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.18));
+  background: color-mix(in srgb, var(--bg-1, #fff) 94%, transparent);
+  text-align: center;
+}
+
+.pockit-watch-companion__kicker {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-2, #666);
+  margin: 0 0 4px;
+}
+
+.pockit-watch-companion__title {
+  font-size: 16px;
+  font-weight: 650;
+  margin: 0 0 6px;
+  color: var(--fg-0, #111);
+}
+
+.pockit-watch-companion__lede {
+  font-size: 12px;
+  line-height: 1.35;
+  margin: 0 0 12px;
+  color: var(--fg-2, #555);
+}
+
+.pockit-watch-companion__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pockit-watch-companion__btn {
+  display: block;
+  min-height: 44px;
+  line-height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border, rgba(60, 60, 67, 0.2));
+  background: var(--bg-0, #f5f5f7);
+  color: var(--fg-0, #111);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pockit-watch-companion__btn--primary {
+  background: color-mix(in srgb, var(--accent, #4096ff) 18%, var(--bg-1, #fff));
+  border-color: color-mix(in srgb, var(--accent, #4096ff) 35%, var(--border));
+}
+
+.pockit-watch-companion__meta {
+  margin: 10px 0 0;
+  font-size: 10px;
+  color: var(--fg-2, #888);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}

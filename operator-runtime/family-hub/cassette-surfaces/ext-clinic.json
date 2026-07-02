@@ -1,0 +1,123 @@
+{
+  "cassette_id": "ext-clinic",
+  "player_id": "clinic",
+  "console_name": "Clinic",
+  "encompass_mode": "hud_iframe",
+  "speakers_door": "http://clinic.localhost/",
+  "embed_stem": "clinic",
+  "center_default": {
+    "route": "/#issues"
+  },
+  "left_nav_label": "Cases",
+  "nav_label": "Knowledge",
+  "left_nav": [
+    {
+      "id": "issues",
+      "label": "Issues",
+      "glyph": "🩹",
+      "path": "/#issues"
+    },
+    {
+      "id": "ideas",
+      "label": "Ideas",
+      "glyph": "💡",
+      "path": "/#ideas"
+    },
+    {
+      "id": "plans",
+      "label": "Plans",
+      "glyph": "📋",
+      "path": "/#plans"
+    },
+    {
+      "id": "ledger",
+      "label": "Ledger",
+      "glyph": "📒",
+      "path": "/#ledger"
+    }
+  ],
+  "nav_sections": [
+    {
+      "id": "knowledge",
+      "label": "Knowledge",
+      "items": [
+        {
+          "id": "definitions",
+          "label": "Definitions",
+          "glyph": "📖",
+          "path": "/#definition"
+        },
+        {
+          "id": "rules",
+          "label": "Rules",
+          "glyph": "📜",
+          "path": "/#rule"
+        },
+        {
+          "id": "features",
+          "label": "Features",
+          "glyph": "✨",
+          "path": "/#feature"
+        }
+      ]
+    },
+    {
+      "id": "workspace",
+      "label": "Workspace",
+      "items": [
+        {
+          "id": "admit",
+          "label": "Admit case",
+          "glyph": "➕",
+          "path": "/#issues"
+        },
+        {
+          "id": "open-speakers",
+          "label": "Full Clinic",
+          "glyph": "🏥",
+          "path": "/",
+          "speakers_only": true
+        }
+      ]
+    }
+  ],
+  "bottom_nav_label": "Quick",
+  "bottom_nav": [
+    {
+      "id": "issues-quick",
+      "label": "Issues",
+      "glyph": "🩹",
+      "path": "/#issues"
+    },
+    {
+      "id": "ideas-quick",
+      "label": "Ideas",
+      "glyph": "💡",
+      "path": "/#ideas"
+    },
+    {
+      "id": "ledger-quick",
+      "label": "Ledger",
+      "glyph": "📒",
+      "path": "/#ledger"
+    }
+  ],
+  "actions": [
+    {
+      "id": "open-speakers",
+      "label": "Open full Clinic",
+      "href": "http://clinic.localhost/",
+      "widget": "topbar-trailing"
+    }
+  ],
+  "routes": [
+    {
+      "upstream": "/api/healthz",
+      "zone": "footer"
+    },
+    {
+      "upstream": "/api/stats",
+      "zone": "footer"
+    }
+  ]
+}

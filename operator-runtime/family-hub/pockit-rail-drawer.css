@@ -1,0 +1,925 @@
+/**
+ * Dual-rail drawer tabs — fixed to viewport edges so zero-width rails never clip them (Plan 0266).
+ */
+
+:root {
+  --rail-drawer-tab-w: 22px;
+  --rail-drawer-tab-h: 88px;
+  --rail-drawer-edge-w: 14px;
+  --rail-drawer-edge-h: 64px;
+  --pockit-main-header-h: 66px;
+  --rail-drawer-chevron-size: 12px;
+}
+
+/* Collapse rails in the shell — suite bar columns stay full width (see pockit-suite.css). */
+body.tapes-ui.hub-dashboard.pockit-player-rail-collapsed {
+  --player-rail-w: 0px;
+}
+
+body.tapes-ui.hub-dashboard.pockit-cassette-rail-collapsed {
+  --cassette-rail-w: 0px;
+  --sidebar-w: 0px;
+}
+
+body.tapes-ui.hub-dashboard .pockit-widget--player-rail-toggle,
+body.tapes-ui.hub-dashboard .pockit-widget--cassette-rail-toggle {
+  display: none !important;
+}
+
+/* ─── Collapsed rails: zero width, content hidden, tab stays fixed on screen ─── */
+body.tapes-ui.hub-dashboard.dual-rail-mode .player-rail.collapsed,
+body.tapes-ui.hub-dashboard.dual-rail-mode .cassette-rail.collapsed {
+  flex: 0 0 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  opacity: 1 !important;
+  border-right-width: 0 !important;
+  border-left-width: 0 !important;
+  overflow: visible !important;
+}
+
+body.tapes-ui.hub-dashboard.dual-rail-mode .player-rail.collapsed .sidebar-header,
+body.tapes-ui.hub-dashboard.dual-rail-mode .player-rail.collapsed .sidebar-content,
+body.tapes-ui.hub-dashboard.dual-rail-mode .player-rail.collapsed .sidebar-footer,
+body.tapes-ui.hub-dashboard.dual-rail-mode .cassette-rail.collapsed .sidebar-header,
+body.tapes-ui.hub-dashboard.dual-rail-mode .cassette-rail.collapsed .sidebar-content,
+body.tapes-ui.hub-dashboard.dual-rail-mode .cassette-rail.collapsed .sidebar-footer {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Override generic .sidebar.collapsed invisibility for hub dual-rail */
+body.tapes-ui.hub-dashboard.dual-rail-mode .sidebar.player-rail.collapsed,
+body.tapes-ui.hub-dashboard.dual-rail-mode .sidebar.cassette-rail.collapsed {
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+body.tapes-ui.hub-dashboard.dual-rail-mode .player-rail,
+body.tapes-ui.hub-dashboard.dual-rail-mode .cassette-rail.sidebar {
+  overflow: visible !important;
+}
+
+body.tapes-ui.hub-dashboard.dual-rail-mode .player-rail .sidebar-content,
+body.tapes-ui.hub-dashboard.dual-rail-mode .cassette-rail .sidebar-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.tapes-ui.hub-dashboard.dual-rail-mode .player-rail,
+body.tapes-ui.hub-dashboard.dual-rail-mode .cassette-rail.sidebar {
+  transition:
+    flex-basis 0.28s var(--comet-ease-out, ease),
+    width 0.28s var(--comet-ease-out, ease),
+    min-width 0.28s var(--comet-ease-out, ease),
+    max-width 0.28s var(--comet-ease-out, ease);
+}
+
+/* ─── Drawer tab (fixed — never clipped by #app overflow) ─── */
+body.tapes-ui.hub-dashboard .rail-drawer-handle:not(#top-chrome-handle):not(#bottom-chrome-handle) {
+  position: fixed;
+  z-index: 450;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto !important;
+  top: calc(var(--suite-bar-h, 64px) + (100dvh - var(--suite-bar-h, 64px)) / 2);
+  transform: translateY(-50%);
+  transition:
+    left 0.28s var(--comet-ease-out, ease),
+    right 0.28s var(--comet-ease-out, ease),
+    opacity 0.18s ease;
+}
+
+body.tapes-ui.hub-dashboard #top-chrome-handle,
+body.tapes-ui.hub-dashboard #bottom-chrome-handle {
+  position: fixed;
+  z-index: 450;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto !important;
+  left: calc((var(--player-rail-w, 240px) + 100vw - var(--cassette-rail-w, 280px)) / 2);
+  right: auto;
+  width: max-content;
+  transform: translateX(-50%);
+}
+
+body.tapes-ui.hub-dashboard #player-rail-handle {
+  left: 0;
+}
+
+body.tapes-ui.hub-dashboard #cassette-rail-handle {
+  right: 0;
+}
+
+/* Open — tab sits on the inner edge of each rail */
+body.tapes-ui.hub-dashboard:not(.pockit-player-rail-collapsed) #player-rail-handle {
+  left: max(0px, calc(var(--player-rail-w, 240px) - var(--rail-drawer-edge-w) / 2));
+}
+
+body.tapes-ui.hub-dashboard:not(.pockit-cassette-rail-collapsed) #cassette-rail-handle {
+  right: max(0px, calc(var(--cassette-rail-w, 280px) - var(--rail-drawer-edge-w) / 2));
+}
+
+/* Collapsed — flush to window edge */
+body.tapes-ui.hub-dashboard.pockit-player-rail-collapsed #player-rail-handle {
+  left: 0;
+}
+
+body.tapes-ui.hub-dashboard.pockit-cassette-rail-collapsed #cassette-rail-handle {
+  right: 0;
+}
+
+/* Tab chrome — tinted with selected player accent on hub dashboard */
+.rail-drawer-handle__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-sizing: border-box;
+  background: color-mix(in srgb, var(--bg-1, #fff) 92%, var(--fg-0, #000) 8%);
+  border: 1px solid color-mix(in srgb, var(--border, rgba(0, 0, 0, 0.12)) 100%, transparent);
+  color: var(--fg-2, #6e6e75);
+  pointer-events: none;
+  transition:
+    width 0.22s ease,
+    height 0.22s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease;
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle__tab {
+  background: color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 10%, var(--bg-1, #fff));
+  border-color: color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 32%, var(--border, rgba(0, 0, 0, 0.12)));
+}
+
+.rail-drawer-handle--player .rail-drawer-handle__tab {
+  width: var(--rail-drawer-tab-w);
+  height: var(--rail-drawer-tab-h);
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  box-shadow:
+    2px 0 10px rgba(0, 0, 0, 0.08),
+    0 0 0 0.5px color-mix(in srgb, var(--border, rgba(0, 0, 0, 0.08)) 80%, transparent);
+  padding: 8px 4px 8px 2px;
+}
+
+.rail-drawer-handle--cassette .rail-drawer-handle__tab {
+  width: var(--rail-drawer-tab-w);
+  height: var(--rail-drawer-tab-h);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  box-shadow:
+    -2px 0 10px rgba(0, 0, 0, 0.08),
+    0 0 0 0.5px color-mix(in srgb, var(--border, rgba(0, 0, 0, 0.08)) 80%, transparent);
+  padding: 8px 2px 8px 4px;
+}
+
+.rail-drawer-handle--top .rail-drawer-handle__tab {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: var(--rail-drawer-tab-h);
+  height: var(--rail-drawer-tab-w);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.08),
+    0 0 0 0.5px color-mix(in srgb, var(--border, rgba(0, 0, 0, 0.08)) 80%, transparent);
+  padding: 2px 8px 4px;
+}
+
+.rail-drawer-handle--top .rail-drawer-handle__label {
+  writing-mode: horizontal-tb;
+  transform: none;
+  max-height: none;
+}
+
+.rail-drawer-handle--bottom .rail-drawer-handle__tab {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: var(--rail-drawer-tab-h);
+  height: var(--rail-drawer-tab-w);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  box-shadow:
+    0 -2px 10px rgba(0, 0, 0, 0.08),
+    0 0 0 0.5px color-mix(in srgb, var(--border, rgba(0, 0, 0, 0.08)) 80%, transparent);
+  padding: 4px 8px 2px;
+}
+
+.rail-drawer-handle--bottom .rail-drawer-handle__label {
+  writing-mode: horizontal-tb;
+  transform: none;
+  max-height: none;
+}
+
+/* Open rails — slimmer edge grab, still visible */
+body.tapes-ui.hub-dashboard:not(.pockit-player-rail-collapsed) #player-rail-handle .rail-drawer-handle__tab,
+body.tapes-ui.hub-dashboard:not(.pockit-cassette-rail-collapsed) #cassette-rail-handle .rail-drawer-handle__tab {
+  width: var(--rail-drawer-edge-w);
+  height: var(--rail-drawer-edge-h);
+  opacity: 0.88;
+}
+
+body.tapes-ui.hub-dashboard:not(.pockit-player-rail-collapsed) #player-rail-handle .rail-drawer-handle__label,
+body.tapes-ui.hub-dashboard:not(.pockit-cassette-rail-collapsed) #cassette-rail-handle .rail-drawer-handle__label {
+  display: none;
+}
+
+/* Collapsed — full tab with label */
+body.tapes-ui.hub-dashboard.pockit-player-rail-collapsed #player-rail-handle .rail-drawer-handle__tab,
+body.tapes-ui.hub-dashboard.pockit-cassette-rail-collapsed #cassette-rail-handle .rail-drawer-handle__tab {
+  width: var(--rail-drawer-tab-w);
+  height: var(--rail-drawer-tab-h);
+  opacity: 1;
+}
+
+.rail-drawer-handle__chevron {
+  display: block;
+  font-size: var(--rail-drawer-chevron-size, 12px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--fg-1, #3a3a40);
+  transition: transform 0.2s var(--comet-ease-out, ease);
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle__chevron {
+  color: var(--accent, var(--ant-primary, #1677ff));
+}
+
+.rail-drawer-handle__label {
+  display: block;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--fg-2, #6e6e75);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  max-height: 52px;
+  overflow: hidden;
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle__label {
+  color: color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 72%, var(--fg-2, #6e6e75));
+}
+
+[data-theme="dark"] .rail-drawer-handle__tab {
+  background: color-mix(in srgb, var(--bg-1, #141418) 88%, var(--fg-0, #fff) 12%);
+  box-shadow:
+    2px 0 14px rgba(0, 0, 0, 0.35),
+    0 0 0 0.5px color-mix(in srgb, var(--border, rgba(255, 255, 255, 0.1)) 90%, transparent);
+}
+
+[data-theme="dark"] .rail-drawer-handle--cassette .rail-drawer-handle__tab {
+  box-shadow:
+    -2px 0 14px rgba(0, 0, 0, 0.35),
+    0 0 0 0.5px color-mix(in srgb, var(--border, rgba(255, 255, 255, 0.1)) 90%, transparent);
+}
+
+[data-theme="dark"] .rail-drawer-handle--top .rail-drawer-handle__tab {
+  box-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.35),
+    0 0 0 0.5px color-mix(in srgb, var(--border, rgba(255, 255, 255, 0.1)) 90%, transparent);
+}
+
+[data-theme="dark"] .rail-drawer-handle--bottom .rail-drawer-handle__tab {
+  box-shadow:
+    0 -2px 14px rgba(0, 0, 0, 0.35),
+    0 0 0 0.5px color-mix(in srgb, var(--border, rgba(255, 255, 255, 0.1)) 90%, transparent);
+}
+
+[data-theme="dark"] body.tapes-ui.hub-dashboard .rail-drawer-handle__tab {
+  background: color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 14%, var(--bg-1, #141418));
+  border-color: color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 36%, var(--border, rgba(255, 255, 255, 0.1)));
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle:hover .rail-drawer-handle__tab,
+body.tapes-ui.hub-dashboard .rail-drawer-handle:focus-visible .rail-drawer-handle__tab {
+  background: color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 12%, var(--bg-1, #fff));
+  border-color: color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 35%, var(--border));
+  color: var(--fg-0, #1a1a1e);
+  opacity: 1;
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle:hover .rail-drawer-handle__chevron,
+body.tapes-ui.hub-dashboard .rail-drawer-handle:focus-visible .rail-drawer-handle__chevron {
+  color: color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 70%, var(--fg-0));
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle:focus-visible {
+  outline: none;
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle:focus-visible .rail-drawer-handle__tab {
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 40%, transparent),
+    2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle--cassette:focus-visible .rail-drawer-handle__tab {
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 40%, transparent),
+    -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle--top:focus-visible .rail-drawer-handle__tab {
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 40%, transparent),
+    0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.tapes-ui.hub-dashboard .rail-drawer-handle--bottom:focus-visible .rail-drawer-handle__tab {
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--accent, var(--ant-primary, #1677ff)) 40%, transparent),
+    0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Legacy grip alias — keep if old markup cached */
+.rail-drawer-handle__grip {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --rail-drawer-tab-w: 26px;
+    --rail-drawer-tab-h: 96px;
+    --rail-drawer-edge-w: 18px;
+  }
+}
+
+body.pockit-phone-shell #player-rail-handle,
+body.pockit-phone-shell #cassette-rail-handle,
+body.pockit-viewport-phone #player-rail-handle,
+body.pockit-viewport-phone #cassette-rail-handle,
+body.pockit-viewport-watch #player-rail-handle,
+body.pockit-viewport-watch #cassette-rail-handle,
+body[data-pockit-viewport="watch"] #player-rail-handle,
+body[data-pockit-viewport="watch"] #cassette-rail-handle,
+body[data-pockit-viewport="phoneCompact"] #player-rail-handle,
+body[data-pockit-viewport="phoneCompact"] #cassette-rail-handle,
+body[data-pockit-viewport="phoneLarge"] #player-rail-handle,
+body[data-pockit-viewport="phoneLarge"] #cassette-rail-handle {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.pockit-phone-shell #top-chrome-handle,
+body.pockit-phone-shell #bottom-chrome-handle,
+body.pockit-viewport-phone #top-chrome-handle,
+body.pockit-viewport-phone #bottom-chrome-handle,
+body.pockit-viewport-watch #top-chrome-handle,
+body.pockit-viewport-watch #bottom-chrome-handle,
+body[data-pockit-viewport="watch"] #top-chrome-handle,
+body[data-pockit-viewport="watch"] #bottom-chrome-handle,
+body[data-pockit-viewport="phoneCompact"] #top-chrome-handle,
+body[data-pockit-viewport="phoneCompact"] #bottom-chrome-handle,
+body[data-pockit-viewport="phoneLarge"] #top-chrome-handle,
+body[data-pockit-viewport="phoneLarge"] #bottom-chrome-handle {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.pockit-voice-rails #player-rail-content .sidebar-section--voice-picker {
+  padding-bottom: 4px;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-wrap {
+  padding: 2px 10px 10px;
+  margin: 0 2px 4px;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--ant-border-secondary, var(--border));
+  background: var(--ant-container-bg, var(--bg-1));
+  color: var(--ant-text, var(--fg));
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-btn:hover {
+  border-color: color-mix(in srgb, var(--rail-accent, hsl(212 72% 52%)) 35%, var(--border));
+  background: color-mix(in srgb, var(--rail-accent, hsl(212 72% 52%)) 6%, var(--bg-1));
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-icon {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-title {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-current {
+  font-size: 11px;
+  color: var(--fg-dim, var(--ant-text-secondary));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-chevron {
+  color: var(--fg-faint, var(--ant-text-tertiary));
+  font-size: 18px;
+  line-height: 1;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-row,
+body.pockit-voice-rails #sidebar-content .sidebar-item--voice-ctl {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-row {
+  margin: 0 8px 8px;
+}
+
+body.pockit-voice-rails #player-rail-content .voice-rail-speakers-btn {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sidebar-section-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 4px;
+  padding: 0 10px 0 8px;
+}
+
+.sidebar-section-head-row h3 {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sidebar-section--voice h3 {
+  margin-bottom: 0;
+}
+
+.sidebar-item--voice-ctl .sidebar-item-main--voice,
+.sidebar-item--voice-health .sidebar-item-main--voice {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+}
+
+.sidebar-label-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.sidebar-label-stack .sidebar-label,
+.sidebar-label-stack .sidebar-label--with-chip {
+  width: 100%;
+}
+
+.voice-rail-status {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--fg-3, var(--ant-text-tertiary));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.voice-rail-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--fg-faint, var(--ant-text-tertiary));
+}
+
+.voice-rail-led--active {
+  background: var(--accent, var(--ant-primary));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent, var(--ant-primary)) 25%, transparent);
+}
+
+.voice-rail-led--ok {
+  background: var(--safe, #22c55e);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--safe, #22c55e) 22%, transparent);
+}
+
+.voice-rail-led--bad {
+  background: var(--danger, #ef4444);
+}
+
+.voice-rail-led--pending {
+  animation: shell-health-pulse 1.2s ease-in-out infinite;
+}
+
+.voice-rail-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin: 4px 8px 4px 0;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--border, var(--ant-border)) 75%, transparent);
+  background: color-mix(in srgb, var(--bg-2, var(--ant-layout-bg)) 70%, var(--bg-1));
+  color: var(--fg-2, var(--ant-text-secondary));
+  cursor: pointer;
+  align-self: center;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.voice-rail-info-btn:hover {
+  border-color: color-mix(in srgb, var(--accent, var(--ant-primary)) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 8%, var(--bg-1));
+  color: var(--fg-0, var(--ant-text));
+  transform: scale(1.04);
+}
+
+.voice-rail-info-btn:active {
+  transform: scale(0.96);
+}
+
+.voice-rail-info-btn__icon {
+  display: block;
+}
+
+.sidebar-section-head-row .voice-rail-info-btn {
+  margin: 0;
+  width: 24px;
+  height: 24px;
+}
+
+body.pockit-voice-rails #player-rail-content [data-voice-route].active,
+body.pockit-voice-rails #player-rail-content [data-voice-mode].active,
+body.pockit-voice-rails #player-rail-content [data-voice-rag].active,
+body.pockit-voice-rails #player-rail-content [data-voice-id].active,
+body.pockit-voice-rails #player-rail-content [data-voice-action].active,
+body.pockit-voice-rails #sidebar-content [data-voice-route].active,
+body.pockit-voice-rails #sidebar-content [data-voice-mode].active,
+body.pockit-voice-rails #sidebar-content [data-voice-rag].active,
+body.pockit-voice-rails #sidebar-content [data-voice-id].active,
+body.pockit-voice-rails #sidebar-content [data-voice-action].active {
+  outline: none;
+  background: color-mix(in srgb, hsl(212 72% 52%) 14%, var(--bg-1));
+  border-color: color-mix(in srgb, hsl(212 72% 52%) 45%, var(--border));
+}
+
+.sidebar-item-main--health {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--ant-radius, 10px);
+  background: color-mix(in srgb, var(--bg-2, var(--ant-fill-quaternary)) 40%, transparent);
+}
+
+.sidebar-item--voice-health.is-pending .sidebar-item-main--health {
+  border-left: 3px solid color-mix(in srgb, var(--fg-2, var(--ant-text-secondary)) 55%, transparent);
+  opacity: 0.92;
+}
+
+.sidebar-item--voice-health.is-ok .sidebar-item-main--health {
+  border-left: 3px solid var(--ok, #22c55e);
+}
+
+.sidebar-item--voice-health.is-bad .sidebar-item-main--health {
+  border-left: 3px solid var(--danger, #ef4444);
+}
+
+.rail-make-log {
+  margin: 8px 10px 12px;
+  padding: 8px 10px;
+  max-height: 160px;
+  overflow: auto;
+  font-size: 11px;
+  line-height: 1.4;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bg-2) 70%, transparent);
+  border: 1px solid var(--border);
+  white-space: pre-wrap;
+}
+
+/* Voice roster modal — Settings-style speaker picker */
+.pockit-voice-roster-modal .voice-roster-panel {
+  max-width: 420px;
+  width: calc(100% - 32px);
+  max-height: min(82vh, 640px);
+  display: flex;
+  flex-direction: column;
+}
+.pockit-voice-roster-modal .voice-roster-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pockit-voice-roster-modal .voice-roster-panel__kicker {
+  margin: 0 0 2px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-faint, var(--ant-text-tertiary));
+}
+.pockit-voice-roster-modal .voice-roster-panel__body {
+  overflow: auto;
+  padding-top: 0;
+}
+.voice-roster-group__title {
+  margin: 14px 0 6px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg-dim, var(--ant-text-secondary));
+}
+.voice-roster-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.voice-roster-row {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.voice-roster-row__pick {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.voice-roster-row__pick:hover {
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 6%, var(--bg-1));
+}
+.voice-roster-row.is-selected .voice-roster-row__pick {
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 10%, var(--bg-1));
+  border-color: color-mix(in srgb, var(--accent, var(--ant-primary)) 22%, var(--border));
+}
+.voice-roster-row__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.voice-roster-row__name {
+  font-size: 14px;
+  font-weight: 600;
+}
+.voice-roster-row__meta {
+  font-size: 11px;
+  color: var(--fg-dim, var(--ant-text-secondary));
+}
+.voice-roster-row__check {
+  margin-left: auto;
+  color: var(--accent, var(--ant-primary));
+  font-weight: 700;
+}
+.voice-roster-row__preview {
+  flex-shrink: 0;
+  width: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  color: var(--accent, var(--ant-primary));
+  font-size: 12px;
+  cursor: pointer;
+}
+.voice-roster-row__preview:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent, var(--ant-primary)) 10%, var(--bg-1));
+}
+.voice-roster-row__preview.is-playing {
+  background: color-mix(in srgb, var(--danger, #ef4444) 12%, var(--bg-1));
+  border-color: color-mix(in srgb, var(--danger, #ef4444) 35%, var(--border));
+  color: var(--danger, #ef4444);
+}
+.voice-roster-panel__hint {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--fg-dim, var(--ant-text-secondary));
+}
+.voice-roster-panel__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.voice-roster-stop-all {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  cursor: pointer;
+}
+.voice-roster-stop-all:hover {
+  background: color-mix(in srgb, var(--danger, #ef4444) 8%, var(--bg-1));
+}
+.voice-roster-panel__empty,
+.voice-roster-panel__loading {
+  font-size: 13px;
+  color: var(--fg-dim, var(--ant-text-secondary));
+}
+
+/* Voice App Mode Rails — Phase 7: top-chrome drawer handle.
+   Mirrors side rail handles: slim edge grab when open, full tab when collapsed;
+   chrome slides up on the same 0.28s rail transition. */
+body.tapes-ui.hub-dashboard #top-chrome-handle {
+  top: calc(var(--pockit-main-header-h, 66px) - var(--rail-drawer-edge-w, 14px) / 2);
+  transition:
+    top 0.28s var(--comet-ease-out, ease),
+    left 0.28s var(--comet-ease-out, ease),
+    opacity 0.18s ease;
+}
+
+body.tapes-ui.hub-dashboard.suite-bar-visible:not(.pockit-top-chrome-collapsed) #top-chrome-handle {
+  top: calc(var(--suite-bar-h, 80px) + var(--pockit-main-header-h, 66px) - var(--rail-drawer-edge-w, 14px) / 2);
+}
+
+body.tapes-ui.hub-dashboard.pockit-top-chrome-collapsed #top-chrome-handle {
+  top: 0;
+}
+
+/* Open — slim horizontal edge grab straddling the chrome bottom seam */
+body.tapes-ui.hub-dashboard:not(.pockit-top-chrome-collapsed) #top-chrome-handle .rail-drawer-handle__tab {
+  width: var(--rail-drawer-edge-h);
+  height: var(--rail-drawer-edge-w);
+  opacity: 0.88;
+}
+
+body.tapes-ui.hub-dashboard:not(.pockit-top-chrome-collapsed) #top-chrome-handle .rail-drawer-handle__label {
+  display: none;
+}
+
+/* Collapsed — full tab flush to top (like side rails at window edge) */
+body.tapes-ui.hub-dashboard.pockit-top-chrome-collapsed #top-chrome-handle .rail-drawer-handle__tab {
+  width: var(--rail-drawer-tab-h);
+  height: var(--rail-drawer-tab-w);
+  opacity: 1;
+}
+
+/* Slide suite bar + center header up — never display:none (keeps handle in sync) */
+body.tapes-ui.hub-dashboard #suite-bar {
+  transition: transform 0.28s var(--comet-ease-out, ease);
+}
+
+body.tapes-ui.hub-dashboard #main-frame > header.main-header {
+  overflow: hidden;
+  max-height: var(--pockit-main-header-h, 66px);
+  transition:
+    max-height 0.28s var(--comet-ease-out, ease),
+    opacity 0.28s ease,
+    transform 0.28s var(--comet-ease-out, ease);
+}
+
+body.tapes-ui.hub-dashboard.pockit-top-chrome-collapsed #suite-bar {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+body.tapes-ui.hub-dashboard.pockit-top-chrome-collapsed #main-frame > header.main-header {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+body.suite-bar-visible.tapes-ui.hub-dashboard .cassette-player {
+  transition:
+    margin-top 0.28s var(--comet-ease-out, ease),
+    height 0.28s var(--comet-ease-out, ease),
+    max-height 0.28s var(--comet-ease-out, ease);
+}
+
+body.suite-bar-visible.tapes-ui.hub-dashboard.pockit-top-chrome-collapsed .cassette-player {
+  margin-top: 0;
+  height: 100dvh;
+  max-height: 100dvh;
+}
+
+/* Bottom footer drawer handle — mirrors top chrome (slide + triangle chevrons). */
+body.tapes-ui.hub-dashboard #bottom-chrome-handle {
+  top: auto;
+  bottom: calc(var(--pockit-footer-seam-bottom, 0px) - var(--rail-drawer-edge-w, 14px) / 2);
+  transition:
+    bottom 0.28s var(--comet-ease-out, ease),
+    left 0.28s var(--comet-ease-out, ease),
+    opacity 0.18s ease;
+}
+
+body.tapes-ui.hub-dashboard.pockit-bottom-chrome-collapsed #bottom-chrome-handle {
+  bottom: 0;
+}
+
+body.tapes-ui.hub-dashboard:not(.pockit-bottom-chrome-collapsed) #bottom-chrome-handle .rail-drawer-handle__tab {
+  width: var(--rail-drawer-edge-h);
+  height: var(--rail-drawer-edge-w);
+  opacity: 0.88;
+}
+
+body.tapes-ui.hub-dashboard:not(.pockit-bottom-chrome-collapsed) #bottom-chrome-handle .rail-drawer-handle__label {
+  display: none;
+}
+
+body.tapes-ui.hub-dashboard.pockit-bottom-chrome-collapsed #bottom-chrome-handle .rail-drawer-handle__tab {
+  width: var(--rail-drawer-tab-h);
+  height: var(--rail-drawer-tab-w);
+  opacity: 1;
+}
+
+body.tapes-ui.hub-dashboard #main-frame > footer.main-shell-footer {
+  transition:
+    max-height 0.28s var(--comet-ease-out, ease),
+    opacity 0.28s ease,
+    transform 0.28s var(--comet-ease-out, ease);
+}
+
+body.tapes-ui.hub-dashboard.pockit-bottom-chrome-collapsed #main-frame > footer.main-shell-footer {
+  max-height: 0 !important;
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.tapes-ui.hub-dashboard #top-chrome-handle,
+  body.tapes-ui.hub-dashboard #bottom-chrome-handle,
+  body.tapes-ui.hub-dashboard #suite-bar,
+  body.tapes-ui.hub-dashboard #main-frame > header.main-header,
+  body.tapes-ui.hub-dashboard #main-frame > footer.main-shell-footer,
+  body.suite-bar-visible.tapes-ui.hub-dashboard .cassette-player {
+    transition: none;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "cassette_id": "knowledge",
+  "encompass_mode": "native_pad",
+  "instant_mount": true,
+  "speakers_door": "http://knowledge.localhost/",
+  "embed_stem": "knowledge",
+  "left_nav_label": "Scope",
+  "nav_label": "Brain",
+  "center_default": { "panel": "chat", "scope": "all" },
+  "left_nav": [
+    { "id": "scope-all", "label": "All knowledge", "glyph": "🌐", "center_panel": "chat", "knowledge_scope": "all" },
+    { "id": "scope-rules", "label": "Rules & skills", "glyph": "📜", "center_panel": "chat", "knowledge_scope": "rules" },
+    { "id": "scope-memory", "label": "Plans & meta-library", "glyph": "📋", "center_panel": "chat", "knowledge_scope": "memory" },
+    { "id": "scope-historia", "label": "Historia", "glyph": "📚", "center_panel": "chat", "knowledge_scope": "historia" },
+    { "id": "scope-clinic", "label": "Clinic", "glyph": "🏥", "center_panel": "chat", "knowledge_scope": "clinic" },
+    { "id": "scope-vault", "label": "Sovereign vault", "glyph": "🔒", "center_panel": "chat", "knowledge_scope": "vault" }
+  ],
+  "nav": [
+    { "id": "inventory", "label": "Inventory", "glyph": "📊", "center_panel": "inventory" },
+    { "id": "probe", "label": "Honesty probe", "glyph": "🔍", "center_panel": "probe" },
+    { "id": "voice", "label": "Super Rick", "glyph": "🗣", "center_panel": "chat", "href": "#/c/voice" },
+    { "id": "visual", "label": "Visual vault", "glyph": "👁", "center_panel": "chat", "href": "#/c/ext-vault" }
+  ],
+  "actions": [
+    { "id": "open-speakers", "label": "Open full Knowledge door", "href": "http://knowledge.localhost/", "widget": "topbar-trailing" }
+  ],
+  "panels": [
+    { "id": "chat", "label": "Chat", "zone": "center_canvas", "pad_module": "knowledge-hud" },
+    { "id": "inventory", "label": "Inventory", "zone": "center_canvas", "pad_module": "knowledge-hud" },
+    { "id": "probe", "label": "Honesty probe", "zone": "center_canvas", "pad_module": "knowledge-hud" }
+  ],
+  "routes": [
+    { "upstream": "/api/v1/corpus/inventory", "zone": "footer" },
+    { "upstream": "/api/v1/retrieve", "zone": "center_canvas" },
+    { "upstream": "/api/v1/chat/completions", "zone": "center_canvas" }
+  ]
+}

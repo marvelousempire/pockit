@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "description": "Pockit device viewport matrix — Plan 0275. CSS logical px; portrait + landscape per anchor. Safari/Chrome DevTools sizes.",
+  "tiers": [
+    { "id": "watch", "max": 320 },
+    { "id": "phoneCompact", "max": 390 },
+    { "id": "phoneLarge", "max": 480 },
+    { "id": "tabletCompact", "max": 834 },
+    { "id": "tabletLarge", "max": 1194 },
+    { "id": "laptop", "max": 1800 },
+    { "id": "desktop", "max": 2560 },
+    { "id": "display", "max": 3840 },
+    { "id": "tv", "max": null }
+  ],
+  "presets": [
+    { "id": "tv-1080p-portrait", "baseId": "tv-1080p", "label": "TV 1080p", "family": "tv", "tier": "tabletLarge", "width": 1080, "height": 1920, "orientation": "portrait", "source": "chrome" },
+    { "id": "tv-1080p-landscape", "baseId": "tv-1080p", "label": "TV 1080p", "family": "tv", "tier": "desktop", "width": 1920, "height": 1080, "orientation": "landscape", "source": "chrome" },
+    { "id": "tv-75-4k-portrait", "baseId": "tv-75-4k", "label": "TV 75\" 4K", "family": "tv", "tier": "desktop", "width": 2160, "height": 3840, "orientation": "portrait", "source": "safari" },
+    { "id": "tv-75-4k-landscape", "baseId": "tv-75-4k", "label": "TV 75\" 4K", "family": "tv", "tier": "display", "width": 3840, "height": 2160, "orientation": "landscape", "source": "safari" },
+
+    { "id": "imac-27-5k-portrait", "baseId": "imac-27-5k", "label": "iMac 27\" Retina 5K", "family": "display", "tier": "laptop", "width": 1440, "height": 2560, "orientation": "portrait", "dpr": 2, "source": "safari" },
+    { "id": "imac-27-5k-landscape", "baseId": "imac-27-5k", "label": "iMac 27\" Retina 5K", "family": "display", "tier": "desktop", "width": 2560, "height": 1440, "orientation": "landscape", "dpr": 2, "source": "safari" },
+    { "id": "studio-display-portrait", "baseId": "studio-display", "label": "iMac 24\" / Studio Display", "family": "display", "tier": "laptop", "width": 1260, "height": 2240, "orientation": "portrait", "dpr": 2, "source": "apple-hig" },
+    { "id": "studio-display-landscape", "baseId": "studio-display", "label": "iMac 24\" / Studio Display", "family": "display", "tier": "desktop", "width": 2240, "height": 1260, "orientation": "landscape", "dpr": 2, "source": "apple-hig" },
+    { "id": "pro-display-xdr-portrait", "baseId": "pro-display-xdr", "label": "Pro Display XDR 32\"", "family": "display", "tier": "laptop", "width": 1692, "height": 3008, "orientation": "portrait", "dpr": 2, "source": "safari" },
+    { "id": "pro-display-xdr-landscape", "baseId": "pro-display-xdr", "label": "Pro Display XDR 32\"", "family": "display", "tier": "display", "width": 3008, "height": 1692, "orientation": "landscape", "dpr": 2, "source": "safari" },
+
+    { "id": "macbook-pro-16-portrait", "baseId": "macbook-pro-16", "label": "MacBook Pro 16\"", "family": "laptop", "tier": "tabletLarge", "width": 1117, "height": 1728, "orientation": "portrait", "source": "safari" },
+    { "id": "macbook-pro-16-landscape", "baseId": "macbook-pro-16", "label": "MacBook Pro 16\"", "family": "laptop", "tier": "laptop", "width": 1728, "height": 1117, "orientation": "landscape", "source": "safari" },
+    { "id": "macbook-pro-14-portrait", "baseId": "macbook-pro-14", "label": "MacBook Pro 14\"", "family": "laptop", "tier": "tabletLarge", "width": 982, "height": 1512, "orientation": "portrait", "source": "safari" },
+    { "id": "macbook-pro-14-landscape", "baseId": "macbook-pro-14", "label": "MacBook Pro 14\"", "family": "laptop", "tier": "laptop", "width": 1512, "height": 982, "orientation": "landscape", "source": "safari" },
+    { "id": "macbook-air-15-portrait", "baseId": "macbook-air-15", "label": "MacBook Air 15\"", "family": "laptop", "tier": "tabletLarge", "width": 1107, "height": 1710, "orientation": "portrait", "source": "safari" },
+    { "id": "macbook-air-15-landscape", "baseId": "macbook-air-15", "label": "MacBook Air 15\"", "family": "laptop", "tier": "laptop", "width": 1710, "height": 1107, "orientation": "landscape", "source": "safari" },
+    { "id": "macbook-air-13-portrait", "baseId": "macbook-air-13", "label": "MacBook Air 13\"", "family": "laptop", "tier": "tabletCompact", "width": 832, "height": 1280, "orientation": "portrait", "source": "safari" },
+    { "id": "macbook-air-13-landscape", "baseId": "macbook-air-13", "label": "MacBook Air 13\"", "family": "laptop", "tier": "laptop", "width": 1280, "height": 832, "orientation": "landscape", "source": "safari" },
+
+    { "id": "ipad-pro-13-portrait", "baseId": "ipad-pro-13", "label": "iPad Pro 13\"", "family": "tablet", "tier": "tabletLarge", "width": 1032, "height": 1376, "orientation": "portrait", "dpr": 2, "source": "safari" },
+    { "id": "ipad-pro-13-landscape", "baseId": "ipad-pro-13", "label": "iPad Pro 13\"", "family": "tablet", "tier": "tabletLarge", "width": 1376, "height": 1032, "orientation": "landscape", "dpr": 2, "source": "safari" },
+    { "id": "ipad-pro-11-portrait", "baseId": "ipad-pro-11", "label": "iPad Pro 11\"", "family": "tablet", "tier": "tabletCompact", "width": 834, "height": 1210, "orientation": "portrait", "dpr": 2, "source": "safari" },
+    { "id": "ipad-pro-11-landscape", "baseId": "ipad-pro-11", "label": "iPad Pro 11\"", "family": "tablet", "tier": "tabletCompact", "width": 1210, "height": 834, "orientation": "landscape", "dpr": 2, "source": "safari" },
+    { "id": "ipad-air-11-portrait", "baseId": "ipad-air-11", "label": "iPad Air 11\"", "family": "tablet", "tier": "tabletCompact", "width": 820, "height": 1180, "orientation": "portrait", "dpr": 2, "source": "safari" },
+    { "id": "ipad-air-11-landscape", "baseId": "ipad-air-11", "label": "iPad Air 11\"", "family": "tablet", "tier": "tabletCompact", "width": 1180, "height": 820, "orientation": "landscape", "dpr": 2, "source": "safari" },
+    { "id": "ipad-10-portrait", "baseId": "ipad-10", "label": "iPad (10th gen)", "family": "tablet", "tier": "tabletCompact", "width": 810, "height": 1080, "orientation": "portrait", "dpr": 2, "source": "safari" },
+    { "id": "ipad-10-landscape", "baseId": "ipad-10", "label": "iPad (10th gen)", "family": "tablet", "tier": "tabletCompact", "width": 1080, "height": 810, "orientation": "landscape", "dpr": 2, "source": "safari" },
+    { "id": "ipad-mini-portrait", "baseId": "ipad-mini", "label": "iPad mini", "family": "tablet", "tier": "tabletCompact", "width": 744, "height": 1133, "orientation": "portrait", "dpr": 2, "source": "safari" },
+    { "id": "ipad-mini-landscape", "baseId": "ipad-mini", "label": "iPad mini", "family": "tablet", "tier": "tabletCompact", "width": 1133, "height": 744, "orientation": "landscape", "dpr": 2, "source": "safari" },
+
+    { "id": "iphone-16-pro-max-portrait", "baseId": "iphone-16-pro-max", "label": "iPhone 16 Pro Max", "family": "phone", "tier": "phoneLarge", "width": 440, "height": 956, "orientation": "portrait", "dpr": 3, "source": "safari" },
+    { "id": "iphone-16-pro-max-landscape", "baseId": "iphone-16-pro-max", "label": "iPhone 16 Pro Max", "family": "phone", "tier": "phoneLarge", "width": 956, "height": 440, "orientation": "landscape", "dpr": 3, "source": "safari" },
+    { "id": "iphone-16-plus-portrait", "baseId": "iphone-16-plus", "label": "iPhone 16 Plus", "family": "phone", "tier": "phoneLarge", "width": 430, "height": 932, "orientation": "portrait", "dpr": 3, "source": "safari" },
+    { "id": "iphone-16-plus-landscape", "baseId": "iphone-16-plus", "label": "iPhone 16 Plus", "family": "phone", "tier": "phoneLarge", "width": 932, "height": 430, "orientation": "landscape", "dpr": 3, "source": "safari" },
+    { "id": "iphone-16-pro-portrait", "baseId": "iphone-16-pro", "label": "iPhone 16 Pro", "family": "phone", "tier": "phoneLarge", "width": 402, "height": 874, "orientation": "portrait", "dpr": 3, "source": "safari" },
+    { "id": "iphone-16-pro-landscape", "baseId": "iphone-16-pro", "label": "iPhone 16 Pro", "family": "phone", "tier": "phoneLarge", "width": 874, "height": 402, "orientation": "landscape", "dpr": 3, "source": "safari" },
+    { "id": "iphone-16-portrait", "baseId": "iphone-16", "label": "iPhone 16", "family": "phone", "tier": "phoneLarge", "width": 393, "height": 852, "orientation": "portrait", "dpr": 3, "source": "safari" },
+    { "id": "iphone-16-landscape", "baseId": "iphone-16", "label": "iPhone 16", "family": "phone", "tier": "phoneLarge", "width": 852, "height": 393, "orientation": "landscape", "dpr": 3, "source": "safari" },
+    { "id": "iphone-se-portrait", "baseId": "iphone-se", "label": "iPhone SE", "family": "phone", "tier": "phoneCompact", "width": 375, "height": 667, "orientation": "portrait", "dpr": 2, "source": "safari" },
+    { "id": "iphone-se-landscape", "baseId": "iphone-se", "label": "iPhone SE", "family": "phone", "tier": "phoneCompact", "width": 667, "height": 375, "orientation": "landscape", "dpr": 2, "source": "safari" },
+
+    { "id": "watch-ultra-2-portrait", "baseId": "watch-ultra-2", "label": "Apple Watch Ultra 2", "family": "watch", "tier": "watch", "width": 410, "height": 502, "orientation": "portrait", "source": "safari" },
+    { "id": "watch-ultra-2-landscape", "baseId": "watch-ultra-2", "label": "Apple Watch Ultra 2", "family": "watch", "tier": "watch", "width": 502, "height": 410, "orientation": "landscape", "source": "safari" },
+    { "id": "watch-series-10-46-portrait", "baseId": "watch-series-10-46", "label": "Apple Watch Series 10 (46mm)", "family": "watch", "tier": "watch", "width": 416, "height": 496, "orientation": "portrait", "source": "safari" },
+    { "id": "watch-series-10-46-landscape", "baseId": "watch-series-10-46", "label": "Apple Watch Series 10 (46mm)", "family": "watch", "tier": "watch", "width": 496, "height": 416, "orientation": "landscape", "source": "safari" },
+    { "id": "watch-series-10-42-portrait", "baseId": "watch-series-10-42", "label": "Apple Watch Series 10 (42mm)", "family": "watch", "tier": "watch", "width": 374, "height": 446, "orientation": "portrait", "source": "safari" },
+    { "id": "watch-series-10-42-landscape", "baseId": "watch-series-10-42", "label": "Apple Watch Series 10 (42mm)", "family": "watch", "tier": "watch", "width": 446, "height": 374, "orientation": "landscape", "source": "safari" },
+    { "id": "watch-se-portrait", "baseId": "watch-se", "label": "Apple Watch SE", "family": "watch", "tier": "watch", "width": 184, "height": 224, "orientation": "portrait", "source": "safari" },
+    { "id": "watch-se-landscape", "baseId": "watch-se", "label": "Apple Watch SE", "family": "watch", "tier": "watch", "width": 224, "height": 184, "orientation": "landscape", "source": "safari" }
+  ]
+}

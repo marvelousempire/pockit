@@ -1,0 +1,202 @@
+/**
+ * Pockit LED Law — canonical 5-state status LEDs (all surfaces).
+ * Red → Orange → Yellow → Blue → Green
+ */
+:root {
+  --pockit-led-red: #ef4444;
+  --pockit-led-orange: #f97316;
+  --pockit-led-yellow: #eab308;
+  --pockit-led-blue: #3b82f6;
+  --pockit-led-green: #22c55e;
+}
+
+.pockit-led-law {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 5px 10px;
+  border-radius: var(--ak-radius-sm, 8px);
+  border: 1px solid color-mix(in srgb, var(--border, #334155) 65%, transparent);
+  background: color-mix(in srgb, var(--bg-1, #0f172a) 92%, var(--bg-2, #020617));
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--fg-3, #94a3b8);
+  line-height: 1.25;
+}
+
+.pockit-led-law__title {
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-2, #cbd5e1);
+  margin-right: 2px;
+}
+
+.pockit-led-law__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.pockit-led-law__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 0 6px color-mix(in srgb, currentColor 40%, transparent);
+}
+
+.pockit-led-law__dot--red { background: var(--pockit-led-red); color: var(--pockit-led-red); }
+.pockit-led-law__dot--orange { background: var(--pockit-led-orange); color: var(--pockit-led-orange); }
+.pockit-led-law__dot--yellow { background: var(--pockit-led-yellow); color: var(--pockit-led-yellow); }
+.pockit-led-law__dot--blue { background: var(--pockit-led-blue); color: var(--pockit-led-blue); }
+.pockit-led-law__dot--green { background: var(--pockit-led-green); color: var(--pockit-led-green); }
+
+/* Super Rick status table (voice console + embedded panels) */
+.super-rick-panel {
+  --sr-bg: #0c0a0f;
+  --sr-card: #16121c;
+  --sr-line: #2a2230;
+  --sr-txt: #f5eef8;
+  --sr-dim: #a894b0;
+  --sr-accent: #ff69b4;
+}
+
+.super-rick-panel__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.super-rick-panel__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 650;
+  color: var(--sr-accent, var(--accent, #ff69b4));
+}
+
+.super-rick-panel__meta {
+  font-size: 12px;
+  color: var(--sr-dim, var(--fg-3, #94a3b8));
+}
+
+.super-rick-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.super-rick-summary__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--ak-radius-pill);
+  border: 1px solid var(--sr-line, var(--border, #334155));
+  background: color-mix(in srgb, var(--sr-card, #16121c) 90%, black);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.super-rick-table-wrap {
+  overflow: auto;
+  border: 1px solid var(--sr-line, var(--border, #334155));
+  border-radius: 12px;
+  background: var(--sr-card, var(--bg-1, #0f172a));
+}
+
+.super-rick-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 640px;
+}
+
+.super-rick-table th,
+.super-rick-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid color-mix(in srgb, var(--sr-line, #334155) 80%, transparent);
+  vertical-align: top;
+}
+
+.super-rick-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sr-dim, #94a3b8);
+  background: color-mix(in srgb, var(--sr-bg, #0c0a0f) 70%, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.super-rick-table tr:last-child td { border-bottom: none; }
+.super-rick-table tr:hover td {
+  background: color-mix(in srgb, var(--sr-accent, #ff69b4) 6%, transparent);
+}
+
+.super-rick-table__led {
+  width: 48px;
+  text-align: center;
+}
+
+.super-rick-table__led .pockit-led-law__dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+
+.super-rick-table__component {
+  font-weight: 600;
+  color: var(--sr-txt, var(--fg, #f8fafc));
+}
+
+.super-rick-table__group {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sr-dim, #94a3b8);
+  white-space: nowrap;
+}
+
+.super-rick-table__status {
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.super-rick-table__detail {
+  color: var(--sr-dim, #94a3b8);
+  font-size: 11px;
+  line-height: 1.4;
+  max-width: 360px;
+}
+
+.super-rick-table__evidence {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 10px;
+  color: color-mix(in srgb, var(--sr-dim, #94a3b8) 85%, white);
+}
+
+/* Bridge shell footer legend to LED law */
+.shell-footer-led-legend__dot--red { background: var(--pockit-led-red); }
+.shell-footer-led-legend__dot--orange { background: var(--pockit-led-orange); }
+.shell-footer-led-legend__dot--yellow { background: var(--pockit-led-yellow); }
+.shell-footer-led-legend__dot--blue { background: var(--pockit-led-blue); }
+.shell-footer-led-legend__dot--green { background: var(--pockit-led-green); }
+
+.shell-health-pill__led--red { background: var(--pockit-led-red) !important; }
+.shell-health-pill__led--orange { background: var(--pockit-led-orange) !important; }
+.shell-health-pill__led--yellow { background: var(--pockit-led-yellow) !important; }
+.shell-health-pill__led--blue { background: var(--pockit-led-blue) !important; }
+.shell-health-pill__led--green { background: var(--pockit-led-green) !important; }

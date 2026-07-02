@@ -1,0 +1,57 @@
+/**
+ * AppleKit shell tokens — Pockit / family-hub (Plan 0217).
+ * Canonical CT tokens: apps/control-tower/src/lib/applekit.css
+ * Reference law: docs/design/apple-hig-reference-law.md
+ */
+
+:root,
+html[data-tape="1"] {
+  /* Typography — SF Pro stack (native on macOS) */
+  --ak-font-sans: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --ak-font-mono: "SF Mono", ui-monospace, "Cascadia Code", Menlo, monospace;
+
+  /* 8pt grid */
+  --ak-space-1: 4px;
+  --ak-space-2: 8px;
+  --ak-space-3: 12px;
+  --ak-space-4: 16px;
+  --ak-space-5: 20px;
+  --ak-space-6: 24px;
+
+  /* Corner radii — rounded rectangles, not pills (HIG controls) */
+  --ak-radius-xs: 6px;   /* micro tags, keyboard hints */
+  --ak-radius-sm: 8px;   /* chips, toolbar controls, dock buttons */
+  --ak-radius-md: 10px;  /* primary buttons, list rows */
+  --ak-radius-lg: 12px;  /* cards, grouped sections */
+  --ak-radius-xl: 16px;  /* sheets, modals */
+  --ak-radius-pill: 999px; /* ONLY: live LED dots, segmented track, avatars */
+
+  /* Control sizing */
+  --ak-control-height-sm: 28px;
+  --ak-control-height-md: 32px;
+  --ak-chip-padding-x: 10px;
+  --ak-chip-padding-y: 4px;
+  --ak-chip-font-size: 11px;
+
+  /* Bridge into legacy comet/ant tokens */
+  --ant-radius: var(--ak-radius-sm);
+  --ant-radius-lg: var(--ak-radius-md);
+}
+
+[data-theme="dark"],
+html[data-tape="1"][data-theme="dark"] {
+  --ak-label: #ffffff;
+  --ak-label-secondary: rgba(235, 235, 245, 0.6);
+  --ak-bg-primary: #000000;
+  --ak-bg-secondary: #1c1c1e;
+  --ak-separator: rgba(84, 84, 88, 0.65);
+}
+
+[data-theme="light"],
+html[data-tape="1"]:not([data-theme="dark"]) {
+  --ak-label: #000000;
+  --ak-label-secondary: rgba(60, 60, 67, 0.6);
+  --ak-bg-primary: #ffffff;
+  --ak-bg-secondary: #f2f2f7;
+  --ak-separator: rgba(60, 60, 67, 0.12);
+}

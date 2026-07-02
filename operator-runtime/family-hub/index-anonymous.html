@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <title>Nephew</title>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search || "");
+      var ret = params.get("return");
+      var target;
+      if (ret) {
+        target = "/signin?return=" + encodeURIComponent(ret);
+      } else {
+        var callback = (window.location.pathname || "/") + (window.location.search || "") + (window.location.hash || "");
+        target = "/signin?callbackUrl=" + encodeURIComponent(callback);
+      }
+      window.location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p style="margin:2rem;font-family:system-ui;color:#9aa3af">Redirecting to sign in…</p>
+</body>
+</html>

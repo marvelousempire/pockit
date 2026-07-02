@@ -1,0 +1,133 @@
+{
+  "cassette_id": "ext-clinic",
+  "door": "http://clinic.localhost/",
+  "studied_at": "2026-06-24",
+  "source": "lib/pockit-nav-manifest.mjs — hash tab routes from web/index.html",
+  "ui_sections": [
+    {
+      "id": "issues",
+      "label": "Issues",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "ideas",
+      "label": "Ideas",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "plans",
+      "label": "Plans",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "ledger",
+      "label": "Ledger",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "definitions",
+      "label": "Definitions",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "rules",
+      "label": "Rules",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "features",
+      "label": "Features",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "admit",
+      "label": "Admit case",
+      "kind": "spa_panel"
+    },
+    {
+      "id": "open-speakers",
+      "label": "Full Clinic",
+      "kind": "settings_heavy"
+    }
+  ],
+  "api_routes": [
+    {
+      "path": "/api/healthz",
+      "method": "GET",
+      "kind": "health"
+    },
+    {
+      "path": "/api/stats",
+      "method": "GET",
+      "kind": "data"
+    }
+  ],
+  "routes": [
+    {
+      "id": "issues",
+      "upstream": "/#issues",
+      "zone": "left_rail"
+    },
+    {
+      "id": "ideas",
+      "upstream": "/#ideas",
+      "zone": "left_rail"
+    },
+    {
+      "id": "plans",
+      "upstream": "/#plans",
+      "zone": "left_rail"
+    },
+    {
+      "id": "ledger",
+      "upstream": "/#ledger",
+      "zone": "left_rail"
+    },
+    {
+      "id": "definitions",
+      "upstream": "/#definition",
+      "zone": "right_rail"
+    },
+    {
+      "id": "rules",
+      "upstream": "/#rule",
+      "zone": "right_rail"
+    },
+    {
+      "id": "features",
+      "upstream": "/#feature",
+      "zone": "right_rail"
+    },
+    {
+      "id": "admit",
+      "upstream": "/#issues",
+      "zone": "right_rail"
+    },
+    {
+      "id": "open-speakers",
+      "upstream": "/",
+      "zone": "right_rail",
+      "speakers_only": true
+    },
+    {
+      "id": "issues-quick",
+      "upstream": "/#issues",
+      "zone": "footer"
+    },
+    {
+      "id": "ideas-quick",
+      "upstream": "/#ideas",
+      "zone": "footer"
+    },
+    {
+      "id": "ledger-quick",
+      "upstream": "/#ledger",
+      "zone": "footer"
+    },
+    {
+      "id": "healthz-api",
+      "upstream": "/api/healthz",
+      "zone": "footer"
+    }
+  ]
+}

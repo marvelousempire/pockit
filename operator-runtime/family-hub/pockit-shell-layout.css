@@ -1,0 +1,153 @@
+/**
+ * Pockit shell layout structure — Section / Row / Column / Widget (Plan 0221).
+ * Visual polish for toolbar lives in apple-hig-toolbar.css (loads after this).
+ */
+
+.pockit-shell-zone {
+  box-sizing: border-box;
+}
+
+.pockit-layout-row {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pockit-layout-col {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.pockit-layout-col--leading {
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.pockit-layout-col--title {
+  flex: 1 1 auto;
+  justify-content: center;
+  min-width: 0;
+}
+
+.pockit-layout-col--trailing {
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.pockit-widget-stack {
+  display: flex;
+  align-items: center;
+  gap: var(--ak-space-1, 4px);
+  min-width: 0;
+}
+
+.pockit-widget-stack--title {
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: var(--ak-space-2, 8px);
+  width: 100%;
+  max-width: 100%;
+}
+
+.pockit-widget-stack--trailing {
+  justify-content: flex-end;
+}
+
+.pockit-widget {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.pockit-widget.hidden {
+  display: none !important;
+}
+
+.pockit-layout-row--toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pockit-layout-row--toolbar > .pockit-layout-col {
+  align-self: stretch;
+  height: auto;
+  min-height: 0;
+}
+
+.pockit-layout-row--toolbar .pockit-widget-stack {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  height: auto;
+  max-height: 100%;
+}
+
+.pockit-layout-row--toolbar .pockit-widget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  height: auto;
+  max-height: 100%;
+}
+
+.pockit-layout-row--footer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.shell-footer-encompass-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.35rem 0.5rem 0.15rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border, #334155) 55%, transparent);
+}
+
+.shell-footer-encompass-nav__head {
+  margin: 0;
+  padding: 0 0.15rem;
+}
+
+.shell-footer-encompass-nav__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.shell-encompass-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--ak-radius-pill);
+  border: 1px solid color-mix(in srgb, var(--border, #334155) 70%, transparent);
+  background: color-mix(in srgb, var(--surface-2, #1e293b) 88%, transparent);
+  color: var(--text, #e2e8f0);
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.shell-encompass-footer-btn:hover,
+.shell-encompass-footer-btn:focus-visible {
+  border-color: var(--accent, #38bdf8);
+  background: color-mix(in srgb, var(--accent, #38bdf8) 12%, var(--surface-2, #1e293b));
+}
+
+.shell-encompass-footer-btn__glyph {
+  font-size: 0.95rem;
+  line-height: 1;
+}

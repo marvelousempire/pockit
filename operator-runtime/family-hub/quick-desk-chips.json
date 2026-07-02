@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "_comment": "Quick Desk chip defaults (Plan 0445). Served statically like pockit-catalog.json. Operator-added chips layer on top via localStorage 'pockit.quickDesk.userChips.v1'.",
+  "sections": [
+    { "id": "forge", "title": "Forge a repo", "hint": "Paste a GitHub repo above, then tap a target" },
+    { "id": "prompts", "title": "My prompts", "hint": "One tap fires a saved prompt at the AI" },
+    { "id": "doors", "title": "Doors & runs", "hint": "Open a door or copy a command" }
+  ],
+  "chips": [
+    { "id": "forge-console", "section": "forge", "label": "Make Console", "kind": "forge", "target": "console", "primary": true, "hue": 200, "hint": "Forge the repo into a top-level Console (own door + Pockit tile)" },
+    { "id": "forge-cartridge", "section": "forge", "label": "Make Cartridge", "kind": "forge", "target": "cartridge", "hue": 45, "hint": "Forge the repo into a cartridge under Pockit" },
+    { "id": "forge-accessory", "section": "forge", "label": "Make Accessory", "kind": "forge", "target": "accessory", "hue": 337, "hint": "Forge the repo + install its Desktop .app accessory" },
+    { "id": "prompt-architecture", "section": "prompts", "label": "System Architect", "kind": "prompt", "prompt_id": "report-system-architecture", "hue": 262 },
+    { "id": "prompt-gap", "section": "prompts", "label": "Gap Analysis", "kind": "prompt", "prompt_id": "report-gap-analysis-refresh", "hue": 262 },
+    { "id": "prompt-audit", "section": "prompts", "label": "Audit Canvas", "kind": "prompt", "prompt_id": "audit-canvas", "hue": 262 },
+    { "id": "door-dustpan", "section": "doors", "label": "DustPan", "kind": "door", "door": "dustpan", "hue": 150 },
+    { "id": "door-clinic", "section": "doors", "label": "Clinic", "kind": "door", "door": "clinic", "hue": 150 },
+    { "id": "run-doors", "section": "doors", "label": "make doors", "kind": "run", "command": "make doors", "hue": 25, "hint": "Copies the command — run it in your terminal (sudo)" }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "cassette_id": "web-odysseus",
+  "encompass_mode": "native_pad",
+  "instant_mount": true,
+  "speakers_door": "http://odysseus.localhost/",
+  "embed_stem": "odysseus",
+  "center_default": { "panel": "chat", "route": "/" },
+  "left_nav": [
+    { "id": "sessions", "label": "Chats", "glyph": "💬", "center_panel": "chat" },
+    { "id": "new-chat", "label": "New chat", "glyph": "＋", "center_panel": "chat", "action": "new_session" }
+  ],
+  "nav": [
+    { "id": "brain", "label": "Brain", "glyph": "🧠", "center_panel": "brain", "speakers_hash": "#brain" },
+    { "id": "calendar", "label": "Calendar", "glyph": "📅", "speakers_only": true, "speakers_hash": "#calendar" },
+    { "id": "compare", "label": "Compare", "glyph": "⚖", "speakers_only": true },
+    { "id": "cookbook", "label": "Cookbook", "glyph": "📖", "speakers_only": true },
+    { "id": "deep-research", "label": "Deep Research", "glyph": "🔬", "speakers_only": true },
+    { "id": "gallery", "label": "Gallery", "glyph": "🖼", "speakers_only": true },
+    { "id": "notes", "label": "Notes", "glyph": "📝", "speakers_only": true },
+    { "id": "tasks", "label": "Tasks", "glyph": "✓", "speakers_only": true },
+    { "id": "theme", "label": "Theme", "glyph": "🎨", "speakers_only": true, "speakers_hash": "#theme" },
+    { "id": "settings", "label": "Settings", "glyph": "⚙", "speakers_only": true, "speakers_hash": "#settings" }
+  ],
+  "actions": [
+    { "id": "model", "label": "Model", "widget": "topbar-trailing" },
+    { "id": "open-speakers", "label": "Open full Odysseus", "href": "http://odysseus.localhost/", "widget": "topbar-trailing" }
+  ],
+  "panels": [
+    { "id": "chat", "label": "Chat", "zone": "center_canvas", "pad_module": "odysseus-pad" },
+    { "id": "brain", "label": "Brain", "zone": "center_canvas", "phase": 2, "speakers_fallback": true }
+  ],
+  "routes": [
+    { "upstream": "/api/chat_stream", "proxy": "/family-embed/odysseus/api/chat_stream", "zone": "center_canvas" },
+    { "upstream": "/api/default-chat", "proxy": "/family-embed/odysseus/api/default-chat", "zone": "topbar" },
+    { "upstream": "/api/version", "proxy": "/family-embed/odysseus/api/version", "zone": "footer" }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cassette_id": "web-odysseus",
+  "door": "http://odysseus.localhost/",
+  "studied_at": "2026-06-19",
+  "source": "Odysseus upstream UI + scripts/odysseus-stack-status.mjs",
+  "ui_sections": [
+    { "id": "chat", "label": "Chat", "kind": "spa_panel" },
+    { "id": "brain", "label": "Brain", "kind": "spa_panel" },
+    { "id": "calendar", "label": "Calendar", "kind": "spa_panel" },
+    { "id": "compare", "label": "Compare", "kind": "spa_panel" },
+    { "id": "cookbook", "label": "Cookbook", "kind": "spa_panel" },
+    { "id": "deep-research", "label": "Deep Research", "kind": "spa_panel" },
+    { "id": "gallery", "label": "Gallery", "kind": "spa_panel" },
+    { "id": "library", "label": "Library", "kind": "spa_panel" },
+    { "id": "notes", "label": "Notes", "kind": "spa_panel" },
+    { "id": "tasks", "label": "Tasks", "kind": "spa_panel" },
+    { "id": "theme", "label": "Theme", "kind": "settings_heavy" },
+    { "id": "settings", "label": "Settings", "kind": "settings_heavy" },
+    { "id": "user", "label": "User", "kind": "account" }
+  ],
+  "api_routes": [
+    { "path": "/api/chat_stream", "method": "POST", "kind": "sse_chat" },
+    { "path": "/api/default-chat", "method": "GET", "kind": "config" },
+    { "path": "/api/version", "method": "GET", "kind": "health" }
+  ],
+  "brains": [
+    { "id": "fleet-rag", "via": "NEPHEW_FLEET_RETRIEVE_URL", "target": "tower-api /api/v1/retrieve" },
+    { "id": "local-chroma", "via": "odysseus container env", "target": "upstream" },
+    { "id": "ollama", "via": "odysseus container env", "target": "upstream" }
+  ],
+  "routes": [
+    { "id": "chat-main", "upstream": "/", "zone": "center_canvas", "panel": "chat" },
+    { "id": "sessions", "upstream": "/#sessions", "zone": "left_rail", "panel": "chat" },
+    { "id": "new-chat", "upstream": "/#new", "zone": "left_rail", "panel": "chat" },
+    { "id": "brain", "upstream": "/#brain", "zone": "right_rail", "panel": "brain", "speakers_only": false },
+    { "id": "calendar", "upstream": "/#calendar", "zone": "right_rail", "speakers_only": true },
+    { "id": "compare", "upstream": "/#compare", "zone": "right_rail", "speakers_only": true },
+    { "id": "cookbook", "upstream": "/#cookbook", "zone": "right_rail", "speakers_only": true },
+    { "id": "deep-research", "upstream": "/#deep-research", "zone": "right_rail", "speakers_only": true },
+    { "id": "gallery", "upstream": "/#gallery", "zone": "right_rail", "speakers_only": true },
+    { "id": "library", "upstream": "/#library", "zone": "right_rail", "speakers_only": true },
+    { "id": "notes", "upstream": "/#notes", "zone": "right_rail", "speakers_only": true },
+    { "id": "tasks", "upstream": "/#tasks", "zone": "right_rail", "speakers_only": true },
+    { "id": "theme", "upstream": "/#theme", "zone": "speakers_only" },
+    { "id": "settings", "upstream": "/#settings", "zone": "speakers_only" },
+    { "id": "model-picker", "upstream": "/api/default-chat", "zone": "topbar" },
+    { "id": "stack-health", "upstream": "/odysseus-stack-status.json", "zone": "footer" },
+    { "id": "api-chat-stream", "upstream": "/api/chat_stream", "zone": "center_canvas", "proxy": "/family-embed/odysseus/api/chat_stream" },
+    { "id": "api-default-chat", "upstream": "/api/default-chat", "zone": "center_canvas", "proxy": "/family-embed/odysseus/api/default-chat" },
+    { "id": "api-version", "upstream": "/api/version", "zone": "footer", "proxy": "/family-embed/odysseus/api/version" }
+  ]
+}

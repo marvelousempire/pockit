@@ -1,0 +1,39 @@
+{
+  "cassette_id": "ext-archive",
+  "door": "http://search.localhost/",
+  "studied_at": "2026-06-23",
+  "source": "Search My Engine Next.js nav (Plan 0243) · encompass follow-up",
+  "ui_sections": [
+    { "id": "dashboard", "label": "Dashboard", "kind": "spa_panel" },
+    { "id": "conversations", "label": "Conversations", "kind": "spa_panel" },
+    { "id": "search", "label": "Search", "kind": "spa_panel" },
+    { "id": "agent", "label": "Agent", "kind": "spa_panel" },
+    { "id": "memory", "label": "Memory", "kind": "spa_panel" },
+    { "id": "settings", "label": "Settings", "kind": "settings_heavy" },
+    { "id": "health", "label": "Health", "kind": "ops" }
+  ],
+  "api_routes": [
+    { "path": "/api/health/live", "method": "GET", "kind": "health" }
+  ],
+  "routes": [
+    { "id": "dashboard", "upstream": "/", "zone": "center_canvas" },
+    { "id": "conversations", "upstream": "/conversations", "zone": "left_rail" },
+    { "id": "projects", "upstream": "/projects", "zone": "left_rail" },
+    { "id": "topics", "upstream": "/topics", "zone": "left_rail" },
+    { "id": "attachments", "upstream": "/attachments", "zone": "left_rail" },
+    { "id": "search", "upstream": "/search", "zone": "center_canvas" },
+    { "id": "agent", "upstream": "/agent", "zone": "center_canvas" },
+    { "id": "ask", "upstream": "/ask", "zone": "center_canvas" },
+    { "id": "memory", "upstream": "/memory", "zone": "right_rail" },
+    { "id": "compare", "upstream": "/compare", "zone": "right_rail", "speakers_only": true },
+    { "id": "diff", "upstream": "/diff", "zone": "right_rail", "speakers_only": true },
+    { "id": "usage", "upstream": "/usage", "zone": "footer" },
+    { "id": "health", "upstream": "/health", "zone": "footer" },
+    { "id": "help", "upstream": "/help", "zone": "right_rail" },
+    { "id": "settings", "upstream": "/settings", "zone": "right_rail", "speakers_only": true },
+    { "id": "sync", "upstream": "/sync", "zone": "right_rail" },
+    { "id": "clinic", "upstream": "/clinic", "zone": "right_rail", "speakers_only": true },
+    { "id": "dockyard", "upstream": "/dockyard", "zone": "right_rail", "speakers_only": true },
+    { "id": "imports", "upstream": "/imports", "zone": "right_rail", "speakers_only": true }
+  ]
+}

@@ -1,0 +1,1046 @@
+{
+  "schema_version": 1,
+  "title": "Pockit Help Guide",
+  "tagline": "How to use Pockit — players, cassettes, doors, and the Family Office stack.",
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "icon": "🚀",
+      "articles": [
+        {
+          "id": "what-is-pockit",
+          "title": "What is Pockit?",
+          "lede": "Pockit is the Family Office player console — a sovereign shell where every app, cassette, and door lives in one grid.",
+          "body": "Open **http://pockit.localhost/** after `make pockit` (and `make doors` once on a new Mac). The **suite bar** at the top jumps between Pockit, Nephew Control Tower, Automata, Historia, and Voice. The **left rail** lists players and consoles; the **right rail** lists cassettes for the active player. The **center canvas** is where the active tape renders.",
+          "steps": [
+            "Run `make pockit` on the Mac (or `make family` on Spark).",
+            "If a door fails, run `make doors` once (sudo Boss Move).",
+            "Open http://pockit.localhost/ — not raw LAN ports.",
+            "Pick a player in the left rail, then a cassette in the right rail."
+          ],
+          "links": [
+            {
+              "label": "Pockit Handbook",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/pockit/Pockit-Handbook.md",
+              "kind": "doc"
+            },
+            {
+              "label": "Open overview",
+              "action": "overview"
+            }
+          ]
+        },
+        {
+          "id": "doors-and-urls",
+          "title": "Doors — friendly URLs",
+          "lede": "Every tape opens at http://<name>.localhost/ instead of port numbers.",
+          "body": "The family gateway forwards port 80 to the tape server. **make doors** installs the forwarder (sudo once). **make door** opens the library browser. If a door 502s, run **doors-verify** from the operator console or Help Command Center.",
+          "steps": [
+            "Bookmark http://pockit.localhost/ for daily use.",
+            "Cassette doors: http://knowledge.localhost/, http://voice.localhost/, etc.",
+            "Never use 192.168.10.205:8790 in operator copy — use doors."
+          ],
+          "links": [
+            {
+              "label": "Wake all doors",
+              "make": "doors"
+            },
+            {
+              "label": "Verify doors",
+              "make": "doors-verify"
+            }
+          ]
+        },
+        {
+          "id": "first-boot",
+          "title": "First boot checklist",
+          "lede": "New Mac or fresh clone — run these once before demoing to the family.",
+          "body": "Register SSH keys so tower-api mints your family session cookie. Rebuild Desktop .apps so double-click launchers exist. Mount the NAS historia share for Visual Obsidian. Then boot Pockit and open the overview grid.",
+          "steps": [
+            "make family-ssh-register",
+            "make install-mac-apps (or install-operator-console-app)",
+            "make install-nas-mounts (auto-mount /Volumes/historia at login)",
+            "make doors (sudo once if prompted)",
+            "make pockit → open http://pockit.localhost/",
+            "On iPhone: Share → Add to Home Screen for standalone PWA (see Mobile & responsive)."
+          ],
+          "links": [
+            {
+              "label": "Family SSH guide",
+              "section": "operators"
+            },
+            {
+              "label": "Mobile & PWA",
+              "section": "mobile-responsive",
+              "article": "pwa-home-screen"
+            },
+            {
+              "label": "Visual Obsidian",
+              "section": "visual-obsidian"
+            },
+            {
+              "label": "Operator console",
+              "url": "http://console.localhost/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "title": "Navigation",
+      "icon": "🧭",
+      "articles": [
+        {
+          "id": "players-and-cassettes",
+          "title": "Players vs cassettes",
+          "lede": "A **player** (console) owns cassettes. Pockit is the master player; Nephew CT, Automata, and Dustpan are sibling consoles.",
+          "body": "Click a player in the **left rail** to filter the right rail. Click a cassette to load it in the center. **Overview** shows every player at once. **Quick Actions** in the suite bar let you pin favorites and drag players or cassettes into slots.",
+          "steps": [
+            "Left rail → pick Automata, Nephew, or Pockit.",
+            "Right rail → pick a cassette under that player.",
+            "Suite bar brand pill → switch console without leaving Pockit."
+          ],
+          "links": [
+            {
+              "label": "Browse overview",
+              "action": "overview"
+            },
+            {
+              "label": "Player assembly line",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/assembly-line/03-player-console-assembly-line.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "rails-and-chrome",
+          "title": "Rails, footer, and chrome",
+          "lede": "Collapse rails for focus; the footer shows health, version, and context pills.",
+          "body": "Drawer handles on the left, right, top, and bottom edges collapse chrome. **Focus mode** and **cinema mode** in Settings → Focus hide rails after idle on desktop; on phone the shell uses the thumb dock instead of edge tabs. Active consoles show an identity badge in the player rail dock.",
+          "steps": [
+            "Players / Cassettes toggles in the toolbar hide rails.",
+            "Chrome handle at top collapses suite bar + header.",
+            "Footer version pill opens the Pockit changelog modal.",
+            "Phone/tablet: see Mobile & responsive — dock, Controls sheet, viewport tiers."
+          ],
+          "links": [
+            {
+              "label": "Mobile & responsive",
+              "section": "mobile-responsive",
+              "article": "mobile-overview"
+            },
+            {
+              "label": "Desktop rails & focus",
+              "section": "mobile-responsive",
+              "article": "desktop-rails-focus"
+            }
+          ]
+        },
+        {
+          "id": "deep-links",
+          "title": "Deep links and hash routes",
+          "lede": "Share a cassette with #/c/<id> in the URL.",
+          "body": "Examples: http://pockit.localhost/#/c/voice · http://pockit.localhost/#/c/knowledge · http://pockit.localhost/#/welcome for this Help Guide.",
+          "steps": [
+            "Copy the URL from the browser after opening a cassette.",
+            "Paste into chat or bookmarks — doors resolve on the same Mac."
+          ],
+          "links": [
+            {
+              "label": "Open Voice pad",
+              "action": "load",
+              "loadId": "voice"
+            },
+            {
+              "label": "Open Knowledge",
+              "action": "load",
+              "loadId": "knowledge"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobile-responsive",
+      "title": "Mobile & responsive",
+      "icon": "📱",
+      "articles": [
+        {
+          "id": "mobile-overview",
+          "title": "Multi-surface Pockit",
+          "lede": "One Family Office shell — phone, tablet, laptop, desktop, TV, Mac .app, and watch companion.",
+          "body": "Pockit is **one frame, many shapes**. The same cassettes and doors work on every Apple viewport; the **viewport tier** picks chrome (rails vs thumb dock, footer vs Controls sheet).\n\n## Surfaces\n\n| Surface | Entry | Primary navigation |\n|---------|-------|-------------------|\n| **Phone** | Safari / PWA | Thumb dock + Controls sheet |\n| **Tablet** | iPad Safari | Mobile shell or iPad dashboard rails |\n| **Laptop / desktop** | Browser window | Dual rail + suite bar + center footer |\n| **Display / TV** | Large window | Dual rail; large canvas |\n| **Mac `.app`** | Double-click Desktop app | Boot panel → browser door with weave |\n| **Watch** | Companion tier | Minimal card + deep links |\n\n**Operator copy:** always **http://pockit.localhost/** — run `make doors` once on a new Mac (sudo).\n\nDesign law: token-first spacing, 44px touch targets on phone, cotton-ball motion, intent chrome on every surface.",
+          "steps": [
+            "Open http://pockit.localhost/ on any device on home LAN.",
+            "iPhone: Share → Add to Home Screen for standalone PWA.",
+            "Settings → Devices → pick a preset to preview another viewport (session only).",
+            "Mac: double-click Pockit.app for boot panel + native weave."
+          ],
+          "links": [
+            {
+              "label": "Pockit Multi-Surface Handbook",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/pockit/Pockit-Multi-Surface-Design-System.md",
+              "kind": "doc"
+            },
+            {
+              "label": "Device tiers matrix",
+              "section": "mobile-responsive",
+              "article": "device-tiers-viewport-matrix"
+            },
+            {
+              "label": "PWA Home Screen",
+              "section": "mobile-responsive",
+              "article": "pwa-home-screen"
+            }
+          ]
+        },
+        {
+          "id": "device-tiers-viewport-matrix",
+          "title": "Device tiers & viewport matrix",
+          "lede": "Plan 0275 — nine named tiers from watch through TV, with Device Lab presets and verify gates.",
+          "body": "Layout is **predictable at every real Family Office screen size**. Plan 0275 expanded Plan 0263's coarse buckets into **nine tiers** with orientation, device identity, and operator DevTools-style presets.\n\n## Nine tiers (narrow → wide)\n\n`watch` → `phoneCompact` → `phoneLarge` (≤480px) → `tabletCompact` → `tabletLarge` → `laptop` (≤1800) → `desktop` → `display` → `tv`\n\n## Runtime\n\n| Piece | Path |\n|-------|------|\n| Browser engine | `pockit-viewport.js` — sets `body` classes + data attrs |\n| Pure tier logic | `scripts/lib/pockit-viewport-engine.mjs` |\n| Preset registry | `data/pockit-device-viewports.json` (+ family-hub copy) |\n| Device Lab UI | Settings → **Devices** → preset → Apply (session only) |\n| Watch companion | `pockit-watch-companion.js` — minimal UI; phone shell gated off |\n\n## Verify\n\n```bash\nnode scripts/check-pockit-viewport-matrix.mjs\nnode containers/nephew-ct/family-hub/pockit-viewport.test.mjs\nnode scripts/smoke-pockit-ui.mjs\n```\n\nFull tier table: **docs/pockit/Device-Viewport-Matrix.md**",
+          "steps": [
+            "Open Settings → Devices in Pockit.",
+            "Apply iPhone SE, iPad Pro landscape, MBP 16, or TV 4K preset.",
+            "Confirm body tier class matches expected layout.",
+            "Run node scripts/check-pockit-viewport-matrix.mjs before ship."
+          ],
+          "links": [
+            {
+              "label": "Plan 0275",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/plans/0275-pockit-device-viewport-matrix.md",
+              "kind": "doc"
+            },
+            {
+              "label": "Device-Viewport-Matrix.md",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/pockit/Device-Viewport-Matrix.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "phone-shell",
+          "title": "Phone shell — dock & Controls",
+          "lede": "Plan 0274 — thumb dock, mobile HUD, Controls sheet; rails hidden on phone tiers.",
+          "body": "On **phoneCompact** and **phoneLarge** (up to **480px**), Pockit switches to **mobile-first phone shell** — not desktop rails squeezed onto a narrow screen.\n\n## What changes on phone\n\n- `body.pockit-phone-shell` — orchestrator class from `pockit-viewport.js`\n- **Player + cassette rails collapsed** (width 0); edge drawer handles hidden\n- **Center footer hidden** — status moves to **Controls sheet**\n- **Bottom thumb dock** — Home · Players · Cassettes · Voice · More (`pockit-phone-dock.js`)\n- **Controls FAB / sheet** — reuses footer pill renderers (`pockit-controls-sheet.js`)\n- **44px touch targets** + `env(safe-area-inset-*)` padding\n\n## Critical modules\n\n| File | Role |\n|------|------|\n| `pockit-phone-shell.js` | Orchestrator — collapse rails, wire dock |\n| `pockit-phone-dock.js` | Bottom navigation |\n| `pockit-controls-sheet.js` | Footer + rail controls in sheet |\n| `pockit-phone-shell.css` | Layout + HIG hit targets |\n| `pockit-rail-drawer.css` | Hides edge tabs on phone |\n\nVoice/Odysseus pads register extra phone chrome via `pockit-phone-player-chrome.js`.",
+          "steps": [
+            "DevTools → iPhone 17 Pro Max or SE — confirm bottom dock visible.",
+            "Tap Controls FAB — footer pills and scope appear in sheet.",
+            "Confirm no edge rail drawer tabs (~26px) on phone tier.",
+            "Real device: http://pockit.localhost/ on home Wi‑Fi."
+          ],
+          "links": [
+            {
+              "label": "Plan 0274",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/plans/0274-pockit-mobile-first-phone-shell.md",
+              "kind": "doc"
+            },
+            {
+              "label": "Open Voice pad",
+              "action": "load",
+              "loadId": "voice"
+            }
+          ]
+        },
+        {
+          "id": "tablet-ipad-dashboard",
+          "title": "Tablet & iPad dashboard",
+          "lede": "iPad rails, hub-dashboard theme, and --player-rail-w tokens on tablet tiers.",
+          "body": "On **tabletCompact** and **tabletLarge**, Pockit may show the **mobile shell** (dock + Controls) or full **iPad dashboard** rails depending on width and orientation.\n\n## iPad dashboard\n\n`pockit-ipad-dashboard.css` styles the **hub-dashboard** body class — monochrome smart-mirror tiles with SF-style icons while keeping full chrome.\n\n## Rail tokens\n\n| Token | Default | Use |\n|-------|---------|-----|\n| `--player-rail-w` | 240px | Left player rail |\n| `--cassette-rail-w` | 280px class | Right cassette rail |\n| `--suite-bar-h` | suite bar height | Top Family Office carousel |\n\nRails beat Ant Design `!important` overrides via `body.tapes-ui.hub-dashboard .sidebar.player-rail` selectors.\n\n## Tablet vs phone\n\n- Narrow tablet portrait may still use phone shell + dock.\n- iPad Pro landscape → dual rails + center footer (like laptop).\n- Device Lab → Apply **iPad Pro 13 landscape** to QA without hardware.",
+          "steps": [
+            "Settings → Devices → iPad Pro preset → Apply.",
+            "Confirm player rail at --player-rail-w and cassette rail visible.",
+            "Rotate — orientation attr updates via pockit-viewport.js.",
+            "Overview grid uses hub-dashboard tile styling on iPad."
+          ],
+          "links": [
+            {
+              "label": "Shell layout zones",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/pockit/Pockit-Shell-Layout-Zones.md",
+              "kind": "doc"
+            },
+            {
+              "label": "Browse overview",
+              "action": "overview"
+            }
+          ]
+        },
+        {
+          "id": "desktop-rails-focus",
+          "title": "Desktop rails, focus & cinema",
+          "lede": "Tri-rail shell on laptop/desktop — auto-hide rails from pockit-config after idle.",
+          "body": "On **laptop**, **desktop**, **display**, and **tv** tiers Pockit shows the **tri-rail shell**: suite bar, player rail, center canvas + toolbar + footer, cassette rail.\n\n## Chrome controls\n\n| Control | Effect |\n|---------|--------|\n| Players / Cassettes toggles | Collapse left/right rails |\n| Top chrome handle | Collapse suite bar + header |\n| Drawer edge tabs | Peek collapsed rails (desktop only) |\n\n## Focus & cinema (`pockit-config.js`)\n\nSettings → **Focus** tab:\n\n- **Focus mode** — after idle, rails auto-hide; move pointer to edge to reveal (`pockit-chrome-reveal-active`)\n- **Cinema mode** — forces all chrome hidden for full canvas (`body.pockit-cinema-mode`)\n\nConfig persists in `localStorage` via `pockit-config.js` → `chrome.player_rail`, `chrome.cassette_rail`, `chrome.main_header` each with `auto_hide_after_ms` + `collapsed`.\n\nPhone tiers ignore desktop focus idle — they use phone shell instead.",
+          "steps": [
+            "Settings → Focus → enable cinema mode — rails hide immediately.",
+            "Disable cinema → set rail auto-hide idle (e.g. 30s) → wait → rails collapse.",
+            "Move cursor to left edge — player rail peeks open.",
+            "Compare with phone tier — focus idle does not apply there."
+          ],
+          "links": [
+            {
+              "label": "Rails & chrome (navigation)",
+              "section": "navigation",
+              "article": "rails-and-chrome"
+            },
+            {
+              "label": "Settings → Focus",
+              "action": "settings",
+              "settingsTab": "focus"
+            }
+          ]
+        },
+        {
+          "id": "touch-spacing-hit-targets",
+          "title": "Touch spacing & hit targets",
+          "lede": "Understandings 0002/0003 — 44px HIG targets, apple-hig shape law, comet motion.",
+          "body": "**Token-first UI** — no ad-hoc pixels or hex in components. Every surface shares `--ak-*` spacing, typography, and radii from `applekit-shell-tokens.css`.\n\n## Minimum touch (phone)\n\n| Control | Min size | Module |\n|---------|----------|--------|\n| Icon button | 44×44 | `.icon-btn` |\n| Dock tab | 44px height | `pockit-phone-dock.js` |\n| Voice Talk | 44px | `voice-pad.css` |\n| Shield / intent | 44×44 | `.fo-proto-shield` |\n| Primary CTA | 32–44px | `--ak-control-height-md` |\n\n## Shape law\n\n- **Rounded rectangles** for buttons, chips, status — `--ak-radius-sm` through `--ak-radius-xl`\n- **`--ak-radius-pill` / 999px** only for LEDs, avatars, segmented tracks — **not** status chips\n- Gate: `node scripts/check-pockit-hig-shape.mjs`\n\n## Motion\n\n**Cotton-ball settle** (`comet-motion.css`) — panels and sheets sneeze-out with soft overshoot; respect `prefers-reduced-motion`.\n\n8pt grid: `--ak-space-1` (4px) through `--ak-space-6` (24px). Phone adds `--pockit-phone-dock-h`, `--pockit-phone-chrome-bottom`, safe-area insets.",
+          "steps": [
+            "DevTools phone tier — tap smallest footer/dock control; target ≥44px.",
+            "Run node scripts/check-pockit-hig-shape.mjs before UI ship.",
+            "Confirm status chips use --ak-radius-sm, not pill stadiums.",
+            "Toggle reduced motion in OS — panels fade without overshoot."
+          ],
+          "links": [
+            {
+              "label": "Understandings 0002 — tokens",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/Nephew/Understandings/Pockit/0002-pockit-spacing-typography-tokens.md",
+              "kind": "doc"
+            },
+            {
+              "label": "Understandings 0003 — components",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/Nephew/Understandings/Pockit/0003-pockit-components-buttons-containers.md",
+              "kind": "doc"
+            },
+            {
+              "label": "apple-hig-reference-law",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/design/apple-hig-reference-law.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "pwa-home-screen",
+          "title": "PWA — Add to Home Screen",
+          "lede": "Plan 0280 — iPhone Home Screen standalone icon with phone shell and last-route memory.",
+          "body": "Pockit ships as a **Progressive Web App** for iPhone and iPad Safari.\n\n## Onboard (once per device)\n\n1. On home Wi‑Fi, open **http://pockit.localhost/** in Safari (requires `make doors` on the Mac serving the gateway).\n2. Tap **Share** → **Add to Home Screen**.\n3. Confirm name **Pockit** and add.\n4. Launch from Home Screen — opens **standalone** (no Safari chrome) with phone shell.\n\n## What ships\n\n| Asset | Role |\n|-------|------|\n| `pockit.webmanifest` | Standalone display, theme color, icons |\n| Apple meta tags | `apple-mobile-web-app-capable`, status bar style |\n| Icons | Home Screen icon set in family-hub |\n| Route memory | `localStorage` remembers last `#/c/…` route |\n\nDeep links (`#/c/voice`, `#/c/knowledge`) survive PWA launch. Same SSO cookie rules as browser — register SSH keys first (`make family-ssh-register`).",
+          "steps": [
+            "make doors (sudo once) + make pockit on the Mac.",
+            "Safari → http://pockit.localhost/ → Share → Add to Home Screen.",
+            "Launch standalone icon — confirm bottom dock, no Safari URL bar.",
+            "Navigate to a cassette, close app, reopen — last route restores."
+          ],
+          "links": [
+            {
+              "label": "Plan 0280",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/plans/0280-iphone-pwa-home-screen.md",
+              "kind": "doc"
+            },
+            {
+              "label": "First boot checklist",
+              "section": "getting-started",
+              "article": "first-boot"
+            }
+          ]
+        },
+        {
+          "id": "mac-app-vs-browser",
+          "title": "Mac app vs browser",
+          "lede": "Native weave, boot panel, and isNativePockitHubSurface — when UI differs from Safari.",
+          "body": "## Mac `.app` path\n\nDouble-click **Pockit.app** (or sibling Family Office apps):\n\n```text\nBoot panel (intent shield, LED steps, version footer)\n  → repo sync + Desktop apps refresh (Pockit only)\n  → gateway → stack → pave routes → SSO\n  → readiness probe → open browser (?mac_app=pockit)\n```\n\nPlans: **0278** tap-to-open · **0283–0285** intent chrome weave.\n\n## Browser path\n\nBookmark or PWA **http://pockit.localhost/** — page load, no boot panel. Mac weave tiles still appear in cassette rail when launched with `?mac_app=` param.\n\n## When UI differs\n\n| Concern | Mac `.app` | Browser |\n|---------|-----------|----------|\n| Launcher | Swift + LED boot panel | URL / PWA |\n| Intent chrome | Boot panel + in-browser shield | Weave + registry inject |\n| Native hub surfaces | `isNativePockitHubSurface()` — voice, knowledge, overview, library render full-page HTML, never iframe embed trap | Same |\n| Type B HTML | Local server surfaces (console.localhost) | Same via doors |\n| Phone shell | N/A at boot; in-browser tier still applies | Tier from viewport |\n\n`isNativePockitHubSurface(cassette)` in `pockit.js` returns true for voice, knowledge, odysseus, overview, library, smoke-checklist, suite-welcome, and encompass native pads.",
+          "steps": [
+            "make install-mac-apps — Desktop double-click launchers.",
+            "Double-click Pockit.app — watch boot panel LEDs → browser opens.",
+            "Compare with http://pockit.localhost/ in Safari — same shell, no boot panel.",
+            "Open Voice pad — native surface fills center canvas (not iframe)."
+          ],
+          "links": [
+            {
+              "label": "Mac-App-Family-Office-Stack.md",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/pockit/Mac-App-Family-Office-Stack.md",
+              "kind": "doc"
+            },
+            {
+              "label": "Plan 0278 tap-to-open",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/plans/0278-mac-hands-off-tap-to-open.md",
+              "kind": "doc"
+            },
+            {
+              "label": "make install-mac-apps",
+              "make": "install-mac-apps"
+            }
+          ]
+        },
+        {
+          "id": "mobile-troubleshooting",
+          "title": "Mobile troubleshooting",
+          "lede": "Wrong tier, stale cache, viewport matrix failures — how to diagnose layout surprises.",
+          "body": "## Wrong layout tier\n\nSymptom: desktop rails on iPhone, or dock missing on phone.\n\n1. Hard refresh — Shift-reload in Safari or kill PWA and reopen.\n2. Settings → Devices — clear lab override (session preset stuck).\n3. Check `body` classes: `pockit-phone-shell`, `pockit-viewport-tier-*` in DevTools.\n4. Run `node scripts/check-pockit-viewport-matrix.mjs` — registry ↔ engine parity.\n\n## Stale assets / version lie\n\nFooter version should match CHANGELOG. Hard refresh http://pockit.localhost/. If footer shows old pin after merge, `git pull` on host serving family-hub.\n\n## PWA won't install\n\n- Confirm **http://pockit.localhost/** loads (not LAN IP).\n- Run `make doors` once (sudo Boss Move).\n- Must be on home Wi‑Fi or VPN with gateway reachable.\n\n## Smoke gates\n\n```bash\nnode scripts/smoke-pockit-ui.mjs\nnode scripts/check-pockit-viewport-matrix.mjs\nnode scripts/check-pockit-hig-shape.mjs\n```\n\n## Device Lab QA\n\nSettings → Devices → Apply **iPhone SE** then **iPhone 17 Pro Max** — both should show phone shell (Pro Max uses phoneLarge ≤480px).",
+          "steps": [
+            "Shift-reload http://pockit.localhost/.",
+            "node scripts/smoke-pockit-ui.mjs from ~/Developer/nephew.",
+            "node scripts/check-pockit-viewport-matrix.mjs if tier logic changed.",
+            "Real device on Wi‑Fi — confirm dock + Controls sheet."
+          ],
+          "links": [
+            {
+              "label": "Device tiers article",
+              "section": "mobile-responsive",
+              "article": "device-tiers-viewport-matrix"
+            },
+            {
+              "label": "Door 502 help",
+              "section": "troubleshooting",
+              "article": "door-502"
+            },
+            {
+              "label": "make doors",
+              "make": "doors"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "Key features",
+      "icon": "✨",
+      "articles": [
+        {
+          "id": "knowledge-brain",
+          "title": "Knowledge — Brain A chat",
+          "lede": "Grounded RAG chat over rules, plans, Clinic, Historia, and the sovereign vault.",
+          "body": "Knowledge pad uses Brain A on Spark (Qdrant + bge-m3). Scope picker in the left rail limits retrieval domains. Right rail shows brain health and reindex commands. **Nephew/Understandings** docs sync to the sovereign vault and index into Brain A after `make vault-ingest-docs`.",
+          "steps": [
+            "make corpus-status on Spark to see shelf fill.",
+            "Open Knowledge → pick scope → ask a question.",
+            "After doc edits: make vault-ingest-docs (Mac vault sync + Spark Qdrant index).",
+            "Reindex with make index-corpus when shelves are stale."
+          ],
+          "links": [
+            {
+              "label": "Open Knowledge",
+              "action": "load",
+              "loadId": "knowledge"
+            },
+            {
+              "label": "Vault ingest guide",
+              "section": "visual-obsidian",
+              "article": "understandings-vault-ingest"
+            },
+            {
+              "label": "Brain A shelves map",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/infrastructure/brain-a-library-shelves.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "changelog-and-versions",
+          "title": "Versions and changelog",
+          "lede": "One Pockit version pill in the footer — opens a centered changelog modal.",
+          "body": "Pockit version is pinned in pockit-surface.json and synced across the monorepo. Click the footer pill to read what shipped. Active console cassettes show identity in the rail dock, not a second changelog.",
+          "steps": [
+            "Footer → tap Pockit v… pill.",
+            "Read entries with letter line IDs (e.g. 1.88.0.a).",
+            "Agents: always read version from disk before editing."
+          ],
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": "voice",
+      "title": "Voice & Super Rick",
+      "icon": "🎙",
+      "articles": [
+        {
+          "id": "voice-architecture",
+          "title": "Super Rick — hybrid Mac + DGX architecture",
+          "lede": "Super Rick split stack — edge STT/TTS on Mac, premium brain and voices on Spark.",
+          "body": "**Super Rick** (cassette id `voice`) runs as a **split stack** — edge on the Mac, premium on nephew-spark. *Parakeet* is legacy Plan 0201 internal naming only.\n\n## Layers\n\n```text\nMic → Whisper STT (M5 or DGX)\n    → tower-api /api/v1/voice/turn\n    → Processors (turn-taking · retrieval cache · emotion swarmer · double-pass · emotion-aware)\n         └─ emotion swarmer may delegate swarm merge → seed processor HTTP sidecar (:8097)\n    → Brain (Ollama qwen on Spark or fast model on Mac)\n    → Optional RAG (Qdrant /api/v1/retrieve)\n    → TTS (Holler M5 · Higgs v3 DGX · Spark-TTS · F5 clone · NeMo Riva · Kokoro ops-only)\n    → Speakers\n```\n\n## Seed processor HTTP sidecar (Plan 0294 P7)\n\ntower-api remains the orchestrator. Pipecat seed logic in `docs/super-rick-seed/custom_processors/` is exposed as a **fleet cassette** — not a second voice UI:\n\n| Piece | Path / port |\n|-------|-------------|\n| Fleet cassette | `deploy/dgx/fleet/super-rick-seed-processors/` |\n| Health | `GET http://127.0.0.1:8097/health` (Spark loopback) · `http://10.1.0.5:8097` (mesh) |\n| tower-api client | `src/voice/seed-sidecar-client.js` |\n| Config | `data/voice-config.json` → `seed_sidecars` (`fallback_js: true`) |\n\nWhen the sidecar is down, `emotion-swarmer` falls back to `src/voice/swarm-merge.js` — voice keeps working.\n\n**Mac Colima:** `deploy/dgx/fleet/docker-compose.mac-edge.yml` binds **127.0.0.1:8097** only (Darwin cannot bind `10.1.0.5`).\n\n**Verify:** `make ensure-super-rick-seed-sidecar` · `make smoke-super-rick-seed-sidecar` · Pockit **v1.91.99**\n\n## UI layers (parallel — not replacements)\n\n| Layer | Path | Role |\n|-------|------|------|\n| Pockit pad | `#/c/voice` · `voice-pad.js` | Operator console |\n| The Presence | `apps/super-rick-presence/` | Cinematic TSL/SDF orb (Plan 0429) |\n| voice projection | http://voice.localhost/ | Standalone console door |\n\n## Route advisor\n\n| Route | When |\n|-------|------|\n| **Auto** | Healthy M5 edge preferred; DGX when edge down |\n| **M5** | Pin STT + Holler to this Mac — lowest latency |\n| **DGX** | Premium voices + larger models on Spark |\n\n## Sovereign law\n\nNo cloud STT/TTS for user-facing Talk. Kokoro on DGX is **ops/health probe only** — never user-facing speak per Voice Quality Covenant (`quality_covenant` in voice-config.json).\n\n## Docs\n\n- **Minimum specs & iPhone performance** — Help article `voice-system-specs` · [`standard-voice-stack/understandings/Voice-System-Specs-and-iPhone-Performance.md`](https://git.jailynmarvin.com/marvelousempire/standard-voice-stack/src/branch/main/understandings/Voice-System-Specs-and-iPhone-Performance.md)\n- Understandings: `Nephew/Understandings/Voice/understandings/PRIVATE VOICE-FIRST AI SYSTEM — COMP.md` (submodule)\n- Plan 0294 Super Rick bridge · Plan 0429 The Presence · Plan 0201 Parakeet cassette",
+          "steps": [],
+          "links": [
+            {
+              "label": "Stack map",
+              "section": "voice",
+              "article": "voice-stack-map"
+            }
+          ]
+        },
+        {
+          "id": "voice-config-json",
+          "title": "voice-config.json reference",
+          "lede": "Field-by-field map of the live voice routing config.",
+          "body": "Canonical file: `data/voice-config.json` — edit via **Configurations Center** or **Settings → Voice** (tower-api PATCH). Schema: `data/schema-library/schemas/voice-config.schema.json`.\n\n## Top-level keys\n\n| Field | Meaning |\n|-------|---------|\n| `schema_version` | Config format (currently `2`) |\n| `quality_covenant` | No cloud TTS, no browser speech, Kokoro ops-only |\n| `default_voice` | Persona id (e.g. `jarvis`) |\n| `voice_aliases` | Short names → persona ids |\n| `default_model` / `fast_model` / `prime_model` | Ollama model refs for chat turns |\n| `engines` | TTS engine registry (`holler`, `f5-tts`, `spark-tts`, …) |\n| `personas` | Speaker roster — voice, engine, tier, group |\n| `presets` / `kokoro_presets` / `fallback_presets` | Engine-specific voice presets |\n| `semantic_cache` | Edge cache policy |\n| `emotion_swarmer` | 4-agent parallel merge before double-pass |\n| `seed_sidecars` | Plan 0294 P7 — HTTP delegate to `:8097` seed processor cassette |\n| `turn_emotion` | Spark-TTS emotion routing |\n\n### `seed_sidecars` (P7)\n\n| Field | Default | Meaning |\n|-------|---------|---------|\n| `enabled` | `true` | Try HTTP sidecar before JS merge |\n| `fallback_js` | `true` | Use `swarm-merge.js` when sidecar unreachable |\n| `use_merge` | `true` | Delegate swarm merge to `POST /v1/processors/swarm/merge` |\n| `use_emotion_aware` | `false` | Optional `POST /v1/processors/emotion-aware` |\n| `port` | `8097` | Fleet cassette port |\n| `local_url` | `http://127.0.0.1:8097` | Loopback probe (Spark + Mac) |\n| `timeout_ms` | `800` | Sidecar fetch budget |\n\nOverride with env `NEPHEW_SEED_SIDECAR_URL` for smoke/debug.\n\n## Write policy\n\n- **tower-api:** `PATCH /api/v1/operator/config/voice-config` (operator session, localhost)\n- **read-only in git:** mac-app-intent-registry — change via PR\n\n## Verify\n\n`node scripts/validate-pockit-configuration-registry.mjs` — registry + schema gate.",
+          "steps": [],
+          "links": [
+            {
+              "label": "Configurations Center",
+              "action": "load",
+              "loadId": "configurations"
+            },
+            {
+              "label": "Settings → Voice",
+              "action": "settings",
+              "settingsTab": "voice"
+            }
+          ],
+          "registry_id": "voice-config"
+        },
+        {
+          "id": "voice-operators",
+          "title": "Voice make targets",
+          "lede": "launchagent, ensure-voice, smoke, and deploy commands from HCC.",
+          "body": "Run from Nephew repo on Mac or Spark. Full catalog: http://console.localhost/ → **Super Rick Voice** section (HCC id `parakeet-voice` — legacy catalog key).\n\n## Daily\n\n| Target | When |\n|--------|------|\n| `make pockit` | Boot Pockit player + gateway |\n| `make voice-launchagent` | Always-on Voice edge on Mac |\n| `make ensure-voice` | Heal DGX premium voice stack |\n| `make ensure-m5-voice` | Heal M5 Holler + Whisper |\n| `make install-voice-app` | Desktop Voice.app accessory |\n\n## Smoke / verify\n\n| Target | When |\n|--------|------|\n| `make smoke-voice` | End-to-end voice health |\n| `make ensure-super-rick-seed-sidecar` | Start/rebuild seed processor HTTP sidecar (:8097) |\n| `make smoke-super-rick-seed-sidecar` | P7 doctor + swarm merge smoke |\n| `make cassette-line CHECK=voice` | Cassette assembly line |\n| `make cartridge-accessory-line CHECK=voice` | Voice.app accessory gate |\n\n## Deploy\n\n| Target | When |\n|--------|------|\n| `make deploy-voice-premium-dgx` | Premium TTS on Spark |\n| `make ensure-spark-tts-weights-m5` | Native Spark-TTS 0.5B weights |\n\nClick ▶ on the Voice pad **Deploy** rail to run make targets via tower-api (operator session required).",
+          "steps": [],
+          "links": [
+            {
+              "label": "Help Command Center",
+              "url": "http://console.localhost/"
+            },
+            {
+              "label": "make voice-launchagent",
+              "make": "voice-launchagent"
+            }
+          ]
+        },
+        {
+          "id": "voice-ports-and-doors",
+          "title": "Ports, doors, health probes",
+          "lede": "Friendly door URLs and tower-api probes — never open :8088 as a UI.",
+          "body": "**Operator copy:** always use **http://<id>.localhost/** — run `make doors` once on a new Mac (sudo).\n\n## Voice doors\n\n| Door | Purpose |\n|------|---------|\n| http://pockit.localhost/#/c/voice | Voice pad in Pockit shell (ops + Console \\| Presence tabs) |\n| http://voice.localhost/ | **The Presence** cinematic orb — canonical door (v0.3.10+: ⚙ settings first) |\n| http://voice.localhost/presence | Same orb — legacy/embed alias (Pockit iframe paths) |\n| http://voice.localhost/console | Voice ops dashboard (health tiles, Make grid) |\n| http://voice.localhost/super-rick | Super Rick bridge LED table |\n\n## The Presence (dev / Docker)\n\n| Surface | URL |\n|---------|-----|\n| Local dev | http://127.0.0.1:8810/ |\n| After `docs/super-rick-presence-seed/plant-seed.sh` | http://127.0.0.1:8810/ |\n\nSovereign bind: **127.0.0.1:8810** only — not LAN `0.0.0.0`.\n\n## API (not a browser UI)\n\n| Port | Service |\n|------|---------|\n| **8088** | tower-api — `/api/v1/voice/*` JSON only |\n| **8810** | The Presence Next.js UI (slice 1) |\n\nNever open `http://127.0.0.1:8088` expecting a web app.\n\n## Debug (gateway port)\n\n| Probe | Command |\n|-------|---------|\n| Voice health | `curl -s http://127.0.0.1:8088/api/v1/voice/health` |\n| Super Rick | `curl -s http://127.0.0.1:8088/api/v1/voice/super-rick/status` |\n| The Presence | `curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8810/` |\n\n## Fleet sidecars (DGX / mesh)\n\n| Port | Service | Probe |\n|------|---------|-------|\n| **8092** | Spark-TTS Holler bridge | `make ensure-spark-tts-weights-m5` when native weights missing |\n| **8093** | Spark-TTS native (M5 weights) | same |\n| **8095** | Higgs v3 emotional TTS | `curl -s http://127.0.0.1:8095/health` |\n| **8096** | NeuTTS Air clone TTS | `make smoke-neutts-air` |\n| **8097** | Super Rick seed processors (P7) | `curl -s http://127.0.0.1:8097/health` |\n\n**8097 notes**\n\n- Spark: bind `127.0.0.1:8097` + `10.1.0.5:8097` — tower-api on Linux uses loopback.\n- Mac: overlay `docker-compose.mac-edge.yml` — **127.0.0.1:8097** only.\n- Do not curl `10.1.0.5:8097` from Spark itself (hairpin timeout); use loopback for local checks.\n- Smoke script extension is **`.mjs`** — `node scripts/smoke-super-rick-seed-sidecar.mjs`.",
+          "steps": [],
+          "links": [
+            {
+              "label": "Open voice.localhost",
+              "url": "http://voice.localhost/"
+            },
+            {
+              "label": "Wake doors",
+              "make": "doors"
+            }
+          ]
+        },
+        {
+          "id": "voice-presence-ui",
+          "title": "The Presence — cinematic orb UI",
+          "lede": "Super Rick's voice-first cinematic surface — TSL/SDF orb at 127.0.0.1:8810.",
+          "body": "**The Presence** is Super Rick's voice-first cinematic surface — one living 3D orb in near-black space, not a chat website.\n\nPlan: [`plans/0429-super-rick-presence-ui.md`](../../../plans/0429-super-rick-presence-ui.md) · COMP §10 · Bridge Plan Phase 7.\n\n## Surfaces\n\n| Surface | URL | Status |\n|---------|-----|--------|\n| Dev (Mac) | http://127.0.0.1:8810/ | ✅ slice 1 — `apps/super-rick-presence/` |\n| Docker plant | http://127.0.0.1:8810/ | ✅ `docs/super-rick-presence-seed/plant-seed.sh` |\n| Pockit console pad | http://pockit.localhost/#/c/voice | ✅ unchanged — ops console (`voice-pad.js`) |\n| Projection door | http://voice.localhost/ | ✅ slice 2 — voice-console embed (Pockit pad iframes by default) |\n| Bridge LED table | http://voice.localhost/super-rick | ✅ ops status (not the orb) |\n\n## Stack\n\n- **Next.js 15** + React Three Fiber + Three.js\n- **Production orb:** TSL **SDF raymarch** — fbm interior, Henyey–Greenstein scatter, emotion palette uniforms\n- **Prototype orb:** GLSL icosahedron (`Orb.tsx`) — Shader Park / ShaderToy reference path kept for A/B\n- **Renderer:** WebGPU when available; WebGL 2 fallback with Bloom/Vignette postprocessing\n- **Voice reactivity:** Web Audio RMS/bass/mid/treble → shader uniforms; states `idle | listening | thinking | speaking`\n\nBackend stays **tower-api** + Bridge Plan processors — slice 2 proxies `/api/v1/voice/turn` and maps Emotion Swarmer tags to orb colors.\n\n## Controls (v0.3.10+)\n\nOn **`http://voice.localhost/`** the chrome dock is **voice-first**:\n\n| Button | Panel |\n|--------|--------|\n| **⚙ Voice settings** | Route, RAG lane, delivery style, **Turn-taking** (Conversation / Tap each turn / Auto-relisten), STT/Prime/Memory/MCP |\n| **◎ Dials, haptics & tweaks** | Playground hood — wow presets, scatter/orbit/compass motion (not voice session settings) |\n\nSettings sync with Pockit **`http://pockit.localhost/#/c/voice`** via `tower-cassette-settings-voice`. See [`Super-Rick-Conversation-Mode.md`](../../Super-Rick-Conversation-Mode.md).\n\n## Dev\n\n```bash\ncd apps/super-rick-presence && pnpm install && pnpm dev\n```\n\nOpen http://127.0.0.1:8810/\n\n## Docker seed\n\n```bash\nchmod +x docs/super-rick-presence-seed/plant-seed.sh\n./docs/super-rick-presence-seed/plant-seed.sh\n```\n\nFamily Office law: compose binds **127.0.0.1:8810** on the host — not LAN `0.0.0.0`.\n\n## Docs\n\n- Shader notes: `docs/super-rick-presence/sdf-raymarch-notes.md`\n- COMP: `Nephew/Understandings/Voice/understandings/PRIVATE VOICE-FIRST AI SYSTEM — COMP.md`",
+          "steps": [],
+          "links": [
+            {
+              "label": "Open Voice pad",
+              "action": "load",
+              "loadId": "voice"
+            },
+            {
+              "label": "System specs",
+              "section": "voice",
+              "article": "voice-system-specs"
+            },
+            {
+              "label": "make presence-seed",
+              "make": "presence-seed"
+            },
+            {
+              "label": "Plan 0429",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/plans/0429-super-rick-presence-ui.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "voice-routing-m5-dgx",
+          "title": "Route · Mode · RAG · Delivery",
+          "lede": "Controller rail controls — how M5 vs DGX routing works in the pad.",
+          "body": "These match the Voice pad **Controller** rail (left side). See `voice-rail-info.js` in-repo for LED copy.\n\n## Route\n\n- **Auto** — advisor picks M5 or DGX when healthy\n- **M5 edge** — Holler + Whisper on this Mac\n- **DGX** — premium Kokoro / Spark-TTS / large models on Spark\n\nFooter **Auto** pill mirrors route preference (stored in pad session + voice-config defaults).\n\n## Mode\n\n- **Chat** — full conversational turns with history\n- **Read aloud** — TTS without starting a chat turn\n- **Prime** — largest models + deep RAG\n\n## RAG\n\n- **Fast RAG** — skip retrieve for snappier replies\n- **Grounded RAG** — query Qdrant / family corpus before brain\n\n## Delivery (Speakers)\n\nOpens persona roster — Jarvis, Warm host, News anchor shortcuts. Personas defined in `voice-config.json` → `personas[]`.\n\nChange **default route** persistently in **Settings → Voice** or Configurations Center.",
+          "steps": [],
+          "links": [
+            {
+              "label": "Open Voice",
+              "action": "load",
+              "loadId": "voice"
+            }
+          ]
+        },
+        {
+          "id": "voice-stack-map",
+          "title": "Stack map (STT · brain · TTS · cache)",
+          "lede": "What each layer does — mirrors the Voice pad Stack rail.",
+          "body": "Live labels mirror the Voice pad **Stack** rail (right side).\n\n## M5 edge (this Mac)\n\n| Layer | Service | Notes |\n|-------|---------|-------|\n| STT | Whisper via tower-api | `make ensure-m5-voice` |\n| TTS premium | Holler (Qwen3-TTS 6-bit) | Route `m5` in voice-config engines |\n| TTS interim | Kokoro M5 | Until Holler/Python path fully unified |\n\n## DGX Spark (nephew-spark)\n\n| Layer | Service | Port (debug) |\n|-------|---------|--------------|\n| Brain | Ollama qwen2.5 | 11434 (mesh) |\n| Processors (HTTP) | Super Rick seed sidecar (P7) | **8097** — swarm merge delegate |\n| TTS premium | Higgs v3, NeuTTS Air, F5-TTS, NeMo Riva, Spark-TTS | 8095 / 8096 / 7860 / 9001 / 8092–8093 |\n| TTS fallback | Kokoro DGX | ops only |\n| RAG | Qdrant + bge-m3 + reranker | 6333 / 9200 |\n\n## Semantic cache\n\n`voice-config.json` → `semantic_cache` — dedupe similar turns on edge before hitting brain.\n\n## Health probes\n\nGreen LEDs on the Stack rail = tower-api answered recently. Run **make smoke-voice** or open Ship Integrity for fleet drift.",
+          "steps": [],
+          "links": [
+            {
+              "label": "Ports & doors",
+              "section": "voice",
+              "article": "voice-ports-and-doors"
+            }
+          ]
+        },
+        {
+          "id": "voice-super-rick-overview",
+          "title": "Super Rick — what it is",
+          "lede": "The sovereign voice-first persona — 100% local on Mac M5 + DGX Spark.",
+          "body": "**Super Rick** is the family voice-first AI persona on sovereign hardware — not a cloud assistant.\n\n## Intent (from mac-app-intent-registry)\n\n- **Why:** We built Super Rick because we own top-tier hardware and refused robotic, laggy, or cloud-tethered voice — the fastest, smoothest, most emotionally intelligent fully private voice agent on Earth, 100% local with zero data leaving the house.\n- **Problem:** Cloud assistants leak data, sound flat, and lose context on fast messy brainstorms.\n- **Does:** Hybrid Mac M5 + DGX Spark — Fish Audio S2 Pro + Higgs v3, NeuTTS Air, Redis + Atlas memory, Emotion Swarmer, Pipecat v1.4, P-EAGLE-3 speculative decode.\n\nOpen the **Intent** pill on `#/c/voice` for the full master document: success criteria + why guide table (COMP v4.0.3).\n\n## Minimum specs\n\nHardware, software, settings, and **why iPhone feels fast** (auto-route + fast lane + streaming TTS): Help → **Minimum specs & iPhone performance**.\n\n## Surfaces\n\n| Surface | URL | Role |\n|---------|-----|------|\n| Voice pad (console view) | http://pockit.localhost/#/c/voice | Ops console — Talk, rails, deploy |\n| **The Presence** (door) | http://voice.localhost/ | Cinematic orb + live turn cycle |\n| Voice projection door | http://voice.localhost/ | Voice console projection |\n| Super Rick status | http://voice.localhost/super-rick | COMP bridge LED table |\n| Voice.app accessory | `make install-voice-app` | Desktop accessory |\n\n**The Presence** (`apps/super-rick-presence/`) does **not** replace the Pockit pad — it is the cinematic layer. See Help article **The Presence — cinematic orb UI**.\n\n## North-star docs\n\n| Doc | Role |\n|-----|------|\n| COMP v4.0.3 | Full target spec + seeds |\n| Bridge Plan | Super Rick COMP bridge via tower-api (Phases 1–5 + 7 ✅; evolved from legacy Parakeet pad) |\n| Plan 0429 | The Presence UI slices |\n| `docs/super-rick-seed/` | Pipecat Supernova propagation |\n| `docs/super-rick-presence-seed/` | Presence Docker plant |\n\n## Success criteria (operator)\n\n- Almost no noticeable delay in normal conversation\n- Handles fast, messy brainstorms without dropping context\n- 100% local — no data leaves the home network\n- Smooth, expressive voice — not robotic TTS\n- **The Presence:** orb reacts to voice + emotion (slice 2 wires live turns)\n\nOpen **Configurations Center** (`#/c/configurations`) for live `voice-config.json` or change defaults in **Settings → Voice**.",
+          "steps": [],
+          "links": [
+            {
+              "label": "Open Voice pad",
+              "action": "load",
+              "loadId": "voice"
+            },
+            {
+              "label": "Configurations Center",
+              "action": "load",
+              "loadId": "configurations"
+            },
+            {
+              "label": "Super Rick vanilla (legacy path)",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/pockit/Parakeet-Voice-Cassette-Vanilla.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "voice-system-specs",
+          "title": "Minimum specs & iPhone performance",
+          "lede": "Hardware, software, settings, and why auto-route + fast lane feels instant on iPhone.",
+          "body": "What hardware and software the Family Office voice stack needs, which settings control routing, and **why iPhone Safari feels fast** — auto-adapt to the device in front of you and the server behind tower-api when edge is not local.\n\n## Minimum hardware\n\n| Role | Minimum | Recommended | What it runs |\n|------|---------|-------------|--------------|\n| **M5 edge Mac** | Apple Silicon Mac with ANE | **Mac M5 Max** (Family Office edge) | Whisper STT, Holler / Spark-TTS, semantic cache tunnel, `m5-hardware.json` probe |\n| **DGX Spark** | NVIDIA Grace Blackwell GB10 node on mesh | **nephew-spark** (`10.1.0.5`) | Ollama / vLLM brain, F5-TTS, NeMo Riva, Kokoro ops probe, Qdrant RAG |\n| **Operator phone** | iPhone with Safari 17+ | Same, on home Wi‑Fi or WireGuard mesh | **The Presence** orb UI — WebGL 2 path; voice turns via tower-api proxy |\n| **Network** | WireGuard peer or LAN to gateway host | Mesh + `make doors` on the Mac that runs the gateway | Friendly doors (`http://voice.localhost/`) — never memorize ports |\n\n**iPhone is a thin client.** It does not run STT, TTS, or LLM weights locally. Speed comes from **fast-lane API contracts** (below), **streaming audio**, **route auto**, and **cache hits** — not from running models on the phone.\n\n## Minimum software\n\n| Layer | Requirement |\n|-------|-------------|\n| **tower-api** | Running on the gateway Mac or reachable over mesh (`make ensure-tower-api`) |\n| **M5 voice edge** | `make ensure-m5-voice` or `make voice-launchagent` (reboot-safe) |\n| **DGX voice** | `make ensure-dgx-voice` when Spark carries premium TTS / brain |\n| **Redis STM** | Semantic + audio cache (`make ensure-redis-stm`) — sub-300ms repeats |\n| **Presence seed** | `make presence-seed` — orb at `http://voice.localhost/` |\n| **Doors** | `make doors` once per Mac (sudo) — clean `http://<name>.localhost/` URLs |\n\nVerify: `make smoke-voice` · `make voice-quality-gate` · Voice pad **Ship Integrity**.\n\n## Auto-adapt routing (client + server)\n\n### 1 — Browser host detection\n\n`voice-system-advisor.js` reads **User-Agent** and optional `http://127.0.0.1:9876/m5-hardware.json`:\n\n- **iPhone / iPad** → `isLocalEdge: false` — Holler on this Mac is not available; routing leans **DGX** when healthy.\n- **Mac on the M5 edge** → prefers **M5** when Whisper + TTS probes are green.\n- **Remote browser** (not on edge Mac) → same as phone: server-side route resolution matters most.\n\nThe Voice pad **Route · Mode** rail and advisor modals explain *why* a route was picked.\n\n### 2 — tower-api `resolveRoute()` (authoritative)\n\nOn every STT / TTS / turn, tower-api probes M5 Whisper + M5 TTS:\n\n| Request header / body | Behavior |\n|-----------------------|----------|\n| `X-Voice-Route: auto` (default) | **M5** when both edge probes OK; else **DGX** |\n| `X-Voice-Route: m5` | Pin edge; fall back to DGX if edge down |\n| `X-Voice-Route: dgx` | Pin Spark path |\n\nResponse headers echo the pick: `X-Voice-Route`, `X-Voice-Engine`, `X-Voice-Fast`.\n\n### 3 — Presence settings + fast lane (iPhone + orb)\n\nThe Presence orb reads **`tower-cassette-settings-voice`** (same key as the Pockit voice pad and cassette Settings). Open the **◦** panel on **http://voice.localhost/** for Route, RAG lane, delivery style, Prime, Memory, and MCP — changes sync across tabs and Pockit.\n\n| Setting | Default | Effect |\n|---------|---------|--------|\n| **RAG lane · Fast** | yes (cassette default) | `X-Voice-Fast: 1`, no corpus retrieve — fastest replies |\n| **RAG lane · Grounded** | operator toggle | Client prefetches `/api/v1/retrieve`, then **fast stream** with `rag_context` injected (no second server retrieve wait) |\n| **Route** | `auto` | `X-Voice-Route: auto` \\| `m5` \\| `dgx` |\n| **Delivery style** | warm | Maps to persona voice (`nephew` / `jarvis` / `board`) |\n\n```text\nPOST /api/v1/voice/turn/stream\nHeaders: X-Voice-Agent: presence, X-Voice-Route: <settings>, X-Voice-Rag: fast|grounded, X-Voice-Fast: 1 when fast lane\nBody: { fast, grounded, stream_audio: true, channel: \"presence\", rag_context?: \"…\" }\n```\n\nWhat that buys you on iPhone:\n\n| Mechanism | Effect |\n|-----------|--------|\n| **`fast: true` + `X-Voice-Fast: 1`** | Shorter TTS timeout, skips heavy double-pass audit when policy allows (`skip_on_fast` in voice-config) |\n| **Grounded + client prefetch** | Family corpus in the reply without blocking the stream on a second server retrieve |\n| **`stream_audio: true`** | SSE `audio` events — playback starts before the full WAV is ready |\n| **`channel: \"presence\"`** | Semantic cache namespace `voice-fast` on fast lane — repeat questions hit Redis before LLM |\n| **`X-Voice-Route: auto`** | Spark carries STT/TTS/brain when the phone is not on the M5 edge Mac |\n\nSTT from the mic uses the same auto route: `POST /api/v1/voice/stt` with `X-Voice-Route: auto`.\n\n### 4 — Orb renderer adapts to GPU\n\n`PresenceScene.tsx` tries **WebGPU** first; **iPhone Safari** uses **WebGL 2** + postprocessing (Bloom/Vignette). The orb stays 60fps-class without desktop-only APIs.\n\nAudio reactivity uses Web Audio RMS → shader uniforms (`idle | listening | thinking | speaking`).\n\n## Key settings (`data/voice-config.json`)\n\nEdit via **Configurations Center** or **Settings → Voice** (tower-api PATCH). Schema: `data/schema-library/schemas/voice-config.schema.json`.\n\n| Area | Fields | iPhone / fast-turn notes |\n|------|--------|--------------------------|\n| **Models** | `fast_model`, `prime_model`, `double_pass` | Fast turns use `nephew:fast`; prime audit skipped on fast + cache hit |\n| **Engines** | `engines.*.route` (`m5` / `dgx`) | Holler + Spark-TTS → `m5`; F5/Riva → `dgx` |\n| **Semantic cache** | `semantic_cache.enabled`, `namespace: voice-fast` | Repeat queries <300ms when Redis STM healthy |\n| **Audio cache** | `audio_cache.enabled` | SSE stream replays cached WAV chunks on exact repeat |\n| **Quality covenant** | `quality_covenant` | No cloud TTS; Kokoro **ops-only** — never user-facing speak |\n\nFull field reference: Help article **voice-config.json reference**.\n\n## Performance checklist (iPhone feels fast)\n\n1. **Mesh or home Wi‑Fi** — phone reaches the Mac gateway running tower-api + doors.\n2. **`make ensure-voice`** on the edge Mac — M5 STT/TTS + LaunchAgent healthy.\n3. **`make ensure-redis-stm`** — semantic cache not silently missing (`configured: true, ok: true`).\n4. **Open** `http://voice.localhost/` (not raw `:8810` unless debugging).\n5. **Hard refresh** after deploy — orb + client JS cache-busted with Pockit version.\n6. **DevPanel** (orb footer, dev builds) — confirm route header `m5` or `dgx`, `cache_hit`, `elapsed_ms`.\n\nWhen edge is down, iPhone still works — **DGX** carries the turn; latency rises but the same fast-lane headers apply.\n\n## Where to read more\n\n| Doc | Path |\n|-----|------|\n| Stack map | Help → **Stack map** |\n| M5 vs DGX routing | Help → **Route · Mode · RAG · Delivery** |\n| Presence orb UI | Help → **The Presence** |\n| Repo deep dive | `standard-voice-stack/understandings/Voice-System-Specs-and-iPhone-Performance.md` |\n| Voice ledger | `Nephew/Understandings/Voice/understandings/Super-Rick-Voice-Stack-Ledger.md` |\n\n## Operator commands\n\n| Target | When |\n|--------|------|\n| `make export-pockit-help-voice` | After editing these Help articles |\n| `make smoke-voice` | End-to-end voice health |\n| `make presence-seed` | Rebuild orb Docker door |\n| `make ensure-voice` | Full M5 + DGX voice stack heal |\n\nHelp Command Center → section **Super Rick Voice** (HCC `parakeet-voice` — legacy catalog key).",
+          "steps": [],
+          "links": [
+            {
+              "label": "Open voice.localhost",
+              "url": "http://voice.localhost/"
+            },
+            {
+              "label": "Stack map",
+              "section": "voice",
+              "article": "voice-stack-map"
+            },
+            {
+              "label": "voice-config.json",
+              "section": "voice",
+              "article": "voice-config-json"
+            },
+            {
+              "label": "Repo reference",
+              "href": "https://git.jailynmarvin.com/marvelousempire/standard-voice-stack/src/branch/main/understandings/Voice-System-Specs-and-iPhone-Performance.md",
+              "kind": "doc"
+            },
+            {
+              "label": "make smoke-voice",
+              "make": "smoke-voice"
+            }
+          ]
+        },
+        {
+          "id": "voice-troubleshooting",
+          "title": "Voice troubleshooting",
+          "lede": "Mic, tower-api, TTS covenant, tunnels, and door URL mistakes.",
+          "body": "## Mic / permissions (Boss Move)\n\nmacOS **Privacy → Microphone** must allow the browser or Voice.app. TCC dialogs require human approval.\n\n## tower-api down\n\nSymptom: Stack rail all red, Talk does nothing.\n\n1. `make pockit` or `make family` on the host running tower-api\n2. `curl -s http://127.0.0.1:8088/api/v1/voice/health` (debug)\n3. Check Ship Integrity pad for Spark SSH probe drift\n\n## Text-only mode (no speak)\n\nVoice Quality Covenant may force text when premium engines down. Run `make ensure-m5-voice` and `make ensure-voice`. Kokoro must **not** be used for user Talk — fix Holler/Spark-TTS instead.\n\n## Tunnel / off-LAN\n\nSSH tunnel 8088 alone does not show a UI. Tunnel 8790 or use WireGuard + door URLs after `make doors`.\n\n## Wrong door URL\n\nUse http://voice.localhost/ — not LAN IP `:8790` in operator copy. Clinic **0015** if an agent cites gateway ports.\n\n## Seed processor sidecar down (:8097)\n\nSymptom: Super Rick LED row **Seed processor HTTP sidecar** is yellow; `curl http://127.0.0.1:8097/health` fails.\n\nVoice **still works** — `seed_sidecars.fallback_js` routes merge back to JS (`swarm-merge.js`).\n\n1. `make ensure-super-rick-seed-sidecar` (rebuilds image before `up`)\n2. `curl -sf --max-time 3 http://127.0.0.1:8097/health` → `{\"ok\":true,...}`\n3. `node scripts/smoke-super-rick-seed-sidecar.mjs` (`.mjs` not `.mis`)\n4. Mac only: confirm `docker-compose.mac-edge.yml` overlay is in use (Darwin cannot bind `10.1.0.5:8097`)\n5. `docker logs nephew-fleet-super-rick-seed-processors-1 --tail 40` if health never comes up\n\nBranch: `feat/super-rick-seed-p7` · Pockit **v1.91.99**\n\n## Still stuck\n\n`make smoke-voice` · Clinic cases under voice/parakeet · `#/c/ship-integrity` for pad visibility gates.",
+          "steps": [],
+          "links": [
+            {
+              "label": "Ship Integrity",
+              "action": "load",
+              "loadId": "ship-integrity"
+            },
+            {
+              "label": "smoke-voice",
+              "make": "smoke-voice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "title": "Video & Super Rick Video",
+      "icon": "🎬",
+      "articles": [
+        {
+          "id": "video-architecture",
+          "title": "Hybrid Mac + DGX video architecture",
+          "lede": "Prompt processors → Mac draft → Visual Swarmer → DGX final → stream.",
+          "body": "Split stack — Mac fast drafts, DGX cinematic finals.\n\n## Layers\n\n```text\nPrompt + refs → tower-api /api/v1/video/render\n    → PromptRefiner → ReferenceImage → DraftVideoGenerator (Mac)\n    → Visual Consistency Swarmer (4 agents, 1.8s)\n    → QualityVideoAuditor → HunyuanVideo (DGX)\n    → Topaz (optional 4K) → HLS/WebRTC stream → workspace\n```\n\n## Models\n\n| Tier | Engine | Host |\n|------|--------|------|\n| Ultra-fast draft | LTX-Video, CogVideoX-5B | Mac M5 |\n| Fast draft + lip-sync | Wan 2.2 | Mac M5 |\n| Final | HunyuanVideo NVFP8 | DGX Spark |\n\n## Orchestration\n\nComfyUI executes graphs; `supernova_video_runner.py` wires Pipecat-style processors before queueing jobs.\n\n## Sovereign law\n\nNo cloud inference. Reference images and prompts never leave the home network.",
+          "steps": [],
+          "links": [
+            {
+              "label": "Ports & doors",
+              "section": "video",
+              "article": "video-ports-and-doors"
+            }
+          ]
+        },
+        {
+          "id": "video-ports-and-doors",
+          "title": "Ports, doors, health probes",
+          "lede": "http://video.localhost/ and workspace :8820 — never :8088 as UI.",
+          "body": "**Operator copy:** use **http://<id>.localhost/** — run `make doors` once on a new Mac (sudo).\n\n## Video doors\n\n| Door | Purpose |\n|------|---------|\n| http://pockit.localhost/#/c/video | Video pad in Pockit shell |\n| http://127.0.0.1:8820/ | Cinematic workspace (dev) |\n| http://video.localhost/ | Video projection (planned) |\n| http://video.localhost/super-rick | COMP bridge status |\n\n## API (not a browser UI)\n\n| Port | Service |\n|------|---------|\n| **8088** | tower-api — `/api/v1/video/*` JSON only |\n\n## Debug (gateway port)\n\n| Probe | Command |\n|-------|---------|\n| Video health | `curl -s http://127.0.0.1:8088/api/v1/video/health` |\n| Super Rick Video | `curl -s http://127.0.0.1:8088/api/v1/video/super-rick/status` |\n| HLS stub | `curl -s http://127.0.0.1:8088/api/v1/video/stream/preview-stub/index.m3u8` |\n\n## ComfyUI (existing cassette)\n\nhttp://comfyui.localhost/ — node graphs; Super Rick Video orchestration layers on top (Bridge Plan).",
+          "steps": [],
+          "links": [
+            {
+              "label": "Wake doors",
+              "make": "doors"
+            }
+          ]
+        },
+        {
+          "id": "video-streaming-pockit-integration",
+          "title": "Streaming + Pockit / iOS integration",
+          "lede": "HLS and WebRTC preview from DGX; Voice handoff stub.",
+          "body": "Progressive preview from DGX → MacBook / iOS while finals encode.\n\n## Transport modes\n\n| Mode | Latency | Client |\n|------|---------|--------|\n| **HLS** | ~2–4s segment | Safari, iOS WebView, workspace Preview tab |\n| **WebRTC** | sub-500ms target | Mac workspace, iOS native player (slice 2) |\n\n## Progressive chunks\n\n1. Mac runs **DraftVideoGenerator** — sub-90s 720p loop.\n2. Operator sends job to DGX — HunyuanVideo encodes in chunks.\n3. Stream sidecar publishes manifest: `/api/v1/video/stream/:jobId/index.m3u8`.\n4. Workspace `PreviewPane` attaches via `lib/streaming.ts`.\n\n## WebRTC SFU (slice 2)\n\n| Piece | Path / env |\n|-------|------------|\n| Signaling | `POST /api/v1/video/webrtc/offer` · `GET /api/v1/video/webrtc/config` |\n| SFU health | `VIDEO_WEBRTC_SFU_URL` (default `http://127.0.0.1:8822`) — mediasoup/go2rtc on DGX (slice 3 deploy) |\n| Workspace client | `apps/super-rick-video/lib/streaming.ts` — `RTCPeerConnection` + tower-api SDP exchange |\n| Honest gate | When SFU is down, status LED shows **yellow**; HLS fallback remains available |\n\n## Pockit App (first-class)\n\n| Surface | Integration |\n|---------|-------------|\n| `#/c/video` | Console view — `video-rail-info.js` rails |\n| Video.app accessory | Opens projection door (slice 2 — `make install-video-app`) |\n| iOS | SwiftUI shell + HLS `AVPlayer` or WebRTC `RTCPeerConnection` stub |\n\n## Voice handoff\n\nOne-tap **Send to Super Rick Video** from Super Rick Voice:\n\n- `POST /api/v1/video/handoff/from-voice` (slice 2)\n- Carries: last transcript, optional `[ref:]` still from voice session\n- Opens workspace Refine tab with pre-filled prompt\n\n## WireGuard remote\n\nAway from LAN: same as Voice — wg0 tunnel to `10.1.0.5`, stream over encrypted mesh.",
+          "steps": [],
+          "links": []
+        },
+        {
+          "id": "video-super-rick-overview",
+          "title": "Super Rick Video — what it is",
+          "lede": "Private local video generation on Mac M5 + DGX Spark — zero cloud.",
+          "body": "**Super Rick Video** is the family's private local video generation platform — not a cloud renderer.\n\n## Intent (from mac-app-intent-registry)\n\n- **Why:** We built Super Rick Video because we refused cloud video tools that leak prompts, reference images, and family likenesses — fully private 8–30s cinematic clips on Family Office hardware.\n- **Problem:** Cloud video APIs leak creative work, drift identity frame-to-frame, and expose node graphs operators shouldn't need.\n- **Does:** Hybrid Mac M5 drafts (Wan 2.2, CogVideoX-5B, LTX-Video) + DGX HunyuanVideo finals, ComfyUI orchestration, Visual Consistency Swarmer, HLS/WebRTC preview, optional Topaz 4K.\n\nOpen the **Intent** pill on `#/c/video` for the full master document: success criteria + 10-row why guide (COMP v1.0.0).\n\n## Surfaces\n\n| Surface | URL | Role |\n|---------|-----|------|\n| Video pad (console) | http://pockit.localhost/#/c/video | Ops console — rails, deploy, stream |\n| Cinematic workspace | http://127.0.0.1:8820/ | Preview · Final Render · Refine |\n| Video projection | http://video.localhost/ | Standalone door (planned) |\n| Super Rick status | http://video.localhost/super-rick | COMP bridge LED table |\n\n## Cross-cassette\n\n**Send to Super Rick Video** from Voice pad (slice 2) — transcript + reference still from last turn.\n\n## North-star docs\n\n| Doc | Role |\n|-----|------|\n| COMP v1.0.0 | Full target spec + seed |\n| Bridge Plan | Evolve ComfyUI in place |\n| Plan 0430 | Super Rick Video slices |\n| `docs/super-rick-video-seed/` | Processor propagation |\n\n## Success criteria\n\n- 8–30s clips under 90s fast path (Mac draft)\n- 1080p default / 4K final with Topaz post\n- Temporal consistency via Visual Consistency Swarmer (1.8s agent timeout)\n- Lip-sync when audio track present\n- 100% local — no data leaves home network",
+          "steps": [],
+          "links": [
+            {
+              "label": "Open Video pad",
+              "action": "load",
+              "loadId": "video"
+            },
+            {
+              "label": "video-seed",
+              "make": "video-seed"
+            }
+          ],
+          "registry_id": "video-config"
+        },
+        {
+          "id": "video-workspace-ui",
+          "title": "Cinematic workspace UI",
+          "lede": "Preview · Final Render · Refine tabs in apps/super-rick-video.",
+          "body": "`apps/super-rick-video/` — Next.js 15 minimal workspace.\n\n## Tabs\n\n| Tab | Purpose |\n|-----|---------|\n| **Preview** | HLS/WebRTC live player — DGX progressive chunks |\n| **Final Render** | HunyuanVideo job status, 1080p/4K export |\n| **Refine** | Prompt + `[ref:path]` reference board before draft |\n\n## Dev\n\n```bash\ncd apps/super-rick-video && pnpm install && pnpm dev\n# http://127.0.0.1:8820/\n```\n\n## Docker\n\n```bash\nmake video-seed\n# or docs/super-rick-video-seed/plant-seed.sh\n```\n\n## Pockit-native\n\nEmbed via `#/c/video` console view — strips chrome with `pockit_hud=1` when iframe-wired (slice 2).\n\nDesign: near-black cinematic shell, cotton-ball tab transitions (Framer Motion), no exposed node graph.",
+          "steps": [],
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": "operators",
+      "title": "Operators",
+      "icon": "🛠",
+      "articles": [
+        {
+          "id": "help-command-center",
+          "title": "Help Command Center",
+          "lede": "Buttons instead of typing make commands — the operator console at console.localhost.",
+          "body": "Every Makefile target with a ## description appears in the catalog. Tap Play to run; read ⓘ before Boss Moves. Family shortcuts mirror Desktop .apps.",
+          "steps": [
+            "make operator-console or open http://console.localhost/",
+            "Register SSH keys before Boss Moves.",
+            "Use Forge ship from Boss section to verify → PR → merge."
+          ],
+          "links": [
+            {
+              "label": "Open console door",
+              "url": "http://console.localhost/"
+            },
+            {
+              "label": "make operator-console",
+              "make": "operator-console"
+            }
+          ]
+        },
+        {
+          "id": "cassette-line",
+          "title": "Cassette quality gate",
+          "lede": "Before claiming a cassette is done, run the assembly line check.",
+          "body": "**make cassette-line CHECK=<id>** validates door URL, substrate fields, operator catalog entries, and vanilla shape. Embed apps (Gitea, Matrix) have their own SOP.",
+          "steps": [
+            "Edit cassette → make cassette-line CHECK=<id>",
+            "Fix red lines in the log.",
+            "Ship with forge-ship on a feature branch."
+          ],
+          "links": [
+            {
+              "label": "Update the Cassette SOP",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/sop/update-the-cassette.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "agents-and-context",
+          "title": "AI agents in Pockit",
+          "lede": "Copy agent context from any console cassette for Cursor, Claude, or Grok.",
+          "body": "Route FAB → Copy agent context bundles rules, catalog, and cassette fields. CLOAK MCP loads session memory via nephew_session_load. Expert autonomy means agents run safe commands themselves.",
+          "steps": [
+            "Open a cassette → Copy agent context.",
+            "Paste into a new Cursor chat on Nephew repo.",
+            "Agents work in isolated worktrees — never shared main checkout."
+          ],
+          "links": [
+            {
+              "label": "Agent briefing",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/whitepaper/2026-05-31-agent-briefing.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "gitea-canonical-origin",
+          "title": "Forge — Gitea is origin",
+          "lede": "DGX Gitea is the canonical origin; GitHub/GitLab are mirrors. Ship via Gitea MR.",
+          "body": "Our source of truth is **Gitea on the DGX** (10.1.0.5:2424), backed to the NAS DXP6800 Pro. The git remote **`origin` points at Gitea**; **`github`/`gitlab`** are mirror remotes (backup only — never wait on GitHub Actions). A `gitea` alias keeps legacy `gitea/main` refs working. Branch from `origin/main` → open the **Gitea MR** → verify gate → squash-merge. Full mental model: **Nephew/Understandings/Forge/0001-gitea-canonical-origin.md**.",
+          "steps": [
+            "Flip a host: bash scripts/flip-remotes-to-gitea-origin.sh (DRY_RUN=0 to apply).",
+            "Ship: branch from origin/main → Gitea MR → verify → squash-merge.",
+            "Mirror (optional): git push github main / git push gitlab main.",
+            "After soul/notice changes: make soul-sync on the DGX."
+          ],
+          "links": [
+            {
+              "label": "make vault-ingest-docs",
+              "make": "vault-ingest-docs"
+            },
+            {
+              "label": "Understandings → vault + RAG",
+              "section": "visual-obsidian",
+              "article": "understandings-vault-ingest"
+            },
+            {
+              "label": "flip-remotes script",
+              "href": "https://git.jailynmarvin.com/marvelousempire/nephew/src/branch/main/scripts/flip-remotes-to-gitea-origin.sh",
+              "kind": "doc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "visual-obsidian",
+      "title": "Visual Obsidian",
+      "icon": "📓",
+      "articles": [
+        {
+          "id": "visual-obsidian-open",
+          "title": "Open Visual Obsidian",
+          "lede": "Visual is the sovereign Obsidian wiki on NAS — graphs, Understandings, and Visual-Home. Jarvis is voice only.",
+          "body": "The vault lives at **/Volumes/historia/nephew-sovereign-vault** (marker file **NEPHEW.md** at vault root). Agents and operators run **make visual-obsidian** — it mounts NAS if needed, syncs the agent routing graph, registers the vault, and opens **Visual-Home**. Use **make visual-obsidian-full** when you also need repo mirror rsync + cassette wiki export.",
+          "steps": [
+            "make nas-mounts — or make install-nas-mounts once for auto-mount at login.",
+            "make visual-obsidian — opens Visual-Home in Obsidian.",
+            "Bookmark Visual-Home; use 03-Wiki/ for family knowledge.",
+            "Agents: never manual vault switching — run make visual-obsidian."
+          ],
+          "links": [
+            {
+              "label": "make visual-obsidian",
+              "make": "visual-obsidian"
+            },
+            {
+              "label": "make visual-obsidian-full",
+              "make": "visual-obsidian-full"
+            },
+            {
+              "label": "Obsidian ingestion SOP",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/pockit/Obsidian-Doc-Ingestion.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "nas-historia-mount",
+          "title": "NAS — historia auto-mount",
+          "lede": "/Volumes/historia must be mounted before Obsidian, vault sync, or WP mirror jobs run.",
+          "body": "**make install-nas-mounts** installs a LaunchAgent that mounts the required **historia** SMB share at login and every 5 minutes when home LAN is up. Registry: **data/nas-mac-mounts.json**. UGREEN NAS uses SMB port **74**. If Finder prompts once, enable Remember password + Reconnect at login.",
+          "steps": [
+            "make install-nas-mounts (one-time per Mac).",
+            "make nas-mounts — manual mount or verify now.",
+            "Verify: mount | grep historia and test -d /Volumes/historia/nephew-sovereign-vault.",
+            "Logs: tail ~/.nephew/logs/nas-mounts.err.log (should stay empty)."
+          ],
+          "links": [
+            {
+              "label": "make install-nas-mounts",
+              "make": "install-nas-mounts"
+            },
+            {
+              "label": "make nas-mounts",
+              "make": "nas-mounts"
+            },
+            {
+              "label": "Plan 0204 auto-mounts",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/plans/0204-nas-mac-auto-mounts.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "understandings-vault-ingest",
+          "title": "Understandings → vault + RAG",
+          "lede": "Git source of truth in Nephew/Understandings/ syncs to Obsidian and indexes into Brain A.",
+          "body": "Topic folders: **Pockit/**, **Voice/**, **Application/**, **Hardware/**, **Obsidian/**. **make vault-sync-understandings** copies them to **03-Wiki/Understandings/** in the sovereign vault. **make vault-ingest-docs** runs sync + live graph + incremental Qdrant index (**nephew-vault** on Spark). Mac syncs files; Spark runs Qdrant when local :6333 is not up.",
+          "steps": [
+            "Edit docs under Nephew/Understandings/<topic>/.",
+            "make nas-mounts (historia mounted).",
+            "make vault-ingest-docs on Mac for vault sync; on Spark for full Qdrant index.",
+            "Open Visual-Home → browse 03-Wiki/Understandings/."
+          ],
+          "links": [
+            {
+              "label": "make vault-ingest-docs",
+              "make": "vault-ingest-docs"
+            },
+            {
+              "label": "make vault-sync-understandings",
+              "make": "vault-sync-understandings"
+            },
+            {
+              "label": "Vault seeding runbook",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/pockit/Vault-Seeding-Runbook.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "livesync-setup",
+          "title": "LiveSync — sovereign vault sync",
+          "lede": "Self-hosted LiveSync against CouchDB on Spark — no iCloud, no third-party cloud.",
+          "body": "Device creds live in **~/.nephew/livesync-fivemac.env** (never commit). E2EE passphrase in **~/.nephew/livesync-e2e.env**. Tunnel: **http://127.0.0.1:5984/nephew-sovereign**. **Do not use Setup URI** on FIVEMAC unless cloning from another device that already syncs — use manual server info or **make visual-obsidian-repair** instead.",
+          "steps": [
+            "make livesync-setup — first device: CouchDB on Spark + device user + config.",
+            "In Obsidian: Connection Method → Enter server information manually.",
+            "URI http://127.0.0.1:5984/nephew-sovereign · user/pass from ~/.nephew/livesync-fivemac.env.",
+            "E2EE ON — passphrase from ~/.nephew/livesync-e2e.env · save to Keychain.",
+            "Test connection → Initialize database (first device) or Replicate from server.",
+            "Or skip wizard: make visual-obsidian-repair (writes config + Replicate now)."
+          ],
+          "links": [
+            {
+              "label": "make visual-obsidian-repair",
+              "make": "visual-obsidian-repair"
+            },
+            {
+              "label": "make livesync-setup",
+              "make": "livesync-setup"
+            },
+            {
+              "label": "LiveSync runbook",
+              "href": "https://github.com/marvelousempire/nephew/blob/main/docs/runbooks/setup-obsidian-livesync.md",
+              "kind": "doc"
+            }
+          ]
+        },
+        {
+          "id": "livesync-setup-uri-trap",
+          "title": "Stuck on Setup URI?",
+          "lede": "Cancel that dialog — Setup URI is for copying settings from another device, not first-time FIVEMAC setup.",
+          "body": "The red **obsidian://setuplivesync?settings=…** field is invalid unless pasted from a phone or Mac that already syncs. On this Mac you already have sovereign creds. **Cancel** → pick **Enter server information manually**, or quit Obsidian and run **make visual-obsidian-repair** to apply config from ~/.nephew automatically. Wrong E2EE passphrase corrupts server ciphertext — always use the passphrase from **~/.nephew/livesync-e2e.env**.",
+          "steps": [
+            "Click Cancel on Enter Setup URI.",
+            "Run make visual-obsidian-repair from ~/Developer/nephew (recommended).",
+            "Or manual: URI http://127.0.0.1:5984/nephew-sovereign + creds from livesync-fivemac.env.",
+            "Cmd+Shift+P → Replicate now if upload has not started.",
+            "Vault routing doc: 07-Agent-Routing/LiveSync-Sovereign-Setup.md on NAS."
+          ],
+          "links": [
+            {
+              "label": "make visual-obsidian-repair",
+              "make": "visual-obsidian-repair"
+            },
+            {
+              "label": "LiveSync setup article",
+              "section": "visual-obsidian",
+              "article": "livesync-setup"
+            },
+            {
+              "label": "NAS mount first",
+              "section": "visual-obsidian",
+              "article": "nas-historia-mount"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "title": "Troubleshooting",
+      "icon": "🔧",
+      "articles": [
+        {
+          "id": "door-502",
+          "title": "Door 502 or blank page",
+          "lede": "Gateway cannot reach the tape backend.",
+          "body": "Check announce files and family-health. Often fixed by make doors, make pockit, or restarting tower-api.",
+          "steps": [
+            "make doors-verify — read the log.",
+            "make family-status — confirm gateway + tower.",
+            "curl http://pockit.localhost/ with Host header if debugging."
+          ],
+          "links": [
+            {
+              "label": "make doors",
+              "make": "doors"
+            },
+            {
+              "label": "make pockit-jiff",
+              "make": "pockit-jiff"
+            }
+          ]
+        },
+        {
+          "id": "tower-offline",
+          "title": "tower-api offline",
+          "lede": "Voice, RAG, and auth need tower-api on :8088 (API only — use tower-api.localhost door for UI).",
+          "body": "make ensure-tower-api or make tower-doctor. Register SSH keys if SSO cookies fail.",
+          "steps": [
+            "make tower-doctor",
+            "make family-ssh-login",
+            "Retry the cassette that called the API."
+          ],
+          "links": [
+            {
+              "label": "Tower API door",
+              "url": "http://tower-api.localhost/"
+            }
+          ]
+        },
+        {
+          "id": "stale-version",
+          "title": "Version looks wrong",
+          "lede": "Footer version should match CHANGELOG and origin/main after merge.",
+          "body": "Hard refresh the browser. If TLD apex is stale but local doors are current, deploy edge (Clinic 0045). Agents must read pockit-surface.json from disk every turn.",
+          "steps": [
+            "Compare footer pill to docs/CHANGELOG.md top entry.",
+            "git pull on the host serving family-hub.",
+            "Shift-reload http://pockit.localhost/"
+          ],
+          "links": []
+        },
+        {
+          "id": "historia-not-mounted",
+          "title": "Historia / vault not mounted",
+          "lede": "Visual Obsidian and vault-ingest fail when /Volumes/historia is missing.",
+          "body": "Run **make nas-mounts**. If it keeps failing, run **make install-nas-mounts** to refresh the LaunchAgent. Off home LAN the script skips quietly. On LAN, check ~/.nephew/logs/nas-mounts.err.log. Boss Move: Finder → smb://abrownsanta@192.168.10.119:74/historia with Remember password.",
+          "steps": [
+            "make nas-mounts",
+            "test -d /Volumes/historia/nephew-sovereign-vault/NEPHEW.md",
+            "make install-nas-mounts if LaunchAgent is missing or stale.",
+            "Retry make visual-obsidian or make vault-ingest-docs."
+          ],
+          "links": [
+            {
+              "label": "NAS mount guide",
+              "section": "visual-obsidian",
+              "article": "nas-historia-mount"
+            },
+            {
+              "label": "make nas-mounts",
+              "make": "nas-mounts"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
