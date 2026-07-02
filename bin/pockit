@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+# Pockit sibling CLI — Plan 0468 Phase 1 (operator bridge to nephew until runtime extracted).
+set -euo pipefail
+
+POCKIT_ROOT="$(cd "$(dirname "$0")/.." && pwd -P)"
+BRIDGE="$POCKIT_ROOT/operator-bridge.json"
+
+resolve_nephew_root() {
+  if [[ -n "${NEPHEW_ROOT:-}" && -f "${NEPHEW_ROOT}/scripts/pockit-smart.sh" ]]; then
+    echo "$NEPHEW_ROOT"
+    return
+  fi
+  if [[ -f "$BRIDGE" ]]; then
+    node -e "
+      const b = require(process.argv[1]);
+      const env = process.env.NEPHEW_ROOT;
+      const d = require('node:os').homedir() + '/Developer/nephew';
+      process.stdout.write(b.nephew_root || env || d);
+    " "$BRIDGE"
+    return
+  fi
+  echo "${NEPHEW_ROOT:-$HOME/Developer/nephew}"
+}
+
+surface_version() {
+  local nep="$1"
+  local candidates=(
+    "$POCKIT_ROOT/shell/pockit-surface.json"
+    "$nep/containers/nephew-ct/family-hub/pockit-surface.json"
+  )
+  for f in "${candidates[@]}"; do
+    if [[ -f "$f" ]]; then
+      node -e "const v=require(process.argv[1]).version; console.log('Pockit', v)" "$f"
+      return 0
+    fi
+  done
+  echo "Pockit (version unknown — no surface JSON)"
+  return 1
+}
+
+usage() {
+  cat <<'EOF'
+pockit — Family Office player frame (sibling repo)
+
+  pockit up      Boot operator stack (delegates to nephew until Phase 2)
+  pockit open    Open http://pockit.localhost/
+  pockit version Print live surface version
+  pockit serve   Reserved — static serve (Phase 2)
+
+Phase 1: runtime catalog + fleet live in nephew; this CLI is the sibling contract.
+EOF
+}
+
+cmd="${1:-}"
+shift || true
+
+case "$cmd" in
+  up)
+    NEP="$(resolve_nephew_root)"
+    export NEPHEW_ROOT="$NEP"
+    exec bash "$NEP/scripts/pockit-smart.sh" "$@"
+    ;;
+  open)
+    open "http://pockit.localhost/"
+    ;;
+  version)
+    NEP="$(resolve_nephew_root)"
+    surface_version "$NEP"
+    ;;
+  serve)
+    echo "pockit serve — Phase 2 (gateway announce from pockit repo). Use: pockit up" >&2
+    exit 1
+    ;;
+  ""|-h|--help|help)
+    usage
+    ;;
+  *)
+    echo "unknown subcommand: $cmd" >&2
+    usage >&2
+    exit 2
+    ;;
+esac
