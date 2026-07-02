@@ -2,15 +2,15 @@
   "schema_version": 1,
   "phase": 1,
   "description": "Operator bridge — live fleet runtime still in nephew until family-hub extraction (Plan 0468 Phase 2).",
-  "nephew_root": "/private/tmp/nephew-pockit-repo-extraction",
-  "nephew_sha": "fcb4678",
+  "nephew_root": "/Users/averygoodman/Developer/nephew",
+  "nephew_sha": "10b81aa",
   "runtime_family_hub": "containers/nephew-ct/family-hub",
-  "pockit_surface_version": "1.92.20",
+  "pockit_surface_version": "1.92.18",
   "sibling_commands": [
     "up",
     "open",
     "version",
     "serve"
   ],
-  "updated_at": "2026-07-02T12:57:41.785Z"
+  "updated_at": "2026-07-02T12:59:24.770Z"
 }
